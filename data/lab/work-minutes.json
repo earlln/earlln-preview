@@ -1,0 +1,196 @@
+{
+  "id": "work-minutes",
+  "title": "회의록 녹취로 업무일지 쓰고 관리하기",
+  "stages": [
+    "시작",
+    "녹취록 준비",
+    "회의록 만들기",
+    "업무일지 쓰기",
+    "일지 쌓기",
+    "진행 상황 보기",
+    "습관 만들기",
+    "총정리"
+  ],
+  "steps": [
+    {
+      "id": "intro",
+      "stage": 1,
+      "title": "오늘 할 일",
+      "html": "<p>회의를 녹음해 두면 나중에 들을 시간이 없죠. 오늘은 녹음을 <b>회의록 → 업무일지 → 진행 상황표</b>로 바꿔 봐요.</p><div class='lab__flow'><span>회의 녹음</span><i>녹음 앱이 글로</i><span>녹취록</span><i>Claude</i><span>회의록·업무일지</span><i>쌓이면</i><span>진행 상황표</span></div><div class='lab__tip'><b>Claude는 녹음 파일을 직접 듣지 못해요.</b> 그래서 녹음 앱의 <b>글 변환</b> 기능으로 먼저 <b>녹취록(글)</b>을 만들어요. 오늘은 예시 녹취록으로 해요.</div><ul><li>걸리는 시간: 20분</li><li>필요한 것: <a href='{{base}}lab/work-csv.html'>실무 1</a>을 해 본 컴퓨터 (파일 옮기는 법)</li></ul>",
+      "next": "rec",
+      "button": "시작하기"
+    },
+    {
+      "id": "rec",
+      "stage": 2,
+      "title": "녹음을 글로 바꾸는 법 (알아 두기)",
+      "html": "<table class='lab__terms'><tr><th>갤럭시</th><td>기본 <b>음성 녹음</b> 앱에서 녹음 → 녹음 파일을 열고 <b>텍스트 변환</b>(지원 기종)</td></tr><tr><th>아이폰</th><td><b>음성 메모</b> 앱에서 녹음 → 녹음을 열고 <b>텍스트(전사)</b> 보기 (최신 iOS)</td></tr><tr><th>앱</th><td><b>클로바노트</b> 같은 녹음·받아쓰기 앱 → 텍스트로 내보내기</td></tr></table><p>만든 글은 <b>카톡 나에게 보내기</b>나 이메일로 컴퓨터에 옮겨 .txt로 저장하면 돼요. 기종과 버전에 따라 메뉴 이름이 조금 달라요.</p><div class='lab__tip'><b>녹음하기 전에 참석자에게 알리고 동의를 받으세요.</b> 회사마다 회의 녹음 규칙이 있을 수 있어요.</div>",
+      "next": "get",
+      "button": "알겠어요"
+    },
+    {
+      "id": "get",
+      "stage": 2,
+      "title": "예시 녹취록 두 개 받기",
+      "html": "<p>마케팅팀의 <b>11월 24일 회의</b>와 <b>11월 26일 중간 점검</b> 녹취록이에요. 녹음 앱이 만든 것처럼 '참석자 1, 2…'와 잡담이 섞여 있어요.</p><p class='lab__links'><a class='btn btn--primary' href='{{base}}assets/files/work/meeting1-ko.txt' download='회의녹취_1124.txt'>⬇ 회의녹취_1124.txt</a><a class='btn btn--ghost' href='{{base}}assets/files/work/meeting2-ko.txt' download='회의녹취_1126.txt'>⬇ 회의녹취_1126.txt</a></p><p>두 파일 모두 <b>다운로드 폴더에서 연습 폴더로 끌어다 놓으세요.</b></p>",
+      "check": {
+        "q": "연습 폴더에 회의녹취_1124.txt와 회의녹취_1126.txt가 있나요?",
+        "yes": "open",
+        "no": "get-help"
+      }
+    },
+    {
+      "id": "get-help",
+      "kind": "help",
+      "title": "파일 준비가 잘 안 될 때",
+      "html": "<ul><li>버튼을 눌렀는데 글이 화면에 보이면, 그 화면에서 <kbd>Ctrl</kbd>+<kbd>S</kbd>(Mac은 <kbd>⌘</kbd>+<kbd>S</kbd>)로 저장하세요. 이름은 버튼에 적힌 그대로.</li><li>옮기는 법은 <a href='{{base}}lab/work-csv.html'>실무 1</a>의 '연습 폴더로 옮기기'와 같아요.</li></ul>",
+      "choices": [
+        {
+          "label": "다시 해 볼게요",
+          "next": "get"
+        },
+        {
+          "label": "준비됐어요",
+          "next": "open"
+        }
+      ]
+    },
+    {
+      "id": "open",
+      "stage": 2,
+      "title": "새 대화로 시작하기",
+      "html": "<p>Claude 앱 → <b>Code</b> 탭 → <b>+ New</b>. 입력 칸 아래가 <b>Local · 연습 · Manual</b>인지 확인하세요.</p>",
+      "check": {
+        "q": "Local · 연습 · Manual 이 모두 보이나요?",
+        "yes": "minutes",
+        "no": "open-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "open-help",
+      "kind": "help",
+      "title": "시작 화면이 다를 때",
+      "html": "<ul><li>폴더가 연습이 아니면 폴더 버튼 → <b>Open folder…</b>로 연습 폴더를 고르세요.</li><li>허락 방식 버튼을 눌러 <b>Manual</b>을 고르세요.</li></ul>"
+    },
+    {
+      "id": "minutes",
+      "stage": 3,
+      "title": "녹취록을 회의록으로",
+      "html": "<p>녹취록에는 잡담과 \"음…\" 같은 말이 섞여 있어요. <b>무엇을 뽑을지</b> 정해 주세요. 녹취록 끝에 '참석자 1 = 최유진 팀장'처럼 적어 두면 이름으로 정리해 줘요.</p>",
+      "image": "assets/img/ai/work-minutes/minutes.webp",
+      "alt": "녹취록을 결정 사항, 할 일, 다음 회의로 정리한 그림",
+      "code": "회의녹취_1124.txt를 회의록으로 정리해줘. 결정 사항, 할 일(담당·기한), 다음 회의로",
+      "codeLabel": "따라 입력해 보세요",
+      "check": {
+        "q": "결정 사항, 담당·기한이 있는 할 일, 다음 회의가 나왔나요?",
+        "yes": "log",
+        "no": "minutes-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "minutes-help",
+      "kind": "help",
+      "title": "정리가 마음에 안 들 때",
+      "html": "<ul><li>할 일이 빠졌다면 \"녹취록에서 누가 무엇을 언제까지 하기로 했는지 다시 빠짐없이 찾아줘\".</li><li>날짜는 원문과 맞춰 보세요. 녹취록의 \"12월 1일 화요일\"이 회의록에 그대로 있어야 해요.</li></ul>",
+      "choices": [
+        {
+          "label": "다시 해 볼게요",
+          "next": "minutes"
+        },
+        {
+          "label": "다음으로",
+          "next": "log"
+        }
+      ]
+    },
+    {
+      "id": "log",
+      "stage": 4,
+      "title": "오늘 업무일지 쓰기",
+      "html": "<p>회의록에서 <b>내 일만</b> 골라 업무일지로 남겨요. 오늘은 <b>박준호</b>가 되어 볼게요. 폴더 만들기(명령 실행) 카드와 파일 만들기 카드가 나오면 읽고 <b>허용</b>하세요.</p><p class='muted'>파일 이름을 날짜로 하면 나중에 순서대로 쌓여요.</p>",
+      "code": "나는 박준호야. 업무일지 폴더를 만들고, 오늘(11월 24일) 업무일지를 2026-11-24.txt로 써줘. 형식은 '오늘 한 일 / 결정된 것 / 내 할 일(기한) / 다음 일정'",
+      "codeLabel": "따라 입력해 보세요",
+      "check": {
+        "q": "연습 폴더 안 업무일지 폴더에 2026-11-24.txt가 생겼나요?",
+        "yes": "second",
+        "no": "log-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "log-help",
+      "kind": "help",
+      "title": "일지가 안 생겼을 때",
+      "html": "<ul><li>허락 카드를 거절했다면 다시 보내고 허용하세요. 폴더 만들기 카드와 파일 만들기 카드, 두 번 물을 수 있어요.</li><li>폴더 창을 닫았다가 다시 열어 보세요.</li></ul>"
+    },
+    {
+      "id": "second",
+      "stage": 5,
+      "title": "다음 날 일지도 쌓기",
+      "html": "<p>이틀 뒤 중간 점검 회의가 있었어요. 같은 형식으로 하나 더 쌓아요. <b>같은 대화</b>에서 하면 형식을 기억하고 있어요.</p>",
+      "code": "회의녹취_1126.txt도 읽고, 같은 형식으로 2026-11-26.txt 업무일지를 써줘",
+      "codeLabel": "따라 입력해 보세요",
+      "check": {
+        "q": "업무일지 폴더에 2026-11-26.txt가 생겼나요?",
+        "yes": "weekly",
+        "no": "second-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "second-help",
+      "kind": "help",
+      "title": "잘 안 됐을 때",
+      "html": "<ul><li>새 대화에서 했다면 형식을 모를 수 있어요. \"2026-11-24.txt와 같은 형식으로\"라고 덧붙이세요.</li><li>허락 카드를 읽고 허용했는지 확인하세요.</li></ul>"
+    },
+    {
+      "id": "weekly",
+      "stage": 6,
+      "title": "일지를 모아 진행 상황 보기",
+      "html": "<p>일지가 쌓이면 <b>무엇이 끝났고, 무엇이 늦어졌는지</b> 한눈에 볼 수 있어요.</p>",
+      "image": "assets/img/ai/work-minutes/weekly.webp",
+      "alt": "업무일지를 모아 할 일별 상태를 표로 정리한 그림",
+      "code": "업무일지 폴더를 모두 읽고, 할 일마다 지금 상태를 표로 정리해줘",
+      "codeLabel": "따라 입력해 보세요",
+      "check": {
+        "q": "견적은 완료, SNS 문구는 11/30로 늦어짐처럼 상태가 나왔나요?",
+        "yes": "habit",
+        "no": "weekly-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "weekly-help",
+      "kind": "help",
+      "title": "상태가 이상하게 나오면",
+      "html": "<p>일지에 쓰인 것만 알 수 있어요. 빠진 게 있으면 \"회의녹취_1126.txt도 함께 보고 다시 정리해줘\"처럼 <b>재료를 더 알려</b> 주세요.</p>",
+      "choices": [
+        {
+          "label": "다시 해 볼게요",
+          "next": "weekly"
+        },
+        {
+          "label": "다음으로",
+          "next": "habit"
+        }
+      ]
+    },
+    {
+      "id": "habit",
+      "stage": 7,
+      "title": "매일·매주 습관으로 만들기",
+      "html": "<table class='lab__terms'><tr><th>회의 끝나면</th><td>녹취록을 연습(업무) 폴더에 넣고 \"회의록으로 정리해줘\"</td></tr><tr><th>퇴근 전</th><td>\"오늘 업무일지를 오늘 날짜로 써줘\"</td></tr><tr><th>금요일</th><td>\"이번 주 업무일지로 주간 보고 초안 써줘\" (실무 3)</td></tr></table><div class='lab__tip'><b>형식을 파일로 저장해 두면</b> 매번 설명하지 않아도 돼요. 예: \"지금 쓴 업무일지 형식을 양식.txt로 저장해줘\" → 다음부터 \"양식.txt대로 써줘\".</div><p class='muted'>회의 녹취에는 민감한 이야기가 담길 수 있어요. 회사의 AI 사용 규칙을 먼저 확인하세요.</p>",
+      "next": "summary",
+      "button": "알겠어요, 정리 보기"
+    },
+    {
+      "id": "summary",
+      "stage": 8,
+      "kind": "summary",
+      "title": "🎉 실무 실습 4 완료! 오늘 배운 것 정리",
+      "html": "<p>녹음 한 번이 회의록, 업무일지, 진행 상황표까지 이어졌어요.</p><h3>꼭 기억할 세 가지</h3><ol><li>Claude는 <b>녹음을 직접 못 들어요</b>. 녹음 앱의 <b>글 변환</b>으로 녹취록부터.</li><li>회의록은 <b>결정·할 일(담당·기한)·다음 회의</b>만. 날짜는 원문과 맞춰 보기.</li><li>업무일지는 <b>같은 형식, 날짜 이름</b>으로 쌓으면 진행 상황이 저절로 보여요.</li></ol><p class='lab__links'><a class='btn btn--primary' href='{{base}}lab/work-members.html'>다음: 실무 5 · 회원 명단 관리하기 →</a><a class='btn btn--ghost' href='{{base}}ai/work-minutes.html'>오늘 내용 글로 다시 보기</a></p>"
+    }
+  ]
+}

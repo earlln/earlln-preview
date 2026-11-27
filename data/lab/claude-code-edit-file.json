@@ -1,0 +1,131 @@
+{
+  "id": "claude-code-edit-file",
+  "title": "만든 파일 고치게 하기",
+  "stages": ["시작", "다시 켜기", "읽어 달라고 하기", "고쳐 달라고 하기", "바뀌는 내용 읽기", "결과 확인", "거절하고 다시 부탁", "총정리"],
+  "steps": [
+    {
+      "id": "intro", "stage": 1,
+      "title": "오늘 할 일",
+      "html": "<p>터미널 실습 1에서 만든 <b>할일.txt</b>를 Claude에게 <b>고쳐 달라고</b> 해 봅니다.</p><p>오늘 새로 배우는 것은 두 가지예요.</p><ol><li>Claude가 고치기 전에 보여 주는 <b>\"바뀌는 내용\" 화면 읽기</b></li><li>마음에 안 들 때 <b>거절하고 다시 부탁하기</b></li></ol><ul><li>걸리는 시간: 10~15분</li><li>필요한 것: 터미널 실습 1을 마친 컴퓨터 (바탕화면 연습 폴더에 할일.txt)</li></ul>",
+      "next": "device", "button": "시작하기",
+      "faq": [
+        { "q": "터미널 실습 1을 안 했어요.", "a": "터미널 실습 1에서 Claude Code를 설치하고 할일.txt를 만들어요. <a href='{{base}}lab/claude-code-install.html'>터미널 실습 1</a>부터 해 주세요." }
+      ]
+    },
+    {
+      "id": "device", "stage": 1,
+      "title": "어떤 컴퓨터로 하나요?",
+      "html": "<p>터미널 실습 1을 한 컴퓨터를 골라 주세요.</p>",
+      "choices": [
+        { "icon": "⊞", "label": "Windows 컴퓨터", "set": { "device": "win" }, "next": "reopen" },
+        { "icon": "", "label": "Mac 컴퓨터", "set": { "device": "mac" }, "next": "reopen" }
+      ]
+    },
+
+    {
+      "id": "reopen", "stage": 2,
+      "title": "Claude Code 다시 켜기",
+      "win": { "html": "<p>터미널 실습 1의 '연습 폴더에서 켜기'와 똑같아요.</p><ol><li>바탕화면의 <b>연습</b> 폴더를 두 번 눌러 엽니다.</li><li>폴더 창 맨 위 <b>주소 칸</b>을 한 번 누르고 <b>powershell</b> 을 입력한 뒤 <kbd>Enter</kbd>.</li><li>열린 창에 <b>claude</b> 를 입력하고 <kbd>Enter</kbd>.</li></ol><p>로그인은 처음 한 번만 하면 돼요. 이번에는 바로 <b>입력 칸</b>이 나와요.</p>" },
+      "mac": { "html": "<p>터미널 실습 1의 '연습 폴더에서 켜기'와 똑같아요.</p><ol><li>터미널을 엽니다. (<kbd>⌘ command</kbd>+<kbd>space</kbd> → 터미널 → <kbd>return</kbd>)</li><li><b>cd</b> 를 입력하고 한 칸 띄운 뒤, 바탕화면의 <b>연습</b> 폴더를 창으로 끌어다 놓고 <kbd>return</kbd>.</li><li><b>claude</b> 를 입력하고 <kbd>return</kbd>.</li></ol><p>로그인은 처음 한 번만 하면 돼요. 이번에는 바로 <b>입력 칸</b>이 나와요.</p>" },
+      "image": "assets/img/ai/claude-code-edit-file/cc-ready.webp", "alt": "Claude Code를 켜면 바로 입력 칸이 나오는 그림",
+      "check": { "q": "글자를 입력하는 칸(> 표시)이 보이나요?", "yes": "read", "no": "reopen-help" },
+      "ask": true
+    },
+    {
+      "id": "reopen-help", "kind": "help",
+      "title": "다시 켜기가 잘 안 될 때",
+      "html": "<ul><li><b>'claude'를 인식할 수 없다</b>고 나오면 창을 닫고 다시 열어 보세요. 그래도 안 되면 컴퓨터를 다시 시작하세요.</li><li>로그인을 다시 하라고 하면 터미널 실습 1의 로그인 단계처럼 하면 돼요.</li><li>잘 모르겠으면 <a href='{{base}}lab/claude-code-install.html'>터미널 실습 1</a>의 해당 단계를 다시 보세요.</li></ul>"
+    },
+
+    {
+      "id": "read", "stage": 3,
+      "title": "먼저 파일을 읽어 달라고 하기",
+      "html": "<p>입력 칸에 아래 문장을 붙여 넣거나 그대로 적고 Enter(Mac은 return)를 누르세요.</p>",
+      "code": "할일.txt에 뭐라고 적혀 있는지 보여줘", "codeLabel": "따라 입력해 보세요",
+      "check": { "q": "할일.txt의 내용이 화면에 나왔나요?", "yes": "read-why", "no": "read-help" },
+      "ask": true
+    },
+    {
+      "id": "read-help", "kind": "help",
+      "title": "파일을 못 찾는다고 할 때",
+      "html": "<ul><li>Claude는 <b>창을 연 폴더 안의 파일</b>만 봐요. 연습 폴더에서 창을 열었는지 확인하세요.</li><li>파일 이름이 다르다면(예: todo.txt) 그 이름으로 다시 말해 주세요.</li><li>할일.txt가 없다면 \"할일.txt 파일을 만들고 오늘 할 일 예시를 3개 적어줘\"로 먼저 만들어 주세요.</li></ul>"
+    },
+    {
+      "id": "read-why", "stage": 3,
+      "title": "허락을 묻지 않았죠?",
+      "html": "<p>파일을 <b>읽기만</b> 할 때는 아무것도 바뀌지 않아요. 그래서 Claude가 허락을 묻지 않고 바로 보여 줘요.</p><p>파일을 <b>만들거나 고칠 때만</b> 허락을 물어요. 이제 고쳐 달라고 해 볼게요.</p>",
+      "next": "edit", "button": "알겠어요"
+    },
+
+    {
+      "id": "edit", "stage": 4,
+      "title": "고쳐 달라고 하기",
+      "html": "<p>두 번째 줄을 바꿔 달라고 해 보세요.</p>",
+      "code": "할일.txt의 두 번째 줄을 \"점심 약속 잡기\"로 바꿔줘", "codeLabel": "따라 입력해 보세요",
+      "image": "assets/img/ai/claude-code-edit-file/cc-diff.webp", "alt": "빨간 줄과 초록 줄로 바뀌는 내용을 보여 주는 그림",
+      "check": { "q": "그림처럼 빨간 줄·초록 줄이 있는 화면이 나왔나요?", "yes": "legend", "no": "edit-help", "noLabel": "다른 화면이 나와요" },
+      "ask": true
+    },
+    {
+      "id": "edit-help", "kind": "help",
+      "title": "그림과 다른 화면이 나올 때",
+      "html": "<ul><li>Claude가 아직 생각 중일 수 있어요. 몇 초 기다려 보세요.</li><li>Claude가 무언가 되물으면(예: 어느 줄인지) 대답을 적고 Enter 하세요.</li><li>이미 \"바꿨다\"는 말이 나왔다면, 예전에 2번(다시 묻지 않기)을 골랐을 수 있어요. 결과 확인 단계로 넘어가도 괜찮아요.</li></ul>"
+    },
+
+    {
+      "id": "legend", "stage": 5,
+      "title": "\"바뀌는 내용\" 화면 읽는 법",
+      "html": "<p>처음 보면 낯설지만, <b>색깔만</b> 보면 돼요.</p><table class='lab__terms'><tr><th><span class='diff diff--del'>- 빨간 줄</span></th><td><b>지워질</b> 내용</td></tr><tr><th><span class='diff diff--add'>+ 초록 줄</span></th><td><b>새로 들어갈</b> 내용</td></tr><tr><th>색 없는 줄</th><td>그대로 남는 내용</td></tr></table><p>맨 아래 <b>Do you want to make this edit…?</b> 는 \"이렇게 고쳐도 될까요?\"라는 뜻이에요.</p><ul><li><b>1. Yes</b> — 네, 고쳐 주세요</li><li><b>2. Yes, allow all edits…</b> — 앞으로 묻지 말고 다 고쳐 주세요 → <b>지금은 고르지 마세요</b></li><li><b>3. No…</b> — 아니요, 다르게 해 주세요</li></ul><p>빨간 줄에 <b>보고서 초안 쓰기</b>(원래 내용), 초록 줄에 <b>점심 약속 잡기</b>가 보이면 부탁한 대로예요. <b>1. Yes</b> 에서 Enter를 누르세요.</p>",
+      "check": { "q": "1. Yes 를 눌렀나요?", "yes": "verify", "no": "legend-help", "yesLabel": "네, 눌렀어요", "noLabel": "빨간·초록 줄이 이상해요" }
+    },
+    {
+      "id": "legend-help", "kind": "help",
+      "title": "바뀌는 내용이 부탁과 다를 때",
+      "html": "<p>바로 이럴 때 <b>3. No</b> 를 고르면 돼요. <kbd>↓</kbd> 를 두 번 눌러 3번으로 가서 Enter(또는 <kbd>Esc</kbd>)를 누르고, \"두 번째 줄만 '점심 약속 잡기'로 바꿔줘\"처럼 다시 말해 주세요.</p><p>파일 안의 할 일 내용은 터미널 실습 1에서 Claude가 정한 예시라, 그림과 글자가 달라도 괜찮아요. <b>두 번째 줄이 바뀌는지</b>만 보세요.</p>"
+    },
+
+    {
+      "id": "verify", "stage": 6,
+      "title": "결과 눈으로 확인하기",
+      "win": { "html": "<ol><li>연습 폴더에서 <b>할일.txt</b> 를 두 번 누릅니다. 메모장이 열려요.</li><li>두 번째 줄이 <b>점심 약속 잡기</b>로 바뀌었는지 봅니다.</li><li>확인했으면 메모장은 오른쪽 위 <b>✕</b>로 <b>닫아 주세요.</b> 열어 둔 채로 또 고치게 하면 헷갈릴 수 있어요.</li></ol>" },
+      "mac": { "html": "<ol><li>연습 폴더에서 <b>할일.txt</b> 를 두 번 누릅니다. 텍스트 편집기가 열려요.</li><li>두 번째 줄이 <b>점심 약속 잡기</b>로 바뀌었는지 봅니다.</li><li>확인했으면 텍스트 편집기는 왼쪽 위 <b>빨간 동그라미</b>로 <b>닫아 주세요.</b></li></ol>" },
+      "image": "assets/img/ai/claude-code-edit-file/notepad.webp", "alt": "메모장에서 두 번째 줄이 바뀐 것을 확인하는 그림",
+      "check": { "q": "두 번째 줄이 '점심 약속 잡기'로 바뀌었나요?", "yes": "decline", "no": "verify-help", "yesLabel": "네, 바뀌었어요" },
+      "ask": true
+    },
+    {
+      "id": "verify-help", "kind": "help",
+      "title": "바뀐 게 안 보일 때",
+      "html": "<ul><li>메모장을 고치기 <b>전에</b> 열어 두었다면, 닫았다가 다시 열어 보세요.</li><li>Claude 창에 \"할일.txt 지금 내용 보여줘\"라고 물어보세요.</li><li>3. No 를 눌렀다면 파일은 바뀌지 않아요. 고쳐 달라는 단계로 돌아가 다시 해 보세요.</li></ul>"
+    },
+
+    {
+      "id": "decline", "stage": 7,
+      "title": "일부러 \"아니요\" 눌러 보기",
+      "html": "<p>이번에는 마음에 안 드는 경우를 연습해요. <b>아니요를 눌러도 파일은 전혀 바뀌지 않으니</b> 안심하세요.</p>",
+      "code": "할일 목록 맨 위에 제목을 하나 붙여줘", "codeLabel": "따라 입력해 보세요",
+      "image": "assets/img/ai/claude-code-edit-file/cc-no.webp", "alt": "3번 No를 골라 거절하는 그림",
+      "check": { "q": "Claude가 정한 제목이 보이면, ↓ 두 번으로 3. No 에 가서 Enter(또는 Esc). 다시 입력 칸이 나왔나요?", "yes": "reask", "no": "decline-help", "yesLabel": "네, 입력 칸이 나왔어요" },
+      "ask": true
+    },
+    {
+      "id": "decline-help", "kind": "help",
+      "title": "No 고르기가 잘 안 될 때",
+      "html": "<ul><li>키보드 <b>화살표 아래(↓)</b> 키를 두 번 누르면 <b>3. No…</b> 줄로 표시가 옮겨 가요. 그다음 Enter.</li><li>더 쉬운 방법: <kbd>Esc</kbd> 키(키보드 맨 왼쪽 위)를 한 번 누르세요.</li><li>실수로 Yes를 눌렀다면 \"방금 바꾼 거 원래대로 돌려줘\"라고 말하면 돼요.</li></ul>"
+    },
+    {
+      "id": "reask", "stage": 7,
+      "title": "원하는 것을 다시 말하기",
+      "html": "<p>아니요를 누른 뒤에는 <b>원하는 것만</b> 말하면 돼요.</p>",
+      "code": "제목은 \"오늘의 할 일\"로 해줘", "codeLabel": "이렇게 다시 부탁해 보세요",
+      "check": { "q": "초록 줄에 '+ 오늘의 할 일'이 보여서 1. Yes 를 눌렀나요?", "yes": "summary", "no": "edit-help", "yesLabel": "네, 눌렀어요" },
+      "ask": true
+    },
+
+    {
+      "id": "summary", "stage": 8, "kind": "summary",
+      "title": "🎉 터미널 실습 2 완료! 오늘 배운 것 정리",
+      "html": "<p>고치기 전에 확인하고, 아니면 다시 부탁하는 법까지 해냈어요.</p><h3>꼭 기억할 세 가지</h3><ol><li>파일을 <b>읽을 때</b>는 허락을 묻지 않고, <b>만들거나 고칠 때</b>만 물어요.</li><li>고치기 전 화면에서 <b>빨간 줄은 지워질 내용, 초록 줄은 새로 들어갈 내용</b>이에요.</li><li>마음에 안 들면 <b>No</b>(또는 Esc)를 고르고 다시 말하면 돼요. 파일은 그대로예요.</li></ol><h3>왜 중요할까요?</h3><p>AI는 가끔 부탁과 다르게 고치기도 해요. <b>바뀌는 내용을 읽고 Yes를 누르는 습관</b>만 있으면, 내 파일이 엉뚱하게 바뀔 일이 없어요. 이게 AI 에이전트를 안전하게 쓰는 가장 중요한 습관이에요.</p><h3>다음 단계</h3><p>다음 실습에서는 <b>대화를 새로 시작하고, 다음 날 이어서 하는 법</b>을 배워요.</p><p class='lab__links'><a class='btn btn--primary' href='{{base}}lab/claude-code-sessions.html'>다음: 터미널 실습 3 · 대화 새로 시작하기·이어 하기 →</a><a class='btn btn--ghost' href='{{base}}ai/claude-code-edit-file.html'>오늘 내용 글로 다시 보기</a></p>"
+    }
+  ]
+}

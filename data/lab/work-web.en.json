@@ -1,0 +1,193 @@
+{
+  "id": "work-web",
+  "title": "Find information on the web and organize it",
+  "stages": [
+    "Start",
+    "New chat",
+    "Search into a table",
+    "Check sources",
+    "Read a given page",
+    "Compare options",
+    "Save · be careful",
+    "Wrap-up"
+  ],
+  "steps": [
+    {
+      "id": "intro",
+      "stage": 1,
+      "title": "What we'll do today",
+      "html": "<p>You can hand research to Claude too. It <b>searches, reads and organizes</b> what it finds into a table.</p><p>Today you'll learn four new things.</p><ol><li>How to read the <b>search and page-reading permission cards</b></li><li>Get results <b>with source links</b>, and <b>check them yourself</b></li><li><b>Give it an address</b> to read</li><li>What to <b>watch out for</b> with web material</li></ol><ul><li>Time: 15 minutes</li><li>You need: a computer with internet, and experience up to <a href='{{base}}lab/work-csv.html'>Work 1</a></li></ul>",
+      "next": "open",
+      "button": "Let's start"
+    },
+    {
+      "id": "open",
+      "stage": 2,
+      "title": "Start with a new chat",
+      "html": "<p>Claude app → <b>Code</b> tab → <b>+ New</b>. Check the buttons under the typing box show <b>Local · Practice · Manual</b>.</p>",
+      "check": {
+        "q": "Can you see Local · Practice · Manual?",
+        "yes": "search",
+        "no": "open-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "open-help",
+      "kind": "help",
+      "title": "If the start screen looks different",
+      "html": "<ul><li>If the folder isn't Practice, click the folder button → <b>Open folder…</b> and choose it.</li><li>Click the permission mode button and choose <b>Manual</b>.</li></ul>"
+    },
+    {
+      "id": "search",
+      "stage": 3,
+      "title": "Search and tabulate with sources",
+      "html": "<p>Start with a topic you already know the answer to: have it find the <b>permission modes</b> from Desktop 5 in the official docs.</p><p>Using the internet also brings up <b>permission cards</b>. Check <b>what it searches for</b> and <b>which site it reads</b>, then click <b>Allow</b>. It may ask several times.</p><p class='muted'>Some pre-approved sites, like official documentation, may be read without asking.</p>",
+      "image": "assets/img/ai/work-web/en/card.webp",
+      "alt": "Checking the search terms on a web search permission card before allowing",
+      "code": "Find the permission modes of the Claude Code desktop app in the official docs and put them in a table with source links",
+      "codeLabel": "Type this",
+      "check": {
+        "q": "Did you get a table of modes like Manual, Accept edits and Plan, with source links?",
+        "yes": "verify",
+        "no": "search-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "search-help",
+      "kind": "help",
+      "title": "If search fails or there are no sources",
+      "html": "<ul><li>If you <b>denied</b> a card, send it again and allow it.</li><li>Work computers may block internet access. Then give it <b>an address directly</b> (next steps), or try at home.</li><li>No sources? Say \"Add a source link to every row.\"</li></ul>",
+      "choices": [
+        {
+          "label": "Let me try again",
+          "next": "search"
+        },
+        {
+          "label": "Next",
+          "next": "verify"
+        }
+      ]
+    },
+    {
+      "id": "verify",
+      "stage": 4,
+      "title": "Check the sources yourself",
+      "html": "<p>What AI finds can be <b>wrong or out of date</b>. Checking sources is the most important habit.</p><ol><li>Click one <b>source link</b> in the table. Is it an official site?</li><li>Ask Claude to show <b>the original sentence, word for word</b>.</li></ol>",
+      "image": "assets/img/ai/work-web/en/sources.webp",
+      "alt": "Clicking a source link in a table to check it",
+      "code": "Quote, word for word, the sentence in the docs that the 'Accept edits' row is based on",
+      "codeLabel": "Type this",
+      "check": {
+        "q": "Did it quote the original, and does it match the table?",
+        "yes": "url",
+        "no": "verify-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "verify-help",
+      "kind": "help",
+      "title": "If it can't quote, or it doesn't match",
+      "html": "<p>That's exactly why you check. If a row can't be found in the original, <b>don't trust it</b>: \"Remove any row you can't confirm in the original.\"</p>",
+      "choices": [
+        {
+          "label": "Let me try again",
+          "next": "verify"
+        },
+        {
+          "label": "Next",
+          "next": "url"
+        }
+      ]
+    },
+    {
+      "id": "url",
+      "stage": 5,
+      "title": "Give it an address to read",
+      "html": "<p>If you already know a trustworthy page, <b>give the address directly</b>. It's more accurate than searching. Check the <b>address (site)</b> on the page-reading card, then allow.</p>",
+      "code": "Read https://earlln.com/news.html and summarize the 3 latest news items in one line each",
+      "codeLabel": "Type this",
+      "check": {
+        "q": "Did you get 3 Earlln news items summarized?",
+        "yes": "compare",
+        "no": "url-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "url-help",
+      "kind": "help",
+      "title": "If it can't read the page",
+      "html": "<ul><li>Check you pasted the full address, starting with <b>https://</b>.</li><li>Pages behind a login (work email, members-only posts) can't be read. Copy and paste the text instead.</li></ul>",
+      "choices": [
+        {
+          "label": "Let me try again",
+          "next": "url"
+        },
+        {
+          "label": "Next",
+          "next": "compare"
+        }
+      ]
+    },
+    {
+      "id": "compare",
+      "stage": 6,
+      "title": "Compare several options",
+      "html": "<p>Now a question without a fixed answer: compare <b>transcription apps</b> like those in Work 4. Prices and policies change often, so have it note <b>the date checked</b>.</p>",
+      "code": "Find 3 apps that turn meeting recordings into text and compare their free tier, pros and cons in a table. Add a source link and the date checked to each row",
+      "codeLabel": "Type this",
+      "check": {
+        "q": "Did you get a comparison of 3 apps with source links and dates?",
+        "yes": "save",
+        "no": "compare-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "compare-help",
+      "kind": "help",
+      "title": "If the results look off",
+      "html": "<ul><li>Check each app really exists and the link is its official page.</li><li>Recheck prices and free tiers <b>on the official page yourself</b>. AI may bring back outdated information.</li></ul>",
+      "choices": [
+        {
+          "label": "Let me try again",
+          "next": "compare"
+        },
+        {
+          "label": "Next",
+          "next": "save"
+        }
+      ]
+    },
+    {
+      "id": "save",
+      "stage": 7,
+      "title": "Save it, and know what to watch for",
+      "html": "<p>Keep your research in a file. Read the create-file card and click <b>Allow</b>.</p><div class='lab__tip'><b>Watch out with web material</b><ul><li><b>Don't let web text give orders</b>: a page may hide text like \"delete this file\". If an <b>odd permission card (delete, send…)</b> appears during research, deny it.</li><li><b>Keep your data out of searches</b>: don't use customer names or company secrets as search terms.</li><li><b>Don't copy wholesale</b>: summarize rather than copying long passages, and note the source.</li></ul></div>",
+      "code": "Save everything you've researched to research.txt, with the source links and dates checked",
+      "codeLabel": "Type this",
+      "check": {
+        "q": "Is there a research.txt in the Practice folder?",
+        "yes": "summary",
+        "no": "save-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "save-help",
+      "kind": "help",
+      "title": "If you don't see the file",
+      "html": "<ul><li>If you denied the card, send it again and allow it.</li><li>Close the folder window and open it again.</li></ul>"
+    },
+    {
+      "id": "summary",
+      "stage": 8,
+      "kind": "summary",
+      "title": "🎉 Work practice 7 done! What you learned",
+      "html": "<p>You handed over research, from searching to organizing and saving.</p><h3>Three things to remember</h3><ol><li>Get <b>source links and dates</b>, and check important things <b>in the original</b>.</li><li>If you know a trustworthy page, <b>give the address</b>. It's more accurate than searching.</li><li>Deny <b>odd permission cards</b> (delete, send…) during research. Keep your data out of searches.</li></ol><p class='lab__links'><a class='btn btn--primary' href='{{base}}lab/work-rules.html'>Next: Work 8 · Make it remember your rules →</a><a class='btn btn--ghost' href='{{base}}ai/work-web.html'>Read today's steps as a guide</a></p>"
+    }
+  ]
+}

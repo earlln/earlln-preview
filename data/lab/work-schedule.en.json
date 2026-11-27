@@ -1,0 +1,208 @@
+{
+  "id": "work-schedule",
+  "title": "Manage schedules",
+  "stages": [
+    "Start",
+    "Get the sample",
+    "Gather into a table",
+    "Settle clashes",
+    "See the week",
+    "Make a calendar file",
+    "Add to your calendar",
+    "Wrap-up"
+  ],
+  "steps": [
+    {
+      "id": "intro",
+      "stage": 1,
+      "title": "What we'll do today",
+      "html": "<p>Schedules scattered across notes, chats and notices are easy to miss. Today you'll gather them into <b>one schedule table</b> and add them to <b>your calendar in one go</b>.</p><div class='lab__flow'><span>Scattered notes</span><i>Claude</i><span>Schedule table</span><i>settle clashes</i><span>Calendar file (.ics)</span><i>import</i><span>Your calendar</span></div><div class='lab__tip'>For Claude Code to edit your calendar <b>directly</b>, you'd need extra connection setup. Today you'll skip that and make an <b>.ics file</b> that calendars can read.</div><ul><li>Time: 20 minutes</li><li>You need: a computer where you've done <a href='{{base}}lab/work-csv.html'>Work 1</a>, and a Google, Outlook or Apple calendar</li></ul>",
+      "next": "get",
+      "button": "Let's start"
+    },
+    {
+      "id": "get",
+      "stage": 2,
+      "title": "Get the sample schedule notes",
+      "html": "<p>Notes written on Monday, November 23. Dates are written every which way, and there's <b>'next Tuesday'</b>-style wording that needs a reference date, plus <b>a hidden clash</b>.</p><p class='lab__links'><a class='btn btn--primary' href='{{base}}assets/files/work/schedule.txt' download='schedule.txt'>⬇ Download the sample schedule.txt</a></p><p><b>Drag schedule.txt from Downloads into the Practice folder.</b></p>",
+      "check": {
+        "q": "Is schedule.txt in the Practice folder?",
+        "yes": "open",
+        "no": "get-help"
+      }
+    },
+    {
+      "id": "get-help",
+      "kind": "help",
+      "title": "If getting the file doesn't work",
+      "html": "<ul><li>If clicking shows text on screen, save it with <kbd>Ctrl</kbd>+<kbd>S</kbd> (<kbd>⌘</kbd>+<kbd>S</kbd> on a Mac) as <b>schedule.txt</b>.</li><li>Moving works like in <a href='{{base}}lab/work-csv.html'>Work 1</a>.</li></ul>",
+      "choices": [
+        {
+          "label": "Let me try again",
+          "next": "get"
+        },
+        {
+          "label": "I'm ready",
+          "next": "open"
+        }
+      ]
+    },
+    {
+      "id": "open",
+      "stage": 2,
+      "title": "Start with a new chat",
+      "html": "<p>Claude app → <b>Code</b> tab → <b>+ New</b>. Check the buttons under the typing box show <b>Local · Practice · Manual</b>.</p>",
+      "check": {
+        "q": "Can you see Local · Practice · Manual?",
+        "yes": "table",
+        "no": "open-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "open-help",
+      "kind": "help",
+      "title": "If the start screen looks different",
+      "html": "<ul><li>If the folder isn't Practice, click the folder button → <b>Open folder…</b> and choose it.</li><li>Click the permission mode button and choose <b>Manual</b>.</li></ul>"
+    },
+    {
+      "id": "table",
+      "stage": 3,
+      "title": "Gather everything into a dated table",
+      "html": "<p>To turn 'next Tuesday' into a real date, it needs to know <b>what day it is today</b>. Use the day the notes were written (November 23). And ask it to <b>flag clashes and unclear items separately</b>.</p>",
+      "image": "assets/img/ai/work-schedule/en/table.webp",
+      "alt": "Events gathered into a dated table, flagging a clash and an unclear date",
+      "code": "Today is Monday, November 23, 2026. Put schedule.txt into a table by date, and flag anything that clashes or is unclear",
+      "codeLabel": "Type this",
+      "check": {
+        "q": "Did it flag the 12/1 10 a.m. clash and that 'Monday of the 2nd week' is unclear?",
+        "yes": "decide",
+        "no": "table-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "table-help",
+      "kind": "help",
+      "title": "If it missed the clash",
+      "html": "<ul><li>From Monday, November 23, 'next Tuesday' is <b>December 1</b>. It clashes with the bank visit (December 1, 10 a.m.).</li><li>'Monday of the 2nd week of December' is December 7 by calendar rows, or December 14 as the second Monday, so <b>a person has to decide</b>.</li><li>Try: \"Recalculate the date for 'next Tuesday' and check for events at the same time on the same day.\"</li></ul>",
+      "choices": [
+        {
+          "label": "Let me try again",
+          "next": "table"
+        },
+        {
+          "label": "Next",
+          "next": "decide"
+        }
+      ]
+    },
+    {
+      "id": "decide",
+      "stage": 4,
+      "title": "You decide the clashes; then save",
+      "html": "<p>The AI can spot them, but <b>you make the call</b>. Tell it your decisions and save the schedule to a file. Read the create-file card and click <b>Allow</b>.</p>",
+      "code": "Make the workshop December 7. I'll move the bank visit to 2 p.m. on December 1. Save the updated schedule as schedule.csv",
+      "codeLabel": "Type this",
+      "check": {
+        "q": "Is there a schedule.csv in the Practice folder?",
+        "yes": "week",
+        "no": "decide-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "decide-help",
+      "kind": "help",
+      "title": "If you don't see the file",
+      "html": "<ul><li>If you denied the card, send it again and allow it.</li><li>Close the folder window and open it again.</li></ul>"
+    },
+    {
+      "id": "week",
+      "stage": 5,
+      "title": "See just next week",
+      "html": "<p>With a schedule table, you can pull out just \"this week\" or \"next week\".</p>",
+      "code": "From schedule.csv, show only next week's events (11/30–12/6), by day",
+      "codeLabel": "Type this",
+      "check": {
+        "q": "Did you get 12/1 marketing meeting (10 a.m.) and bank (2 p.m.), 12/3 briefing and 12/4 party?",
+        "yes": "ics",
+        "no": "week-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "week-help",
+      "kind": "help",
+      "title": "If events are missing or wrong",
+      "html": "<p>Start with \"Read schedule.csv again and…\". If the bank is still at 10 a.m., the earlier change wasn't saved: \"Change the bank visit to 2 p.m. on December 1 and save again.\"</p>",
+      "choices": [
+        {
+          "label": "Let me try again",
+          "next": "week"
+        },
+        {
+          "label": "Next",
+          "next": "ics"
+        }
+      ]
+    },
+    {
+      "id": "ics",
+      "stage": 6,
+      "title": "Make a calendar file (.ics)",
+      "html": "<p>An <b>.ics</b> file is an <b>event file</b> that Google, Outlook and Apple calendars can all read. Be clear about the time zone and all-day events. Read the create-file card and click <b>Allow</b>.</p>",
+      "code": "Turn schedule.csv into a calendar file, schedule.ics. Use my local time zone, make items without a time all-day events, and make the year-end event span 12/10–12/31",
+      "codeLabel": "Type this",
+      "check": {
+        "q": "Is there a schedule.ics in the Practice folder?",
+        "yes": "import",
+        "no": "ics-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "ics-help",
+      "kind": "help",
+      "title": "If the file wasn't created",
+      "html": "<ul><li>If you denied the card, send it again and allow it.</li><li>If Claude only showed it in the chat: \"Save that as schedule.ics.\"</li></ul>"
+    },
+    {
+      "id": "import",
+      "stage": 7,
+      "title": "Import it — into a 'Practice' calendar first",
+      "html": "<p>Mixed into your real calendar, practice events are a pain to remove. <b>Create a new 'Practice' calendar and import there</b>. Deleting that calendar later removes the practice events too.</p><table class='lab__terms'><tr><th>Google Calendar</th><td>In a computer browser → ⚙ <b>Settings</b> at the top right → <b>Add calendar → Create new calendar</b> (name: Practice) → <b>Import &amp; export</b> on the left → choose schedule.ics → calendar <b>Practice</b> → <b>Import</b></td></tr><tr><th>Outlook</th><td>Double-click schedule.ics, or <b>File → Open &amp; Export → Import/Export</b></td></tr><tr><th>Mac · iPhone</th><td>On a Mac, double-click schedule.ics and choose a calendar. On iPhone, email the file to yourself and open it</td></tr></table><p class='muted'>Menu names vary a little by version.</p>",
+      "image": "assets/img/ai/work-schedule/en/import.webp",
+      "alt": "Importing schedule.ics into a Practice calendar from the calendar's import screen",
+      "check": {
+        "q": "Did the events show up in the Practice calendar?",
+        "yes": "summary",
+        "no": "import-help",
+        "yesLabel": "Yes, they're there! 🎉"
+      }
+    },
+    {
+      "id": "import-help",
+      "kind": "help",
+      "title": "If the import doesn't work",
+      "html": "<ul><li><b>Times look off</b>? It's the time zone: \"Remake schedule.ics with my time zone stated explicitly.\"</li><li><b>Can't read the file</b>? \"Check schedule.ics follows the standard iCalendar format and fix it.\"</li><li>If things went in wrong, <b>delete the Practice calendar</b> to clean up in one go.</li></ul>",
+      "choices": [
+        {
+          "label": "Let me try again",
+          "next": "import"
+        },
+        {
+          "label": "Show the wrap-up",
+          "next": "summary"
+        }
+      ]
+    },
+    {
+      "id": "summary",
+      "stage": 8,
+      "kind": "summary",
+      "title": "🎉 Work practice 6 done! What you learned",
+      "html": "<p>Scattered notes became a schedule table and went into your calendar in one go.</p><h3>Three things to remember</h3><ol><li>With words like 'next week' or 'this Friday', <b>give today's date.</b></li><li>The AI <b>spots clashes and unclear items; you decide.</b></li><li>Use an <b>.ics file</b> to add to calendars, and test in a <b>Practice calendar</b> first.</li></ol><h3>Try it like this</h3><p>Whenever you get a notice or minutes: \"Add the events here to schedule.csv\" → at the weekend: \"Next week's events as .ics\". Need reminders? \"Add a 30-minute reminder to every event.\"</p><p class='lab__links'><a class='btn btn--primary' href='{{base}}lab/work-web.html'>Next: Work 7 · Find information on the web →</a><a class='btn btn--ghost' href='{{base}}ai/work-schedule.html'>Read today's steps as a guide</a></p>"
+    }
+  ]
+}

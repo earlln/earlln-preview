@@ -1,0 +1,453 @@
+{
+  "id": "desktop-install",
+  "title": "Your first task with the Claude desktop app",
+  "stages": [
+    "Start",
+    "Your computer",
+    "Get Claude ready",
+    "Practice folder",
+    "Install the app",
+    "Sign in · Code tab",
+    "Choose the folder",
+    "First task",
+    "Wrap-up"
+  ],
+  "steps": [
+    {
+      "id": "intro",
+      "stage": 1,
+      "title": "What we'll do today",
+      "html": "<p>You'll install the <b>Claude desktop app</b> and give <b>Claude Code</b>, inside it, its first job. No black text window: you use it <b>by clicking buttons</b>.</p><ul><li>Time: 20–30 minutes</li><li>You need: a <b>computer</b> (Windows or Mac), internet, and a <b>payment card</b> for a paid plan</li></ul><div class='lab__tip'><b>Tip</b> — Open this page on your <b>phone</b> and follow along on your <b>computer</b>. On your phone, just go to: <b>earlln.com/lab.html</b></div><p>Don't worry about unfamiliar words. We explain each one the first time it comes up.</p>",
+      "next": "device",
+      "button": "Let's start",
+      "faq": [
+        {
+          "q": "What is Claude Code?",
+          "a": "An AI assistant you <b>give jobs to in plain words</b>. Ask it something like \"tidy up this file\" and it creates and edits files for you."
+        },
+        {
+          "q": "Does it cost money?",
+          "a": "Yes. Claude Code needs a <b>paid Claude plan (Pro or higher)</b> billed monthly. You'll see the exact price when you sign up. A free account can't use it."
+        },
+        {
+          "q": "I only have a phone.",
+          "a": "This practice needs a computer. Phone and tablet practices are coming soon."
+        }
+      ]
+    },
+    {
+      "id": "device",
+      "stage": 2,
+      "title": "Which computer will you install Claude Code on?",
+      "html": "<p>Pick the <b>computer you'll install it on</b>, not necessarily the device you're reading this on.</p>",
+      "choices": [
+        {
+          "icon": "⊞",
+          "label": "Windows PC",
+          "sub": "Most laptops and desktops",
+          "set": {
+            "device": "win"
+          },
+          "next": "account"
+        },
+        {
+          "icon": "",
+          "label": "Mac",
+          "sub": "Apple MacBook or iMac",
+          "set": {
+            "device": "mac"
+          },
+          "next": "account"
+        },
+        {
+          "icon": "?",
+          "label": "I'm not sure",
+          "sub": "We'll show you how to check",
+          "next": "device-help"
+        },
+        {
+          "icon": "📱",
+          "label": "I don't have a computer",
+          "sub": "Only a phone or tablet",
+          "next": "no-pc"
+        }
+      ]
+    },
+    {
+      "id": "device-help",
+      "kind": "help",
+      "title": "How to tell Windows from Mac",
+      "html": "<p>Look at the computer's <b>keyboard</b>.</p><ul><li>A <b>⊞</b> (window) key at the bottom left → <b>Windows</b></li><li>A <b>⌘ command</b> key → <b>Mac</b></li></ul><p>An <b>apple logo</b> on the back or lid also means it's a Mac.</p>",
+      "button": "Got it, let me choose again"
+    },
+    {
+      "id": "no-pc",
+      "kind": "help",
+      "title": "This practice needs a computer",
+      "html": "<p>Claude Code is a program you install on a computer. Practices for phones and tablets are <b>coming soon</b>.</p><p>Come back when you have a home or work computer. Your progress is saved in this browser.</p>",
+      "button": "Go back"
+    },
+    {
+      "id": "account",
+      "stage": 3,
+      "title": "Do you have a Claude account?",
+      "html": "<p>Claude Code needs a <b>paid Claude account (Pro or higher)</b>.</p>",
+      "choices": [
+        {
+          "label": "I have a paid account",
+          "sub": "Subscribed to Pro or higher",
+          "next": "claude-ready"
+        },
+        {
+          "label": "I only have a free account",
+          "next": "upgrade"
+        },
+        {
+          "label": "I don't have an account",
+          "next": "signup"
+        },
+        {
+          "label": "I'm not sure",
+          "next": "account-help"
+        }
+      ]
+    },
+    {
+      "id": "signup",
+      "stage": 3,
+      "title": "Sign up for Claude",
+      "html": "<p>First, open a <b>browser</b> on your <b>computer</b>. A browser is the program you use to look at the internet. Click one of these icons at the bottom of your screen:</p><ul><li>Windows: <b>Microsoft Edge</b> (blue wave) or <b>Chrome</b> (red, yellow and green circle)</li><li>Mac: <b>Safari</b> (compass) or Chrome</li></ul><ol><li>Click the <b>address bar</b> at the very top of the browser, type <b>claude.ai</b> and press <kbd>Enter</kbd>.</li><li>Choose Continue with Google, or sign up with your email address.</li><li>If you used email, open the confirmation email in your inbox and click its button.</li></ol>",
+      "check": {
+        "q": "Did you finish signing up and see the Claude chat screen?",
+        "yes": "upgrade",
+        "no": "signup-help"
+      },
+      "faq": [
+        {
+          "q": "Where is the address bar?",
+          "a": "It's the long box at the <b>very top</b> of the browser where you can type. It usually shows an address starting with https://. Click it once and the text turns blue; then just type <b>claude.ai</b>."
+        },
+        {
+          "q": "Where is the Enter key?",
+          "a": "It's the big key on the right side of the keyboard, marked <b>Enter</b> or <b>↵</b>. On a Mac it may say <b>return</b>."
+        }
+      ]
+    },
+    {
+      "id": "signup-help",
+      "kind": "help",
+      "title": "If signing up doesn't work",
+      "html": "<ul><li>If the confirmation email doesn't arrive, check your <b>spam folder</b>.</li><li>If you have a Google account, <b>Continue with Google</b> is the easiest.</li><li>If it asks for your country, pick the one you live in.</li></ul>"
+    },
+    {
+      "id": "upgrade",
+      "stage": 3,
+      "title": "Subscribe to a paid plan (Pro)",
+      "html": "<ol><li>On claude.ai, find and click the <b>Upgrade</b> button or menu.</li><li>Choose the <b>Pro</b> plan. (Max also works, but Pro is plenty to start.)</li><li>Enter your card details and pay.</li></ol><div class='lab__tip'><b>Check the payment yourself</b> — read the price and whether it renews every month before you continue. You can cancel any time.</div>",
+      "check": {
+        "q": "Did you subscribe to Pro?",
+        "yes": "claude-ready",
+        "no": "upgrade-help",
+        "yesLabel": "Yes, I subscribed",
+        "noLabel": "I can't find the Upgrade button"
+      }
+    },
+    {
+      "id": "upgrade-help",
+      "kind": "help",
+      "title": "Finding the Upgrade menu",
+      "html": "<p>The screen layout changes from time to time. Check these places:</p><ul><li>The menu that opens when you click your name (or your initial in a circle) at the <b>bottom left</b></li><li>The word <b>Upgrade</b> near the top or near the chat box</li></ul><p>Still can't find it? Ask Claude in the chat box: <b>\"Where do I upgrade my plan?\"</b> It will tell you.</p>"
+    },
+    {
+      "id": "account-help",
+      "kind": "help",
+      "title": "How to tell if your account is paid",
+      "html": "<p>Go to <b>claude.ai</b> in your browser.</p><ul><li>If you see a sign-in screen → sign in if you have an account, or choose <b>I don't have an account</b>.</li><li>If you see <b>Pro</b> or <b>Max</b> near your name at the bottom left → it's paid.</li><li>If an <b>Upgrade</b> button stands out → it's probably free.</li></ul>",
+      "button": "Got it, let me choose again"
+    },
+    {
+      "id": "claude-ready",
+      "stage": 3,
+      "title": "Get a Claude window ready for your questions",
+      "html": "<p>If you get stuck during the practice, you can <b>ask Claude directly</b>. Let's try it once now.</p><ol><li>Tap <b>I have a question</b> below to open it.</li><li>Type <b>What is Claude Code?</b> and press <b>Ask Claude</b>.</li><li>A new window (or the Claude app) opens. Check the chat box:<br>· If your question is already there → press <kbd>Enter</kbd><br>· If it's empty → click the box once, <b>paste</b>, then press <kbd>Enter</kbd></li></ol><div class='lab__tip'><b>What is pasting?</b> — It puts in the text you copied. On a computer press {{paste}} together; on a phone, <b>press and hold</b> the box, then tap <b>Paste</b>.</div><p>When you've seen the answer, come back here. You can ask like this any time you get stuck.</p>",
+      "check": {
+        "q": "Did Claude answer?",
+        "yes": "folder",
+        "no": "ask-help",
+        "set": {
+          "claudeReady": true
+        },
+        "yesLabel": "Yes, it answered",
+        "noLabel": "It didn't work"
+      },
+      "askNow": true,
+      "ask": true
+    },
+    {
+      "id": "ask-help",
+      "kind": "help",
+      "title": "If asking Claude doesn't work",
+      "html": "<ul><li>If no new window opens, go to <b>claude.ai</b> in your browser and type your question in the chat box. It's the same thing.</li><li>If you see a sign-in screen, sign in with your account.</li><li>This step is just practice, so it's fine to move on even if it doesn't work.</li></ul>",
+      "choices": [
+        {
+          "label": "Let me try again",
+          "next": "claude-ready"
+        },
+        {
+          "label": "Skip for now",
+          "sub": "I'll ask on claude.ai if I get stuck",
+          "set": {
+            "claudeReady": true
+          },
+          "next": "folder"
+        }
+      ]
+    },
+    {
+      "id": "folder",
+      "stage": 4,
+      "title": "Name your practice folder",
+      "html": "<p>Claude Code works <b>inside one folder</b> that you choose. To start, it's safest to practice in an <b>empty folder</b>.</p><p>Choose a folder name. If you're not sure, just keep <b>Practice</b>.</p>",
+      "input": {
+        "var": "folder",
+        "label": "Folder name",
+        "default": "Practice",
+        "hint": "e.g. Practice, AI-lab"
+      },
+      "next": "folder-make",
+      "button": "Use this name"
+    },
+    {
+      "id": "folder-make",
+      "stage": 4,
+      "title": "Make a '{{folder}}' folder on your desktop",
+      "win": {
+        "html": "<p>The <b>desktop</b> is the background screen you see when the computer starts. If windows are open, click <b>—</b> (minimize) at their top right to tuck them away.</p><ol><li>Put your mouse on an empty spot of the desktop and click the <b>right mouse button</b>.</li><li>In the menu, click <b>New</b> → <b>Folder</b>.</li><li>When the name box turns blue, type <b>{{folder}}</b> and press <kbd>Enter</kbd>.</li></ol>"
+      },
+      "mac": {
+        "html": "<p>The <b>desktop</b> is the background screen you see when the computer starts.</p><ol><li><b>Right-click</b> an empty spot on the desktop.<br><small>On a Mac trackpad, <b>press with two fingers together</b> to right-click.</small></li><li>Click <b>New Folder</b> in the menu.</li><li>While the new folder's name (untitled folder) is selected, type <b>{{folder}}</b> and press <kbd>return</kbd>.</li></ol>"
+      },
+      "check": {
+        "q": "Is there a '{{folder}}' folder on your desktop now?",
+        "yes": "download",
+        "no": "folder-help"
+      },
+      "ask": true,
+      "faq": [
+        {
+          "q": "I typed the name wrong.",
+          "a": "Click the folder once, then press <kbd>F2</kbd> on Windows or <kbd>return</kbd> on a Mac to type the name again."
+        }
+      ]
+    },
+    {
+      "id": "folder-help",
+      "kind": "help",
+      "title": "If making the folder doesn't work",
+      "win": {
+        "html": "<ul><li>If you don't see <b>New</b> in the menu, right-click a <b>completely empty spot</b>, not on an icon.</li><li>If you can't see the desktop, press <kbd>⊞</kbd>+<kbd>D</kbd> together to tuck all windows away.</li></ul>"
+      },
+      "mac": {
+        "html": "<ul><li>If no menu appears, hold the <kbd>control</kbd> key and click the desktop. That's also a right-click.</li><li>Or click the desktop once, then choose <b>File → New Folder</b> from the menu at the very top of the screen.</li></ul>"
+      }
+    },
+    {
+      "id": "download",
+      "stage": 5,
+      "title": "Download the Claude desktop app",
+      "html": "<ol><li>Open a web browser on your computer.</li><li>Click the <b>address bar</b> at the top, type <b>claude.ai/download</b> and press Enter.</li><li>Click the button for your computer: <b>Download for Windows</b> or <b>Download for macOS</b>.</li></ol>",
+      "image": "assets/img/ai/desktop-install/en/dl.webp",
+      "alt": "Clicking the download button for your computer",
+      "check": {
+        "q": "Has the download finished?",
+        "yes": "install",
+        "no": "download-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "download-help",
+      "kind": "help",
+      "title": "If the download doesn't work",
+      "html": "<ul><li>Check you typed the address exactly: <b>claude.ai/download</b>.</li><li>If nothing seems to happen, look for a download indicator at the top (or bottom) of the browser.</li><li>Work computers may block installing programs. In that case, ask your IT team.</li></ul>"
+    },
+    {
+      "id": "install",
+      "stage": 5,
+      "title": "Install the app",
+      "win": {
+        "html": "<ol><li>Click the downloaded file, or <b>double-click</b> the Claude installer in your <b>Downloads</b> folder.</li><li>If it asks \"Do you want to allow this app to make changes to your device?\", click <b>Yes</b>.</li><li>When it's installed, the Claude app opens by itself.</li></ol>"
+      },
+      "mac": {
+        "html": "<ol><li><b>Double-click</b> the Claude file (.dmg) in your <b>Downloads</b> folder.</li><li>In the window that opens, drag the <b>Claude icon</b> onto the <b>Applications</b> folder.</li><li>In Finder, go to <b>Applications</b> and double-click <b>Claude</b>. If it warns the app was downloaded from the internet, click <b>Open</b>.</li></ol>"
+      },
+      "check": {
+        "q": "Did the Claude app open?",
+        "yes": "signin",
+        "no": "install-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "install-help",
+      "kind": "help",
+      "title": "If installing doesn't work",
+      "win": {
+        "html": "<ul><li>The <b>Downloads</b> folder is in the list on the left of File Explorer (the yellow folder icon).</li><li>If a blue warning like \"Windows protected your PC\" appears, check the file came from claude.ai before continuing.</li><li>Work computers may block installs. Ask your IT team.</li></ul>"
+      },
+      "mac": {
+        "html": "<ul><li>Make sure you dragged the icon in the .dmg window. That's what puts it into Applications.</li><li>If you see a warning about an unidentified developer, check the file came from claude.ai and click <b>Open</b>.</li></ul>"
+      }
+    },
+    {
+      "id": "signin",
+      "stage": 6,
+      "title": "Sign in to the app",
+      "html": "<p>When the app opens, you'll see a sign-in screen. Sign in with the <b>account you subscribed with (Pro or higher)</b>.</p><ul><li><b>Continue with Google</b>, or sign in with your email address</li><li>If a browser opens asking you to confirm, sign in, approve, and come back to the app.</li></ul>",
+      "check": {
+        "q": "Are you signed in and can you see the app?",
+        "yes": "codetab",
+        "no": "signin-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "signin-help",
+      "kind": "help",
+      "title": "If signing in doesn't work",
+      "html": "<ul><li>Use the <b>same account</b> you signed up and subscribed with. (If you used Google, use Google.)</li><li>With email, you need to enter the link or code from the confirmation email. Check your spam folder too.</li></ul>"
+    },
+    {
+      "id": "codetab",
+      "stage": 6,
+      "title": "Open the Code tab",
+      "html": "<p>At the <b>top left</b> of the app there are tabs such as <b>Chat · Cowork · Code</b>. Click <b>Code</b>.</p><p><b>Code</b> is Claude Code. Here, Claude can create and edit files on your computer directly. (Chat is the conversation screen you tried in Practice 0.)</p>",
+      "image": "assets/img/ai/desktop-install/en/code-tab.webp",
+      "alt": "Clicking the Code tab at the top left of the app",
+      "check": {
+        "q": "Did the Code screen (with a typing box at the bottom) appear?",
+        "yes": "pickfolder",
+        "no": "codetab-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "codetab-help",
+      "kind": "help",
+      "title": "If you can't see the Code tab",
+      "html": "<ul><li>Check you signed in with a <b>paid (Pro or higher)</b> account. Free accounts can't use Code.</li><li>Update the app to the latest version and open it again.</li><li>If the window is very narrow the tabs can be hidden. Make the window bigger.</li></ul>"
+    },
+    {
+      "id": "pickfolder",
+      "stage": 7,
+      "title": "Choose the folder to work in (1)",
+      "html": "<p>Claude Code works <b>only inside the folder you choose</b>. So choose the '{{folder}}' folder.</p><ol><li>Check that the first button under the typing box says <b>Local</b> (your computer). If not, click it and choose Local.</li><li>Click the <b>folder button</b> next to it, then <b>Open folder…</b> in the list.</li></ol>",
+      "image": "assets/img/ai/desktop-install/en/open-folder.webp",
+      "alt": "Checking Local and choosing Open folder from the folder button",
+      "next": "pickfolder2",
+      "button": "The folder window opened",
+      "ask": true
+    },
+    {
+      "id": "pickfolder2",
+      "stage": 7,
+      "title": "Choose the folder to work in (2)",
+      "win": {
+        "html": "<ol><li>In the folder window, click <b>Desktop</b> on the left.</li><li>Click the <b>{{folder}}</b> folder <b>once</b>. (Double-clicking opens it, which is fine too.)</li><li>Click <b>Select Folder</b> at the bottom.</li></ol>"
+      },
+      "mac": {
+        "html": "<ol><li>In the folder window, click <b>Desktop</b> on the left.</li><li>Click the <b>{{folder}}</b> folder <b>once</b>.</li><li>Click <b>Open</b> at the bottom.</li></ol>"
+      },
+      "image": "assets/img/ai/desktop-install/en/pick-folder.webp",
+      "alt": "Choosing the Practice folder in the folder window",
+      "check": {
+        "q": "Does the folder button under the typing box now show '{{folder}}'?",
+        "yes": "mode",
+        "no": "pick-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "pick-help",
+      "kind": "help",
+      "title": "If choosing the folder doesn't work",
+      "html": "<ul><li>If you can't see the desktop in the window, scroll the list on the left to find <b>Desktop</b>.</li><li>If you went inside the folder, you can click <b>Select Folder</b> (Open on a Mac) from there.</li><li>If you chose the wrong folder, click the folder button again and start from <b>Open folder…</b>.</li></ul>"
+    },
+    {
+      "id": "mode",
+      "stage": 7,
+      "title": "Check the permission mode — Manual",
+      "html": "<p>Look at the <b>button on the right</b> under the typing box. It should say <b>Manual</b>.</p><p><b>Manual</b> means Claude <b>asks you every time</b> before creating or editing a file. Keep it on Manual to start.</p><div class='lab__tip'>If you see another name (Accept edits, Auto, etc.), click it and choose <b>Manual</b>. You'll learn the other modes later.</div>",
+      "next": "first-task",
+      "button": "It's Manual"
+    },
+    {
+      "id": "first-task",
+      "stage": 8,
+      "title": "Give it a first task",
+      "html": "<p>Now give Claude a job <b>in plain words</b>. Paste or type the sentence below into the box and press Enter (return on a Mac).</p>",
+      "code": "Create a file called todo.txt and write 3 example to-dos for today",
+      "codeLabel": "Type this",
+      "next": "approve",
+      "button": "Sent it",
+      "ask": true
+    },
+    {
+      "id": "approve",
+      "stage": 8,
+      "title": "\"May I create it?\" — give permission",
+      "html": "<p>Claude <b>always asks first</b> before creating a file. A card shows what it will create; the <b>green lines</b> are what will be added.</p><p>Check it and click <b>Allow</b> (usually blue).</p><div class='lab__tip'>The button may be labeled differently (Allow, Accept…). Click the one that <b>gives permission</b>.</div>",
+      "image": "assets/img/ai/desktop-install/en/approve.webp",
+      "alt": "Clicking Allow on the permission card before the file is created",
+      "check": {
+        "q": "Did you click Allow?",
+        "yes": "result",
+        "no": "approve-help",
+        "noLabel": "No card appeared"
+      },
+      "ask": true
+    },
+    {
+      "id": "approve-help",
+      "kind": "help",
+      "title": "If no permission card appears",
+      "html": "<ul><li>Claude may still be thinking. Wait a few seconds.</li><li>If it already says it created the file, the mode may not be Manual. Go on and check the file, and switch the mode to Manual.</li><li>If Claude asks something back, type your answer and press Enter.</li></ul>"
+    },
+    {
+      "id": "result",
+      "stage": 8,
+      "title": "See the result with your own eyes",
+      "html": "<p>Double-click the <b>{{folder}}</b> folder on your desktop. <b>todo.txt</b> is there. Double-click it to see the to-dos Claude wrote.</p>",
+      "image": "assets/img/ai/claude-code-install/en/win-result.webp",
+      "alt": "todo.txt has appeared in the folder",
+      "check": {
+        "q": "Do you see todo.txt in the '{{folder}}' folder?",
+        "yes": "finish",
+        "no": "result-help",
+        "yesLabel": "Yes, I see it! 🎉"
+      },
+      "ask": true
+    },
+    {
+      "id": "result-help",
+      "kind": "help",
+      "title": "If you can't see the file",
+      "html": "<ul><li>Check that the folder button under the typing box shows <b>{{folder}}</b>. If it was another folder, the file may be there.</li><li>Ask Claude, <b>\"Where did you create todo.txt?\"</b></li><li>Closing and reopening the folder window sometimes helps.</li></ul>"
+    },
+    {
+      "id": "finish",
+      "stage": 8,
+      "title": "Finishing up",
+      "html": "<p>That's it for today. Just <b>close the app</b>.</p><p>Today's conversation stays in the <b>list on the left</b>. Next time, open the app, go to the <b>Code</b> tab and click it to carry on. You don't need to install or sign in again.</p>",
+      "next": "summary",
+      "button": "Done, show the wrap-up"
+    },
+    {
+      "id": "summary",
+      "stage": 9,
+      "kind": "summary",
+      "title": "🎉 First practice done! What you learned",
+      "html": "<p>You made it all the way. Here's a short recap.</p><div class='lab__flow'><span>You</span><i>ask in words</i><span>Claude Code</span><i>with permission</i><span>File done</span></div><h3>New words</h3><table class='lab__terms'><tr><th>Desktop app</th><td>The Claude program you install on your computer. It has Chat, Code and more inside</td></tr><tr><th>Code tab</th><td>Where Claude <b>works on your files directly</b>. This is Claude Code</td></tr><tr><th>Local · folder</th><td>Buttons to choose which folder on your computer (Local) it works in</td></tr><tr><th>Manual</th><td>The permission mode that <b>asks every time</b> before creating or editing</td></tr></table><h3>Two things to remember</h3><ol><li><b>Claude Code works only inside the folder you choose.</b> Choose the folder first.</li><li><b>It always asks before creating or changing anything.</b> Things only change when you read the card and click Allow.</li></ol><h3>Next step</h3><p>In the next practice you'll have it <b>edit</b> today's todo.txt and learn to read the changes (red and green lines).</p><p class='lab__links'><a class='btn btn--primary' href='{{base}}lab/desktop-edit.html'>Next: Desktop 2 · Check the changes and have it edit →</a><a class='btn btn--ghost' href='{{base}}ai/desktop-install.html'>Read today's steps as a guide</a></p>"
+    }
+  ]
+}

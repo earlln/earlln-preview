@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#2f6fd6">
+<title>운동 타이머 (완성 예시)</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon-192.png">
+<style>
+  :root { --blue: #2f6fd6; --bg: #f4f6fa; --ink: #1a2a44; --soft: #dfe6f2; --rest: #1f9d6b; }
+  * { box-sizing: border-box; }
+  body { margin: 0; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 22px;
+         background: var(--bg); color: var(--ink); font-family: system-ui, -apple-system, "Segoe UI", sans-serif; padding: 16px; }
+  h1 { margin: 0; font-size: 22px; }
+  #label { font-weight: 800; font-size: 18px; color: var(--blue); }
+  #label.rest { color: var(--rest); }
+  .ring { width: 220px; height: 220px; border-radius: 50%; display: grid; place-items: center;
+          background: conic-gradient(var(--c, var(--blue)) calc(var(--p, 1) * 360deg), var(--soft) 0); }
+  .ring div { width: 180px; height: 180px; border-radius: 50%; background: var(--bg); display: grid; place-items: center; font-size: 64px; font-weight: 800; }
+  button { font: inherit; font-weight: 800; font-size: 18px; border: 0; border-radius: 999px; padding: 14px 56px; background: var(--blue); color: #fff; cursor: pointer; }
+  button.stop { background: #6b7280; }
+  p.note { margin: 0; color: #6b7280; font-size: 13px; text-align: center; }
+</style>
+</head>
+<body>
+  <h1>운동 타이머</h1>
+  <div id="label">준비</div>
+  <div class="ring" id="ring"><div id="sec">20</div></div>
+  <button id="start">시작</button>
+  <p class="note">운동 20초 · 쉬기 10초 · 3번 반복<br>소리를 켜 두면 끝나기 3초 전부터 "셋, 둘, 하나"를 읽어 줘요.</p>
+<script>
+  // 설정: 여기 숫자만 바꾸면 돼요
+  const WORK = 20, REST = 10, ROUNDS = 3;
+
+  const $ = id => document.getElementById(id);
+  let timer = null, phase = 'work', round = 1, left = WORK;
+
+  function say(text) {
+    if (!('speechSynthesis' in window)) return;
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = 'ko-KR';
+    speechSynthesis.cancel();
+    speechSynthesis.speak(u);
+  }
+
+  function draw() {
+    const total = phase === 'work' ? WORK : REST;
+    $('sec').textContent = left;
+    $('ring').style.setProperty('--p', left / total);
+    $('ring').style.setProperty('--c', phase === 'work' ? 'var(--blue)' : 'var(--rest)');
+    $('label').textContent = (phase === 'work' ? '운동' : '쉬기') + ' · ' + round + ' / ' + ROUNDS;
+    $('label').className = phase === 'rest' ? 'rest' : '';
+  }
+
+  function tick() {
+    left -= 1;
+    if (left === 3) say('셋'); else if (left === 2) say('둘'); else if (left === 1) say('하나');
+    if (left > 0) return draw();
+    if (phase === 'work' && round < ROUNDS) { phase = 'rest'; left = REST; say('쉬세요'); }
+    else if (phase === 'rest') { phase = 'work'; round += 1; left = WORK; say(round + '회. 시작'); }
+    else { stop(); $('label').textContent = '끝! 수고했어요'; say('끝. 수고했어요'); return; }
+    draw();
+  }
+
+  function start() {
+    phase = 'work'; round = 1; left = WORK;
+    draw(); say('1회. 시작');
+    timer = setInterval(tick, 1000);
+    $('start').textContent = '멈추기'; $('start').className = 'stop';
+  }
+
+  function stop() {
+    clearInterval(timer); timer = null;
+    $('start').textContent = '시작'; $('start').className = '';
+  }
+
+  $('start').addEventListener('click', () => timer ? stop() : start());
+  draw();
+</script>
+<div style="position:fixed;left:0;right:0;bottom:0;z-index:9999;background:#f5a524;color:#1a1300;font:700 13px/1.4 system-ui,sans-serif;text-align:center;padding:6px 10px;pointer-events:none">미리보기 · ccr-e807c3fb-g8xua6 · 실제 사이트가 아니에요</div>
+</body>
+</html>

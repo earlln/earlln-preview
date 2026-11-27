@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-en="Claude Code in the terminal (CLI · advanced) · Part 3: Start fresh or pick up later · Do Earlln">Claude Code 터미널 과정 (CLI · 심화) 3편: 대화 새로 시작하기·이어 하기 · Do Earlln</title>
+<meta name="description" content="/clear 로 대화를 새로 시작하고, claude -c 와 /resume 으로 하던 대화를 이어 가는 법." data-en-content="Start a new conversation with /clear, and continue earlier ones with claude -c and /resume.">
+<link rel="canonical" href="https://earlln.com/ai/claude-code-sessions.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Do Earlln">
+<meta property="og:title" content="Claude Code 터미널 과정 (CLI · 심화) 3편: 대화 새로 시작하기·이어 하기 · Do Earlln" data-en-content="Claude Code in the terminal (CLI · advanced) · Part 3: Start fresh or pick up later · Do Earlln">
+<meta property="og:description" content="/clear 로 대화를 새로 시작하고, claude -c 와 /resume 으로 하던 대화를 이어 가는 법." data-en-content="Start a new conversation with /clear, and continue earlier ones with claude -c and /resume.">
+<meta property="og:image" content="https://earlln.com/wp-content/uploads/2025/10/Logo_main-page-on-which-Earlln-ci2-with-deep-navy-colored-circle-1024x768.jpg">
+<meta property="og:url" content="https://earlln.com/ai/claude-code-sessions.html">
+<meta name="theme-color" content="#0b1f3a">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "Article", "headline": "Claude Code 터미널 과정 (CLI · 심화) 3편: 대화 새로 시작하기·이어 하기", "description": "/clear 로 대화를 새로 시작하고, claude -c 와 /resume 으로 하던 대화를 이어 가는 법.", "datePublished": "2026-11-15", "inLanguage": "ko", "author": {"@type": "Organization", "name": "Earlln"}, "publisher": {"@type": "Organization", "name": "Earlln", "url": "https://earlln.com/"}, "mainEntityOfPage": "https://earlln.com/ai/claude-code-sessions.html"}
+</script>
+<link rel="icon" href="../assets/img/logo.svg" type="image/svg+xml">
+<link rel="icon" href="https://earlln.com/wp-content/uploads/2025/10/cropped-%EB%94%A5%EB%84%A4%EC%9D%B4%EB%B9%84%EB%8F%99%EA%B7%B8%EB%9D%BC%EB%AF%B8%EB%B0%B0%EA%B2%BD%EC%9C%84%EC%97%90_ci_%EB%82%B4%EB%B6%80%ED%9D%B0%EC%83%89_512_512-removebg.png" sizes="512x512" type="image/png">
+<link rel="apple-touch-icon" href="https://earlln.com/wp-content/uploads/2025/10/cropped-%EB%94%A5%EB%84%A4%EC%9D%B4%EB%B9%84%EB%8F%99%EA%B7%B8%EB%9D%BC%EB%AF%B8%EB%B0%B0%EA%B2%BD%EC%9C%84%EC%97%90_ci_%EB%82%B4%EB%B6%80%ED%9D%B0%EC%83%89_512_512-removebg.png">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="../assets/css/site.css?v=88051762f2">
+</head>
+<body>
+<a class="skip-link" href="#main" data-en="Skip to content">본문으로 건너뛰기</a>
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="../index.html" aria-label="Do Earlln 홈">
+      <img class="brand__mark" src="https://earlln.com/wp-content/uploads/2025/10/cropped-%EB%94%A5%EB%84%A4%EC%9D%B4%EB%B9%84%EB%8F%99%EA%B7%B8%EB%9D%BC%EB%AF%B8%EB%B0%B0%EA%B2%BD%EC%9C%84%EC%97%90_ci_%EB%82%B4%EB%B6%80%ED%9D%B0%EC%83%89_512_512-removebg.png" data-fallback="../assets/img/logo.svg" alt="" width="36" height="36">
+      <span class="brand__text">Earlln<small data-en="Do Earlln · get it done, quickly">Do Earlln · 얼른 하세요</small></span>
+    </a>
+    <button class="lang-toggle lang-toggle--bar" type="button" data-lang-toggle aria-label="View in English" title="View in English">EN</button>
+    <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav" aria-label="메뉴 열기" data-en-aria-label="Open menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <nav class="nav" id="site-nav" data-nav aria-label="주 메뉴" data-en-aria-label="Main menu">
+      <a href="../index.html"><span data-en="Home">홈</span></a>
+      <a href="../product.html"><span data-en="Product">제품</span></a>
+      <a href="../news.html"><span data-en="News">소식</span></a>
+      <a href="../lab.html" aria-current="page"><span data-en="AI AGENT">AI AGENT</span></a>
+      <a href="../license.html"><span data-en="License">라이선스</span></a>
+      <a href="../contacts.html"><span data-en="Contacts">고객문의</span></a>
+      <a href="../bible.html"><span data-en="Bible search">성경 구절 검색</span></a>
+      <div class="nav__tools">
+      <button class="lang-toggle" type="button" data-lang-toggle aria-label="View in English" title="View in English">EN</button>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="라이트/다크 테마 전환" title="테마 전환" data-en-aria-label="Toggle light and dark theme" data-en-title="Toggle theme">
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
+      </div>
+    </nav>
+  </div>
+</header>
+<div class="banner" data-banner hidden></div>
+<main id="main">
+
+<section class="page-head">
+  <div class="container">
+    <a class="article__back" href="../ai.html" data-en="← Guides">← 강의 목록</a>
+    <span class="article__series" data-en="Claude Code in the terminal (CLI · advanced) · Part 3">Claude Code 터미널 과정 (CLI · 심화) 3편</span>
+    <h1 data-en="Start fresh or pick up later">대화 새로 시작하기·이어 하기</h1>
+    <p data-en="You can pick up a conversation even after closing Claude Code. Learn how to start fresh and how to continue the next day.">Claude Code를 껐다 켜도 하던 대화를 이어 갈 수 있어요. 대화를 새로 시작하는 법과 다음 날 이어서 하는 법을 배웁니다.</p>
+    <div class="article__meta"><span class="news__tag">Claude Code</span><time datetime="2026-11-15" data-en="Nov 15, 2026">2026년 11월 15일</time></div>
+  </div>
+</section>
+<section class="section section--tight">
+  <div class="container">
+    <div class="with-course">
+<aside class="cn" data-course-nav aria-label="전체 과정" data-en-aria-label="All courses">
+  <details class="cn__box">
+    <summary class="cn__bar"><span class="cn__bar-icon" aria-hidden="true">📚</span><span class="cn__bar-text"><b data-en="Terminal course (CLI · advanced)">터미널 과정 (CLI · 심화)</b><small data-en="Terminal 3 · Start fresh or pick up later">터미널 3 · 대화 새로 시작하기·이어 하기</small></span><span class="cn__bar-count" data-cn-count></span><span class="cn__bar-more" data-en="All courses">전체 과정</span></summary>
+    <div class="cn__body">
+      <p class="cn__head" data-en="All courses">전체 과정</p>
+      <div class="cn__progress"><span class="cn__progress-bar"><i data-cn-bar></i></span><span class="cn__progress-text" data-cn-text></span></div>
+      <details class="cn__group" open><summary data-en="Start here">처음이라면</summary><ol class="cn__list"><li class="cn__item" data-cn-item="ai-first-chat"><span class="cn__mark" aria-hidden="true"></span><span class="cn__main"><a class="cn__name" href="../lab/ai-first-chat.html"><span class="cn__no" data-en="Practice 0">실습 0</span><span class="cn__title" data-en="Your first chat with AI (free)">AI와 첫 대화 (무료)</span></a><span class="cn__links"><a class="cn__link" href="../lab/ai-first-chat.html" data-cn-lab="ai-first-chat" data-en="Practice">실습</a></span></span></li></ol></details><details class="cn__group" open><summary data-en="Desktop course (basics)">데스크톱 과정 (기본)</summary><ol class="cn__list"><li class="cn__item" data-cn-item="desktop-install"><span class="cn__mark" aria-hidden="true"></span><span class="cn__main"><a class="cn__name" href="../lab/desktop-install.html"><span class="cn__no" data-en="Desktop 1">데스크톱 1</span><span class="cn__title" data-en="Your first task with the Claude desktop app">Claude 데스크톱 앱으로 첫 작업 시키기</span></a><span class="cn__links"><a class="cn__link" href="../lab/desktop-install.html" data-cn-lab="desktop-install" data-en="Practice">실습</a><a class="cn__link" href="../ai/desktop-install.html" data-cn-read="desktop-install" data-en="Guide">강의</a></span></span></li><li class="cn__item" data-cn-item="desktop-edit"><span class="cn__mark" aria-hidden="true"></span><span class="cn__main"><a class="cn__name" href="../lab/desktop-edit.html"><span class="cn__no" data-en="Desktop 2">데스크톱 2</span><span class="cn__title" data-en="Check the changes and have it edit">바뀐 내용 보고 고치게 하기</span></a><span class="cn__links"><a class="cn__link" href="../lab/desktop-edit.html" data-cn-lab="desktop-edit" data-en="Practice">실습</a><a class="cn__link" href="../ai/desktop-edit.html" data-cn-read="desktop-edit" data-en="Guide">강의</a></span></span></li><li class="cn__item" data-cn-item="desktop-sessions"><span class="cn__mark" aria-hidden="true"></span><span class="cn__main"><a class="cn__name" href="../lab/desktop-sessions.html"><span class="cn__no" data-en="Desktop 3">데스크톱 3</span><span class="cn__title" data-en="Start a new chat or pick up an old one">대화 새로 시작하기·이어 하기</span></a><span class="cn__links"><a class="cn__link" href="../lab/desktop-sessions.html" data-cn-lab="desktop-sessions" data-en="Practice">실습</a><a class="cn__link" href="../ai/desktop-sessions.html" data-cn-read="desktop-sessions" data-en="Guide">강의</a></span></span></li><li class="cn__item" data-cn-item="desktop-organize"><span class="cn__mark" aria-hidden="true"></span><span class="cn__main"><a class="cn__name" href="../lab/desktop-organize.html"><span class="cn__no" data-en="Desktop 4">데스크톱 4</span><span class="cn__title" data-en="Organize several files at once">여러 파일 한꺼번에 정리하기</span></a><span class="cn__links"><a class="cn__link" href="../lab/desktop-organize.html" data-cn-lab="desktop-organize" data-en="Practice">실습</a><a class="cn__link" href="../ai/desktop-organize.html" data-cn-read="desktop-organize" data-en="Guide">강의</a></span></span></li><li class="cn__item" data-cn-item="desktop-modes"><span class="cn__mark" aria-hidden="true"></span><span class="cn__main"><a class="cn__name" href="../lab/desktop-modes.html"><span class="cn__no" data-en="Desktop 5">데스크톱 5</span><span class="cn__title" data-en="Change the permission mode">허락 방식(모드) 바꾸기</span></a><span class="cn__links"><a class="cn__link" href="../lab/desktop-modes.html" data-cn-lab="desktop-modes" data-en="Practice">실습</a><a class="cn__link" href="../ai/desktop-modes.html" data-cn-read="desktop-modes" data-en="Guide">강의</a></span></span></li><li class="cn__item" data-cn-item="desktop-undo"><span class="cn__mark" aria-hidden="true"></span><span class="cn__main"><a class="cn__name" href="../lab/desktop-undo.html"><span class="cn__no" data-en="Desktop 6">데스크톱 6</span><span class="cn__title" data-en="Undo a mistake">실수 되돌리기</span></a><span class="cn__links"><a class="cn__link" href="../lab/desktop-undo.html" data-cn-lab="desktop-undo" data-en="Practice">실습</a><a class="cn__link" href="../ai/desktop-undo.html" data-cn-read="desktop-undo" data-en="Guide">강의</a></span></span></li><li class="cn__item" data-cn-item="desktop-images"><span class="cn__mark" aria-hidden="true"></span><span class="cn__main"><a class="cn__name" href="../lab/desktop-images.html"><span class="cn__no" data-en="Desktop 7">데스크톱 7</span><span class="cn__title" data-en="Show it a picture or screenshot">사진·스크린샷 보여 주며 시키기</span></a><span class="cn__links"><a class="cn__link" href="../lab/desktop-images.html" data-cn-lab="desktop-images" data-en="Practice">실습</a><a class="cn__link" href="../ai/desktop-images.html" data-cn-read="desktop-images" data-en="Guide">강의</a></span></span></li><li class="cn__item" data-cn-item="desktop-usage"><span class="cn__mark" aria-hidden="true"></span><span class="cn__main"><a class="cn__name" href="../lab/desktop-usage.html"><span class="cn__no" data-en="Desktop 8">데스크톱 8</span><span class="cn__title" data-en="Plans and usage limits">요금과 사용량 한도 알기</span></a><span class="cn__links"><a class="cn__link" href="../lab/desktop-usage.html" data-cn-lab="desktop-usage" data-en="Practice">실습</a><a class="cn__link" href="../ai/desktop-usage.html" data-cn-read="desktop-usage" data-en="Guide">강의</a></span></span></li></ol></details><details class="cn__group" open><summary data-en="Real work (stage 2)">실무 활용 (2단계)</summary><ol class="cn__list"><li class="cn__item" data-cn-item="work-csv"><span class="cn__mark" aria-hidden="true"></span><span class="cn__main"><a class="cn__name" href="../lab/work-csv.html"><span class="cn__no" data-en="Work 1">실무 1</span><span class="cn__title" data-en="Hand off spreadsheet (CSV) totals and cleanup">엑셀(CSV) 합계·정렬·정리 맡기기</span></a><span class="cn__links"><a class="cn__link" href="../lab/work-csv.html" data-cn-lab="work-csv" data-en="Practice">실습</a><a class="cn__link" href="../ai/work-csv.html" data-cn-read="work-csv" data-en="Guide">강의</a></span></span></li><li class="cn__item" data-cn-item="work-summary"><span class="cn__mark" aria-hidden="true"></span><span class="cn__main"><a class="cn__name" href="../lab/work-summary.html"><span class="cn__no" data-en="Work 2">실무 2</span><span class="cn__title" data-en="Summarize a long document">긴 문서 요약하기</span></a><span class="cn__links"><a class="cn__link" href="../lab/work-summary.html" data-cn-lab="work-summary" data-en="Practice">실습</a><a class="cn__link" href="../ai/work-summary.html" data-cn-read="work-summary" data-en="Guide">강의</a></span></span></li><li class="cn__item" data-cn-item="work-report"><span class="cn__mark" aria-hidden="true"></span><span class="cn__main"><a class="cn__name" href="../lab/work-report.html"><span class="cn__no" data-en="Work 3">실무 3</span><span class="cn__title" data-en="Draft a report">보고서 초안 쓰기</span></a><span class="cn__links"><a class="cn__link" href="../lab/work-report.html" data-cn-lab="work-report" data-en="Practice">실습</a><a class="cn__link" href="../ai/work-report.html" data-cn-read="work-report" data-en="Guide">강의</a></span></span></li><li class="cn__item" data-cn-item="work-minutes"><span class="cn__mark" aria-hidden="true"></span><span class="cn__main"><a class="cn__name" href="../lab/work-minutes.html"><span class="cn__no" data-en="Work 4">실무 4</span><span class="cn__title" data-en="Turn meeting recordings into a work log">회의록 녹취로 업무일지 쓰고 관리하기</span></a><span class="cn__links"><a class="cn__link" href="../lab/work-minutes.html" data-cn-lab="work-minutes" data-en="Practice">실습</a><a class="cn__link" href="../ai/work-minutes.html" data-cn-read="work-minutes" data-en="Guide">강의</a></span></span></li><li class="cn__item" data-cn-item="work-members"><span class="cn__mark" aria-hidden="true"></span><span class="cn__main"><a class="cn__name" href="../lab/work-members.html"><span class="cn__no" data-en="Work 5">실무 5</span><span class="cn__title" data-en="Manage a member list">회원 명단 관리하기</span></a><span class="cn__links"><a class="cn__link" href="../lab/work-members.html" data-cn-lab="work-members" data-en="Practice">실습</a><a class="cn__link" href="../ai/work-members.html" data-cn-read="work-members" data-en="Guide">강의</a></span></span></li><li class="cn__item" data-cn-item="work-schedule"><span class="cn__mark" aria-hidden="true"></span><span class="cn__main"><a class="cn__name" href="../lab/work-schedule.html"><span class="cn__no" data-en="Work 6">실무 6</span><span class="cn__title" data-en="Manage schedules">일정 관리하기</span></a><span class="cn__links"><a class="cn__link" href="../lab/work-schedule.html" data-cn-lab="work-schedule" data-en="Practice">실습</a><a class="cn__link" href="../ai/work-schedule.html" data-cn-read="work-schedule" data-en="Guide">강의</a></span></span></li><li class="cn__item" data-cn-item="work-web"><span class="cn__mark" aria-hidden="true"></span><span class="cn__main"><a class="cn__name" href="../lab/work-web.html"><span class="cn__no" data-en="Work 7">실무 7</span><span class="cn__title" data-en="Find information on the web and organize it">웹 자료 찾아 정리하기</span></a><span class="cn__links"><a class="cn__link" href="../lab/work-web.html" data-cn-lab="work-web" data-en="Practice">실습</a><a class="cn__link" href="../ai/work-web.html" data-cn-read="work-web" data-en="Guide">강의</a></span></span></li><li class="cn__item" data-cn-item="work-rules"><span class="cn__mark" aria-hidden="true"></span><span class="cn__main"><a class="cn__name" href="../lab/work-rules.html"><span class="cn__no" data-en="Work 8">실무 8</span><span class="cn__title" data-en="Make it remember your rules (CLAUDE.md)">내 규칙 기억시키기 (CLAUDE.md)</span></a><span class="cn__links"><a class="cn__link" href="../lab/work-rules.html" data-cn-lab="work-rules" data-en="Practice">실습</a><a class="cn__link" href="../ai/work-rules.html" data-cn-read="work-rules" data-en="Guide">강의</a></span></span></li></ol></details><details class="cn__group" open><summary data-en="From your phone">휴대폰으로 쓰기</summary><ol class="cn__list"><li class="cn__item" data-cn-item="mobile-remote"><span class="cn__mark" aria-hidden="true"></span><span class="cn__main"><a class="cn__name" href="../lab/mobile-remote.html"><span class="cn__no" data-en="Phone 1">휴대폰 1</span><span class="cn__title" data-en="Give your computer&#x27;s Claude a job from your phone">휴대폰으로 내 컴퓨터의 Claude에게 일 시키기</span></a><span class="cn__links"><a class="cn__link" href="../lab/mobile-remote.html" data-cn-lab="mobile-remote" data-en="Practice">실습</a><a class="cn__link" href="../ai/mobile-remote.html" data-cn-read="mobile-remote" data-en="Guide">강의</a></span></span></li><li class="cn__item" data-cn-item="github-basics"><span class="cn__mark" aria-hidden="true"></span><span class="cn__main"><a class="cn__name" href="../lab/github-basics.html"><span class="cn__no" data-en="GitHub basics">GitHub 기초</span><span class="cn__title" data-en="GitHub at a glance">GitHub 한눈에 보기</span></a><span class="cn__links"><a class="cn__link" href="../lab/github-basics.html" data-cn-lab="github-basics" data-en="Practice">실습</a><a class="cn__link" href="../ai/github-basics.html" data-cn-read="github-basics" data-en="Guide">강의</a></span></span></li><li class="cn__item" data-cn-item="mobile-github"><span class="cn__mark" aria-hidden="true"></span><span class="cn__main"><a class="cn__name" href="../lab/mobile-github.html"><span class="cn__no" data-en="Phone 2">휴대폰 2</span><span class="cn__title" data-en="Cloud setup: make a GitHub repository and connect it">클라우드 준비: GitHub 저장소 만들고 연결하기</span></a><span class="cn__links"><a class="cn__link" href="../lab/mobile-github.html" data-cn-lab="mobile-github" data-en="Practice">실습</a><a class="cn__link" href="../ai/mobile-github.html" data-cn-read="mobile-github" data-en="Guide">강의</a></span></span></li><li class="cn__item" data-cn-item="mobile-cloud"><span class="cn__mark" aria-hidden="true"></span><span class="cn__main"><a class="cn__name" href="../lab/mobile-cloud.html"><span class="cn__no" data-en="Phone 3">휴대폰 3</span><span class="cn__title" data-en="Use Claude Code from your phone alone (cloud)">휴대폰 하나로 Claude Code 쓰기 (클라우드)</span></a><span class="cn__links"><a class="cn__link" href="../lab/mobile-cloud.html" data-cn-lab="mobile-cloud" data-en="Practice">실습</a><a class="cn__link" href="../ai/mobile-cloud.html" data-cn-read="mobile-cloud" data-en="Guide">강의</a></span></span></li></ol></details><details class="cn__group" open><summary data-en="Build an app">앱 만들기</summary><ol class="cn__list"><li class="cn__item" data-cn-item="app-web"><span class="cn__mark" aria-hidden="true"></span><span class="cn__main"><a class="cn__name" href="../lab/app-web.html"><span class="cn__no" data-en="App 1">앱 1</span><span class="cn__title" data-en="Build a web app: a workout timer">웹앱 만들기: 운동 타이머</span></a><span class="cn__links"><a class="cn__link" href="../lab/app-web.html" data-cn-lab="app-web" data-en="Practice">실습</a><a class="cn__link" href="../ai/app-web.html" data-cn-read="app-web" data-en="Guide">강의</a></span></span></li><li class="cn__item" data-cn-item="app-publish"><span class="cn__mark" aria-hidden="true"></span><span class="cn__main"><a class="cn__name" href="../lab/app-publish.html"><span class="cn__no" data-en="App 2">앱 2</span><span class="cn__title" data-en="Install your web app on a phone and share it">웹앱을 휴대폰에 설치하고 공개하기</span></a><span class="cn__links"><a class="cn__link" href="../lab/app-publish.html" data-cn-lab="app-publish" data-en="Practice">실습</a><a class="cn__link" href="../ai/app-publish.html" data-cn-read="app-publish" data-en="Guide">강의</a></span></span></li><li class="cn__item" data-cn-item="app-mobile"><span class="cn__mark" aria-hidden="true"></span><span class="cn__main"><a class="cn__name" href="../lab/app-mobile.html"><span class="cn__no" data-en="App 3">앱 3</span><span class="cn__title" data-en="Build an app with just your phone (cloud)">휴대폰만으로 앱 만들기 (클라우드)</span></a><span class="cn__links"><a class="cn__link" href="../lab/app-mobile.html" data-cn-lab="app-mobile" data-en="Practice">실습</a><a class="cn__link" href="../ai/app-mobile.html" data-cn-read="app-mobile" data-en="Guide">강의</a></span></span></li><li class="cn__item" data-cn-item="app-android"><span class="cn__mark" aria-hidden="true"></span><span class="cn__main"><a class="cn__name" href="../lab/app-android.html"><span class="cn__no" data-en="App 4">앱 4</span><span class="cn__title" data-en="Turn it into an Android app (APK)">안드로이드 앱(APK)으로 만들기</span></a><span class="cn__links"><a class="cn__link" href="../lab/app-android.html" data-cn-lab="app-android" data-en="Practice">실습</a><a class="cn__link" href="../ai/app-android.html" data-cn-read="app-android" data-en="Guide">강의</a></span></span></li></ol></details><details class="cn__group" open><summary data-en="Terminal course (CLI · advanced)">터미널 과정 (CLI · 심화)</summary><ol class="cn__list"><li class="cn__item" data-cn-item="claude-code-install"><span class="cn__mark" aria-hidden="true"></span><span class="cn__main"><a class="cn__name" href="../lab/claude-code-install.html"><span class="cn__no" data-en="Terminal 1">터미널 1</span><span class="cn__title" data-en="Install Claude Code and give it a first task">Claude Code 설치하고 첫 작업 시키기</span></a><span class="cn__links"><a class="cn__link" href="../lab/claude-code-install.html" data-cn-lab="claude-code-install" data-en="Practice">실습</a><a class="cn__link" href="../ai/claude-code-install.html" data-cn-read="claude-code-install" data-en="Guide">강의</a></span></span></li><li class="cn__item" data-cn-item="claude-code-edit-file"><span class="cn__mark" aria-hidden="true"></span><span class="cn__main"><a class="cn__name" href="../lab/claude-code-edit-file.html"><span class="cn__no" data-en="Terminal 2">터미널 2</span><span class="cn__title" data-en="Have it edit a file">만든 파일 고치게 하기</span></a><span class="cn__links"><a class="cn__link" href="../lab/claude-code-edit-file.html" data-cn-lab="claude-code-edit-file" data-en="Practice">실습</a><a class="cn__link" href="../ai/claude-code-edit-file.html" data-cn-read="claude-code-edit-file" data-en="Guide">강의</a></span></span></li><li class="cn__item is-current" data-cn-item="claude-code-sessions"><span class="cn__mark" aria-hidden="true"></span><span class="cn__main"><a class="cn__name" href="../lab/claude-code-sessions.html"><span class="cn__no" data-en="Terminal 3">터미널 3</span><span class="cn__title" data-en="Start fresh or pick up later">대화 새로 시작하기·이어 하기</span></a><span class="cn__links"><a class="cn__link" href="../lab/claude-code-sessions.html" data-cn-lab="claude-code-sessions" data-en="Practice">실습</a><a class="cn__link" href="../ai/claude-code-sessions.html" aria-current="page" data-cn-read="claude-code-sessions" data-en="Guide">강의</a></span></span></li><li class="cn__item" data-cn-item="claude-code-organize-files"><span class="cn__mark" aria-hidden="true"></span><span class="cn__main"><a class="cn__name" href="../lab/claude-code-organize-files.html"><span class="cn__no" data-en="Terminal 4">터미널 4</span><span class="cn__title" data-en="Organize several files at once">여러 파일 한꺼번에 정리하기</span></a><span class="cn__links"><a class="cn__link" href="../lab/claude-code-organize-files.html" data-cn-lab="claude-code-organize-files" data-en="Practice">실습</a><a class="cn__link" href="../ai/claude-code-organize-files.html" data-cn-read="claude-code-organize-files" data-en="Guide">강의</a></span></span></li></ol></details>
+      <p class="cn__legend"><span><i class="cn__mark is-done"></i><span data-en="Done">완료</span></span><span><i class="cn__mark is-doing"></i><span data-en="In progress">진행 중</span></span><span><i class="cn__mark"></i><span data-en="Not started">아직</span></span><span><i class="cn__mark cn__mark--plan"></i><span data-en="Planned">준비 중</span></span></p>
+    </div>
+  </details>
+</aside>
+<div class="with-course__main">
+<article class="article">
+      <div class="notice series-notice" data-en-html="&lt;b&gt;Terminal course (CLI · advanced)&lt;/b&gt; — this uses the black text window (PowerShell, Terminal). If you&#x27;re new, start with the &lt;a href=&quot;../ai/desktop-install.html&quot;&gt;desktop course&lt;/a&gt;, which only needs button clicks."><b>터미널 과정(CLI · 심화)</b> — 검은 글자 창(PowerShell·터미널)에서 쓰는 방법이에요. 처음이라면 버튼만 누르면 되는 <a href="../ai/desktop-install.html">데스크톱 과정</a>부터 보세요.</div>
+      <p class="practice-hint" data-en-html="👆 This is also available as a &lt;b&gt;tap-along practice&lt;/b&gt;. New? Try the practice first and use this guide to review. &lt;a href=&quot;../lab/claude-code-sessions.html&quot;&gt;Start the practice →&lt;/a&gt;">👆 이 내용은 <b>버튼 따라 하는 실습</b>으로도 있어요. 처음이라면 실습으로 직접 해 보고, 이 글은 복습할 때 보세요. <a href="../lab/claude-code-sessions.html">실습 시작하기 →</a></p>
+      <div class="only-ko" lang="ko">
+        <p class="muted small">※ 글 속 그림은 따라 하기 쉽도록 그린 예시입니다. 실제 화면과 모양이 조금 다를 수 있어요.</p>
+
+        <div class="notice"><b>시작하기 전에</b> — <a href="../ai/claude-code-install.html">1편</a>과 <a href="../ai/claude-code-edit-file.html">2편</a>을 따라 해서 바탕화면 <b>연습</b> 폴더에 <b>할일.txt</b>가 있어야 합니다.</div>
+
+        <h2>오늘 새로 배우는 것</h2>
+        <ol>
+          <li>대화를 비우고 <b>새로 시작하기</b> — <code>/clear</code></li>
+          <li>껐다가 다음에 <b>이어서 하기</b> — <code>claude -c</code></li>
+          <li>예전 대화를 <b>골라서 이어 하기</b> — <code>/resume</code></li>
+        </ol>
+
+        <h2>먼저 알아 두기 — "대화"가 뭔가요?</h2>
+        <p>Claude Code를 켠 뒤 주고받은 말 전체를 <b>대화</b>라고 해요. 같은 대화 안에서는 Claude가 앞의 이야기를 기억해서, "아까 그 파일"이라고만 해도 알아들어요.</p>
+        <p>대신 대화가 너무 길어지면 Claude가 헷갈리거나 느려질 수 있어요. 그래서 <b>다른 일을 시작할 때는 대화를 새로</b> 여는 게 좋아요.</p>
+        <div class="notice"><b>안심하세요</b> — 대화를 비워도 <b>파일은 그대로</b>예요. 지워지는 건 Claude와 나눈 말뿐이고, 할일.txt 같은 파일은 사라지지 않아요.</div>
+
+        <h2>1. Claude Code 켜기</h2>
+        <p>2편의 1번과 똑같습니다. 연습 폴더를 열고 → 주소 칸에 <b>powershell</b> → <kbd>Enter</kbd> → <b>claude</b> → <kbd>Enter</kbd>.<br>
+        <span class="muted">(Mac은 터미널에서 <b>cd</b> + 한 칸 띄우고 연습 폴더를 끌어다 놓고 <kbd>Enter</kbd> → <b>claude</b> → <kbd>Enter</kbd>)</span></p>
+
+        <h2>2. 대화를 비우고 새로 시작하기 — /clear</h2>
+        <p>입력 칸에 <b>/</b>(슬래시, 키보드 오른쪽 아래 <kbd>?</kbd> 키)를 치면 쓸 수 있는 명령 목록이 나와요. 이렇게 <b>/로 시작하는 말</b>은 Claude에게 하는 부탁이 아니라 <b>Claude Code를 조작하는 명령</b>이에요.</p>
+        <div class="code"><span class="code__label">입력하고 Enter</span><pre><code>/clear</code></pre></div>
+        <figure class="shot"><img src="../assets/img/ai/claude-code-sessions/cc-clear.webp" alt="입력 칸에 /clear 를 입력하는 그림" loading="lazy"></figure>
+        <p>화면이 깨끗해지면 새 대화가 시작된 거예요. 정말 잊었는지 확인해 볼까요?</p>
+        <div class="code"><span class="code__label">따라 입력해 보세요</span><pre><code>방금 우리가 무슨 이야기 했지?</code></pre></div>
+        <p>Claude가 <b>"이전 대화 내용이 없다"</b>는 식으로 답하면 성공이에요.</p>
+
+        <h2>3. 껐다가 다음에 이어서 하기 — claude -c</h2>
+        <p>오늘 하던 일을 내일 이어서 하고 싶을 때 써요.</p>
+        <ol>
+          <li><b>/exit</b> 를 입력하고 <kbd>Enter</kbd> 한 뒤, 창을 닫습니다. (오늘 일을 끝냈다고 생각하세요)</li>
+          <li>1번처럼 <b>연습 폴더에서</b> 창을 다시 엽니다.</li>
+          <li>이번에는 <b>claude</b> 대신 아래처럼 입력하고 <kbd>Enter</kbd>.</li>
+        </ol>
+        <div class="code"><span class="code__label">입력하고 Enter</span><pre><code>claude -c</code></pre></div>
+        <p><b>-c</b> 는 "이어서(continue)"라는 뜻이에요. <b>claude</b> 다음에 <b>한 칸 띄우고</b> 적으세요.</p>
+        <figure class="shot"><img src="../assets/img/ai/claude-code-sessions/cc-continue.webp" alt="claude -c 로 켜면 마지막 대화가 이어지는 그림" loading="lazy"></figure>
+        <p>마지막으로 했던 대화("방금 우리가 무슨 이야기 했지?")가 화면에 그대로 보이면 성공이에요. 이제 이어서 부탁하면 됩니다.</p>
+        <div class="notice"><b>꼭 같은 폴더에서</b> — 대화 기록은 <b>창을 연 폴더마다 따로</b> 저장돼요. 다른 폴더에서 <b>claude -c</b> 를 하면 이어 할 대화를 못 찾아요.</div>
+
+        <h2>4. 예전 대화를 골라서 이어 하기 — /resume</h2>
+        <p>마지막 대화가 아니라 <b>며칠 전 대화</b>를 이어 하고 싶을 때 써요.</p>
+        <div class="code"><span class="code__label">입력하고 Enter</span><pre><code>/resume</code></pre></div>
+        <figure class="shot"><img src="../assets/img/ai/claude-code-sessions/cc-resume.webp" alt="/resume 으로 예전 대화 목록에서 하나를 고르는 그림" loading="lazy"></figure>
+        <p>예전 대화 목록이 나오면 <kbd>↑</kbd><kbd>↓</kbd> 로 고르고 <kbd>Enter</kbd>. 그 대화가 열리고 이어서 부탁할 수 있어요.</p>
+        <p class="muted">처음 켤 때부터 고르고 싶다면 <b>claude</b> 대신 <b>claude -r</b> 로 켜도 같은 목록이 나와요.</p>
+
+        <h2>언제 무엇을 쓸까요?</h2>
+        <table>
+          <thead><tr><th>이럴 때</th><th>이렇게</th></tr></thead>
+          <tbody>
+            <tr><td>전혀 다른 일을 시작할 때</td><td><code>/clear</code> (대화만 비움, 파일은 그대로)</td></tr>
+            <tr><td>어제 하던 일을 이어서</td><td><code>claude -c</code> 로 켜기</td></tr>
+            <tr><td>며칠 전 대화를 골라서</td><td><code>/resume</code> (또는 <code>claude -r</code> 로 켜기)</td></tr>
+          </tbody>
+        </table>
+
+        <h2>잘 안 될 때</h2>
+        <table>
+          <thead><tr><th>이런 경우</th><th>이렇게 하세요</th></tr></thead>
+          <tbody>
+            <tr><td>claude -c 를 했는데 이어 할 대화가 없다고 나옴</td><td>연습 폴더에서 창을 열었는지 확인하세요. 대화는 폴더마다 따로 저장돼요.</td></tr>
+            <tr><td>/resume 목록에 대화가 하나뿐임</td><td>정상이에요. 그 폴더에서 나눈 대화가 그만큼뿐이라는 뜻이에요.</td></tr>
+            <tr><td>/ 를 쳤는데 목록이 안 나옴</td><td>입력 칸 맨 앞에 / 를 쳤는지 확인하세요. 한글 입력 상태라면 <kbd>한/영</kbd> 키를 누르세요.</td></tr>
+          </tbody>
+        </table>
+
+        <h2>오늘 배운 것</h2>
+        <ul>
+          <li>Claude는 <b>같은 대화 안에서만</b> 앞의 이야기를 기억한다.</li>
+          <li><b>/clear</b> 는 대화만 비운다. <b>파일은 그대로</b>다.</li>
+          <li>다음 날 이어 할 때는 <b>같은 폴더</b>에서 <b>claude -c</b>, 예전 대화를 고를 때는 <b>/resume</b>.</li>
+        </ul>
+        <p>다음 글에서는 <b>여러 파일을 한꺼번에 정리</b>하면서, 새로운 허락 화면("명령을 실행해도 될까요?")을 읽는 법을 배웁니다.</p>
+      </div>
+      <div class="only-en" lang="en">
+        <p class="muted small">※ The pictures in this guide are illustrations to make it easy to follow. Your screen may look a little different.</p>
+
+        <div class="notice"><b>Before you start</b> — follow <a href="../ai/claude-code-install.html">Guide 1</a> and <a href="../ai/claude-code-edit-file.html">Guide 2</a> so that <b>todo.txt</b> is in the <b>Practice</b> folder on your desktop.</div>
+
+        <h2>What you'll learn today</h2>
+        <ol>
+          <li>Clear the conversation and <b>start fresh</b> — <code>/clear</code></li>
+          <li>Close it and <b>pick up later</b> — <code>claude -c</code></li>
+          <li><b>Choose an older conversation</b> to continue — <code>/resume</code></li>
+        </ol>
+
+        <h2>First — what is a "conversation"?</h2>
+        <p>Everything you and Claude say after you start Claude Code is a <b>conversation</b>. Within the same conversation, Claude remembers what was said, so "that file from earlier" is enough.</p>
+        <p>But if a conversation gets very long, Claude can get confused or slow down. So it's best to <b>start a new conversation when you start a different task</b>.</p>
+        <div class="notice"><b>Don't worry</b> — clearing the conversation <b>doesn't touch your files</b>. Only the messages with Claude go away; files like todo.txt stay.</div>
+
+        <h2>1. Start Claude Code</h2>
+        <p>Same as step 1 in Guide 2. Open the practice folder → type <b>powershell</b> in the address bar → <kbd>Enter</kbd> → <b>claude</b> → <kbd>Enter</kbd>.<br>
+        <span class="muted">(On a Mac: in Terminal, type <b>cd</b> and a space, drag in the practice folder, press <kbd>Enter</kbd> → <b>claude</b> → <kbd>Enter</kbd>)</span></p>
+
+        <h2>2. Clear the conversation and start fresh — /clear</h2>
+        <p>Type <b>/</b> (slash, the <kbd>?</kbd> key at the bottom right of the keyboard) in the box and a list of commands appears. Things that <b>start with /</b> aren't requests to Claude; they're <b>commands that control Claude Code itself</b>.</p>
+        <div class="code"><span class="code__label">Type and press Enter</span><pre><code>/clear</code></pre></div>
+        <figure class="shot"><img src="../assets/img/ai/claude-code-sessions/en/cc-clear.webp" alt="Typing /clear in the box" loading="lazy"></figure>
+        <p>When the screen clears, a new conversation has started. Let's check that it really forgot.</p>
+        <div class="code"><span class="code__label">Type this</span><pre><code>What were we just talking about?</code></pre></div>
+        <p>If Claude says something like <b>"there's no earlier conversation"</b>, it worked.</p>
+
+        <h2>3. Close it and pick up later — claude -c</h2>
+        <p>Use this when you want to continue today's work tomorrow.</p>
+        <ol>
+          <li>Type <b>/exit</b>, press <kbd>Enter</kbd>, and close the window. (Pretend you're done for the day.)</li>
+          <li>Open the window again <b>in the practice folder</b>, as in step 1.</li>
+          <li>This time, instead of <b>claude</b>, type the following and press <kbd>Enter</kbd>.</li>
+        </ol>
+        <div class="code"><span class="code__label">Type and press Enter</span><pre><code>claude -c</code></pre></div>
+        <p><b>-c</b> means "continue". Type it after <b>claude</b> with <b>one space</b> in between.</p>
+        <figure class="shot"><img src="../assets/img/ai/claude-code-sessions/en/cc-continue.webp" alt="Starting with claude -c continues the last conversation" loading="lazy"></figure>
+        <p>If you see your last conversation ("What were we just talking about?") on screen, it worked. Now just keep asking.</p>
+        <div class="notice"><b>Use the same folder</b> — conversations are saved <b>separately for each folder</b> you open the window in. Run <b>claude -c</b> in a different folder and it won't find the conversation.</div>
+
+        <h2>4. Choose an older conversation — /resume</h2>
+        <p>Use this when you want to continue a conversation from <b>a few days ago</b>, not the last one.</p>
+        <div class="code"><span class="code__label">Type and press Enter</span><pre><code>/resume</code></pre></div>
+        <figure class="shot"><img src="../assets/img/ai/claude-code-sessions/en/cc-resume.webp" alt="Choosing an older conversation from the /resume list" loading="lazy"></figure>
+        <p>When the list of older conversations appears, choose one with <kbd>↑</kbd><kbd>↓</kbd> and press <kbd>Enter</kbd>. That conversation opens and you can carry on.</p>
+        <p class="muted">To choose right when you start, type <b>claude -r</b> instead of <b>claude</b>. You'll see the same list.</p>
+
+        <h2>Which one, when?</h2>
+        <table>
+          <thead><tr><th>When</th><th>Use</th></tr></thead>
+          <tbody>
+            <tr><td>Starting something completely different</td><td><code>/clear</code> (clears only the chat; files stay)</td></tr>
+            <tr><td>Continuing yesterday's work</td><td>Start with <code>claude -c</code></td></tr>
+            <tr><td>Picking a conversation from days ago</td><td><code>/resume</code> (or start with <code>claude -r</code>)</td></tr>
+          </tbody>
+        </table>
+
+        <h2>If something goes wrong</h2>
+        <table>
+          <thead><tr><th>If this happens</th><th>Do this</th></tr></thead>
+          <tbody>
+            <tr><td>claude -c says there's no conversation to continue</td><td>Check that you opened the window in the practice folder. Conversations are saved per folder.</td></tr>
+            <tr><td>The /resume list has only one conversation</td><td>That's normal. It just means that's all you've had in that folder.</td></tr>
+            <tr><td>Typing / shows no list</td><td>Make sure / is the very first thing in the box, and that your keyboard is set to English.</td></tr>
+          </tbody>
+        </table>
+
+        <h2>What you learned today</h2>
+        <ul>
+          <li>Claude remembers earlier messages <b>only within the same conversation</b>.</li>
+          <li><b>/clear</b> clears only the conversation. <b>Your files stay</b>.</li>
+          <li>To continue the next day, use <b>claude -c</b> in the <b>same folder</b>; to pick an older one, use <b>/resume</b>.</li>
+        </ul>
+        <p>In the next guide you'll <b>organize several files at once</b> and learn to read a new permission screen: "May I run this command?"</p>
+      </div>
+      <nav class="article-nav" aria-label="이전 글, 다음 글" data-en-aria-label="Previous and next guides">
+        <a class="article-nav__link article-nav__link--prev" href="../ai/claude-code-edit-file.html"><span class="article-nav__kind" data-en="← Previous">← 이전 글</span><span class="article-nav__title" data-en="Claude Code in the terminal (CLI · advanced) · Part 2 · Have it edit a file">Claude Code 터미널 과정 (CLI · 심화) 2편 · 만든 파일 고치게 하기</span></a>
+        <a class="article-nav__link article-nav__link--next" href="../ai/claude-code-organize-files.html"><span class="article-nav__kind" data-en="Next →">다음 글 →</span><span class="article-nav__title" data-en="Claude Code in the terminal (CLI · advanced) · Part 4 · Organize several files at once">Claude Code 터미널 과정 (CLI · 심화) 4편 · 여러 파일 한꺼번에 정리하기</span></a>
+      </nav>
+    </article>
+</div>
+</div>
+  </div>
+</section>
+<script src="../assets/js/course-nav.js?v=41297a5727" defer></script>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div>
+      <a class="brand" href="../index.html"><img class="brand__mark" src="https://earlln.com/wp-content/uploads/2025/10/cropped-%EB%94%A5%EB%84%A4%EC%9D%B4%EB%B9%84%EB%8F%99%EA%B7%B8%EB%9D%BC%EB%AF%B8%EB%B0%B0%EA%B2%BD%EC%9C%84%EC%97%90_ci_%EB%82%B4%EB%B6%80%ED%9D%B0%EC%83%89_512_512-removebg.png" data-fallback="../assets/img/logo.svg" alt="" width="36" height="36"><span class="brand__text">Earlln<small data-en="Do Earlln · get it done, quickly">Do Earlln · 얼른 하세요</small></span></a>
+      <p data-en="We build tools that finish Excel, PowerPoint and project work quickly.">엑셀 · 파워포인트 · 프로젝트 관리 업무를 "얼른" 끝내는 자동화 도구를 만듭니다.</p>
+    </div>
+    <div>
+      <h4 data-en="Menu">메뉴</h4>
+      <ul>
+        <li><a href="../product.html" data-en="Product">제품</a></li>
+        <li><a href="../news.html" data-en="News">소식</a></li>
+        <li><a href="../lab.html" data-en="AI AGENT">AI AGENT</a></li>
+        <li><a href="../license.html" data-en="License">라이선스</a></li>
+        <li><a href="../contacts.html" data-en="Contacts">고객문의</a></li>
+        <li><a href="../bible.html" data-en="Bible search">성경 구절 검색</a></li>
+        <li><a href="../index.html#support" data-en="Support">후원</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 data-en="Contact">연락처</h4>
+      <ul>
+        <li><a href="mailto:9709073@naver.com" data-email>9709073@naver.com</a></li>
+        <li><a href="https://www.youtube.com/@earlln" target="_blank" rel="noopener" data-youtube-url data-en="Earlln on YouTube (@earlln)">유튜브 얼른 (@earlln)</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="legal">
+    <div class="container">
+      <span>© <span data-year>2026</span> Earlln.com · All rights reserved.</span>
+      <span><span data-en="Do Earlln — get it done, quickly">Do Earlln — 얼른 하세요</span> · <a href="../privacy.html" data-en="Privacy">개인정보처리방침</a> · <a href="../admin.html" data-en="Admin">관리</a></span>
+    </div>
+  </div>
+</footer>
+<script src="../assets/js/analytics.js?v=8435093977" defer></script>
+<script src="../assets/js/site.js?v=38cee4a6b2" defer></script>
+<div style="position:fixed;left:0;right:0;bottom:0;z-index:9999;background:#f5a524;color:#1a1300;font:700 13px/1.4 system-ui,sans-serif;text-align:center;padding:6px 10px;pointer-events:none">미리보기 · ccr-e807c3fb-g8xua6 · 실제 사이트가 아니에요</div>
+</body>
+</html>

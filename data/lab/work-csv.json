@@ -1,0 +1,245 @@
+{
+  "id": "work-csv",
+  "title": "엑셀(CSV) 합계·정렬·정리 맡기기",
+  "stages": [
+    "시작",
+    "예시 파일 준비",
+    "살펴보기",
+    "이상한 곳 찾기",
+    "정리본 만들기",
+    "합계 내기",
+    "엑셀로 확인",
+    "총정리"
+  ],
+  "steps": [
+    {
+      "id": "intro",
+      "stage": 1,
+      "title": "오늘 할 일",
+      "html": "<p>여기서부터는 <b>실무 활용</b>이에요. 매일 하는 일을 Claude에게 맡겨 봐요. 첫 번째는 <b>엑셀 정리</b>예요.</p><p>오늘은 지점별 매출 파일에서 <b>이상한 데이터를 찾고, 정리본을 만들고, 합계를 내요.</b></p><h3>CSV가 뭔가요?</h3><p>엑셀 표를 <b>쉼표(,)로 칸을 나눈 글자 파일</b>로 저장한 것이에요. 엑셀로도, 메모장으로도 열려요. Claude가 읽고 고치기 가장 쉬운 표 형식이라 오늘은 CSV로 해요.</p><ul><li>걸리는 시간: 20분</li><li>필요한 것: <a href='{{base}}lab/desktop-usage.html'>데스크톱 입문</a>을 마친 컴퓨터. 엑셀이 없어도 괜찮아요</li></ul>",
+      "next": "get",
+      "button": "시작하기"
+    },
+    {
+      "id": "get",
+      "stage": 2,
+      "title": "예시 매출 파일 내려받기",
+      "html": "<p>세 지점(강남점·홍대점·부산점)의 11월 커피 매출 18줄이에요. <b>일부러 실수 몇 개를 숨겨 두었어요.</b> 오늘 Claude와 함께 찾아볼 거예요.</p><p class='lab__links'><a class='btn btn--primary' href='{{base}}assets/files/work/sales-ko.csv' download='매출.csv'>⬇ 예시 파일 매출.csv 내려받기</a></p><p class='muted'>컴퓨터의 <b>다운로드</b> 폴더에 매출.csv로 저장돼요.</p>",
+      "check": {
+        "q": "매출.csv를 내려받았나요?",
+        "yes": "move",
+        "no": "get-help"
+      }
+    },
+    {
+      "id": "get-help",
+      "kind": "help",
+      "title": "내려받기가 안 될 때",
+      "html": "<ul><li>버튼을 눌렀는데 화면에 글자만 보이면, 그 화면에서 <kbd>Ctrl</kbd>+<kbd>S</kbd>(Mac은 <kbd>⌘</kbd>+<kbd>S</kbd>)로 저장하세요. 이름은 <b>매출.csv</b>.</li><li>휴대폰으로 보고 있다면 컴퓨터에서 이 페이지를 열어 주세요.</li></ul>",
+      "choices": [
+        {
+          "label": "다시 해 볼게요",
+          "next": "get"
+        },
+        {
+          "label": "내려받았어요",
+          "next": "move"
+        }
+      ]
+    },
+    {
+      "id": "move",
+      "stage": 2,
+      "title": "연습 폴더로 옮기기",
+      "html": "<p>Claude는 <b>고른 폴더(연습) 안의 파일</b>만 다뤄요. 그래서 내려받은 파일을 연습 폴더로 옮겨야 해요.</p><ol><li>파일 탐색기(Mac은 Finder)를 열고 왼쪽에서 <b>다운로드</b>를 누릅니다.</li><li>바탕화면의 <b>연습</b> 폴더도 엽니다. 두 창을 나란히 놓으세요.</li><li><b>매출.csv</b>를 연습 창으로 <b>끌어다 놓습니다</b>.</li></ol>",
+      "image": "assets/img/ai/work-csv/move.webp",
+      "alt": "다운로드 창의 매출.csv를 연습 창으로 끌어다 놓는 그림",
+      "check": {
+        "q": "연습 폴더에 매출.csv가 있나요?",
+        "yes": "open",
+        "no": "move-help"
+      }
+    },
+    {
+      "id": "move-help",
+      "kind": "help",
+      "title": "끌어다 놓기가 어려우면",
+      "html": "<ol><li>다운로드 폴더에서 매출.csv를 <b>마우스 오른쪽 버튼</b>으로 누르고 <b>잘라내기</b>(Mac은 <b>복사</b>)를 고릅니다.</li><li>연습 폴더 빈 곳을 오른쪽 버튼으로 누르고 <b>붙여넣기</b>.</li></ol>",
+      "choices": [
+        {
+          "label": "다시 해 볼게요",
+          "next": "move"
+        },
+        {
+          "label": "옮겼어요",
+          "next": "open"
+        }
+      ]
+    },
+    {
+      "id": "open",
+      "stage": 3,
+      "title": "새 대화로 시작하기",
+      "html": "<p>Claude 앱 → <b>Code</b> 탭 → <b>+ New</b>. 입력 칸 아래가 <b>Local · 연습 · Manual</b>인지 확인하세요.</p>",
+      "check": {
+        "q": "Local · 연습 · Manual 이 모두 보이나요?",
+        "yes": "explain",
+        "no": "open-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "open-help",
+      "kind": "help",
+      "title": "시작 화면이 다를 때",
+      "html": "<ul><li>폴더가 연습이 아니면 폴더 버튼 → <b>Open folder…</b>로 연습 폴더를 고르세요.</li><li>허락 방식 버튼을 눌러 <b>Manual</b>을 고르세요.</li></ul>"
+    },
+    {
+      "id": "explain",
+      "stage": 3,
+      "title": "어떤 데이터인지 먼저 물어보기",
+      "html": "<p>처음 보는 파일은 <b>무엇이 들어 있는지</b>부터 물어보세요. 읽기만 하니까 허락은 묻지 않아요.</p>",
+      "code": "매출.csv가 어떤 데이터인지 쉽게 설명해줘",
+      "codeLabel": "따라 입력해 보세요",
+      "check": {
+        "q": "날짜·지점·품목·수량·단가·금액 같은 칸을 설명해 주었나요?",
+        "yes": "issues",
+        "no": "explain-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "explain-help",
+      "kind": "help",
+      "title": "파일을 못 찾는다고 할 때",
+      "html": "<ul><li>매출.csv가 <b>연습 폴더 안</b>에 있는지 확인하세요. 다운로드 폴더에 있으면 Claude가 못 봐요.</li><li>입력 칸 아래 폴더가 <b>연습</b>인지 확인하세요.</li></ul>"
+    },
+    {
+      "id": "issues",
+      "stage": 4,
+      "title": "이상한 데이터 찾게 하기",
+      "html": "<p>바로 고치게 하지 말고, <b>먼저 찾게</b> 하세요. 무엇이 문제인지 내가 알고 나서 고쳐야 안전해요.</p>",
+      "image": "assets/img/ai/work-csv/issues.webp",
+      "alt": "Claude가 이름이 다른 지점, 중복 줄, 빈 수량을 찾아낸 그림",
+      "code": "매출.csv에 이상한 데이터가 있는지 찾아줘. 아직 고치지는 마",
+      "codeLabel": "따라 입력해 보세요",
+      "check": {
+        "q": "지점 이름·중복·빈칸 같은 문제를 찾아 주었나요?",
+        "yes": "clean",
+        "no": "issues-help",
+        "yesLabel": "네, 찾았어요"
+      },
+      "ask": true
+    },
+    {
+      "id": "issues-help",
+      "kind": "help",
+      "title": "찾은 게 다르거나 바로 고치려 할 때",
+      "html": "<ul><li>숨겨 둔 문제는 세 가지예요: <b>\"강남 점\"</b>(띄어쓰기), <b>11월 8일 강남점 아메리카노 중복</b>, <b>11월 10일 부산점 케이크 수량 빈칸</b>. 덜 찾았다면 \"더 없는지 한 번 더 봐줘\"라고 하세요.</li><li>허락 카드가 나오면 <b>거절</b>하세요. 아직 고칠 때가 아니에요.</li></ul>",
+      "choices": [
+        {
+          "label": "다시 해 볼게요",
+          "next": "issues"
+        },
+        {
+          "label": "다음으로",
+          "next": "clean"
+        }
+      ]
+    },
+    {
+      "id": "clean",
+      "stage": 5,
+      "title": "원본은 두고, 정리본을 새로 만들기",
+      "html": "<p>원본을 바로 고치지 말고 <b>새 파일</b>로 만들게 하세요. 잘못돼도 원본이 남아 있어요. (데스크톱 6에서 배운 복사본 습관!)</p><p>파일 만들기 허락 카드를 읽고 <b>허용</b>하세요.</p>",
+      "code": "원본은 그대로 두고, 찾은 문제를 고친 파일을 매출_정리.csv로 새로 만들어줘. 빈 수량은 금액÷단가로 채우고, 엑셀에서 한글이 깨지지 않게 저장해줘",
+      "codeLabel": "따라 입력해 보세요",
+      "check": {
+        "q": "연습 폴더에 매출_정리.csv가 새로 생겼나요?",
+        "yes": "sum",
+        "no": "clean-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "clean-help",
+      "kind": "help",
+      "title": "정리본이 안 생겼을 때",
+      "html": "<ul><li>허락 카드를 거절했다면 다시 보내고 허용하세요.</li><li>원본(매출.csv)을 고치는 카드가 나오면 거절하고 \"원본은 건드리지 말고 새 파일로\"라고 다시 말하세요.</li></ul>"
+    },
+    {
+      "id": "sum",
+      "stage": 6,
+      "title": "지점별 합계 내기",
+      "html": "<p>이제 정리본으로 계산해요. <b>어느 파일로 계산할지</b> 꼭 말해 주세요.</p>",
+      "image": "assets/img/ai/work-csv/sum.webp",
+      "alt": "정리한 파일로 지점별 매출 합계를 낸 표 그림",
+      "code": "매출_정리.csv로 지점별 매출 합계를 큰 순서대로 표로 보여줘",
+      "codeLabel": "따라 입력해 보세요",
+      "check": {
+        "q": "강남점 277,000원 · 홍대점 266,500원 · 부산점 153,000원이 나왔나요?",
+        "yes": "excel",
+        "no": "sum-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "sum-help",
+      "kind": "help",
+      "title": "숫자가 다를 때",
+      "html": "<ul><li>강남점이 <b>340,000원</b>이면 중복 줄이 아직 들어 있어요. 강남점이 251,000원이고 \"강남 점\"이 따로 26,000원이면 이름이 안 합쳐졌어요.</li><li>\"매출_정리.csv를 다시 확인하고, 중복 줄과 '강남 점'을 고친 뒤 다시 계산해줘\"라고 말해 보세요.</li><li>이렇게 <b>내가 아는 숫자와 맞춰 보는 것</b>이 실무에서 가장 중요한 습관이에요.</li></ul>",
+      "choices": [
+        {
+          "label": "다시 계산해 볼게요",
+          "next": "sum"
+        },
+        {
+          "label": "다음으로",
+          "next": "excel"
+        }
+      ]
+    },
+    {
+      "id": "excel",
+      "stage": 7,
+      "title": "엑셀로 열어 확인하기",
+      "html": "<p>연습 폴더에서 <b>매출_정리.csv</b>를 두 번 누르세요. 엑셀이 있으면 엑셀로 열려요.</p><ul><li>17줄이고(중복 1줄이 빠짐), \"강남 점\"이 \"강남점\"으로 바뀌고, 11월 10일 부산점 케이크 수량이 <b>2</b>로 채워졌는지 보세요.</li><li>엑셀이 없으면 메모장(Mac은 텍스트 편집기)으로 열어도 돼요.</li></ul>",
+      "check": {
+        "q": "정리된 내용이 보이나요? (한글도 잘 보이나요?)",
+        "yes": "more",
+        "no": "excel-help"
+      }
+    },
+    {
+      "id": "excel-help",
+      "kind": "help",
+      "title": "엑셀에서 글자가 깨질 때",
+      "html": "<p>엑셀은 CSV의 한글을 잘못 읽을 때가 있어요. 엑셀을 닫고 Claude에게 이렇게 말하세요.</p><p><b>\"매출_정리.csv가 엑셀에서 한글이 깨져. UTF-8 BOM으로 다시 저장해줘\"</b></p><p>허락 카드를 허용한 뒤 다시 열어 보세요.</p>",
+      "choices": [
+        {
+          "label": "다시 열어 볼게요",
+          "next": "excel"
+        },
+        {
+          "label": "다음으로",
+          "next": "more"
+        }
+      ]
+    },
+    {
+      "id": "more",
+      "stage": 7,
+      "title": "이런 것도 시켜 보세요",
+      "html": "<ul><li>\"품목별로 몇 잔(개) 팔렸는지 표로\"</li><li>\"날짜순으로 정렬해서 매출_정렬.csv로 저장해줘\"</li><li>\"지점별로 가장 많이 팔린 품목은?\"</li><li>\"하루 평균 매출이 가장 높은 지점은?\"</li></ul><div class='lab__tip'>내 실제 파일로 할 때는 <b>먼저 복사본을 연습 폴더에</b> 넣고 하세요. 고객 이름·전화번호 같은 개인정보가 있는 파일은 조심하세요.</div>",
+      "next": "summary",
+      "button": "알겠어요, 정리 보기"
+    },
+    {
+      "id": "summary",
+      "stage": 8,
+      "kind": "summary",
+      "title": "🎉 실무 실습 1 완료! 오늘 배운 것 정리",
+      "html": "<p>엑셀로 하나하나 찾고 더했을 일을, 말 몇 마디로 끝냈어요.</p><div class='lab__flow'><span>무엇인지 묻기</span><i>→</i><span>문제 먼저 찾기</span><i>→</i><span>정리본 따로 만들기</span><i>→</i><span>계산하고 맞춰 보기</span></div><h3>실무에서 꼭 지킬 세 가지</h3><ol><li><b>고치기 전에 먼저 찾게</b> 하세요. 무엇이 문제인지 알고 고쳐야 해요.</li><li><b>원본은 두고 새 파일로.</b> 잘못돼도 되돌릴 수 있어요.</li><li><b>숫자는 맞춰 보세요.</b> 아는 합계 하나와 비교하는 것만으로도 큰 실수를 막아요.</li></ol><p class='lab__links'><a class='btn btn--primary' href='{{base}}lab/work-summary.html'>다음: 실무 2 · 긴 문서 요약하기 →</a><a class='btn btn--ghost' href='{{base}}ai/work-csv.html'>오늘 내용 글로 다시 보기</a></p>"
+    }
+  ]
+}

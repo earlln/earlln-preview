@@ -1,0 +1,150 @@
+{
+  "id": "mobile-github",
+  "title": "Cloud setup: make a GitHub repository and connect it",
+  "stages": [
+    "Start",
+    "Join GitHub",
+    "Make a repository",
+    "Connect Claude",
+    "Install the app",
+    "Wrap-up"
+  ],
+  "steps": [
+    {
+      "id": "intro",
+      "stage": 1,
+      "title": "What we'll do today",
+      "html": "<p>In Phone 1 you controlled the Claude on <b>your computer</b> from your phone. It didn't work when the computer was off.</p><p>This course has Claude work on a computer on the internet (<b>the cloud</b>), <b>no computer of yours needed</b>. Today is just the <b>setup</b>.</p><ul><li>Time: 20 minutes</li><li>You need: an email address, a <b>paid Claude plan</b> (Pro or higher), and a web browser on your phone or computer</li></ul><div class='lab__tip'>There's a lot of signing up and settings today, so a <b>computer browser</b> is easier. A phone browser works too.</div><p class='muted'>New to GitHub? Try the 10-minute <a href='{{base}}lab/github-basics.html'>GitHub at a glance</a> first.</p>",
+      "next": "concept",
+      "button": "Let's start"
+    },
+    {
+      "id": "concept",
+      "stage": 1,
+      "title": "First, what's GitHub?",
+      "html": "<p>Claude in the cloud can't see the Practice folder on your computer, so files need to live in <b>a folder on the internet</b>. That folder is a <b>GitHub repository</b>.</p><table class='lab__terms'><tr><th>GitHub</th><td>A service that keeps files on the internet. Made for developers, but fine for notes too</td></tr><tr><th>Repository</th><td>One folder inside GitHub. Today you'll make a notes folder called <b>my-notes</b></td></tr><tr><th>Private</th><td>A repository only you can see. <b>Always make it private</b></td></tr></table>",
+      "next": "join",
+      "button": "Got it"
+    },
+    {
+      "id": "join",
+      "stage": 2,
+      "title": "Join GitHub",
+      "html": "<ol><li>Go to <b>github.com</b> in a browser and tap <b>Sign up</b>.</li><li>Choose an email, a password and a <b>username</b> (e.g. jane-kim).</li><li>Enter the <b>code</b> emailed to you, and you're in.</li></ol><p class='muted'>Already have an account? Just sign in. A free account is enough.</p>",
+      "check": {
+        "q": "Are you signed in to GitHub?",
+        "yes": "repo",
+        "no": "join-help"
+      }
+    },
+    {
+      "id": "join-help",
+      "kind": "help",
+      "title": "If signing up doesn't work",
+      "html": "<ul><li>No code? Check your spam folder.</li><li>Username taken? Add a number or a hyphen (-).</li><li>If a puzzle (human check) appears, just take it step by step.</li></ul>",
+      "choices": [
+        {
+          "label": "Let me try again",
+          "next": "join"
+        },
+        {
+          "label": "I'm signed in",
+          "next": "repo"
+        }
+      ]
+    },
+    {
+      "id": "repo",
+      "stage": 3,
+      "title": "Make a private repository called my-notes",
+      "html": "<ol><li>On GitHub, tap <b>+</b> at the top right → <b>New repository</b>.</li><li><b>Repository name</b>: <b>my-notes</b></li><li>Choose <b>Private</b>. <b>Really!</b></li><li>Tick <b>Add a README file</b>. (Claude needs a first file to work with)</li><li><b>Create repository</b>.</li></ol>",
+      "image": "assets/img/ai/mobile-cloud/en/new-repo.webp",
+      "alt": "Making a repository named my-notes, Private, with README ticked",
+      "check": {
+        "q": "Was my-notes created, with a Private label next to its name?",
+        "yes": "connect",
+        "no": "repo-help"
+      }
+    },
+    {
+      "id": "repo-help",
+      "kind": "help",
+      "title": "If making the repository doesn't work",
+      "html": "<ul><li>No <b>+</b> on your phone? Try the menu (☰) at the top left → <b>Repositories → New</b>.</li><li>Made it <b>Public</b> by mistake? Repository <b>Settings</b> → bottom <b>Change visibility</b> → Private.</li></ul>",
+      "choices": [
+        {
+          "label": "Let me try again",
+          "next": "repo"
+        },
+        {
+          "label": "It's made",
+          "next": "connect"
+        }
+      ]
+    },
+    {
+      "id": "connect",
+      "stage": 4,
+      "title": "Connect Claude to GitHub",
+      "html": "<ol><li>Go to <b>claude.ai/code</b> in a browser and sign in with your Claude account.</li><li>When it asks you to <b>Connect GitHub</b>, follow along and tap <b>Authorize</b> on the GitHub screen.</li><li>If you land back on claude.ai/code, it worked.</li></ol><p class='muted'>You only do this <b>once</b>.</p>",
+      "check": {
+        "q": "Did you authorize on GitHub and come back to claude.ai/code?",
+        "yes": "install",
+        "no": "connect-help"
+      }
+    },
+    {
+      "id": "connect-help",
+      "kind": "help",
+      "title": "If no connect prompt appears",
+      "html": "<ul><li>A <b>free</b> Claude account can't use the cloud. Check you're on Pro or higher.</li><li>Work (Team/Enterprise) accounts need an admin to turn on the GitHub connection.</li><li>If it's already connected, you go straight in. Move on to the next step.</li></ul>",
+      "choices": [
+        {
+          "label": "Let me try again",
+          "next": "connect"
+        },
+        {
+          "label": "Next",
+          "next": "install"
+        }
+      ]
+    },
+    {
+      "id": "install",
+      "stage": 5,
+      "title": "Install the Claude app on the private repository",
+      "html": "<p>For a private repository, the <b>Claude GitHub app</b> must be installed before Claude can get in.</p><ol><li>Go to <b>github.com/apps/claude</b> and tap <b>Install</b> (or Configure). claude.ai/code may also lead you to this screen.</li><li>Choose <b>Only select repositories</b> and pick just <b>my-notes</b>.</li><li><b>Install</b>.</li></ol><div class='lab__tip'>Don't choose <b>All repositories</b>. It's safest to let Claude into <b>only the repositories it needs</b>.</div>",
+      "image": "assets/img/ai/mobile-cloud/en/install-app.webp",
+      "alt": "Installing the Claude app on just my-notes with Only select repositories",
+      "check": {
+        "q": "Can you see my-notes in the repository list on claude.ai/code?",
+        "yes": "summary",
+        "no": "install-help",
+        "yesLabel": "Yes, it's there! 🎉"
+      }
+    },
+    {
+      "id": "install-help",
+      "kind": "help",
+      "title": "If my-notes isn't in the list",
+      "html": "<ul><li>Check you picked <b>my-notes</b> on the app install screen. You can change it in GitHub <b>Settings → Applications → Claude → Configure</b>.</li><li><b>Refresh</b> the claude.ai/code page.</li></ul>",
+      "choices": [
+        {
+          "label": "Let me try again",
+          "next": "install"
+        },
+        {
+          "label": "Show the wrap-up",
+          "next": "summary"
+        }
+      ]
+    },
+    {
+      "id": "summary",
+      "stage": 6,
+      "kind": "summary",
+      "title": "🎉 Phone practice 2 done! Cloud setup complete",
+      "html": "<p>You now have <b>a notes folder on the internet</b> where Claude can work without your computer.</p><div class='lab__flow'><span>Private GitHub repository my-notes</span><i>connected</i><span>Claude (claude.ai/code)</span><i>app installed</i><span>Ready</span></div><h3>Three things to remember</h3><ol><li>Always make repositories <b>Private</b>.</li><li>Install the Claude app on <b>selected repositories only</b> (my-notes).</li><li><b>Never put</b> passwords or account numbers in the repository.</li></ol><p class='lab__links'><a class='btn btn--primary' href='{{base}}lab/mobile-cloud.html'>Next: Phone 3 · Give the cloud a job from your phone →</a><a class='btn btn--ghost' href='{{base}}ai/mobile-cloud.html'>See the guide</a></p>"
+    }
+  ]
+}

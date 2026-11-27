@@ -1,0 +1,16 @@
+{
+  "name": "earllnRainOrNot — 지금 비 와?",
+  "short_name": "비와?",
+  "description": "근처 교통 CCTV 속 우산 쓴 사람 비율로 지금 비가 오는지 알려줍니다.",
+  "lang": "ko",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0b1f3a",
+  "theme_color": "#0b1f3a",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

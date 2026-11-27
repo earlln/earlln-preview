@@ -1,0 +1,709 @@
+{
+  "version": 2,
+  "updatedAt": "2026-11-26",
+  "settings": {
+    "siteName": "Do Earlln",
+    "tagline": "얼른 하세요",
+    "email": "9709073@naver.com",
+    "youtubeUrl": "https://www.youtube.com/@earlln",
+    "youtubeHandle": "earlln",
+    "youtubeChannelId": "UCbZK5OXTvhpMrgg5ddKWn4A",
+    "youtubeVideoId": "",
+    "bibleUrl": "https://earlln.com/?page_id=389",
+    "licenseFormUrl": "https://docs.google.com/forms/d/e/1FAIpQLSc59ZQQqbIboa2Ja7mjg4NovCDJuSYM4LZC7xQfadTxfwzddA/viewform",
+    "banner": {
+      "enabled": false,
+      "text": "",
+      "url": "",
+      "text_en": ""
+    }
+  },
+  "products": [
+    {
+      "id": "earllne",
+      "name": "EarllnE",
+      "category": "office",
+      "badge": "Earlln for Excel",
+      "tagline": "엑셀 애드인",
+      "tagline_en": "Excel add-in",
+      "lead": "엑셀 에드인.",
+      "lead_en": "An Excel add-in.",
+      "icon": "excel",
+      "letter": "E",
+      "features": [
+        {
+          "ko": "시트 리스트 조회, 시트명 일괄 변경, 시트 정렬 등 시트관련 기능",
+          "en": "Sheet tools: list sheets, rename them in bulk, sort them"
+        },
+        {
+          "ko": "엑셀파일들 불러오기",
+          "en": "Pull in several Excel files at once"
+        },
+        {
+          "ko": "정규식을 활용한 엑셀 작업",
+          "en": "Work on cells with regular expressions"
+        },
+        {
+          "ko": "여러 라인을 한 라인으로",
+          "en": "Collapse several lines into one"
+        },
+        {
+          "ko": "중복라인 컬러로 표시하기",
+          "en": "Colour duplicate rows"
+        },
+        {
+          "ko": "그 밖에 여러 엑셀 편리기능 50여가지",
+          "en": "More than 50 further conveniences"
+        }
+      ],
+      "downloads": [
+        {
+          "label": "최신버전",
+          "label_en": "Latest",
+          "version": "v2.1",
+          "date": "2026-07-24",
+          "file": "EarllnE_v2.1_20260724.zip",
+          "url": "https://earlln.com/wp-content/uploads/2026/07/EarllnE_v2.1_20260724.zip"
+        }
+      ]
+    },
+    {
+      "id": "earllnp",
+      "name": "EarllnP",
+      "category": "office",
+      "badge": "Earlln for Powerpoint",
+      "tagline": "파워포인트 애드인",
+      "tagline_en": "PowerPoint add-in",
+      "lead": "파워포인트 애드인.",
+      "lead_en": "A PowerPoint add-in.",
+      "icon": "ppt",
+      "letter": "P",
+      "features": [
+        {
+          "ko": "파워포인트 슬라이드 목록 자동 생성",
+          "en": "Build a slide list automatically"
+        },
+        {
+          "ko": "슬라이드 내용 일괄 변경",
+          "en": "Change slide content in bulk"
+        }
+      ],
+      "downloads": [
+        {
+          "label": "최신버전",
+          "label_en": "Latest",
+          "version": "v1.1",
+          "date": "2026-08-27",
+          "file": "EarllnP_v1_1_20260827.zip",
+          "url": "https://earlln.com/wp-content/uploads/2026/08/EarllnP_v1_1_20260827.zip"
+        }
+      ]
+    },
+    {
+      "id": "earllnwbs",
+      "name": "EarllnWBS",
+      "category": "project",
+      "badge": "Earlln for Project",
+      "tagline": "프로젝트 WBS 관리",
+      "tagline_en": "Project WBS management",
+      "lead": "프로젝트 WBS 관리",
+      "lead_en": "Project WBS management.",
+      "icon": "wbs",
+      "letter": "W",
+      "features": [
+        {
+          "ko": "자동 Earned Value 산출",
+          "en": "Earned value calculated automatically"
+        },
+        {
+          "ko": "차트 자동 생성",
+          "en": "Charts generated for you"
+        },
+        {
+          "ko": "주간 근무 현황 자동 추출",
+          "en": "Weekly work summaries extracted automatically"
+        }
+      ],
+      "downloads": [
+        {
+          "label": "최신버전",
+          "label_en": "Latest",
+          "version": "v2.3",
+          "date": "2026-07-24",
+          "file": "EarllnWBS_v2.3_20260724-1.zip",
+          "url": "https://earlln.com/wp-content/uploads/2026/07/EarllnWBS_v2.3_20260724-1.zip"
+        }
+      ]
+    },
+    {
+      "id": "earllnrainornot",
+      "name": "earllnRainOrNot",
+      "category": "etc",
+      "badge": "Earlln for Android",
+      "tagline": "비 오나? CCTV로 확인하는 앱 (안드로이드·아이폰)",
+      "tagline_en": "Is it raining? An app that checks nearby CCTV (Android · iPhone)",
+      "lead": "가까운 교통 CCTV 영상에서 비를 맞는 자리에 있는 사람 중 우산 쓴 사람의 비율을 AI로 분석해 지금 비가 오는지 알려줍니다.",
+      "lead_en": "Looks at nearby traffic CCTV, counts how many people out in the open carry an open umbrella, and tells you whether it is raining right now.",
+      "summary": "주변 CCTV 속 우산 쓴 사람 비율로 비 여부를 알려주는 안드로이드 앱",
+      "summary_en": "An Android app that tells you if it is raining from umbrellas on nearby CCTV",
+      "icon": "mail",
+      "letter": "R",
+      "video": "https://youtu.be/Vscub9riQeQ",
+      "features": [
+        {
+          "ko": "현재 위치 주변 CCTV 자동 검색 (서울 TOPIS · 국가교통정보센터 ITS)",
+          "en": "Finds CCTV near you (Seoul TOPIS and national ITS cameras)"
+        },
+        {
+          "ko": "걷는 사람·신호 대기자 등 비 맞는 자리의 보행자만 골라 우산 비율 계산 (정류장 지붕 아래 제외)",
+          "en": "Counts people out in the rain, walking or waiting at a crossing, and leaves out those under a shelter"
+        },
+        {
+          "ko": "젖은 노면·빗줄기까지 함께 판단, 해가 쨍하면 \"날씨가 화창합니다\"로 바로 안내",
+          "en": "Also checks wet roads and rain streaks; on a sunny day it simply says the weather is clear"
+        },
+        {
+          "ko": "음성 안내, CCTV 영상 보기, 지도, 즐겨찾기",
+          "en": "Voice read-out, live CCTV view, map and favourites"
+        },
+        {
+          "ko": "Android 7.0 이상 앱 · 아이폰은 웹 버전(Safari → 홈 화면에 추가) · Google AI Studio 무료 Gemini API 키 필요",
+          "en": "Android 7.0+ app · on iPhone use the web version (Safari → Add to Home Screen) · needs a free Gemini API key from Google AI Studio"
+        }
+      ],
+      "downloads": [
+        {
+          "label": "최신버전 (APK)",
+          "label_en": "Latest (APK)",
+          "version": "v2.0.5",
+          "date": "2026-11-02",
+          "file": "earllnRainOrNot.apk",
+          "url": "https://github.com/earlln/earllnRainOrNot/releases/latest/download/earllnRainOrNot.apk"
+        },
+        {
+          "label": "아이폰·웹 버전 (설치 없이 바로 사용)",
+          "label_en": "iPhone / web version (no install)",
+          "version": "web",
+          "date": "2026-10-30",
+          "file": "earlln.com/rain",
+          "url": "rain/"
+        }
+      ]
+    },
+    {
+      "id": "earllnscreengolf",
+      "name": "EarllnScreenGolf",
+      "category": "etc",
+      "badge": "Earlln for Android",
+      "tagline": "스크린골프 모임 조편성 앱 (안드로이드)",
+      "tagline_en": "Screen golf group-making app (Android)",
+      "lead": "회원 명단을 등록해 두고 그날 오는 사람만 체크한 뒤 방을 고르면, 슬로우 골퍼가 한 방에 몰리지 않게 조를 짜서 단톡방에 공유하기 좋은 이미지로 만들어 줍니다.",
+      "lead_en": "Keep your member list, tick who is coming today and pick the rooms. It splits slow players across rooms and turns the line-up into an image ready to share in your group chat.",
+      "summary": "참가자 체크 → 방 선택 → 조 추첨까지 한 번에 끝내는 스크린골프 조편성 앱",
+      "summary_en": "Tick the players, pick the rooms and draw the groups — screen golf line-ups in one go",
+      "icon": "excel",
+      "letter": "G",
+      "video": "https://youtube.com/shorts/RtUuBt6XMSc",
+      "features": [
+        {
+          "ko": "참가 인원 체크와 방 격자 선택(최대 5개, 연결된 방 자동 선택)",
+          "en": "Tick today's players and pick up to five rooms on a grid (neighbouring rooms picked for you)"
+        },
+        {
+          "ko": "슬로우 골퍼 자동 분산, 같은 조 / 다른 조 조건 지정",
+          "en": "Slow players spread across rooms automatically; keep chosen people together or apart"
+        },
+        {
+          "ko": "두근두근 조 추첨 화면과 공유하기 좋은 결과 이미지",
+          "en": "A live group-draw screen and a result image made for sharing"
+        },
+        {
+          "ko": "핸디캡(마이너스 포함)·게임 참여 표시, 김밥·햄버거·치킨 등 음식 주문 집계",
+          "en": "Handicaps (negative too), game sign-up, and a food order count — kimbap, burgers, chicken and more"
+        },
+        {
+          "ko": "회원 명단 내보내기 / 가져오기 (GolfZo 명단 호환)",
+          "en": "Export and import the member list (GolfZo lists work too)"
+        },
+        {
+          "ko": "Android 8.0 이상 · 회원 명단은 폰 안에만 저장 (서버로 보내지 않음)",
+          "en": "Android 8.0+ · the member list stays on your phone and is never sent to a server"
+        }
+      ],
+      "downloads": [
+        {
+          "label": "최신버전 (APK)",
+          "label_en": "Latest (APK)",
+          "version": "v0.1.0",
+          "date": "2026-10-31",
+          "file": "EarllnScreenGolf_v0.1.0.apk",
+          "url": "downloads/EarllnScreenGolf_v0.1.0.apk"
+        }
+      ]
+    },
+    {
+      "id": "earllnpianocode",
+      "name": "EarllnPianoCode",
+      "category": "etc",
+      "badge": "Earlln for Android",
+      "tagline": "피아노 코드 사전 · 악보 코드 변환 앱 (안드로이드)",
+      "tagline_en": "Piano chord dictionary and sheet-music chord converter (Android)",
+      "lead": "935개 피아노 코드를 건반 그림으로 보여 주고, 악보 사진 속 코드를 원하는 조성으로 바꿔 원본 악보 위에 다시 적어 줍니다. 악보의 음표를 읽어 소리로 들려주기도 합니다.",
+      "lead_en": "Shows 935 piano chords on a keyboard diagram and rewrites the chords in a photo of sheet music into the key you want, right on the original page. It can also read the notes and play the sheet back.",
+      "summary": "코드를 건반 그림으로 보고, 악보 사진 속 코드를 원하는 조성으로 바꿔 주는 안드로이드 앱",
+      "summary_en": "See any chord on the keyboard and move the chords in a sheet-music photo to another key",
+      "icon": "bible",
+      "letter": "P",
+      "features": [
+        {
+          "ko": "17개 근음 × 55종류 = 935개 코드 (메이저·마이너·도미넌트·디미니쉬·오그멘티드·서스·파워 계열)",
+          "en": "935 chords: 17 roots × 55 types (major, minor, dominant, diminished, augmented, sus and power families)"
+        },
+        {
+          "ko": "눌러야 할 건반을 그림으로 — 근음·구성음·텐션·베이스 색 구분, 자리바꿈(전위)별 모양, 손 모양 표시",
+          "en": "Keyboard diagrams with root, chord tones, tensions and bass in different colours, every inversion, and a hand-position view"
+        },
+        {
+          "ko": "12개 스케일 구성음과 다이아토닉 3화음·7화음(로마숫자)",
+          "en": "12 scales with their diatonic triads and seventh chords in Roman numerals"
+        },
+        {
+          "ko": "악보 사진·PDF의 코드를 조옮김 또는 스케일 맞춤으로 바꿔 원본 위에 다시 표시, 잘못 읽은 코드는 직접 수정",
+          "en": "Transpose or re-harmonise the chords in a sheet-music photo or PDF, drawn back onto the original; fix any misread chord by hand"
+        },
+        {
+          "ko": "악보의 음표를 읽어 소리로 연주, 원본 악보 위에서 음표 확인·수정",
+          "en": "Reads the notes on the sheet and plays them back; check and correct notes on the original page"
+        },
+        {
+          "ko": "Android 7.0 이상 · 글자 인식은 기기 안에서 처리 (사진을 서버로 보내지 않음)",
+          "en": "Android 7.0+ · recognition runs on the phone, photos are never uploaded"
+        }
+      ],
+      "downloads": [
+        {
+          "label": "최신버전 (GitHub 릴리즈 → Assets 의 APK)",
+          "label_en": "Latest (GitHub release → APK under Assets)",
+          "version": "v1.24.0",
+          "date": "2026-09-06",
+          "file": "PianoCode-1.24.0.apk",
+          "url": "https://github.com/earlln/EarllnPianoCode/releases/latest"
+        }
+      ]
+    },
+    {
+      "id": "earllnoverlay",
+      "name": "EarllnOverlay",
+      "category": "etc",
+      "badge": "Earlln for Android",
+      "tagline": "실시간 영→한 자막 노트 (안드로이드)",
+      "tagline_en": "Live English-to-Korean caption notes (Android)",
+      "lead": "다른 앱에서 영어 영상을 보는 동안 소리를 받아 적고 한국어로 번역해, 화면 위 노트 패널에 문장과 번역을 차곡차곡 쌓아 줍니다. 음성 인식과 번역은 모두 휴대폰 안에서 처리합니다.",
+      "lead_en": "While you watch an English video in another app, it transcribes the audio, translates it into Korean and stacks each sentence with its translation in a floating note panel. Recognition and translation both run on the phone.",
+      "summary": "영어 영상을 보며 문장과 한국어 번역을 화면 위 노트로 모아 주는 안드로이드 앱",
+      "summary_en": "Collects English sentences and their Korean translation in a floating note while you watch",
+      "icon": "yt",
+      "letter": "O",
+      "features": [
+        {
+          "ko": "X·브라우저·인스타 등 다른 앱 영상 위에 📝 노트 패널 — 문장과 번역이 쌓이고, 길게 눌러 복사·전체 복사·공유",
+          "en": "A 📝 note panel over any video app (X, browser, Instagram…); sentences and translations pile up, with copy and share"
+        },
+        {
+          "ko": "폰 내부 소리를 바로 인식 (휴대폰 볼륨 0이어도 됨), 막힌 앱은 마이크로 자동 전환",
+          "en": "Listens to the phone's own audio, even at volume 0; switches to the microphone when an app blocks capture"
+        },
+        {
+          "ko": "📷 화면 번역 — 화면에 보이는 영어 글자를 읽어 노트에 추가",
+          "en": "📷 Screen translate: reads English text on screen and adds it to the note"
+        },
+        {
+          "ko": "하단 실시간 자막, 노트 언어(한국어 / 한+EN), 글자 크기·불투명도 설정",
+          "en": "Live captions at the bottom, note language (Korean or Korean + English), text size and opacity settings"
+        },
+        {
+          "ko": "오프라인 음성 인식(Vosk) · 기기 내 번역(ML Kit) — 첫 실행 때 모델 내려받기(약 70~160MB, Wi-Fi 권장)",
+          "en": "Offline speech recognition (Vosk) and on-device translation (ML Kit); models download on first run (about 70–160 MB, Wi-Fi recommended)"
+        },
+        {
+          "ko": "Android 8.0 이상",
+          "en": "Android 8.0+"
+        }
+      ],
+      "downloads": [
+        {
+          "label": "최신버전 (APK)",
+          "label_en": "Latest (APK)",
+          "version": "v1.1.0",
+          "date": "2026-11-15",
+          "file": "EarllnOverlay.apk",
+          "url": "https://github.com/earlln/EarllnOverlay-app/releases/latest/download/EarllnOverlay.apk"
+        }
+      ]
+    },
+    {
+      "id": "earllncore",
+      "name": "EarllnCore",
+      "category": "etc",
+      "badge": "Earlln for Android",
+      "tagline": "아침 코어 운동 도우미 (안드로이드·아이폰)",
+      "tagline_en": "Morning core workout helper (Android · iPhone)",
+      "lead": "맥켄지 신전 운동·플랭크·버드 독, 세 가지 코어 운동을 순서대로 안내해요. 음성과 타이머가 \"셋, 둘, 하나\"를 세어 주니 화면을 보지 않고 따라 할 수 있고, 매일 한 날은 달력에 기록돼요.",
+      "lead_en": "Guides you through three core exercises in order: the McKenzie press-up, the plank and the bird dog. A voice and timer count for you, so you can follow along without looking at the screen, and every day you finish is marked on a calendar.",
+      "summary": "맥켄지·플랭크·버드 독을 음성과 타이머로 안내하는 아침 코어 운동 앱",
+      "summary_en": "A morning core workout app that talks you through the McKenzie press-up, plank and bird dog",
+      "icon": "mail",
+      "letter": "C",
+      "features": [
+        {
+          "ko": "순서 안내 + 원형 타이머: 준비 → 유지 → 휴식을 차례로 보여 줌",
+          "en": "Step-by-step guide with a ring timer: get ready → hold → rest"
+        },
+        {
+          "ko": "운동마다 동작 영상이 타이머에 맞춰 함께 움직여 자세를 보며 따라 하기",
+          "en": "A short video of each exercise moves in step with the timer, so you can follow the form"
+        },
+        {
+          "ko": "한국어 음성과 삐 소리로 횟수·동작 안내, 운동 중에는 화면이 꺼지지 않음",
+          "en": "Spoken cues and beeps count reps for you, and the screen stays on during the workout"
+        },
+        {
+          "ko": "매일 기록 달력과 연속 일수 표시",
+          "en": "A calendar of the days you worked out, with your streak"
+        },
+        {
+          "ko": "운동별 유지 시간·횟수·세트·휴식 시간 바꾸기, 배경음악(잔잔한 화음·오르골·파도), 백업 저장",
+          "en": "Set hold time, reps, sets and rest for each exercise; background music (soft chords, music box, waves); backup and restore"
+        },
+        {
+          "ko": "아침 알림(안드로이드 앱) · 한국어 / English",
+          "en": "Morning reminder (Android app) · Korean / English"
+        },
+        {
+          "ko": "Android 앱(APK) · 아이폰은 웹 버전(Safari → 홈 화면에 추가) · 기록은 휴대폰 안에만 저장",
+          "en": "Android app (APK) · on iPhone use the web version (Safari → Add to Home Screen) · records stay on your phone"
+        },
+        {
+          "ko": "※ 의료 조언이 아니에요. 통증이 다리로 퍼지거나 저림이 심해지면 운동을 멈추고 담당 의료진과 상의하세요.",
+          "en": "※ Not medical advice. If pain spreads to your legs or numbness gets worse, stop and talk to your doctor or physiotherapist."
+        }
+      ],
+      "downloads": [
+        {
+          "label": "최신버전 v1.2.1 (빌드 12) — GitHub 릴리즈 → Assets 의 APK",
+          "label_en": "Latest v1.2.1 (build 12) — GitHub release → APK under Assets",
+          "version": "v1.2.1",
+          "date": "2026-11-26",
+          "file": "EarllnCore 1.2.1 APK",
+          "url": "https://github.com/earlln/EarllnCore/releases/tag/v1.2.1-build12"
+        },
+        {
+          "label": "아이폰·웹 버전 (설치 없이 바로 사용)",
+          "label_en": "iPhone / web version (no install)",
+          "version": "web",
+          "date": "2026-11-26",
+          "file": "earlln.com/core",
+          "url": "core/"
+        }
+      ]
+    }
+  ],
+  "news": [
+    {
+      "id": "2026-11-26-lab-app-android",
+      "date": "2026-11-26",
+      "tag": "공지",
+      "title": "[AI AGENT] 앱 4: 안드로이드 앱(APK) 만들기로 앱 과정을 완성했습니다",
+      "body": "앱 만들기 과정의 마지막 편 '안드로이드 앱(APK)으로 만들기'를 올렸습니다.\n\n휴대폰으로 만든 웹앱을 Capacitor로 감싸고, GitHub Actions 로봇이 APK를 만들어 Releases에 올리면 내려받아 설치합니다. 컴퓨터 없이 휴대폰만으로 할 수 있고, 서명 키를 안전하게 다루는 법도 함께 다룹니다.",
+      "url": "lab/app-android.html",
+      "title_en": "[AI AGENT] App 4: an Android app (APK) completes the app course",
+      "body_en": "The last lesson of the app course, 'Turn it into an Android app (APK)', is up.\n\nWrap the web app you built on your phone with Capacitor, let the GitHub Actions robot build the APK and post it to Releases, then download and install it. A phone is all you need, and it covers handling signing keys safely.",
+      "tag_en": "Notice"
+    },
+    {
+      "id": "2026-11-26-apps-update",
+      "date": "2026-11-26",
+      "tag": "업데이트",
+      "title": "[제품] EarllnCore 1.2.1 · EarllnOverlay 다운로드를 올렸습니다",
+      "body": "EarllnCore 1.2.1: 운동마다 동작 영상이 타이머에 맞춰 함께 나와 자세를 보며 따라 할 수 있어요. 안드로이드는 새 APK(빌드 12)를 받아 덮어 설치하고, 웹 버전(earlln.com/core)은 다시 열면 바로 바뀝니다.\n\nEarllnOverlay v1.1.0: 영어 영상을 보며 문장과 한국어 번역을 화면 위 노트에 모아 주는 안드로이드 앱의 APK를 이제 제품 페이지에서 받을 수 있어요.",
+      "url": "product.html#earllncore",
+      "title_en": "[Product] EarllnCore 1.2.1 and the EarllnOverlay download are up",
+      "body_en": "EarllnCore 1.2.1: each exercise now shows a short video that moves in step with the timer, so you can follow the form. On Android, install the new APK (build 12) over the old one; the web version (earlln.com/core) updates the next time you open it.\n\nEarllnOverlay v1.1.0: the APK of the Android app that collects English sentences and their Korean translation in a floating note is now on the product page.",
+      "tag_en": "Update"
+    },
+    {
+      "id": "2026-11-25-lab-github",
+      "date": "2026-11-25",
+      "tag": "공지",
+      "title": "[AI AGENT] GitHub 한눈에 보기 실습을 올렸습니다",
+      "body": "휴대폰으로 일 시키기와 앱 만들기에 나오는 GitHub를 처음 보는 분을 위한 10분 실습입니다.\n\n가입하지 않아도 진짜 저장소(EarllnCore)를 둘러보며 저장소·커밋·브랜치·PR·병합·릴리스·Pages 7개 낱말을 익히고, 비밀번호·API 키를 올리면 안 되는 이유를 퀴즈로 확인해요.",
+      "url": "lab/github-basics.html",
+      "title_en": "[AI AGENT] New practice: GitHub at a glance",
+      "body_en": "A 10-minute practice for anyone meeting GitHub for the first time in the phone and app courses.\n\nWithout signing up, look around a real repository (EarllnCore), learn 7 words (repository, commit, branch, PR, merge, release, Pages), and a quiz shows why passwords and API keys must never be uploaded.",
+      "tag_en": "Notice"
+    },
+    {
+      "id": "2026-11-25-lab-app",
+      "date": "2026-11-25",
+      "tag": "공지",
+      "title": "[AI AGENT] 새 과정 '앱 만들기'를 열었습니다",
+      "body": "코드를 몰라도 Claude에게 말로 설명해서 나만의 앱을 만드는 과정을 열었습니다.\n\n앱 1에서는 컴퓨터로 운동 타이머 웹앱을 만들고 말로 고쳐 보고, 앱 2에서는 GitHub Pages로 무료 주소를 받아 휴대폰 홈 화면에 앱처럼 설치합니다. 앱 3에서는 컴퓨터 없이 휴대폰 하나로 같은 앱을 만들어요. 안드로이드 앱(APK)으로 만드는 앱 4도 준비하고 있어요.",
+      "url": "lab/app-web.html",
+      "title_en": "[AI AGENT] New course: Build an app",
+      "body_en": "A new course shows how to describe your own app to Claude and have it built, no coding needed.\n\nIn App 1 you build a workout timer web app on a computer and change it with words. In App 2 you get a free GitHub Pages address and install it on your phone's home screen like an app. In App 3 you build the same app with just your phone, no computer. App 4, turning it into an Android app (APK), is on the way.",
+      "tag_en": "Notice"
+    },
+    {
+      "id": "2026-11-24-earllncore",
+      "date": "2026-11-24",
+      "tag": "공지",
+      "title": "[제품] 아침 코어 운동 앱 EarllnCore를 공개합니다",
+      "body": "맥켄지 신전 운동·플랭크·버드 독을 음성과 타이머로 안내하는 아침 코어 운동 앱 EarllnCore를 올렸습니다.\n\n안드로이드는 APK로 설치하고, 아이폰은 earlln.com/core 를 Safari로 열어 '홈 화면에 추가'하면 앱처럼 쓸 수 있어요. 기록은 휴대폰 안에만 저장됩니다. 의료 조언이 아니니, 통증이 심해지면 운동을 멈추고 의료진과 상의하세요.",
+      "url": "product.html#earllncore",
+      "title_en": "[Product] Meet EarllnCore, a morning core workout app",
+      "body_en": "EarllnCore talks you through the McKenzie press-up, plank and bird dog with a voice and timer.\n\nOn Android install the APK; on iPhone open earlln.com/core in Safari and tap 'Add to Home Screen' to use it like an app. Your records stay on your phone. This is not medical advice: if pain gets worse, stop and talk to a professional.",
+      "tag_en": "Notice"
+    },
+    {
+      "id": "2026-11-23-lab-mobile-cloud",
+      "date": "2026-11-23",
+      "tag": "공지",
+      "title": "[AI AGENT] 컴퓨터 없이 휴대폰 하나로! 휴대폰 2·3편을 올렸습니다",
+      "body": "'휴대폰으로 쓰기' 과정에 두 편을 더했습니다.\n\n휴대폰 2편에서는 GitHub에 비공개 메모 저장소를 만들고 Claude와 안전하게 연결합니다. 휴대폰 3편에서는 컴퓨터가 꺼져 있어도 휴대폰으로 Claude에게 일을 시키고, '새 가지 → PR → 병합'으로 확인해 반영하는 법을 배웁니다.",
+      "url": "lab/mobile-github.html",
+      "title_en": "[AI AGENT] No computer needed: Phone 2 and 3 are up",
+      "body_en": "The 'From your phone' course gets two more lessons.\n\nIn Phone 2 you make a private notes repository on GitHub and connect it to Claude safely. In Phone 3 you give Claude jobs from your phone even with your computer off, and land them by reviewing: new branch → PR → merge.",
+      "tag_en": "Notice"
+    },
+    {
+      "id": "2026-11-24-lab-terminal-4",
+      "date": "2026-11-24",
+      "tag": "팁",
+      "title": "[AI AGENT] 터미널 실습 4: 여러 파일 한꺼번에 정리하기",
+      "body": "터미널 과정(심화)에 실습 4를 올렸습니다. 파일 3개를 한 번에 만들고, 폴더로 옮기고, 이름에 날짜를 붙이면서 \"명령을 실행해도 될까요?\"(Bash command) 허락 화면을 읽는 법을 배웁니다. 이것으로 터미널 과정도 실습과 강의가 모두 짝을 이루게 되었습니다.",
+      "url": "lab/claude-code-organize-files.html",
+      "title_en": "[AI AGENT] Terminal practice 4: organize several files at once",
+      "body_en": "Terminal practice 4 is up in the terminal course (advanced). You make 3 files at once, move them into a folder and add dates to their names, learning to read the \"May I run this command?\" (Bash command) permission screen. Every terminal lesson now has both a practice and a guide.",
+      "tag_en": "Tip"
+    },
+    {
+      "id": "2026-11-24-lab-work-78",
+      "date": "2026-11-24",
+      "tag": "공지",
+      "title": "[실험실] 실무 활용 8편 완성! 웹 자료 조사, 내 규칙 기억시키기(CLAUDE.md)",
+      "body": "실무 활용 과정에 마지막 두 편을 올렸습니다.\n\n실무 7 '웹 자료 찾아 정리하기'에서는 출처 링크와 함께 자료를 정리하고 원문을 확인하는 법을, 실무 8 '내 규칙 기억시키기'에서는 자주 하는 말을 CLAUDE.md 파일에 적어 두고 매번 말하지 않아도 지키게 하는 법을 배웁니다. 이것으로 실무 활용 과정 8편이 모두 갖춰졌습니다.",
+      "url": "lab/work-web.html",
+      "title_en": "[Lab] All 8 Real work lessons: web research and remembering your rules (CLAUDE.md)",
+      "body_en": "The last two Real work lessons are up.\n\nWork 7 'Find information on the web' shows how to organize research with source links and check the originals. Work 8 'Make it remember your rules' shows how to write your usual instructions into a CLAUDE.md file so Claude follows them without being told. That completes all 8 Real work lessons.",
+      "tag_en": "Notice"
+    },
+    {
+      "id": "2026-11-23-lab-work-456",
+      "date": "2026-11-23",
+      "tag": "공지",
+      "title": "[실험실] 실무 4~6: 회의록 녹취로 업무일지, 회원 명단 관리, 일정 관리",
+      "body": "실무 활용 과정에 세 편을 더 올렸습니다. 모두 예시 파일을 내려받아 그대로 따라 할 수 있어요.\n\n실무 4는 녹음 앱으로 만든 녹취록을 회의록·업무일지·진행 상황표로, 실무 5는 동호회 회원 명단의 중복·전화번호 정리와 회비 미납자·생일자 명단, 안내 문자 초안까지, 실무 6은 흩어진 일정을 일정표로 모아 겹치는 일정을 정리하고 캘린더 파일(.ics)로 한 번에 넣는 법을 다룹니다.",
+      "url": "lab/work-minutes.html",
+      "title_en": "[Lab] Work 4–6: work logs from meeting recordings, member lists and schedules",
+      "body_en": "Three more lessons join the Real work course, each with sample files to download and follow along.\n\nWork 4 turns a recorder app's transcript into minutes, work logs and a progress table. Work 5 tidies a club member list (duplicates, phone formats), pulls out unpaid dues and birthdays, and drafts messages. Work 6 gathers scattered schedules into a table, settles clashes and adds everything to your calendar with an .ics file.",
+      "tag_en": "Notice"
+    },
+    {
+      "id": "2026-11-23-lab-work-123",
+      "date": "2026-11-23",
+      "tag": "공지",
+      "title": "[실험실] 2단계 '실무 활용' 시작! 엑셀 정리·문서 요약·보고서 초안",
+      "body": "데스크톱 입문을 마친 분들을 위해 '실무 활용(2단계)' 과정을 열었습니다. 예시 파일을 내려받아 그대로 따라 할 수 있어요.\n\n실무 1 '엑셀(CSV) 합계·정렬·정리 맡기기', 실무 2 '긴 문서 요약하기', 실무 3 '보고서 초안 쓰기'를 실습과 강의로 올렸습니다. 다음에는 회의록 녹취로 업무일지 쓰기, 회원 명단 관리, 일정 관리를 준비하고 있습니다.",
+      "url": "lab/work-csv.html",
+      "title_en": "[Lab] Stage 2 'Real work' begins: spreadsheets, summaries and report drafts",
+      "body_en": "For everyone who finished the desktop basics, the 'Real work (stage 2)' course is open. Download the sample files and follow along exactly.\n\nWork 1 'Spreadsheet (CSV) totals and cleanup', Work 2 'Summarize a long document' and Work 3 'Draft a report' are up as practices and guides. Coming next: turning meeting recordings into a work log, managing a member list, and managing schedules.",
+      "tag_en": "Notice"
+    },
+    {
+      "id": "2026-11-23-lab-desktop-678",
+      "date": "2026-11-23",
+      "tag": "공지",
+      "title": "[실험실] 데스크톱 입문 8편 완성! 실수 되돌리기·사진 보여 주기·요금과 한도",
+      "body": "데스크톱 과정에 6~8편을 실습과 강의로 올렸습니다.\n\n6편 '실수 되돌리기'에서는 복사본 만들기와 \"원래대로 되돌려줘\"로 실수에 대비하고, 7편 '사진·스크린샷 보여 주며 시키기'에서는 예시 영수증 사진을 붙여 표로 정리해 봅니다. 8편 '요금과 사용량 한도 알기'에서는 요금제, 5시간·주간 한도, 내 사용량 보는 법을 알아봅니다. 이것으로 데스크톱 입문 과정 8편이 모두 갖춰졌습니다.",
+      "url": "lab/desktop-undo.html",
+      "title_en": "[Lab] All 8 desktop basics are here: undo, pictures, plans and limits",
+      "body_en": "Desktop lessons 6–8 are up as practices and guides.\n\nIn 6, 'Undo a mistake', you prepare for mistakes with copies and \"undo that\". In 7, 'Show it a picture or screenshot', you attach a sample receipt and turn it into a table. In 8, 'Plans and usage limits', you learn the plans, the 5-hour and weekly limits, and how to check your usage. That completes all 8 basic desktop lessons.",
+      "tag_en": "Notice"
+    },
+    {
+      "id": "2026-11-23-lab-desktop-45",
+      "date": "2026-11-23",
+      "tag": "팁",
+      "title": "[실험실] 데스크톱 4·5편으로 입문 과정을 마무리했습니다",
+      "body": "데스크톱 과정에 '데스크톱 4: 여러 파일 한꺼번에 정리하기'와 '데스크톱 5: 허락 방식(모드) 바꾸기'를 실습과 강의로 올렸습니다.\n\n4편에서는 폴더를 만들고 파일을 옮길 때 나오는 '명령을 실행해도 될까요?' 카드를 읽는 법을, 5편에서는 Plan·Accept edits 같은 허락 방식을 바꿔 보고 언제 바꿔도 안전한지를 배웁니다. 이것으로 데스크톱 입문 5편이 모두 갖춰졌습니다.",
+      "url": "lab/desktop-organize.html",
+      "title_en": "[Lab] Desktop 4 and 5 complete the basics",
+      "body_en": "The desktop course now has 'Desktop 4: Organize several files at once' and 'Desktop 5: Change the permission mode', each as a practice and a guide.\n\nIn 4 you learn to read the 'May I run this command?' card that appears when making folders and moving files. In 5 you try modes like Plan and Accept edits and learn when it's safe to switch. That completes all 5 basic desktop lessons.",
+      "tag_en": "Tip"
+    },
+    {
+      "id": "2026-11-23-lab-course-nav",
+      "date": "2026-11-23",
+      "tag": "공지",
+      "title": "[실험실] 내 진도가 한눈에! 전체 과정 안내와 데스크톱 3을 올렸습니다",
+      "body": "실습·강의 화면에 '전체 과정' 안내를 넣었습니다. 컴퓨터에서는 오른쪽에, 휴대폰에서는 위쪽에 보이며, 마친 실습과 읽은 강의에 표시가 붙어 지금 어디쯤인지 바로 알 수 있습니다. 눌러서 다른 과정으로 바로 갈 수도 있어요. (진도는 이 브라우저에만 저장됩니다.)\n\n데스크톱 과정에 '데스크톱 3: 대화 새로 시작하기·이어 하기' 실습과 강의도 올렸습니다.",
+      "url": "lab/desktop-sessions.html",
+      "title_en": "[Lab] See your progress at a glance: course guide and Desktop 3",
+      "body_en": "Practice and guide pages now show an 'All courses' guide: on the right on a computer, at the top on a phone. Finished practices and guides you've read are marked, so you can see where you are and jump to any course. (Progress is saved only in this browser.)\n\nThe desktop course also gets 'Desktop 3: Start a new chat or pick up an old one', as a practice and a guide.",
+      "tag_en": "Notice"
+    },
+    {
+      "id": "2026-11-22-lab-mobile",
+      "date": "2026-11-22",
+      "tag": "공지",
+      "title": "[실험실] 휴대폰으로도! 영어 전환 버튼과 휴대폰 과정을 열었습니다",
+      "body": "휴대폰 화면 맨 위에 영어(EN) 전환 버튼이 항상 보이도록 바꿨습니다. 컴퓨터에서 실습을 열면 QR 코드가 나와, 휴대폰 카메라로 비추면 같은 실습을 휴대폰에서 이어 볼 수 있어요.\n\n'휴대폰으로 쓰기' 과정에 첫 실습과 강의 '휴대폰으로 내 컴퓨터의 Claude에게 일 시키기'를 올렸습니다. 컴퓨터에 켜 둔 Claude Code를 밖에서 휴대폰으로 조종하는 방법이에요.",
+      "url": "lab/mobile-remote.html",
+      "title_en": "[Lab] Now on your phone: an EN switch and a phone course",
+      "body_en": "An EN language button now always shows at the top of the screen on phones. Open a practice on your computer and a QR code appears: point your phone camera at it to continue the same practice on your phone.\n\nThe new 'From your phone' course starts with a practice and guide: 'Give your computer's Claude a job from your phone', which shows how to control Claude Code on your computer from your phone while you're out.",
+      "tag_en": "Notice"
+    },
+    {
+      "id": "2026-11-22-lab-desktop",
+      "date": "2026-11-22",
+      "tag": "공지",
+      "title": "[실험실] 검은 글자 창 없이! Claude 데스크톱 앱 과정을 시작합니다",
+      "body": "실험실에 'Claude 데스크톱 앱' 과정을 새로 열었습니다. 일반 프로그램처럼 설치하고 버튼을 눌러 쓰는 방법이라, 처음 쓰는 분께 가장 쉬운 시작점입니다. 데스크톱 1·2 실습과 강의를 먼저 올렸습니다.\n\n지금까지의 터미널(검은 글자 창) 실습과 강의는 '터미널 과정(심화)'으로 옮겼고, 주소는 그대로입니다.",
+      "url": "lab/practice.html",
+      "title_en": "[Lab] No black text window: the Claude desktop app course is here",
+      "body_en": "A new Lab course uses the Claude desktop app: install it like any program and use it with buttons, the easiest place to start. Desktop practices and guides 1–2 are up. The earlier terminal practices and guides are now the 'Terminal course (advanced)'; their addresses haven't changed.",
+      "tag_en": "Notice"
+    },
+    {
+      "id": "2026-11-15-lab-more",
+      "date": "2026-11-15",
+      "tag": "팁",
+      "title": "[실험실] 실습 2·3, 강의 3·4편을 올렸습니다",
+      "body": "버튼 따라 하는 실습에 '실습 2: 만든 파일 고치게 하기'와 '실습 3: 대화 새로 시작하기·이어 하기'를, 글로 배우는 강의에 '3편: 대화 새로 시작하기·이어 하기'와 '4편: 여러 파일 한꺼번에 정리하기'를 추가했습니다.\n\n4편에서는 폴더를 만들고 파일을 옮길 때 나오는 새 허락 화면(\"명령을 실행해도 될까요?\")을 읽는 법을 배웁니다.",
+      "url": "lab.html",
+      "title_en": "[Lab] Practices 2–3 and Guides 3–4 are up",
+      "body_en": "New tap-along practices: 'Have it edit a file' and 'Start fresh or pick up later'. New guides: 'Start fresh or pick up later' and 'Organize several files at once', where you learn to read the \"May I run this command?\" permission screen.",
+      "tag_en": "Tip"
+    },
+    {
+      "id": "2026-11-15-new-apps",
+      "date": "2026-11-15",
+      "tag": "공지",
+      "title": "[제품] EarllnPianoCode · EarllnOverlay 안드로이드 앱을 올렸습니다",
+      "body": "EarllnPianoCode는 피아노 코드를 건반 그림으로 보여 주고, 악보 사진 속 코드를 원하는 조성으로 바꿔 주는 앱입니다.\n\nEarllnOverlay는 영어 영상을 보는 동안 문장과 한국어 번역을 화면 위 노트로 모아 주는 앱입니다. 다운로드 파일은 곧 올립니다.",
+      "url": "product.html#earllnpianocode",
+      "title_en": "[Products] Two new Android apps: EarllnPianoCode and EarllnOverlay",
+      "body_en": "EarllnPianoCode shows piano chords on a keyboard and moves the chords in a sheet-music photo to another key.\n\nEarllnOverlay collects English sentences and their Korean translation in a floating note while you watch a video. Its download is coming soon.",
+      "tag_en": "Notice"
+    },
+    {
+      "id": "2026-11-08-lab-diagnose",
+      "date": "2026-11-08",
+      "tag": "공지",
+      "title": "[실험실] 1분 진단과 '실습 0: AI와 첫 대화(무료)'를 추가했습니다",
+      "body": "실습 목록 맨 위의 1분 진단에 답하면, 지금 AI를 어떻게 쓰고 있는지와 하고 싶은 일에 맞춰 어디서부터 시작하면 좋을지 알려 드립니다.\n\nAI가 처음이거나 무료로 먼저 해 보고 싶은 분을 위해, 휴대폰으로도 할 수 있는 '실습 0: AI와 첫 대화'도 열었습니다.",
+      "url": "lab/practice.html",
+      "title_en": "[Lab] A 1-minute check-in and a free first-chat practice",
+      "body_en": "Answer a few questions at the top of the practice list to find where to start. New: Practice 0, your first chat with AI, free and phone-friendly (in Korean).",
+      "tag_en": "Notice"
+    },
+    {
+      "id": "2026-11-08-lab-open",
+      "date": "2026-11-08",
+      "tag": "공지",
+      "title": "[실험실] 버튼만 누르며 따라 하는 첫 실습을 열었습니다",
+      "body": "'AI 에이전트 노하우' 메뉴가 '실험실'로 바뀌었습니다. 첫 실습 'Claude Code 설치하고 첫 작업 시키기'는 컴퓨터를 처음 다뤄 보는 분도 큰 버튼을 하나씩 누르며 따라 할 수 있게 만들었습니다. 막히면 그 자리에서 Claude에게 물어볼 수 있고, 다 마치면 짧게 정리해 드립니다.\n\n실습 화면은 휴대폰으로 열어 두고 컴퓨터에서 따라 하면 편합니다.",
+      "url": "lab.html",
+      "title_en": "[Lab] Our first tap-along practice is open",
+      "body_en": "The AI Tips section is now the Lab. The first practice, installing Claude Code and giving it a first task, walks complete beginners through one big button at a time (in Korean).",
+      "tag_en": "Notice"
+    },
+    {
+      "id": "2026-11-06-ai-claude-code-edit-file",
+      "date": "2026-11-06",
+      "tag": "팁",
+      "title": "[AI 에이전트 노하우] Claude Code 첫걸음 2편 — 만든 파일 고치게 하기",
+      "body": "1편에서 만든 할일.txt를 Claude에게 고쳐 달라고 해 봅니다. 고치기 전에 보여 주는 화면(빨간 줄·초록 줄)을 읽는 법과, 마음에 안 들 때 거절하고 다시 부탁하는 법을 배웁니다.",
+      "url": "ai/claude-code-edit-file.html",
+      "title_en": "[AI Agent Tips] Claude Code basics, part 2 — asking it to edit a file",
+      "body_en": "Ask Claude to change the file from part 1, learn to read the preview of what will change, and turn down an edit you don't like (in Korean).",
+      "tag_en": "Tip"
+    },
+    {
+      "id": "2026-11-06-ai-claude-code-install",
+      "date": "2026-11-06",
+      "tag": "팁",
+      "title": "[AI 에이전트 노하우] Claude Code 설치하고 첫 작업 시키기",
+      "body": "새 메뉴 'AI 에이전트 노하우'를 열었습니다. Claude Code 같은 AI 에이전트로 업무를 빨리 끝내는 방법을 하나씩 올립니다.\n\n첫 글은 명령어 한 줄로 Claude Code를 설치하고 첫 작업을 시켜 보는 방법입니다.",
+      "url": "ai/claude-code-install.html",
+      "title_en": "[AI Agent Tips] Install Claude Code and give it a first task",
+      "body_en": "A new section, AI Agent Tips, collects short guides on getting work done faster with AI tools like Claude Code.\n\nThe first post (in Korean) shows how to install Claude Code with one command and give it a first task.",
+      "tag_en": "Tip"
+    },
+    {
+      "id": "2026-09-20-new-site",
+      "date": "2026-09-20",
+      "tag": "공지",
+      "title": "earlln.com 홈페이지를 새단장했습니다",
+      "body": "더 빠르고 가벼운 정적 사이트로 다시 만들었습니다. 제품 다운로드, 라이선스 발급, 성경 구절 검색 등 기존 메뉴는 모두 그대로 이용하실 수 있고, 다크 모드와 모바일 화면을 지원합니다.\n\n이 소식란에는 제품 업데이트와 사용 팁을 올릴 예정입니다.",
+      "url": "",
+      "title_en": "A fresh earlln.com",
+      "body_en": "The site has been rebuilt as a lighter, faster set of static pages. Everything you had before is still here — product downloads, license requests and the Bible verse search — now with dark mode, a mobile layout and an English view.\n\nProduct updates and tips will appear here.",
+      "tag_en": "Notice"
+    },
+    {
+      "id": "2026-08-27-earllnp-v1-1",
+      "date": "2026-08-27",
+      "tag": "업데이트",
+      "title": "EarllnP v1.1 (2026-08-27) 업데이트",
+      "body": "파워포인트 애드인 EarllnP의 최신 파일이 게시되었습니다. PRODUCT 페이지에서 내려받으세요.",
+      "url": "product.html#earllnp",
+      "title_en": "EarllnP v1.1 (27 August 2026)",
+      "body_en": "The latest PowerPoint add-in file is up. Download it from the PRODUCT page.",
+      "tag_en": "Update"
+    },
+    {
+      "id": "2026-07-24-earllne-wbs",
+      "date": "2026-07-24",
+      "tag": "업데이트",
+      "title": "EarllnE v2.1 · EarllnWBS v2.3 (2026-07-24) 업데이트",
+      "body": "엑셀 애드인 EarllnE와 프로젝트 WBS 도구 EarllnWBS의 최신 파일이 게시되었습니다. PRODUCT 페이지에서 내려받으세요.",
+      "url": "product.html",
+      "title_en": "EarllnE v2.1 and EarllnWBS v2.3 (24 July 2026)",
+      "body_en": "The latest Excel add-in and project WBS files are up. Download them from the PRODUCT page.",
+      "tag_en": "Update"
+    }
+  ],
+  "faq": [
+    {
+      "q": "EarllnE는 어떻게 설치하나요?",
+      "a": "엑셀 실행 → [파일] › [옵션] › [추가 기능] → 하단 [관리]에서 'Excel 추가 기능' 선택 후 [이동] → [찾아보기]로 다운로드한 EarllnE.xlam 선택 → [확인]. 리본 메뉴에 'EarllnE' 탭이 나타납니다.",
+      "q_en": "How do I install EarllnE?",
+      "a_en": "Open Excel, then [File] › [Options] › [Add-ins]. At the bottom set [Manage] to 'Excel Add-ins', click [Go...], then [Browse...] and pick the EarllnE.xlam file you downloaded. Click [OK] and an 'EarllnE' tab appears in the ribbon."
+    },
+    {
+      "q": "다운로드한 파일이 열리지 않거나 매크로가 차단돼요.",
+      "a": "인터넷에서 받은 애드인 파일은 Windows가 '차단됨' 상태로 표시할 수 있습니다. 압축을 푼 .xlam 파일에서 마우스 오른쪽 클릭 › [속성] › 하단 '차단 해제'에 체크한 뒤 다시 추가 기능으로 등록해 주세요.",
+      "q_en": "The file will not open, or macros are blocked.",
+      "a_en": "Windows may mark an add-in downloaded from the internet as blocked. Unzip it, right-click the .xlam file, open [Properties] and tick 'Unblock' at the bottom, then add it again."
+    },
+    {
+      "q": "라이선스는 유료인가요?",
+      "a": "PM버전은 무료이며 얼마든지 다운로드해서 사용하실 수 있습니다. AllDay 라이선스는 LICENSE 페이지의 신청 폼에 정보를 입력하면 이메일로 자동 발급됩니다.",
+      "q_en": "Do I have to pay for a license?",
+      "a_en": "The PM version is free — download it and use it as much as you like. For an AllDay license, fill in the form on the LICENSE page and it arrives by email automatically."
+    },
+    {
+      "q": "정품등록키는 어디서 확인하나요?",
+      "a": "제품 메뉴 [EarllnE] › [EarllnE란] › [라이선스확인] 버튼을 누르면 정품등록키가 표시됩니다. 이 값을 라이선스 신청 폼에 입력하세요.",
+      "q_en": "Where do I find my registration key?",
+      "a_en": "In the product menu open [EarllnE] › [About EarllnE] › [Check license] and the key is shown. Enter that value in the license form."
+    },
+    {
+      "q": "문의는 어디로 하나요?",
+      "a": "9709073@naver.com 으로 이메일을 보내주세요. 사용법 영상은 유튜브 얼른(@earlln) 채널에서 볼 수 있습니다.",
+      "q_en": "How do I get in touch?",
+      "a_en": "Email 9709073@naver.com. Walkthrough videos are on the Earlln YouTube channel (@earlln)."
+    }
+  ]
+}

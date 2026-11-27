@@ -1,0 +1,159 @@
+{
+  "id": "desktop-undo",
+  "title": "Undo a mistake",
+  "stages": [
+    "Start",
+    "New chat",
+    "Make a copy",
+    "Change it on purpose",
+    "Ask it to undo",
+    "Other ways",
+    "Hard to undo",
+    "Wrap-up"
+  ],
+  "steps": [
+    {
+      "id": "intro",
+      "stage": 1,
+      "title": "What we'll do today",
+      "html": "<p>Claude sometimes changes things differently from what you asked. Sometimes you ask for the wrong thing, too. Today you'll practise <b>undoing a change</b> before you ever need to.</p><p>There are three layers of safety.</p><ol><li><b>Before allowing</b>: <b>Deny</b> on the permission card (from Desktop 2)</li><li><b>After allowing</b>: ask Claude to <b>\"undo that\"</b></li><li><b>In advance</b>: make a <b>copy</b> of important files</li></ol><ul><li>Time: 10–15 minutes</li><li>You need: a computer that finished <a href='{{base}}lab/desktop-modes.html'>Desktop 5</a> (todo.txt in the Practice folder)</li></ul>",
+      "next": "open",
+      "button": "Let's start"
+    },
+    {
+      "id": "open",
+      "stage": 2,
+      "title": "Start with a new chat",
+      "html": "<ol><li>Claude app → <b>Code</b> tab → <b>+ New</b>.</li><li>Check that the buttons under the typing box show <b>Local · Practice · Manual</b>. (If you switched modes in Desktop 5, switch back to Manual!)</li></ol>",
+      "check": {
+        "q": "Can you see Local · Practice · Manual?",
+        "yes": "backup",
+        "no": "open-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "open-help",
+      "kind": "help",
+      "title": "If the start screen looks different",
+      "html": "<ul><li>If the folder isn't Practice, click the folder button → <b>Open folder…</b> and choose it.</li><li>Click the permission mode button and choose <b>Manual</b> (or Ask permissions).</li></ul>"
+    },
+    {
+      "id": "backup",
+      "stage": 3,
+      "title": "Make a copy before changing anything",
+      "html": "<p>The surest safety net is a <b>copy</b>. Even if the original gets messed up, you can bring it back from the copy.</p><p>Send the sentence below, read the permission card and click <b>Allow</b>. (Instead of a create-file card you may see a <b>run-command</b> card. If the description says it's copying, allow it.)</p>",
+      "image": "assets/img/ai/desktop-undo/en/backup.webp",
+      "alt": "A permission card for creating todo_backup.txt, a copy of todo.txt",
+      "code": "Copy todo.txt to todo_backup.txt",
+      "codeLabel": "Type this",
+      "check": {
+        "q": "Is there a todo_backup.txt in the Practice folder now?",
+        "yes": "change",
+        "no": "backup-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "backup-help",
+      "kind": "help",
+      "title": "If you don't see the copy",
+      "html": "<ul><li>If you <b>denied</b> the card, send it again and allow it.</li><li>If the folder window was already open, close it and open it again.</li><li>You can also ask Claude, \"What files are in the Practice folder?\"</li></ul>"
+    },
+    {
+      "id": "change",
+      "stage": 4,
+      "title": "Change it oddly on purpose",
+      "html": "<p>To practise undoing, something has to change first. Let's put a ★ in front of every line on purpose.</p><ol><li>Send the sentence below, read the permission card and click <b>Allow</b>.</li><li>Open todo.txt to check the ★s, then <b>close Notepad.</b></li></ol>",
+      "code": "Put a ★ at the start of every line in todo.txt",
+      "codeLabel": "Type this",
+      "check": {
+        "q": "Is there a ★ at the start of each line in todo.txt?",
+        "yes": "undo",
+        "no": "change-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "change-help",
+      "kind": "help",
+      "title": "If the ★s weren't added",
+      "html": "<ul><li>You may have denied it, or Claude asked something. Answer it or send it again.</li><li>If Notepad was already open, close it and open it again.</li></ul>",
+      "choices": [
+        {
+          "label": "Let me try again",
+          "next": "change"
+        },
+        {
+          "label": "Next",
+          "next": "undo"
+        }
+      ]
+    },
+    {
+      "id": "undo",
+      "stage": 5,
+      "title": "Ask Claude to undo it",
+      "html": "<p>Just say this in the same chat. Claude remembers what it changed in this chat.</p><p>Undoing also shows a <b>permission card</b>. If the red lines have the ★s and the green lines are the originals, click <b>Allow</b>.</p>",
+      "image": "assets/img/ai/desktop-undo/en/undo.webp",
+      "alt": "Asking to undo shows a permission card that removes the ★s",
+      "code": "Undo what you just did",
+      "codeLabel": "Type this",
+      "check": {
+        "q": "Did the ★s disappear and everything go back to how it was?",
+        "yes": "other",
+        "no": "undo-help",
+        "yesLabel": "Yes, it's back!"
+      },
+      "ask": true
+    },
+    {
+      "id": "undo-help",
+      "kind": "help",
+      "title": "If it didn't go back: restore from the copy",
+      "html": "<p>This is exactly why you made a copy. Say this:</p><p><b>\"Restore todo.txt from todo_backup.txt\"</b></p><p>Read the permission card and allow it, and the file will match the copy.</p>",
+      "choices": [
+        {
+          "label": "Done, next",
+          "next": "other"
+        }
+      ]
+    },
+    {
+      "id": "other",
+      "stage": 6,
+      "title": "(Optional) Try typing /undo",
+      "html": "<p>Claude Code has a menu that <b>rolls Claude's file edits back to an earlier point</b>. Type <b>/undo</b> (or /rewind) in the box and press {{enterkey}}.</p><p class='muted'>Depending on your desktop app version, this menu may not exist. That's fine. Asking it to undo, plus keeping a copy, is enough.</p>",
+      "check": {
+        "q": "Did an undo menu appear?",
+        "yes": "other-ok",
+        "no": "limits",
+        "yesLabel": "Yes, it did",
+        "noLabel": "No / I'll skip it"
+      }
+    },
+    {
+      "id": "other-ok",
+      "stage": 6,
+      "title": "How to read the undo menu",
+      "html": "<p>In the menu you pick an <b>earlier point</b> in the chat and decide what to roll back.</p><table class='lab__terms'><tr><th>Restore code</th><td>Only the files, to that point</td></tr><tr><th>Restore conversation</th><td>Only the chat, to that point</td></tr><tr><th>Restore code and conversation</th><td>Both</td></tr><tr><th>Never mind</th><td>Cancel</td></tr></table><p>You've already undone it, so close it with <b>Never mind</b> (or <kbd>Esc</kbd>).</p>",
+      "next": "limits",
+      "button": "Got it"
+    },
+    {
+      "id": "limits",
+      "stage": 7,
+      "title": "Some things are hard to undo",
+      "html": "<p>Claude's <b>edits to file contents</b> are fairly easy to undo. But these can be hard:</p><ul><li><b>Files deleted by a command</b>: they may not go to the Recycle Bin. That's why Desktop 4 said to deny <code>rm</code> and <code>del</code>.</li><li><b>Files moved or renamed by a command</b>: the undo menu doesn't track them. Ask Claude, \"Move it back where it was.\"</li><li><b>Work from other chats</b> or <b>edits you made yourself</b>: Claude may not know about them.</li></ul><div class='lab__tip'><b>Always copy important files first.</b> With that one habit, most mistakes are nothing to worry about.</div>",
+      "next": "summary",
+      "button": "Got it, show the wrap-up"
+    },
+    {
+      "id": "summary",
+      "stage": 8,
+      "kind": "summary",
+      "title": "🎉 Desktop practice 6 done! What you learned",
+      "html": "<p>Now you can undo mistakes, which makes it much easier to hand things over.</p><table class='lab__terms'><tr><th>Before allowing</th><td><b>Deny</b> on the permission card</td></tr><tr><th>After allowing</th><td>In the same chat: <b>\"Undo what you just did\"</b></td></tr><tr><th>In advance</th><td><b>Copy</b> important files first (\"Copy X to X_backup\")</td></tr><tr><th>/undo</th><td>An undo menu, depending on the app (use it if you have it)</td></tr></table><h3>Two things to remember</h3><ol><li>Ask to undo <b>in the same chat</b>. A new chat doesn't know what was changed.</li><li><b>Commands like delete and move</b> are hard to undo. Read those cards extra carefully before allowing.</li></ol><p class='lab__links'><a class='btn btn--primary' href='{{base}}lab/desktop-images.html'>Next: Desktop 7 · Show it a picture →</a><a class='btn btn--ghost' href='{{base}}ai/desktop-undo.html'>Read today's steps as a guide</a></p>"
+    }
+  ]
+}

@@ -1,0 +1,150 @@
+{
+  "id": "app-web",
+  "title": "Build a web app: a workout timer",
+  "stages": [
+    "Start",
+    "What's a web app",
+    "New chat",
+    "Have it built",
+    "Open in a browser",
+    "Have it changed",
+    "Wrap-up"
+  ],
+  "steps": [
+    {
+      "id": "intro",
+      "stage": 1,
+      "title": "What we'll do today",
+      "html": "<p>Without knowing a single line of code, you can describe an app to Claude and have <b>your own app</b> built. Today it's a <b>workout timer</b>.</p><ul><li>Press start and a ring-shaped timer counts down,</li><li>and it reads out \"three, two, one\" for the last 3 seconds.</li></ul><p><a href='{{base}}assets/files/app/timer/' target='_blank' rel='noopener'>Preview the finished example ↗</a></p><ul><li>Time: 20 minutes</li><li>You need: a computer that finished <a href='{{base}}lab/desktop-edit.html'>Desktop 2</a>, and a web browser like Chrome, Edge or Safari</li></ul>",
+      "next": "concept",
+      "button": "Let's start"
+    },
+    {
+      "id": "concept",
+      "stage": 2,
+      "title": "First, what's a web app?",
+      "html": "<p>A <b>web app</b> runs inside your web browser. No app store and nothing extra to install, which makes it the easiest kind to build first.</p><table class='lab__terms'><tr><th>index.html</th><td>A text file describing the app's <b>screen and behavior</b>. It's the web app's \"front page\", hence the name</td></tr><tr><th>HTML</th><td>The language for what goes on screen (buttons, text, pictures)</td></tr><tr><th>Browser</th><td>A program for viewing the web, like Chrome, Edge or Safari. Open the file in it and it becomes an app</td></tr></table><p class='muted'>Claude writes the code. You just <b>say what you want and check the result with your own eyes</b>.</p>",
+      "next": "open",
+      "button": "Got it"
+    },
+    {
+      "id": "open",
+      "stage": 3,
+      "title": "Start with a new chat",
+      "html": "<p>Claude app → <b>Code</b> tab → <b>+ New</b>. Check the buttons under the typing box show <b>Local · Practice · Manual</b>.</p>",
+      "check": {
+        "q": "Can you see Local · Practice · Manual?",
+        "yes": "make",
+        "no": "open-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "open-help",
+      "kind": "help",
+      "title": "If the start screen looks different",
+      "html": "<ul><li>If the folder isn't Practice, click the folder button → <b>Open folder…</b> and choose it.</li><li>Click the permission mode button and choose <b>Manual</b>.</li></ul>"
+    },
+    {
+      "id": "make",
+      "stage": 4,
+      "title": "Describe it and have it built",
+      "html": "<p>The <b>more specific</b> you are, the better it builds. Send the sentence below as is.</p><p><b>Permission cards</b> appear for making a folder and a file. Check it's making <b>index.html</b> inside a <b>timer</b> folder, then click <b>Allow</b>. You don't need to understand the code.</p>",
+      "image": "assets/img/ai/app-web/en/create.webp",
+      "alt": "A permission card for creating timer/index.html",
+      "code": "Create a timer folder and build a workout timer web app in it as a single index.html. A big start button, a 20-second ring timer, and read out 'three, two, one' in English for the last 3 seconds. Make it look good on a phone too.",
+      "codeLabel": "Type this",
+      "check": {
+        "q": "Is there a timer folder with index.html inside your Practice folder?",
+        "yes": "browser",
+        "no": "make-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "make-help",
+      "kind": "help",
+      "title": "If no file appears, or it was built differently",
+      "html": "<ul><li>If you denied a card, send it again and allow it.</li><li>It's fine if it split things into several files (style.css, app.js…). You just need index.html.</li><li>If Claude asks you something, answer it. For example: \"Use an English voice.\"</li></ul>",
+      "choices": [
+        {
+          "label": "Let me try again",
+          "next": "make"
+        },
+        {
+          "label": "Next",
+          "next": "browser"
+        }
+      ]
+    },
+    {
+      "id": "browser",
+      "stage": 5,
+      "title": "Open it in a browser and try it",
+      "html": "<ol><li>Open the <b>Practice</b> folder on your desktop → the <b>timer</b> folder.</li><li><b>Double-click index.html</b> and it opens in your browser.</li><li>Turn your speakers on and press <b>Start</b>.</li></ol><p class='muted'>You can also tell Claude \"Open index.html\". A permission card for opening a program will appear.</p>",
+      "image": "assets/img/ai/app-web/en/browser.webp",
+      "alt": "A ring timer and start button in the browser",
+      "check": {
+        "q": "Did the timer count down, and did you hear \"three, two, one\"?",
+        "yes": "change",
+        "no": "browser-help"
+      }
+    },
+    {
+      "id": "browser-help",
+      "kind": "help",
+      "title": "If it won't open or there's no sound",
+      "html": "<ul><li><b>Notepad opens</b>: right-click index.html → <b>Open with</b> → Chrome, Edge or Safari.</li><li><b>No sound</b>: check your volume. Browsers only play sound <b>after you press a button</b>.</li><li><b>Blank or odd screen</b>: take a screenshot (Desktop 7) and send it with \"This is what I see. Please fix it.\"</li></ul>",
+      "choices": [
+        {
+          "label": "Let me try again",
+          "next": "browser"
+        },
+        {
+          "label": "Next",
+          "next": "change"
+        }
+      ]
+    },
+    {
+      "id": "change",
+      "stage": 6,
+      "title": "Change it with words",
+      "html": "<p>The real power of building apps this way is <b>changing them with a sentence</b>. Let's add rest time and rounds.</p><ol><li>Send the sentence below, check the changed lines (red and green), and click <b>Allow</b>.</li><li>Go back to the browser and <b>refresh</b>. (Windows: <kbd>F5</kbd> · Mac: <kbd>Cmd</kbd>+<kbd>R</kbd>)</li></ol><div class='lab__tip'><b>Refresh to see the change.</b> The file changed, but the open page doesn't update by itself.</div>",
+      "image": "assets/img/ai/app-web/en/change.webp",
+      "alt": "A permission card changing the rounds and rest time",
+      "code": "Change it to 20 seconds of work and 10 seconds of rest, repeated 3 times. Make the timer green during rest",
+      "codeLabel": "Type this",
+      "check": {
+        "q": "After refreshing, does it go work → rest (green) → work… 3 times?",
+        "yes": "summary",
+        "no": "change-help",
+        "yesLabel": "Yes, it works! 🎉"
+      },
+      "ask": true
+    },
+    {
+      "id": "change-help",
+      "kind": "help",
+      "title": "If nothing changed, or it broke",
+      "html": "<ul><li>Check you refreshed.</li><li>If it broke, say \"Undo that last change.\" (Desktop 6)</li><li>If it's not what you wanted, say <b>what's different and how</b>. For example: \"After the rest, the next round doesn't start.\"</li></ul>",
+      "choices": [
+        {
+          "label": "Let me try again",
+          "next": "change"
+        },
+        {
+          "label": "Show the wrap-up",
+          "next": "summary"
+        }
+      ]
+    },
+    {
+      "id": "summary",
+      "stage": 7,
+      "kind": "summary",
+      "title": "🎉 App practice 1 done! Your own web app",
+      "html": "<p>You described an app, had it built, and changed it with words. That's the basic loop for building apps with AI.</p><div class='lab__flow'><span>Say what you want</span><i>check the card</i><span>Open it in a browser</span><i>say what to change</i><span>Refresh</span></div><h3>Things to try next</h3><ul><li>\"Let me type in the exercise name\"</li><li>\"Play a clapping sound at the end\"</li><li>\"Keep a record of how many times I did it today\"</li></ul><p class='muted'>Earlln's <a href='{{base}}product.html#earllncore'>EarllnCore</a> (a morning core workout app) started just like this and grew one sentence at a time.</p><p class='lab__links'><a class='btn btn--primary' href='{{base}}lab/app-publish.html'>Next: App 2 · Install it on your phone and share it →</a><a class='btn btn--ghost' href='{{base}}ai/app-web.html'>See the guide</a></p>"
+    }
+  ]
+}

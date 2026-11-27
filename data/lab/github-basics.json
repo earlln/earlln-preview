@@ -1,0 +1,178 @@
+{
+  "id": "github-basics",
+  "title": "GitHub 한눈에 보기",
+  "stages": [
+    "시작",
+    "GitHub란",
+    "저장소",
+    "커밋",
+    "브랜치",
+    "PR·병합",
+    "릴리스·Pages",
+    "안전 퀴즈",
+    "총정리"
+  ],
+  "steps": [
+    {
+      "id": "intro",
+      "stage": 1,
+      "title": "오늘 할 일",
+      "html": "<p>휴대폰으로 일 시키기(휴대폰 2·3)와 앱 만들기(앱 2·3)에는 <b>GitHub</b>가 나와요. 오늘은 진짜 저장소 하나를 <b>구경만</b> 하면서 꼭 필요한 낱말 7개를 익혀요.</p><ul><li>걸리는 시간: 10분</li><li>필요한 것: 웹 브라우저 (휴대폰도 OK). <b>가입하지 않아도</b> 돼요.</li><li>함께 볼 저장소: 얼른닷컴 운동 앱 <a href='https://github.com/earlln/EarllnCore' target='_blank' rel='noopener'>EarllnCore ↗</a></li></ul><div class='lab__tip'>링크는 새 탭으로 열려요. GitHub 화면과 이 화면을 오가며 따라 해 보세요.</div>",
+      "next": "what",
+      "button": "시작하기"
+    },
+    {
+      "id": "what",
+      "stage": 2,
+      "title": "GitHub는 이런 곳이에요",
+      "html": "<p><b>GitHub</b>는 파일을 인터넷에 보관하는 서비스예요. 그냥 보관함과 다른 점은 세 가지예요.</p><ol><li><b>기록이 남아요</b> — 누가, 언제, 무엇을 바꿨는지 전부.</li><li><b>되돌릴 수 있어요</b> — 망가져도 예전 상태로.</li><li><b>바꾸기 전에 검토해요</b> — 바뀐 내용을 보고 '합칠지' 정해요.</li></ol><p>그래서 Claude가 클라우드에서 일할 때 GitHub를 써요. Claude가 고친 것을 <b>내가 보고 허락</b>할 수 있으니까요.</p>",
+      "next": "repo",
+      "button": "알겠어요"
+    },
+    {
+      "id": "repo",
+      "stage": 3,
+      "title": "저장소(Repository) 둘러보기",
+      "html": "<p><a href='https://github.com/earlln/EarllnCore' target='_blank' rel='noopener'>EarllnCore 저장소 ↗</a>를 열어 보세요.</p><table class='lab__terms'><tr><th>저장소</th><td>GitHub 안의 폴더 하나. 앱 하나, 메모 묶음 하나처럼 <b>한 가지 일</b>마다 하나씩 만들어요</td></tr><tr><th>Public · Private</th><td>이름 옆 표시. <b>Public</b>은 누구나, <b>Private</b>은 나만 볼 수 있어요</td></tr><tr><th>README</th><td>저장소 소개 글. 파일 목록 아래에 보여요</td></tr></table>",
+      "image": "assets/img/ai/github-basics/repo.webp",
+      "alt": "EarllnCore 저장소 첫 화면: Public 표시, main 가지, 커밋 수, 파일 목록, README",
+      "check": {
+        "q": "이름 옆에 Public 표시가 있고, 아래에 README 소개 글이 보이나요?",
+        "yes": "commits",
+        "no": "repo-help"
+      }
+    },
+    {
+      "id": "repo-help",
+      "kind": "help",
+      "title": "화면이 다르게 보일 때",
+      "html": "<ul><li>휴대폰에서는 README가 더 아래에 있어요. 화면을 내려 보세요.</li><li>GitHub 앱이 열리면 앱에서 봐도 같아요.</li></ul>",
+      "choices": [
+        {
+          "label": "다시 볼게요",
+          "next": "repo"
+        },
+        {
+          "label": "다음으로",
+          "next": "commits"
+        }
+      ]
+    },
+    {
+      "id": "commits",
+      "stage": 4,
+      "title": "커밋(Commit) = 저장 기록",
+      "html": "<p>파일 목록 위의 <b>🕘 Commits</b>(시계 아이콘)를 눌러 보세요.</p><p>한 줄 한 줄이 <b>커밋</b>이에요. 게임의 '저장'처럼, 바꾼 내용을 한 번 저장할 때마다 한 줄이 생기고 <b>무엇을 바꿨는지 한 문장</b>이 붙어요.</p><p class='muted'>옆의 7자리 글자(예: 0723207)는 그 기록의 이름표예요. 이걸로 언제든 그때로 되돌아갈 수 있어요.</p>",
+      "image": "assets/img/ai/github-basics/commits.webp",
+      "alt": "커밋 목록: 바꾼 내용 한 문장과 이름표",
+      "check": {
+        "q": "커밋 목록에서 \"Rename app to EarllnCore…\" 같은 줄이 보이나요?",
+        "yes": "branch",
+        "no": "commits-help"
+      }
+    },
+    {
+      "id": "commits-help",
+      "kind": "help",
+      "title": "Commits가 안 보일 때",
+      "html": "<ul><li>휴대폰에서는 파일 목록 위나 <b>⋯</b> 메뉴에 있어요.</li><li>주소창에 저장소 주소 뒤로 <b>/commits</b>를 붙여 열어도 돼요.</li></ul>",
+      "choices": [
+        {
+          "label": "다시 볼게요",
+          "next": "commits"
+        },
+        {
+          "label": "다음으로",
+          "next": "branch"
+        }
+      ]
+    },
+    {
+      "id": "branch",
+      "stage": 5,
+      "title": "브랜치(Branch) = 사본 가지",
+      "html": "<p>저장소 첫 화면 왼쪽 위의 <b>⑂ main</b>이 브랜치예요.</p><table class='lab__terms'><tr><th>main</th><td><b>원본</b> 가지. 앱의 \"정식 버전\"이에요</td></tr><tr><th>다른 브랜치</th><td>원본을 건드리지 않고 <b>따로 고쳐 보는 사본</b>. Claude가 클라우드에서 일하면 늘 새 브랜치에 저장해요</td></tr></table><p>새 브랜치에서 고친 것이 마음에 들면, 다음에 볼 <b>PR</b>로 원본(main)에 합쳐요.</p>",
+      "next": "pr",
+      "button": "알겠어요"
+    },
+    {
+      "id": "pr",
+      "stage": 6,
+      "title": "PR(풀 리퀘스트)과 병합(Merge)",
+      "html": "<p><a href='https://github.com/earlln/EarllnCore/pulls?q=is%3Apr+is%3Aclosed' target='_blank' rel='noopener'>EarllnCore의 닫힌 PR 목록 ↗</a>을 열고, 하나를 눌러 <b>Files changed</b> 탭을 보세요.</p><table class='lab__terms'><tr><th>PR</th><td>\"이 가지를 원본에 합쳐도 될까요?\"라는 <b>검토 요청</b></td></tr><tr><th>Files changed</th><td>바뀐 줄. <b>빨강</b>은 지운 줄, <b>초록</b>은 새 줄 (데스크톱 2의 허락 카드와 같아요)</td></tr><tr><th>병합 (Merge)</th><td>검토하고 원본에 <b>합치기</b>. 보라색 <b>Merged</b>는 이미 합쳐졌다는 뜻</td></tr></table>",
+      "image": "assets/img/ai/github-basics/pr.webp",
+      "alt": "PR의 Files changed에서 빨강·초록 줄과 Merged 표시",
+      "check": {
+        "q": "Files changed에서 빨강·초록 줄이 보이나요?",
+        "yes": "release",
+        "no": "pr-help"
+      }
+    },
+    {
+      "id": "pr-help",
+      "kind": "help",
+      "title": "PR 목록이 비어 있을 때",
+      "html": "<ul><li>목록 위의 <b>Closed</b>(닫힌)를 눌러 보세요. 이미 병합된 PR은 거기 있어요.</li><li>휴대폰에서는 <b>Files changed</b>가 탭 줄 오른쪽에 숨어 있을 수 있어요. 옆으로 밀어 보세요.</li></ul>",
+      "choices": [
+        {
+          "label": "다시 볼게요",
+          "next": "pr"
+        },
+        {
+          "label": "다음으로",
+          "next": "release"
+        }
+      ]
+    },
+    {
+      "id": "release",
+      "stage": 7,
+      "title": "릴리스(Release)와 GitHub Pages",
+      "html": "<p>저장소 첫 화면 오른쪽(휴대폰은 아래)의 <b>Releases</b>를 보세요.</p><table class='lab__terms'><tr><th>릴리스</th><td>사람들이 내려받는 <b>완성본</b>. EarllnCore의 안드로이드 앱(APK)이 여기 있어요</td></tr><tr><th>GitHub Pages</th><td>저장소 파일을 <b>무료 웹사이트</b>로 보여 주는 기능. 앱 2·3에서 내 앱 주소를 받을 때 써요</td></tr><tr><th>Actions</th><td>정해 둔 일을 <b>자동으로</b> 하는 로봇. EarllnCore는 병합할 때마다 Actions가 APK를 만들어요</td></tr></table>",
+      "next": "quiz",
+      "button": "알겠어요"
+    },
+    {
+      "id": "quiz",
+      "stage": 8,
+      "title": "안전 퀴즈",
+      "html": "<p>앱을 만들다가 지도 기능을 넣으려고 <b>API 키</b>(서비스를 쓰는 비밀번호 같은 글자)를 받았어요. 이 키를 <b>Public 저장소</b>의 index.html에 그대로 적어 올려도 될까요?</p>",
+      "choices": [
+        {
+          "label": "안 돼요",
+          "next": "quiz-no"
+        },
+        {
+          "label": "괜찮아요",
+          "next": "quiz-yes"
+        }
+      ]
+    },
+    {
+      "id": "quiz-yes",
+      "kind": "help",
+      "title": "앗, 다시 생각해 봐요",
+      "html": "<p><b>Public</b> 저장소는 누구나 모든 파일과 <b>지난 커밋 기록</b>까지 볼 수 있어요. 키를 올리면 남이 내 이름으로 쓰고, 요금이 나올 수 있어요. 나중에 지워도 기록에 남아요.</p>",
+      "choices": [
+        {
+          "label": "다시 고를게요",
+          "next": "quiz"
+        }
+      ]
+    },
+    {
+      "id": "quiz-no",
+      "title": "맞아요! 꼭 지킬 세 가지",
+      "html": "<ol><li><b>비밀번호·API 키·개인정보</b>는 저장소에 넣지 않기. (실수로 올렸다면 지우는 것만으론 부족해요. 그 키를 <b>새로 바꾸세요</b>)</li><li>메모·업무 자료는 <b>Private</b>, 누구나 볼 앱만 <b>Public</b>.</li><li>Claude 앱은 <b>고른 저장소만</b>(Only select repositories)에 설치.</li></ol>",
+      "next": "summary",
+      "button": "정리 보기"
+    },
+    {
+      "id": "summary",
+      "stage": 9,
+      "kind": "summary",
+      "title": "🎉 GitHub 한눈에 보기 완료!",
+      "html": "<table class='lab__terms'><tr><th>저장소</th><td>GitHub 안의 폴더 하나 (Public · Private)</td></tr><tr><th>커밋</th><td>저장 기록 한 줄</td></tr><tr><th>브랜치</th><td>원본(main)을 건드리지 않는 사본 가지</td></tr><tr><th>PR</th><td>바꾼 내용을 원본에 합쳐도 될지 묻는 검토 요청</td></tr><tr><th>병합</th><td>검토하고 원본에 합치기 = 최종 허락</td></tr><tr><th>릴리스</th><td>내려받는 완성본</td></tr><tr><th>Pages</th><td>저장소를 무료 웹사이트로</td></tr></table><p class='lab__links'><a class='btn btn--primary' href='{{base}}lab/mobile-github.html'>다음: 휴대폰 2 · 내 저장소 만들기 →</a><a class='btn btn--ghost' href='{{base}}lab/app-publish.html'>앱 2 · 내 앱 공개하기</a><a class='btn btn--ghost' href='{{base}}ai/github-basics.html'>강의로 함께 보기</a></p>"
+    }
+  ]
+}

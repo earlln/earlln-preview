@@ -1,0 +1,137 @@
+{
+  "id": "desktop-usage",
+  "title": "Plans and usage limits",
+  "stages": [
+    "Start",
+    "Plans",
+    "Usage limits",
+    "Check usage",
+    "Use it wisely",
+    "If you hit the limit",
+    "Wrap-up"
+  ],
+  "steps": [
+    {
+      "id": "intro",
+      "stage": 1,
+      "title": "What we'll do today",
+      "html": "<p>Once you use Claude every day, you'll wonder \"How much can I use?\" and \"What if it suddenly stops?\" Today you'll learn about <b>plans and usage limits</b>, and how to <b>check your own usage</b>.</p><ul><li>Time: 10 minutes</li><li>You need: a computer that finished <a href='{{base}}lab/desktop-images.html'>Desktop 7</a></li></ul><div class='lab__tip'>You won't create or edit any files today. Just read, click and check.</div>",
+      "next": "plans",
+      "button": "Let's start"
+    },
+    {
+      "id": "plans",
+      "stage": 2,
+      "title": "Plans at a glance",
+      "html": "<table class='lab__terms'><tr><th>Free</th><td>Chat only. <b>No Claude Code</b></td></tr><tr><th>Pro</th><td>$20/month ($17/month billed yearly). <b>Includes Claude Code</b>. Enough for this course</td></tr><tr><th>Max</th><td>$100/month. 5× Pro usage</td></tr><tr><th>Ultra</th><td>$200/month. For heavy users</td></tr></table><p class='muted'>Prices in US dollars, before tax. They can vary by country and change over time, so check <b>claude.com/pricing</b> for exact amounts.</p>",
+      "check": {
+        "q": "Do you know which plan you're on?",
+        "yes": "limits",
+        "no": "myplan",
+        "yesLabel": "Yes, I know",
+        "noLabel": "I'm not sure"
+      }
+    },
+    {
+      "id": "myplan",
+      "kind": "help",
+      "title": "Find out your plan",
+      "html": "<ul><li>Click <b>your name at the bottom left</b> of the Claude app (or claude.ai). It usually shows your plan name (e.g. Pro plan).</li><li>If you used the Code tab in Desktop 1, you're already on a <b>paid plan</b>. Free can't use the Code tab.</li></ul>",
+      "choices": [
+        {
+          "label": "Got it, next",
+          "next": "limits"
+        }
+      ]
+    },
+    {
+      "id": "limits",
+      "stage": 3,
+      "title": "There are two usage limits",
+      "html": "<p>Even paid plans <b>aren't unlimited</b>. There are two limits.</p><table class='lab__terms'><tr><th>5-hour limit</th><td>Refills every <b>5 hours</b>, counting from when you send your first message</td></tr><tr><th>Weekly limit</th><td>Refills every <b>week</b> at a fixed day and time set for your account</td></tr></table><div class='lab__tip'><b>Chat and Claude Code share the same limits.</b> Phone chats, claude.ai and the desktop Code tab all count together.</div><p class='muted'>Limits differ by plan and may change over time.</p>",
+      "next": "ring",
+      "button": "Got it"
+    },
+    {
+      "id": "ring",
+      "stage": 4,
+      "title": "Check your usage",
+      "html": "<ol><li>Open the Claude app → <b>Code</b> tab.</li><li>Click the <b>small circle (usage ring)</b> at the right of the row under the typing box.</li></ol><p>It shows what % of <b>Current session</b> (5-hour limit) and <b>Weekly</b> you've used, and <b>when each refills</b>.</p>",
+      "image": "assets/img/ai/desktop-usage/en/usage.webp",
+      "alt": "Clicking the usage ring under the typing box to see 5-hour and weekly usage",
+      "check": {
+        "q": "Can you see your usage % and when it refills?",
+        "yes": "quiz",
+        "no": "ring-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "ring-help",
+      "kind": "help",
+      "title": "If you can't see the usage ring",
+      "html": "<ul><li>You can see the same thing in a web browser at <b>claude.ai/settings/usage</b> (claude.ai → Settings → <b>Usage</b>).</li><li>Older app versions may not have the ring. Try updating the app.</li></ul>",
+      "choices": [
+        {
+          "label": "Let me look again",
+          "next": "ring"
+        },
+        {
+          "label": "I saw it on the web, next",
+          "next": "quiz"
+        }
+      ]
+    },
+    {
+      "id": "quiz",
+      "stage": 4,
+      "title": "Quick quiz!",
+      "html": "<p>Current session shows <b>90%</b> and \"Resets in 2 hr\". You were about to hand over a big cleanup job. What should you do?</p>",
+      "choices": [
+        {
+          "label": "Save the big job for after the reset; do small things now",
+          "next": "quiz-ok"
+        },
+        {
+          "label": "Make another account with no limit",
+          "next": "quiz-no"
+        }
+      ]
+    },
+    {
+      "id": "quiz-no",
+      "kind": "help",
+      "title": "Hmm, we wouldn't recommend that",
+      "html": "<p>A new account has the same limits, and you'd have to start your chats and settings over. Splitting your work <b>around the reset time</b> is simplest. If you often run short, then consider a bigger plan.</p>",
+      "choices": [
+        {
+          "label": "Got it",
+          "next": "quiz-ok"
+        }
+      ]
+    },
+    {
+      "id": "quiz-ok",
+      "stage": 5,
+      "title": "Correct! And tips to use less",
+      "html": "<p>Planning around the reset time is best. Day to day, these habits use less of your limit:</p><ul><li><b>New job, new chat</b> (Desktop 3): longer chats mean more to read each time, so they use more.</li><li><b>Be specific</b>: \"by date, as a table\" instead of just \"organize it\" means fewer do-overs.</li><li><b>Plan big jobs first</b> (Desktop 5): fixing the plan before running it avoids wasted work.</li><li><b>Share only what's needed</b>: attaching many big files or pictures uses more.</li></ul>",
+      "next": "hit",
+      "button": "Got it"
+    },
+    {
+      "id": "hit",
+      "stage": 6,
+      "title": "What happens when you hit the limit?",
+      "html": "<ul><li>Claude <b>pauses</b> and tells you when you can use it again.</li><li><b>Your work and chats are kept.</b> After it refills, open the same chat and say \"carry on\".</li><li>If you often run short, then consider a <b>bigger plan</b> (Max, etc.). There's no need to start with an expensive one.</li></ul><div class='lab__tip'>Handle payments and plan changes <b>yourself</b>, checking the amount. Don't ask Claude to pay for you.</div>",
+      "next": "summary",
+      "button": "Got it, show the wrap-up"
+    },
+    {
+      "id": "summary",
+      "stage": 7,
+      "kind": "summary",
+      "title": "🎉 Desktop basics complete!",
+      "html": "<p>You've finished all <b>8 desktop practices</b>. Great work!</p><table class='lab__terms'><tr><th>1–2</th><td>Install and first task; read changes and edit</td></tr><tr><th>3–4</th><td>New or continued chats; organize several files</td></tr><tr><th>5–6</th><td>Permission modes; undo mistakes</td></tr><tr><th>7–8</th><td>Show it pictures; plans and usage</td></tr></table><h3>Remember from today</h3><ol><li>Check usage with the <b>usage ring</b> under the typing box (or claude.ai/settings/usage).</li><li>There are <b>5-hour and weekly limits</b>, shared by chat and Code. Split big jobs around the reset time.</li></ol><h3>What's next?</h3><p>You have the basics now. The next course covers <b>real work</b> like spreadsheet (CSV) cleanup, document summaries and report drafts. Check your progress in <b>All courses</b> beside the page.</p><p class='lab__links'><a class='btn btn--primary' href='{{base}}lab/work-csv.html'>Next: Work 1 · Spreadsheet (CSV) cleanup →</a><a class='btn btn--ghost' href='{{base}}ai/desktop-usage.html'>Read today's steps as a guide</a></p>"
+    }
+  ]
+}

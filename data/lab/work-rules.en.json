@@ -1,0 +1,148 @@
+{
+  "id": "work-rules",
+  "title": "Make it remember your rules (CLAUDE.md)",
+  "stages": [
+    "Start",
+    "What's CLAUDE.md",
+    "Make the rules file",
+    "Open it",
+    "Check in a new chat",
+    "Change the rules",
+    "Use it well",
+    "Wrap-up"
+  ],
+  "steps": [
+    {
+      "id": "intro",
+      "stage": 1,
+      "title": "What we'll do today",
+      "html": "<p>Through Work 1–7 you said the same things again and again, right? \"Keep the original\", \"so Excel opens it correctly\", \"don't make things up\"…</p><p>Today you'll <b>write these down in one file</b> so Claude follows them without being told each time. This is the last lesson of the Real work course.</p><ul><li>Time: 15 minutes</li><li>You need: a computer where you've done <a href='{{base}}lab/work-csv.html'>Work 1</a> (todo.txt in Practice)</li></ul>",
+      "next": "what",
+      "button": "Let's start"
+    },
+    {
+      "id": "what",
+      "stage": 2,
+      "title": "What's CLAUDE.md?",
+      "html": "<p><b>CLAUDE.md</b> is a <b>notes file for Claude</b>. If a folder has a file with this name, Claude Code <b>reads it first whenever a new chat starts</b> in that folder.</p><table class='lab__terms'><tr><th>Where</th><td>Directly inside the folder you work in (Practice today)</td></tr><tr><th>What</th><td>Rules to always follow, a bit about you, formats you use often</td></tr><tr><th>.md</th><td>Just a text file. Open and edit it in Notepad</td></tr></table><div class='lab__tip'>The rules are <b>guidance, not enforcement</b>. Claude mostly follows them, but still <b>read the permission cards</b> for anything important.</div>",
+      "next": "make",
+      "button": "Got it"
+    },
+    {
+      "id": "make",
+      "stage": 3,
+      "title": "Make the rules file",
+      "html": "<p>In Claude app → <b>Code</b> → <b>+ New</b> (<b>Local · Practice · Manual</b>), send the sentence below. It gathers the things you said most in Work 1–7. Read the create-file card and click <b>Allow</b>.</p>",
+      "code": "Create a CLAUDE.md file in the Practice folder with rules for working in this folder: answer politely and briefly / never edit originals; save to a new file / dates like 2026-11-24 / save CSVs so Excel opens them correctly / don't make things up; ask instead",
+      "codeLabel": "Type this",
+      "check": {
+        "q": "Is there a CLAUDE.md in the Practice folder?",
+        "yes": "open",
+        "no": "make-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "make-help",
+      "kind": "help",
+      "title": "If you don't see the file",
+      "html": "<ul><li>If you denied the card, send it again and allow it.</li><li>Check the folder under the typing box is <b>Practice</b>; it may have gone into another folder.</li></ul>"
+    },
+    {
+      "id": "open",
+      "stage": 4,
+      "title": "Open it in Notepad",
+      "html": "<p>In the Practice folder, right-click <b>CLAUDE.md</b> → <b>Open with → Notepad</b> (TextEdit on a Mac).</p><p>The rules you just gave are written there. You can <b>edit them yourself</b> too. Close Notepad when you're done.</p>",
+      "image": "assets/img/ai/work-rules/en/file.webp",
+      "alt": "CLAUDE.md opened in Notepad, showing the rules",
+      "check": {
+        "q": "Does CLAUDE.md list the 5 rules?",
+        "yes": "test",
+        "no": "open-help"
+      }
+    },
+    {
+      "id": "open-help",
+      "kind": "help",
+      "title": "If it won't open or looks different",
+      "html": "<ul><li>If double-clicking opens an odd program, right-click → <b>Open with</b> and choose Notepad.</li><li>Missing a rule? \"Also add the rule … to CLAUDE.md.\"</li></ul>",
+      "choices": [
+        {
+          "label": "Let me try again",
+          "next": "open"
+        },
+        {
+          "label": "Next",
+          "next": "test"
+        }
+      ]
+    },
+    {
+      "id": "test",
+      "stage": 5,
+      "title": "See the rules followed in a new chat",
+      "html": "<p>CLAUDE.md is read <b>when a new chat starts</b>, so open a new one with <b>+ New</b> first. If it tries to <b>keep the original and make a new file</b> without you mentioning the rule, it worked.</p>",
+      "image": "assets/img/ai/work-rules/en/applied.webp",
+      "alt": "In a new chat, Claude follows CLAUDE.md and makes a new file instead of editing the original",
+      "code": "Add \"Submit report\" to the end of todo.txt",
+      "codeLabel": "Send this in a new chat",
+      "check": {
+        "q": "Did it try to keep the original and make a new file, without being told?",
+        "yes": "edit",
+        "no": "test-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "test-help",
+      "kind": "help",
+      "title": "If it went to edit the original",
+      "html": "<ul><li><b>Deny</b> the card.</li><li>Check you're in a <b>new chat</b>; the chat where you made the rules may behave differently.</li><li>Check CLAUDE.md is <b>directly inside Practice</b> and named exactly <b>CLAUDE.md</b> (capitals).</li><li>Still no? Add \"Read CLAUDE.md and follow its rules.\"</li></ul>",
+      "choices": [
+        {
+          "label": "Let me try again",
+          "next": "test"
+        },
+        {
+          "label": "Next",
+          "next": "edit"
+        }
+      ]
+    },
+    {
+      "id": "edit",
+      "stage": 6,
+      "title": "Add or change rules",
+      "html": "<p>Keep refining the rules as you work. Ask Claude, or edit in Notepad yourself. Let's add the minutes format from Work 4.</p>",
+      "code": "Add a rule to CLAUDE.md: meeting minutes use the format 'Decisions / To-dos (owner, due) / Next meeting'",
+      "codeLabel": "Type this",
+      "check": {
+        "q": "Did the new rule show as a green line on the card, and did you allow it?",
+        "yes": "tips",
+        "no": "edit-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "edit-help",
+      "kind": "help",
+      "title": "If it didn't work",
+      "html": "<p>If you denied the card, send it again. You can also open it in Notepad, add a line like <b>- Meeting minutes use …</b> at the end, and save.</p>"
+    },
+    {
+      "id": "tips",
+      "stage": 7,
+      "title": "Using CLAUDE.md well",
+      "html": "<ul><li><b>Short and clear</b>: one rule per line. Long files get followed less. (Official guidance: under 200 lines)</li><li><b>Different per folder</b>: put a CLAUDE.md in your work folder and your club folder; each applies only there.</li><li><b>Introduce yourself</b>: \"I'm Jun-ho Park in marketing; I report to Yu-jin Choi\" makes reports and logs more accurate.</li></ul><div class='lab__tip'><b>Never put passwords, account numbers or personal data in it.</b> CLAUDE.md is read in every chat.</div>",
+      "next": "summary",
+      "button": "Got it, show the wrap-up"
+    },
+    {
+      "id": "summary",
+      "stage": 8,
+      "kind": "summary",
+      "title": "🎉 Real work course complete!",
+      "html": "<p>You've finished Work 1–8. Now you can hand everyday work to Claude, <b>following your own rules</b>.</p><table class='lab__terms'><tr><th>Work 1–3</th><td>Spreadsheets, summaries, report drafts</td></tr><tr><th>Work 4–6</th><td>Minutes and work logs, member lists, schedules</td></tr><tr><th>Work 7–8</th><td>Web research, remembering your rules</td></tr></table><h3>Remember from today</h3><ol><li><b>CLAUDE.md</b> = a rules note in the folder, read at <b>every new chat</b>.</li><li>Short and clear, per folder, and <b>no passwords</b>.</li><li>Even with rules, <b>always read the permission cards</b>.</li></ol><p class='lab__links'><a class='btn btn--primary' href='{{base}}lab/practice.html'>Back to all practices</a><a class='btn btn--ghost' href='{{base}}ai/work-rules.html'>Read today's steps as a guide</a></p>"
+    }
+  ]
+}

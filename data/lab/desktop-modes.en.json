@@ -1,0 +1,194 @@
+{
+  "id": "desktop-modes",
+  "title": "Change the permission mode",
+  "stages": [
+    "Start",
+    "Meet the modes",
+    "Plan: plan first",
+    "Carry out the plan",
+    "Accept edits: edit without asking",
+    "Back to Manual",
+    "Modes to be careful with",
+    "Wrap-up"
+  ],
+  "steps": [
+    {
+      "id": "intro",
+      "stage": 1,
+      "title": "What we'll do today",
+      "html": "<p>So far you've used <b>Manual</b> mode, where Claude asks every time it creates or edits a file. It's safe, but tiring when there's a lot to do.</p><p>Today you'll change the <b>permission mode</b> and learn <b>when it's safe to change it</b>.</p><ul><li>Time: 15 minutes</li><li>You need: a computer that finished <a href='{{base}}lab/desktop-organize.html'>Desktop 4</a> (todo.txt in the Practice folder)</li></ul>",
+      "next": "modes",
+      "button": "Let's start"
+    },
+    {
+      "id": "modes",
+      "stage": 2,
+      "title": "Open the list of modes",
+      "html": "<ol><li>Claude app → <b>Code</b> tab → <b>+ New</b> to open a new chat. Folder: <b>Practice</b>.</li><li>Click the <b>Manual</b> button under the typing box to open the list of modes.</li></ol><table class='lab__terms'><tr><th>Manual</th><td><b>Asks every time</b> before creating, editing or running commands. What you've used so far</td></tr><tr><th>Accept edits</th><td><b>Doesn't ask</b> for file edits and <b>common file commands</b> like making folders or moving files. Still asks for other commands</td></tr><tr><th>Plan</th><td>Doesn't edit files; <b>only makes a plan</b> and shows it</td></tr><tr><th>Auto</th><td>The AI judges for itself whether actions match your request (we won't use it today)</td></tr></table>",
+      "image": "assets/img/ai/desktop-modes/en/mode-menu.webp",
+      "alt": "Clicking the Manual button to open the list of modes",
+      "check": {
+        "q": "Can you see Manual, Accept edits and Plan in the list?",
+        "yes": "plan",
+        "no": "modes-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "modes-help",
+      "kind": "help",
+      "title": "If the list looks different",
+      "html": "<ul><li>Names vary a little by app version, e.g. <b>Ask permissions</b> (= Manual), <b>Auto accept edits</b> (= Accept edits), <b>Plan mode</b> (= Plan).</li><li><b>Auto</b> may not appear depending on your account or model. That's fine.</li><li>If you see <b>Bypass permissions</b>, <b>don't choose it.</b> Step 7 explains why.</li></ul>",
+      "choices": [
+        {
+          "label": "Let me look again",
+          "next": "modes"
+        },
+        {
+          "label": "Continue",
+          "next": "plan"
+        }
+      ]
+    },
+    {
+      "id": "plan",
+      "stage": 3,
+      "title": "Plan: have it make a plan first",
+      "html": "<ol><li>Choose <b>Plan</b> from the list.</li><li>Send the sentence below.</li></ol><p>Claude <b>only reads</b> todo.txt and shows a <b>plan</b> for what it would do. The file stays as it is.</p>",
+      "image": "assets/img/ai/desktop-modes/en/plan.webp",
+      "alt": "In Plan mode it shows a plan and doesn't change the file",
+      "code": "Make a plan to split todo.txt into urgent and later",
+      "codeLabel": "Type this",
+      "check": {
+        "q": "Did it show only a plan, without changing the file?",
+        "yes": "go",
+        "no": "plan-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "plan-help",
+      "kind": "help",
+      "title": "If it tries to edit instead of planning",
+      "html": "<ul><li>Check that the button under the typing box says <b>Plan</b>.</li><li>If Claude asks you something (e.g. what's urgent), answer it. That's part of planning.</li><li>If a permission card appears, click <b>Deny</b>, switch to Plan and send it again.</li></ul>",
+      "choices": [
+        {
+          "label": "Let me try again",
+          "next": "plan"
+        },
+        {
+          "label": "Next",
+          "next": "go"
+        }
+      ]
+    },
+    {
+      "id": "go",
+      "stage": 4,
+      "title": "If you like the plan, carry it out",
+      "html": "<ol><li>Switch the mode back to <b>Manual</b>.</li><li>Send the sentence below. When the permission card appears, read the <b>red and green lines</b> and click <b>Allow</b>.</li></ol><div class='lab__tip'>If the app shows a button under the plan like <b>Proceed with the plan</b>, you can click that instead. It may change the mode, so check the button under the typing box.</div><p class='muted'>Don't like the plan? While in Plan, ask for changes, e.g. \"Leave out step 3 and plan again.\"</p>",
+      "code": "Great, go ahead with that plan",
+      "codeLabel": "Type this",
+      "check": {
+        "q": "Did you read and allow the card, and is todo.txt now split into two groups?",
+        "yes": "accept",
+        "no": "go-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "go-help",
+      "kind": "help",
+      "title": "If it didn't follow the plan",
+      "html": "<ul><li>In Plan it won't edit files. Switch the button to <b>Manual</b> and send it again.</li><li>Don't like the result? Say \"Undo what you just did.\"</li></ul>",
+      "choices": [
+        {
+          "label": "Let me try again",
+          "next": "go"
+        },
+        {
+          "label": "Next",
+          "next": "accept"
+        }
+      ]
+    },
+    {
+      "id": "accept",
+      "stage": 5,
+      "title": "Accept edits: edit without asking",
+      "html": "<ol><li>Switch the mode to <b>Accept edits</b>.</li><li>Send the sentence below.</li></ol><p>This time it edits <b>without a permission card</b>. You can see what changed under <b>Changes</b> on the right.</p>",
+      "image": "assets/img/ai/desktop-modes/en/accept.webp",
+      "alt": "In Accept edits mode it edits right away, and the change shows in Changes",
+      "code": "Add \"Exercise\" to the end of todo.txt",
+      "codeLabel": "Type this",
+      "check": {
+        "q": "Was 'Exercise' added right away, without asking?",
+        "yes": "accept-why",
+        "no": "accept-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "accept-help",
+      "kind": "help",
+      "title": "If it still asks",
+      "html": "<ul><li>Check that the button under the typing box says <b>Accept edits</b>.</li><li>Commands other than file edits still ask in Accept edits. That's normal.</li></ul>",
+      "choices": [
+        {
+          "label": "Let me try again",
+          "next": "accept"
+        },
+        {
+          "label": "Next",
+          "next": "accept-why"
+        }
+      ]
+    },
+    {
+      "id": "accept-why",
+      "stage": 5,
+      "title": "Convenient, but you need to double-check",
+      "html": "<p>Accept edits is fast, but it <b>doesn't show you changes first.</b> Use it safely like this:</p><ul><li>In a place where <b>mistakes don't matter</b>, like the Practice folder, for jobs that are <b>clear and repetitive</b></li><li>When it's done, always skim the changes in <b>Changes</b></li><li>If something went wrong: \"Undo what you just did.\"</li></ul><p class='muted'>In folders with important documents, Manual is safer.</p>",
+      "next": "back",
+      "button": "Got it"
+    },
+    {
+      "id": "back",
+      "stage": 6,
+      "title": "Switch back to Manual",
+      "html": "<p>When you're done practising, switch the mode back to <b>Manual</b>. Until you're comfortable, <b>Manual is your default</b>.</p><p class='muted'>A new chat may keep your last choice of mode. Make a habit of checking the button under the typing box whenever you start a new chat.</p>",
+      "check": {
+        "q": "Does the button under the typing box say Manual now?",
+        "yes": "careful",
+        "no": "back-help"
+      }
+    },
+    {
+      "id": "back-help",
+      "kind": "help",
+      "title": "If you can't find Manual",
+      "html": "<p>Depending on the app version it may say <b>Ask permissions</b>. It's the same mode.</p>",
+      "choices": [
+        {
+          "label": "Let me try again",
+          "next": "back"
+        }
+      ]
+    },
+    {
+      "id": "careful",
+      "stage": 7,
+      "title": "Two modes to use with care",
+      "html": "<table class='lab__terms'><tr><th>Auto</th><td>The AI judges for itself whether an action matches your request. Convenient, but it can judge wrong. Try it <b>once you're comfortable</b>, starting with unimportant jobs.</td></tr><tr><th>Bypass permissions</th><td><b>Never asks.</b> Even the official docs say to use it only in isolated test environments. <b>Don't use it.</b> (It only shows up if you turn it on in Settings.)</td></tr></table><div class='lab__tip'>Start with <b>Manual</b>, use <b>Plan</b> when you want a plan, and <b>Accept edits</b> for repetitive work in the Practice folder. Those three are all you need.</div>",
+      "next": "summary",
+      "button": "Got it, show the wrap-up"
+    },
+    {
+      "id": "summary",
+      "stage": 8,
+      "kind": "summary",
+      "title": "🎉 Desktop practice 5 done! What you learned",
+      "html": "<p>From installing to permission modes, you've learned <b>all the basic controls</b>.</p><table class='lab__terms'><tr><th>Manual</th><td>Asks every time. <b>Your default</b></td></tr><tr><th>Plan</th><td>Plan first, before a big job</td></tr><tr><th>Accept edits</th><td>Doesn't ask for file edits. For repetitive work in the Practice folder. Check Changes afterwards</td></tr><tr><th>Auto · Bypass</th><td>Once you're comfortable / don't use</td></tr></table><h3>Two things to remember</h3><ol><li>Change the mode with <b>the button under the typing box</b>. Check it in every new chat.</li><li>The less a mode asks, the more <b>you need to check afterwards</b>.</li></ol><h3>What you've learned so far</h3><p>Install the app → create a file → read changes → new chat or continue → organize several files → permission modes. Now you can <b>hand Claude simple jobs on your own.</b> Next come undoing mistakes, showing it pictures, and <b>real work</b> like spreadsheets and documents.</p><p class='lab__links'><a class='btn btn--primary' href='{{base}}lab/desktop-undo.html'>Next: Desktop 6 · Undo a mistake →</a><a class='btn btn--ghost' href='{{base}}ai/desktop-modes.html'>Read today's steps as a guide</a></p>"
+    }
+  ]
+}

@@ -1,0 +1,178 @@
+{
+  "id": "github-basics",
+  "title": "GitHub at a glance",
+  "stages": [
+    "Start",
+    "What's GitHub",
+    "Repository",
+    "Commits",
+    "Branches",
+    "PR · merge",
+    "Releases · Pages",
+    "Safety quiz",
+    "Wrap-up"
+  ],
+  "steps": [
+    {
+      "id": "intro",
+      "stage": 1,
+      "title": "What we'll do today",
+      "html": "<p><b>GitHub</b> comes up in phone jobs (Phone 2–3) and building apps (App 2–3). Today you'll just <b>look around</b> a real repository and learn the 7 words you need.</p><ul><li>Time: 10 minutes</li><li>You need: a web browser (a phone is fine). <b>No sign-up needed.</b></li><li>The repository: Earlln's workout app <a href='https://github.com/earlln/EarllnCore' target='_blank' rel='noopener'>EarllnCore ↗</a></li></ul><div class='lab__tip'>Links open in a new tab. Switch between GitHub and this page as you go.</div>",
+      "next": "what",
+      "button": "Let's start"
+    },
+    {
+      "id": "what",
+      "stage": 2,
+      "title": "This is what GitHub is",
+      "html": "<p><b>GitHub</b> is a service that keeps files on the internet. It differs from plain storage in three ways.</p><ol><li><b>It keeps a history</b> — who changed what, and when.</li><li><b>You can go back</b> — even if something breaks.</li><li><b>Changes get reviewed</b> — you look at them and decide whether to 'merge'.</li></ol><p>That's why Claude uses GitHub when working in the cloud: <b>you can see and approve</b> what it changed.</p>",
+      "next": "repo",
+      "button": "Got it"
+    },
+    {
+      "id": "repo",
+      "stage": 3,
+      "title": "Look around a repository",
+      "html": "<p>Open the <a href='https://github.com/earlln/EarllnCore' target='_blank' rel='noopener'>EarllnCore repository ↗</a>.</p><table class='lab__terms'><tr><th>Repository</th><td>One folder inside GitHub. Make one per <b>thing</b>: one app, one set of notes</td></tr><tr><th>Public · Private</th><td>The label next to the name. <b>Public</b>: anyone can see it. <b>Private</b>: only you</td></tr><tr><th>README</th><td>The repository's introduction. It shows below the file list</td></tr></table>",
+      "image": "assets/img/ai/github-basics/en/repo.webp",
+      "alt": "The EarllnCore front page: Public label, main branch, commit count, files, README",
+      "check": {
+        "q": "Is there a Public label next to the name, and a README introduction below?",
+        "yes": "commits",
+        "no": "repo-help"
+      }
+    },
+    {
+      "id": "repo-help",
+      "kind": "help",
+      "title": "If the screen looks different",
+      "html": "<ul><li>On a phone the README is further down. Scroll down.</li><li>If the GitHub app opens, that works too.</li></ul>",
+      "choices": [
+        {
+          "label": "Let me look again",
+          "next": "repo"
+        },
+        {
+          "label": "Next",
+          "next": "commits"
+        }
+      ]
+    },
+    {
+      "id": "commits",
+      "stage": 4,
+      "title": "Commit = a saved record",
+      "html": "<p>Tap <b>🕘 Commits</b> (the clock icon) above the file list.</p><p>Each line is a <b>commit</b>. Like 'saving' in a game, each save of changes adds one line, with <b>one sentence on what changed</b>.</p><p class='muted'>The 7 characters beside it (e.g. 0723207) are that record's tag. You can go back to that moment any time.</p>",
+      "image": "assets/img/ai/github-basics/en/commits.webp",
+      "alt": "A list of commits: one sentence on what changed, and a tag",
+      "check": {
+        "q": "Can you see a line like \"Rename app to EarllnCore…\" in the commit list?",
+        "yes": "branch",
+        "no": "commits-help"
+      }
+    },
+    {
+      "id": "commits-help",
+      "kind": "help",
+      "title": "If you can't find Commits",
+      "html": "<ul><li>On a phone it's above the file list or in the <b>⋯</b> menu.</li><li>Or add <b>/commits</b> to the end of the repository address.</li></ul>",
+      "choices": [
+        {
+          "label": "Let me look again",
+          "next": "commits"
+        },
+        {
+          "label": "Next",
+          "next": "branch"
+        }
+      ]
+    },
+    {
+      "id": "branch",
+      "stage": 5,
+      "title": "Branch = a side copy",
+      "html": "<p>The <b>⑂ main</b> at the top left of the repository is a branch.</p><table class='lab__terms'><tr><th>main</th><td>The <b>original</b>. The app's \"official version\"</td></tr><tr><th>Other branches</th><td>A <b>side copy for trying changes</b> without touching the original. Claude always saves to a new branch when working in the cloud</td></tr></table><p>If you like what changed on the new branch, you merge it into the original (main) with a <b>PR</b>, coming up next.</p>",
+      "next": "pr",
+      "button": "Got it"
+    },
+    {
+      "id": "pr",
+      "stage": 6,
+      "title": "PR (pull request) and merge",
+      "html": "<p>Open <a href='https://github.com/earlln/EarllnCore/pulls?q=is%3Apr+is%3Aclosed' target='_blank' rel='noopener'>EarllnCore's closed PRs ↗</a>, tap one, and look at the <b>Files changed</b> tab.</p><table class='lab__terms'><tr><th>PR</th><td>A <b>review request</b>: \"May I merge this branch into the original?\"</td></tr><tr><th>Files changed</th><td>The changed lines. <b>Red</b> is removed, <b>green</b> is added (just like the permission cards in Desktop 2)</td></tr><tr><th>Merge</th><td>Review it and <b>combine</b> it into the original. A purple <b>Merged</b> means it's already in</td></tr></table>",
+      "image": "assets/img/ai/github-basics/en/pr.webp",
+      "alt": "Red and green lines in a PR's Files changed, with a Merged label",
+      "check": {
+        "q": "Can you see red and green lines in Files changed?",
+        "yes": "release",
+        "no": "pr-help"
+      }
+    },
+    {
+      "id": "pr-help",
+      "kind": "help",
+      "title": "If the PR list is empty",
+      "html": "<ul><li>Tap <b>Closed</b> above the list. Merged PRs live there.</li><li>On a phone <b>Files changed</b> may be hidden to the right of the tabs. Swipe sideways.</li></ul>",
+      "choices": [
+        {
+          "label": "Let me look again",
+          "next": "pr"
+        },
+        {
+          "label": "Next",
+          "next": "release"
+        }
+      ]
+    },
+    {
+      "id": "release",
+      "stage": 7,
+      "title": "Releases and GitHub Pages",
+      "html": "<p>Look at <b>Releases</b> on the right of the repository page (below, on a phone).</p><table class='lab__terms'><tr><th>Release</th><td>The <b>finished version</b> people download. EarllnCore's Android app (APK) is here</td></tr><tr><th>GitHub Pages</th><td>Serves repository files as a <b>free website</b>. You use it in App 2–3 to get your app's address</td></tr><tr><th>Actions</th><td>A robot that does set jobs <b>automatically</b>. For EarllnCore, Actions builds the APK on every merge</td></tr></table>",
+      "next": "quiz",
+      "button": "Got it"
+    },
+    {
+      "id": "quiz",
+      "stage": 8,
+      "title": "Safety quiz",
+      "html": "<p>While building an app, you got an <b>API key</b> (a password-like string for using a service) to add a map. Can you paste that key into index.html in a <b>Public repository</b>?</p>",
+      "choices": [
+        {
+          "label": "No",
+          "next": "quiz-no"
+        },
+        {
+          "label": "That's fine",
+          "next": "quiz-yes"
+        }
+      ]
+    },
+    {
+      "id": "quiz-yes",
+      "kind": "help",
+      "title": "Oops, think again",
+      "html": "<p>Anyone can see every file in a <b>Public</b> repository, <b>including past commits</b>. Others could use your key in your name, and you could be billed. Deleting it later doesn't remove it from the history.</p>",
+      "choices": [
+        {
+          "label": "Let me choose again",
+          "next": "quiz"
+        }
+      ]
+    },
+    {
+      "id": "quiz-no",
+      "title": "Right! Three rules to keep",
+      "html": "<ol><li>Keep <b>passwords, API keys and personal data</b> out of repositories. (If you upload one by mistake, deleting isn't enough: <b>replace the key</b>.)</li><li>Notes and work files go <b>Private</b>; only apps for everyone go <b>Public</b>.</li><li>Install the Claude app on <b>selected repositories only</b>.</li></ol>",
+      "next": "summary",
+      "button": "Show the wrap-up"
+    },
+    {
+      "id": "summary",
+      "stage": 9,
+      "kind": "summary",
+      "title": "🎉 GitHub at a glance: done!",
+      "html": "<table class='lab__terms'><tr><th>Repository</th><td>One folder in GitHub (Public · Private)</td></tr><tr><th>Commit</th><td>One saved record</td></tr><tr><th>Branch</th><td>A side copy that leaves the original (main) alone</td></tr><tr><th>PR</th><td>A review request to merge changes into the original</td></tr><tr><th>Merge</th><td>Review and combine into the original = final permission</td></tr><tr><th>Release</th><td>The finished version to download</td></tr><tr><th>Pages</th><td>A repository as a free website</td></tr></table><p class='lab__links'><a class='btn btn--primary' href='{{base}}lab/mobile-github.html'>Next: Phone 2 · Make your own repository →</a><a class='btn btn--ghost' href='{{base}}lab/app-publish.html'>App 2 · Share your app</a><a class='btn btn--ghost' href='{{base}}ai/github-basics.html'>See the guide</a></p>"
+    }
+  ]
+}

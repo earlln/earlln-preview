@@ -1,0 +1,195 @@
+{
+  "id": "work-report",
+  "title": "Draft a report",
+  "stages": [
+    "Start",
+    "Get the material",
+    "Give context, outline first",
+    "Write the draft",
+    "Ask for changes",
+    "Check the numbers",
+    "You finish it",
+    "Wrap-up"
+  ],
+  "steps": [
+    {
+      "id": "intro",
+      "stage": 1,
+      "title": "What we'll do today",
+      "html": "<p>Using the sales data you cleaned in Work 1, you'll draft <b>a report for the CEO</b>. Much faster than starting from a blank page.</p><p>Today you'll learn five new things.</p><ol><li>Say <b>who reads it, how long, and what tone</b></li><li>Get an <b>outline first</b>, not the full text</li><li>Get the draft <b>as a file</b></li><li><b>Ask for changes</b> to parts you don't like</li><li><b>Check the numbers</b>, and <b>finish it yourself</b></li></ol><ul><li>Time: 20 minutes</li><li>You need: <b>sales_clean.csv</b> from <a href='{{base}}lab/work-csv.html'>Work 1</a></li></ul>",
+      "next": "ready",
+      "button": "Let's start"
+    },
+    {
+      "id": "ready",
+      "stage": 2,
+      "title": "Check your material",
+      "html": "<p>Open the <b>Practice</b> folder on your desktop and look for <b>sales_clean.csv</b>, the clean copy you made in Work 1.</p>",
+      "check": {
+        "q": "Is sales_clean.csv in the Practice folder?",
+        "yes": "open",
+        "no": "ready-help"
+      }
+    },
+    {
+      "id": "ready-help",
+      "kind": "help",
+      "title": "If you don't have sales_clean.csv",
+      "html": "<p>We recommend doing <a href='{{base}}lab/work-csv.html'>Work 1</a> first. To jump in now:</p><ol><li>Download the <a href='{{base}}assets/files/work/sales.csv' download='sales.csv'>sample sales.csv</a> and move it into Practice.</li><li>Tell Claude: \"From sales.csv, remove the duplicate row, change 'Gang nam' to 'Gangnam', fill the blank Qty with Amount ÷ UnitPrice, and save it as sales_clean.csv.\"</li></ol>",
+      "choices": [
+        {
+          "label": "Let me check again",
+          "next": "ready"
+        },
+        {
+          "label": "I'm ready",
+          "next": "open"
+        }
+      ]
+    },
+    {
+      "id": "open",
+      "stage": 2,
+      "title": "Start with a new chat",
+      "html": "<p>Claude app → <b>Code</b> tab → <b>+ New</b>. Check the buttons under the typing box show <b>Local · Practice · Manual</b>.</p>",
+      "check": {
+        "q": "Can you see Local · Practice · Manual?",
+        "yes": "outline",
+        "no": "open-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "open-help",
+      "kind": "help",
+      "title": "If the start screen looks different",
+      "html": "<ul><li>If the folder isn't Practice, click the folder button → <b>Open folder…</b> and choose it.</li><li>Click the permission mode button and choose <b>Manual</b>.</li></ul>"
+    },
+    {
+      "id": "outline",
+      "stage": 3,
+      "title": "Give context, get an outline first",
+      "html": "<p>The secret to a good draft is <b>context</b>: who reads it, how long, what tone. And get <b>an outline first</b>, not the full text. (Same idea as Plan in Desktop 5.)</p>",
+      "image": "assets/img/ai/work-report/en/outline.webp",
+      "alt": "Given the context, Claude suggests a report outline first",
+      "code": "I'm writing a November sales-by-branch report from sales_clean.csv. It's for the CEO, one page, formal tone. Don't write it yet; suggest an outline first",
+      "codeLabel": "Type this",
+      "check": {
+        "q": "Did you get an outline you're happy with?",
+        "yes": "draft",
+        "no": "outline-help",
+        "noLabel": "I want changes"
+      },
+      "ask": true
+    },
+    {
+      "id": "outline-help",
+      "kind": "help",
+      "title": "If you want to change the outline",
+      "html": "<p>Just say what you want. For example:</p><ul><li>\"Drop the item notes and add 'what went well and what didn't, by branch'\"</li><li>\"Put the summary first, and only 3 suggestions\"</li></ul><p>Adjust it as many times as you like. This is the cheapest moment to set the direction.</p>",
+      "choices": [
+        {
+          "label": "The outline is set, next",
+          "next": "draft"
+        }
+      ]
+    },
+    {
+      "id": "draft",
+      "stage": 4,
+      "title": "Get the draft as a file",
+      "html": "<p>The create-file card shows the start of the draft. Read it and click <b>Allow</b>. Then open <b>nov-sales-report.txt</b> in Practice and read it all the way through.</p>",
+      "image": "assets/img/ai/work-report/en/draft.webp",
+      "alt": "A create-file permission card for the report draft",
+      "code": "Great. Write the report draft from that outline and save it as nov-sales-report.txt",
+      "codeLabel": "Type this",
+      "check": {
+        "q": "Was nov-sales-report.txt created, and did you read it?",
+        "yes": "revise",
+        "no": "draft-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "draft-help",
+      "kind": "help",
+      "title": "If the file wasn't created",
+      "html": "<ul><li>If you denied the card, send it again and allow it.</li><li>If Claude only wrote it in the chat, say \"Save the draft you just wrote as nov-sales-report.txt.\"</li></ul>"
+    },
+    {
+      "id": "revise",
+      "stage": 5,
+      "title": "Ask for changes to parts you don't like",
+      "html": "<p>Drafts are <b>meant to be edited</b>. Don't have it rewrite everything; <b>point to exactly what to change</b>. Read the red and green lines on the card, then allow.</p>",
+      "code": "Cut the summary at the top to 3 lines, and change the suggestions to just 3 practical actions",
+      "codeLabel": "Try this edit",
+      "check": {
+        "q": "Did you check the changes on the card and allow them?",
+        "yes": "facts",
+        "no": "revise-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "revise-help",
+      "kind": "help",
+      "title": "If you don't like the edit",
+      "html": "<ul><li><b>Deny</b> it on the card and ask again. (Desktop 2)</li><li>If you already allowed it: \"Undo what you just changed.\" (Desktop 6)</li><li>For tone, be specific: \"A bit more concise, in report style.\"</li></ul>",
+      "choices": [
+        {
+          "label": "Let me try again",
+          "next": "revise"
+        },
+        {
+          "label": "Next",
+          "next": "facts"
+        }
+      ]
+    },
+    {
+      "id": "facts",
+      "stage": 6,
+      "title": "Check the report's numbers",
+      "html": "<p>Wrong <b>numbers</b> are the most embarrassing mistake in a report. Have Claude check, and verify at least one yourself.</p><p class='muted'>Correct: total <b>696.50</b>; Gangnam 277.00 · Hongdae 266.50 · Busan 153.00</p>",
+      "code": "Check each number in the report against sales_clean.csv, one by one. Tell me if any are wrong",
+      "codeLabel": "Type this",
+      "check": {
+        "q": "Were all the numbers right? (total 696.50)",
+        "yes": "yours",
+        "no": "facts-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "facts-help",
+      "kind": "help",
+      "title": "If a number was wrong",
+      "html": "<p>Say \"Fix the wrong numbers using sales_clean.csv,\" read the card and allow it. As in Work 1, check once more against <b>a number you know (total 696.50)</b>.</p>",
+      "choices": [
+        {
+          "label": "Fixed, check again",
+          "next": "facts"
+        },
+        {
+          "label": "Next",
+          "next": "yours"
+        }
+      ]
+    },
+    {
+      "id": "yours",
+      "stage": 7,
+      "title": "You finish it",
+      "html": "<p>Think of an AI draft as <b>70–80% done</b>. You fill in the rest.</p><ul><li>Add <b>context the AI doesn't know</b>, e.g. \"Busan was closed for two weeks of renovation in November.\"</li><li>Check it <b>didn't state guesses as facts</b>. If it asserted causes that aren't in the data (\"because of the weather\"), delete them or mark them as guesses.</li><li>If your company has a template, <b>paste the content into it</b> in Word and polish it there.</li></ul><div class='lab__tip'>Your name goes on the report. <b>Always read it through yourself</b> one last time.</div>",
+      "next": "summary",
+      "button": "Got it, show the wrap-up"
+    },
+    {
+      "id": "summary",
+      "stage": 8,
+      "kind": "summary",
+      "title": "🎉 Work practice 3 done! What you learned",
+      "html": "<p>From cleaned data to a report draft, without ever facing a blank page.</p><div class='lab__flow'><span>Give context</span><i>→</i><span>Outline first</span><i>→</i><span>Draft file</span><i>→</i><span>Targeted edits</span><i>→</i><span>Check numbers · you finish</span></div><h3>Good things to say when asking for a report</h3><table class='lab__terms'><tr><th>Who reads it</th><td>\"for the CEO\", \"for my team\", \"for customers\"</td></tr><tr><th>Length</th><td>\"one page\", \"under 5 lines\"</td></tr><tr><th>Tone</th><td>\"formal\", \"concise report style\"</td></tr><tr><th>Material</th><td>\"from sales_clean.csv\", \"using notice-summary.txt\"</td></tr></table><h3>Wrapping up Work 1–3</h3><p>Clean up (Work 1) → summarize (Work 2) → report (Work 3). With this flow you can finish <b>monthly reporting</b> much faster. Next up: turning meeting recordings into a work log.</p><p class='lab__links'><a class='btn btn--primary' href='{{base}}lab/work-minutes.html'>Next: Work 4 · Meeting recordings to a work log →</a><a class='btn btn--ghost' href='{{base}}ai/work-report.html'>Read today's steps as a guide</a></p>"
+    }
+  ]
+}

@@ -1,0 +1,209 @@
+{
+  "id": "claude-code-organize-files",
+  "title": "Organize several files at once",
+  "stages": [
+    "Start",
+    "Start up",
+    "Make several files",
+    "Make a folder and move",
+    "Read the command screen",
+    "Rename all at once",
+    "Check",
+    "Wrap-up"
+  ],
+  "steps": [
+    {
+      "id": "intro",
+      "stage": 1,
+      "title": "What we'll do today",
+      "html": "<p>With two sentences, you'll make <b>several files</b>, move them into a folder and rename them all at once.</p><p>Today you'll learn three new things.</p><ol><li>Have it make <b>several files at once</b></li><li>Have it make a folder, <b>move and rename</b> files</li><li>How to read a new permission screen: <b>\"May I run this command?\"</b> (Bash command)</li></ol><ul><li>Time: 15 minutes</li><li>You need: a computer that finished <a href='{{base}}lab/claude-code-sessions.html'>Terminal practice 3</a></li></ul><div class='lab__tip'>Today you'll move files, so be sure to work <b>only inside the Practice folder</b>.</div>",
+      "next": "device",
+      "button": "Let's start",
+      "faq": [
+        {
+          "q": "Will I have it delete things?",
+          "a": "No. Today is only making, moving and renaming. You'll learn to deny delete commands if you see one."
+        }
+      ]
+    },
+    {
+      "id": "device",
+      "stage": 1,
+      "title": "Which computer are you using?",
+      "html": "<p>Pick the computer you used for Terminal practice 1.</p>",
+      "choices": [
+        {
+          "icon": "⊞",
+          "label": "Windows PC",
+          "set": {
+            "device": "win"
+          },
+          "next": "open"
+        },
+        {
+          "icon": "",
+          "label": "Mac",
+          "set": {
+            "device": "mac"
+          },
+          "next": "open"
+        }
+      ]
+    },
+    {
+      "id": "open",
+      "stage": 2,
+      "title": "Start Claude Code in the practice folder",
+      "html": "<ol><li>Double-click the <b>Practice</b> folder on your desktop.</li><li>Click the <b>address bar</b> at the top of the folder window, type <b>powershell</b> → <kbd>Enter</kbd>.</li><li>Type <b>claude</b> in the window → <kbd>Enter</kbd>. It's a new job, so start <b>without -c</b>.</li></ol>",
+      "check": {
+        "q": "Do you see the box to type in (with a > sign)?",
+        "yes": "make3",
+        "no": "open-help"
+      },
+      "win": {
+        "html": "<ol><li>Double-click the <b>Practice</b> folder on your desktop.</li><li>Click the <b>address bar</b> at the top of the folder window, type <b>powershell</b> → <kbd>Enter</kbd>.</li><li>Type <b>claude</b> in the window → <kbd>Enter</kbd>. It's a new job, so start <b>without -c</b>.</li></ol>"
+      },
+      "mac": {
+        "html": "<ol><li>Open Terminal. (<kbd>⌘ command</kbd>+<kbd>space</kbd> → Terminal → <kbd>return</kbd>)</li><li>Type <b>cd</b> and a space, drag the <b>Practice</b> folder onto the window, and press <kbd>return</kbd>.</li><li>Type <b>claude</b> → <kbd>return</kbd>. It's a new job, so start <b>without -c</b>.</li></ol>"
+      },
+      "ask": true
+    },
+    {
+      "id": "open-help",
+      "kind": "help",
+      "title": "If it doesn't start",
+      "html": "<ul><li>If you see <b>'claude' is not recognized</b>, close and reopen the window, or restart the computer.</li><li>Not sure? See 'Open the window in the practice folder' in <a href='{{base}}lab/claude-code-install.html'>Terminal practice 1</a> again.</li></ul>"
+    },
+    {
+      "id": "make3",
+      "stage": 3,
+      "title": "Make 3 memo files at once",
+      "html": "<p>Type the sentence below and press {{enterkey}}. As in Terminal practice 1, a <b>Create file</b> permission screen appears <b>once per file, three times</b>. Check each file name and press {{enterkey}} on <b>1. Yes</b> each time.</p>",
+      "image": "assets/img/ai/claude-code-organize-files/en/files-before.webp",
+      "alt": "Three memo files appear in the Practice folder",
+      "code": "Create 3 memo files, meeting.txt, groceries.txt and ideas.txt, with a line or two of example text in each",
+      "codeLabel": "Type this",
+      "check": {
+        "q": "Did you choose Yes all three times, and are there 3 new files in Practice?",
+        "yes": "what-cmd",
+        "no": "make3-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "make3-help",
+      "kind": "help",
+      "title": "If some files are missing",
+      "html": "<ul><li>If you chose <b>3. No</b> on any, that file wasn't made: \"Also make the files you haven't made yet.\"</li><li>If the folder window was already open, close it and open it again.</li></ul>"
+    },
+    {
+      "id": "what-cmd",
+      "stage": 4,
+      "title": "First, what's a 'command'?",
+      "html": "<p>So far Claude has created and edited the <b>contents</b> of files, with <b>Create file / Edit file</b> screens.</p><p>Making folders and moving files works by Claude giving your computer a <b>short instruction in English (a command)</b>, the same kind of thing you pasted to install in Terminal practice 1. So this time a different permission screen appears: <b>Bash command</b>.</p><table class='lab__terms'><tr><th>mkdir</th><td>make a folder</td></tr><tr><th>mv</th><td>move or rename</td></tr></table>",
+      "next": "move",
+      "button": "Got it"
+    },
+    {
+      "id": "move",
+      "stage": 4,
+      "title": "Make a folder and move the files",
+      "html": "<p>Send the sentence below and a new <b>Bash command</b> permission screen appears. <b>Don't choose yet</b>; just compare it with the picture.</p>",
+      "image": "assets/img/ai/claude-code-organize-files/en/cc-bash.webp",
+      "alt": "Reading the command to run on the Bash command permission screen",
+      "code": "Make a memos folder and move the three files you just made into it",
+      "codeLabel": "Type this",
+      "check": {
+        "q": "Did a Bash command screen appear, like the picture?",
+        "yes": "read-card",
+        "no": "move-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "move-help",
+      "kind": "help",
+      "title": "If no Bash command screen appeared",
+      "html": "<ul><li>Claude may still be thinking. Wait a few seconds.</li><li>If it went ahead without asking, you may have chosen <b>2. Yes, and don't ask again</b> before; then it won't ask for that kind of command again.</li></ul>",
+      "choices": [
+        {
+          "label": "Show how to read the screen",
+          "next": "read-card"
+        },
+        {
+          "label": "Check the result first",
+          "next": "verify"
+        }
+      ]
+    },
+    {
+      "id": "read-card",
+      "stage": 5,
+      "title": "How to read the 'May I run this command?' screen",
+      "html": "<table class='lab__terms'><tr><th>Bash command</th><td>A screen asking \"May I give your computer a command?\"</td></tr><tr><th>The English line in the middle</th><td>The actual <b>command</b> to run</td></tr><tr><th>Grey text below it</th><td>Claude's <b>description</b>. Read this part</td></tr><tr><th>1. Yes</th><td>Yes, run it</td></tr><tr><th>2. Yes, and don't ask again…</th><td>Run commands like this without asking → <b>don't choose this for now</b></td></tr><tr><th>3. No</th><td>No, do it differently</td></tr></table><p>You don't need to understand the command. If the <b>grey description</b> matches your request, press {{enterkey}} on <b>1. Yes</b>. With several commands it may ask several times.</p><div class='lab__tip'><b>Stop if you see these.</b> <code>rm</code>, <code>del</code> and <code>Remove-Item</code> are commands that <b>delete</b>. If you didn't ask to delete, choose <b>3. No</b>.</div><p class='muted'>On Windows you may see <code>New-Item</code> or <code>Move-Item</code>.</p>",
+      "check": {
+        "q": "Did the description match, and did you choose 1. Yes?",
+        "yes": "rename",
+        "no": "read-card-help",
+        "yesLabel": "Yes, I did"
+      }
+    },
+    {
+      "id": "read-card-help",
+      "kind": "help",
+      "title": "If the description differs or is confusing",
+      "html": "<ul><li>That's exactly when to choose <b>3. No</b>. Nothing changes.</li><li>Then ask again, e.g. \"Just make a memos folder and move the three files into it. Don't delete anything.\"</li></ul>",
+      "choices": [
+        {
+          "label": "Let me try again",
+          "next": "read-card"
+        },
+        {
+          "label": "Next",
+          "next": "rename"
+        }
+      ]
+    },
+    {
+      "id": "rename",
+      "stage": 6,
+      "title": "Rename all the files at once",
+      "html": "<p>Add today's date to the front of the three file names. When the <b>Bash command</b> screen appears again, read the grey description and choose <b>1. Yes</b> if it matches. The real <b>date today</b> is used.</p>",
+      "code": "Add today's date to the front of the file names in the memos folder, e.g. 2026-11-24_meeting.txt",
+      "codeLabel": "Type this",
+      "check": {
+        "q": "Did you read the description and choose 1. Yes?",
+        "yes": "verify",
+        "no": "read-card-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "verify",
+      "stage": 7,
+      "title": "Check the result yourself",
+      "html": "<ol><li>Open the Practice folder on your desktop. There's a new <b>memos</b> folder.</li><li>Double-click it to open it.</li></ol><p>If the 3 files are inside with the date in front of their names, it worked. When you're done, type <b>/exit</b> in the terminal or close the window.</p>",
+      "image": "assets/img/ai/claude-code-organize-files/en/files-after.webp",
+      "alt": "Three files with dates in their names inside the memos folder",
+      "check": {
+        "q": "Are there 3 files with dates in their names in the memos folder?",
+        "yes": "summary",
+        "no": "verify-help",
+        "yesLabel": "Yes, they're there! 🎉"
+      }
+    },
+    {
+      "id": "verify-help",
+      "kind": "help",
+      "title": "If the result looks different",
+      "html": "<ul><li>If the folder window was already open, close it and open it again.</li><li>If something moved to the wrong place or got an odd name: \"Undo what you just did.\" Read the screen and choose Yes then too.</li></ul>"
+    },
+    {
+      "id": "summary",
+      "stage": 8,
+      "kind": "summary",
+      "title": "🎉 Terminal practice 4 done! What you learned",
+      "html": "<p>Something that would have meant moving and renaming files one by one took <b>two sentences</b>.</p><table class='lab__terms'><tr><th>Create file</th><td>Asks when making file <b>contents</b></td></tr><tr><th>Bash command</th><td>Asks when running a <b>command</b>, like making folders, moving or renaming</td></tr><tr><th>Grey description</th><td>Read just this, even if you don't know the command</td></tr></table><h3>Two things to remember</h3><ol><li>Don't choose <b>2. Yes, and don't ask again</b> until you're comfortable.</li><li>If you see a <b>delete command</b> (rm, del, Remove-Item) you didn't ask for, choose <b>3. No</b>.</li></ol><h3>Next step</h3><p>You have the basics now. The <b>Real work</b> course (spreadsheets, summaries, report drafts…) uses desktop-app screens, but typing the same sentences in the terminal works the same way.</p><p class='lab__links'><a class='btn btn--primary' href='{{base}}lab/work-csv.html'>Next: Real work 1 · Spreadsheet (CSV) cleanup →</a><a class='btn btn--ghost' href='{{base}}ai/claude-code-organize-files.html'>Read today's steps as a guide</a></p>"
+    }
+  ]
+}

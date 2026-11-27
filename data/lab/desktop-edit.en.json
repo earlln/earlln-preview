@@ -1,0 +1,137 @@
+{
+  "id": "desktop-edit",
+  "title": "Check the changes and have it edit (desktop)",
+  "stages": ["Start", "Open the app", "Ask it to read", "Ask it to edit", "Read the changes", "Check the result", "Decline and ask again", "See Changes", "Wrap-up"],
+  "steps": [
+    {
+      "id": "intro", "stage": 1,
+      "title": "What we'll do today",
+      "html": "<p>You'll ask Claude to <b>edit</b> the <b>todo.txt</b> you made in Desktop practice 1.</p><p>You'll learn three new things today:</p><ol><li>How to <b>read \"what will change\"</b> before it edits</li><li>How to <b>decline and ask again</b> when you don't like it</li><li>How to see the changes again in <b>Changes</b> afterwards</li></ol><ul><li>Time: 10–15 minutes</li><li>You need: the computer you used for Desktop practice 1 (todo.txt in the Practice folder on your desktop)</li></ul>",
+      "next": "reopen", "button": "Let's start",
+      "faq": [
+        { "q": "I haven't done Desktop practice 1.", "a": "You need to install the app and create todo.txt first. Please start with <a href='{{base}}lab/desktop-install.html'>Desktop practice 1</a>." }
+      ]
+    },
+
+    {
+      "id": "reopen", "stage": 2,
+      "title": "Open the app and start in the practice folder",
+      "html": "<ol><li>Open the Claude app and click the <b>Code</b> tab at the top left.</li><li>Click <b>+ New</b> at the top left to start a new conversation.</li><li>Check that the buttons under the typing box show <b>Local</b> and the <b>Practice</b> folder. If not, click the folder button → <b>Open folder…</b> and choose the practice folder. (Once chosen, it appears in the list.)</li><li>Also check that the permission mode button on the right says <b>Manual</b>.</li></ol>",
+      "check": { "q": "Can you see Local · Practice · Manual?", "yes": "read", "no": "reopen-help" },
+      "ask": true
+    },
+    {
+      "id": "reopen-help", "kind": "help",
+      "title": "If the start screen looks different",
+      "html": "<ul><li>If you can't see the <b>Code</b> tab, check you're signed in with a paid account and the app is up to date.</li><li>Choosing a folder works like 'Choose the folder to work in' in <a href='{{base}}lab/desktop-install.html'>Desktop practice 1</a>.</li><li>Click the permission mode button and choose <b>Manual</b>.</li></ul>"
+    },
+
+    {
+      "id": "read", "stage": 3,
+      "title": "First, ask it to read the file",
+      "html": "<p>Paste or type the sentence below into the box and press Enter (return on a Mac).</p>",
+      "code": "Show me what todo.txt says", "codeLabel": "Type this",
+      "check": { "q": "Did the contents of todo.txt appear?", "yes": "read-why", "no": "read-help" },
+      "ask": true
+    },
+    {
+      "id": "read-help", "kind": "help",
+      "title": "If it can't find the file",
+      "html": "<ul><li>Claude only sees <b>files in the folder you chose</b>. Check that the folder under the typing box is <b>Practice</b>.</li><li>If there's no todo.txt, create it first: \"Create a file called todo.txt and write 3 example to-dos for today\".</li></ul>"
+    },
+    {
+      "id": "read-why", "stage": 3,
+      "title": "Notice it didn't ask permission?",
+      "html": "<p>When it only <b>reads</b> a file, nothing changes. So Claude shows it without asking.</p><p>It only asks when it <b>creates or edits</b> a file. Now let's ask it to make an edit.</p>",
+      "next": "edit", "button": "Got it"
+    },
+
+    {
+      "id": "edit", "stage": 4,
+      "title": "Ask it to make an edit",
+      "html": "<p>Ask it to change the second line. This time the permission card also shows <b>exactly what will change</b>.</p>",
+      "code": "In todo.txt, change line 2 to \"Set up a lunch meeting\"", "codeLabel": "Type this",
+      "image": "assets/img/ai/desktop-edit/en/diff-card.webp", "alt": "A permission card showing changes with red and green lines",
+      "check": { "q": "Did a permission card with red and green lines appear, like the picture?", "yes": "legend", "no": "edit-help", "noLabel": "I see something different" },
+      "ask": true
+    },
+    {
+      "id": "edit-help", "kind": "help",
+      "title": "If no permission card appears",
+      "html": "<ul><li>Claude may still be thinking. Wait a few seconds.</li><li>If Claude asks something back (e.g. which line), type your answer and press Enter.</li><li>If it already says it made the change, the mode isn't Manual. Switch it to Manual; it's fine to move on to checking the result.</li></ul>"
+    },
+
+    {
+      "id": "legend", "stage": 5,
+      "title": "How to read \"what will change\"",
+      "html": "<p>It looks strange at first, but <b>just look at the colors</b>.</p><table class='lab__terms'><tr><th><span class='diff diff--del'>- Red line</span></th><td>Text that <b>will be removed</b></td></tr><tr><th><span class='diff diff--add'>+ Green line</span></th><td>Text that <b>will be added</b></td></tr><tr><th>Uncolored line</th><td>Text that stays the same</td></tr><tr><th>Allow button</th><td>Yes, make this change</td></tr><tr><th>Deny button</th><td>No, don't change it</td></tr></table><p>If the red line shows the old line 2 and the green line shows <b>Set up a lunch meeting</b>, it's what you asked for. Click <b>Allow</b>.</p><div class='lab__tip'>The buttons may be labeled Allow, Accept, Deny, Reject and so on. The one that gives permission is usually blue.</div>",
+      "check": { "q": "Did you click Allow?", "yes": "verify", "no": "legend-help", "yesLabel": "Yes, I did", "noLabel": "The red and green lines look wrong" }
+    },
+    {
+      "id": "legend-help", "kind": "help",
+      "title": "If the changes aren't what you asked for",
+      "html": "<p>That's exactly when to click <b>Deny</b>. Then type it again in the box, e.g. \"Change only line 2 to 'Set up a lunch meeting'\".</p><p>The to-dos in your file are examples Claude chose in practice 1, so it's fine if the words differ from the picture. Just check that <b>line 2 changes</b>.</p>"
+    },
+
+    {
+      "id": "verify", "stage": 6,
+      "title": "See the result with your own eyes",
+      "html": "<ol><li>In the Practice folder on your desktop, double-click <b>todo.txt</b>. Notepad (TextEdit on a Mac) opens.</li><li>Check that line 2 now says <b>Set up a lunch meeting</b>.</li><li>Once you've checked, <b>close</b> Notepad. Leaving it open while Claude edits again can be confusing.</li></ol>",
+      "image": "assets/img/ai/claude-code-edit-file/en/notepad.webp", "alt": "Checking in Notepad that line 2 changed",
+      "check": { "q": "Does line 2 now say 'Set up a lunch meeting'?", "yes": "decline", "no": "verify-help", "yesLabel": "Yes, it changed" },
+      "ask": true
+    },
+    {
+      "id": "verify-help", "kind": "help",
+      "title": "If you don't see the change",
+      "html": "<ul><li>If you opened Notepad <b>before</b> the edit, close it and open it again.</li><li>Ask Claude, \"Show me what todo.txt says now.\"</li><li>If you clicked Deny, the file didn't change. Go back to the edit step and try again.</li></ul>"
+    },
+
+    {
+      "id": "decline", "stage": 7,
+      "title": "Click \"Deny\" on purpose",
+      "html": "<p>Now let's practice what to do when you don't like something. <b>Denying doesn't change the file at all</b>, so don't worry.</p><ol><li>Send the sentence below.</li><li>When the permission card shows the title Claude chose, click <b>Deny</b>.</li></ol>",
+      "code": "Add a title at the top of the to-do list", "codeLabel": "Type this",
+      "image": "assets/img/ai/desktop-edit/en/decline.webp", "alt": "Clicking Deny and typing what you want instead",
+      "check": { "q": "Did you click Deny?", "yes": "reask", "no": "decline-help", "yesLabel": "Yes, I denied it" },
+      "ask": true
+    },
+    {
+      "id": "decline-help", "kind": "help",
+      "title": "If declining doesn't work",
+      "html": "<ul><li>There are two buttons under the permission card. Deny is the one that is <b>not</b> the permission button (usually blue).</li><li>If you clicked Allow by mistake, just say \"Undo the change you just made.\"</li></ul>"
+    },
+    {
+      "id": "reask", "stage": 7,
+      "title": "Say what you want instead",
+      "html": "<p>After denying, just type <b>what you want</b> in the box.</p>",
+      "code": "Make the title \"Today's to-dos\"", "codeLabel": "Ask again like this",
+      "check": { "q": "Did you see '+ Today's to-dos' as a green line and click Allow?", "yes": "changes", "no": "edit-help", "yesLabel": "Yes, I did" },
+      "ask": true
+    },
+
+    {
+      "id": "changes", "stage": 8,
+      "title": "Look at the changes again — Changes",
+      "html": "<p>When a conversation gets long, it's easy to lose track of what changed. Then look at <b>Changes</b> (the list of changed files) on the right of the screen.</p><p>Click a line like <b>todo.txt +2 -1</b> to see today's changed lines again in red and green.</p><div class='lab__tip'>Can't see Changes? Look for a panel button at the top right of the screen, or <b>Changes</b> in the menu.</div>",
+      "image": "assets/img/ai/desktop-edit/en/changes.webp", "alt": "Looking at the changes again under Changes on the right",
+      "check": { "q": "Did you find the changed lines in Changes?", "yes": "summary", "no": "changes-help", "yesLabel": "Yes, I saw them" },
+      "ask": true
+    },
+    {
+      "id": "changes-help", "kind": "help",
+      "title": "If you can't find Changes",
+      "html": "<p>Its place differs between app versions. Try the buttons at the far right or along the top of the screen. It's fine if you can't find it: today's key point is <b>reading the permission card and choosing Allow or Deny</b>.</p>",
+      "choices": [
+        { "label": "Let me look again", "next": "changes" },
+        { "label": "That's okay, show the wrap-up", "next": "summary" }
+      ]
+    },
+
+    {
+      "id": "summary", "stage": 9, "kind": "summary",
+      "title": "🎉 Desktop practice 2 done! What you learned",
+      "html": "<p>You checked changes before they happened, and asked again when needed.</p><h3>Three things to remember</h3><ol><li>It doesn't ask when it <b>reads</b> a file; it only asks when it <b>creates or edits</b> one.</li><li>On the permission card, <b>red lines will be removed and green lines will be added</b>.</li><li>If you don't like it, <b>Deny</b> and say it again. The file stays as it was.</li></ol><h3>Why does this matter?</h3><p>AI sometimes changes things differently from what you asked. As long as you have the <b>habit of reading the changes before clicking Allow</b>, your files won't change unexpectedly. It's the most important habit for using AI agents safely.</p><h3>Next step</h3><p>Next you'll learn how to <b>start a new conversation and continue earlier ones</b>. We'll post it as soon as it's ready.</p><p class='lab__links'><a class='btn btn--primary' href='{{base}}lab/desktop-sessions.html'>Next: Desktop 3 · Start a new chat or pick up an old one →</a><a class='btn btn--ghost' href='{{base}}ai/desktop-edit.html'>Read today's steps as a guide</a></p>"
+    }
+  ]
+}

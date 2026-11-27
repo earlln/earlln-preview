@@ -1,0 +1,115 @@
+{
+  "id": "claude-code-sessions",
+  "title": "Start fresh or pick up later",
+  "stages": ["Start", "Start it", "Start fresh (/clear)", "Close and reopen", "Continue (claude -c)", "Pick one (/resume)", "Wrap-up"],
+  "steps": [
+    {
+      "id": "intro", "stage": 1,
+      "title": "What we'll do today",
+      "html": "<p>You'll learn how to <b>pick up a conversation even after closing Claude Code</b>, and how to <b>start fresh</b>.</p><h3>First — what is a \"conversation\"?</h3><p>Everything you and Claude say after you start Claude Code is a <b>conversation</b>. Within the same conversation, Claude remembers what was said, so \"that file from earlier\" is enough.</p><p>If a conversation gets very long, Claude can get confused, so it's best to <b>start a new conversation when you start a different task</b>.</p><ul><li>Time: 10 minutes</li><li>You need: the computer you used for Terminal practice 1</li></ul>",
+      "next": "device", "button": "Let's start",
+      "faq": [
+        { "q": "Does clearing the conversation delete my files?", "a": "No. Only your <b>messages</b> with Claude go away. Files like todo.txt <b>stay as they are</b>." }
+      ]
+    },
+    {
+      "id": "device", "stage": 1,
+      "title": "Which computer are you using?",
+      "html": "<p>Pick the computer you used for Terminal practice 1.</p>",
+      "choices": [
+        { "icon": "⊞", "label": "Windows PC", "set": { "device": "win" }, "next": "open" },
+        { "icon": "", "label": "Mac", "set": { "device": "mac" }, "next": "open" }
+      ]
+    },
+
+    {
+      "id": "open", "stage": 2,
+      "title": "Start Claude Code in the practice folder",
+      "win": { "html": "<ol><li>Double-click the <b>Practice</b> folder on your desktop.</li><li>Click the <b>address bar</b> at the top of the folder window, type <b>powershell</b> → <kbd>Enter</kbd>.</li><li>Type <b>claude</b> in the window → <kbd>Enter</kbd>.</li></ol>" },
+      "mac": { "html": "<ol><li>Open Terminal. (<kbd>⌘ command</kbd>+<kbd>space</kbd> → Terminal → <kbd>return</kbd>)</li><li>Type <b>cd</b> and a space, drag the <b>Practice</b> folder onto the window, and press <kbd>return</kbd>.</li><li>Type <b>claude</b> → <kbd>return</kbd>.</li></ol>" },
+      "check": { "q": "Do you see the box to type in (with a > sign)?", "yes": "clear", "no": "open-help" },
+      "ask": true
+    },
+    {
+      "id": "open-help", "kind": "help",
+      "title": "If it doesn't start",
+      "html": "<ul><li>If you see <b>'claude' is not recognized</b>, close and reopen the window, or restart the computer.</li><li>Not sure? See 'Open the window in the practice folder' in <a href='{{base}}lab/claude-code-install.html'>Terminal practice 1</a> again.</li></ul>"
+    },
+
+    {
+      "id": "clear", "stage": 3,
+      "title": "Clear the conversation and start fresh — /clear",
+      "html": "<p>Type <b>/</b> (slash, the <kbd>?</kbd> key at the bottom right of the keyboard) in the box and a list of commands appears. Things that <b>start with /</b> aren't requests to Claude; they're <b>commands that control Claude Code itself</b>.</p><p>Type the following and press Enter (return on a Mac).</p>",
+      "code": "/clear", "codeLabel": "What to type",
+      "image": "assets/img/ai/claude-code-sessions/en/cc-clear.webp", "alt": "Typing /clear in the box",
+      "check": { "q": "Did the screen clear?", "yes": "clear-test", "no": "clear-help" },
+      "ask": true
+    },
+    {
+      "id": "clear-help", "kind": "help",
+      "title": "If /clear doesn't work",
+      "html": "<ul><li>The / must be the <b>very first</b> thing in the box. If there's other text before it, delete it and type again.</li><li>If a different character appears instead of /, check your keyboard is set to English.</li><li>When the list appears, press Enter with <b>/clear</b> selected.</li></ul>"
+    },
+    {
+      "id": "clear-test", "stage": 3,
+      "title": "Check that it really forgot",
+      "html": "<p>Let's ask whether Claude remembers what was said before.</p>",
+      "code": "What were we just talking about?", "codeLabel": "Type this",
+      "check": { "q": "Did Claude say something like 'there's no earlier conversation'?", "yes": "exit", "no": "clear-help", "yesLabel": "Yes, it doesn't know" },
+      "ask": true,
+      "faq": [
+        { "q": "It mentions todo.txt.", "a": "Claude may be guessing from the files it can see in the folder. That doesn't mean it remembers the conversation. You can run /clear once more and ask again." }
+      ]
+    },
+
+    {
+      "id": "exit", "stage": 4,
+      "title": "Done for the day! Close it and reopen",
+      "html": "<p>Pretend you've finished for today and close Claude Code.</p><ol><li>Type <b>/exit</b> in the box and press Enter (return on a Mac).</li><li>Close the window.</li><li>Pretend it's \"the next day\" and open the window again <b>in the practice folder</b>. (Same as step 2, but <b>don't type claude yet</b>.)</li></ol>",
+      "check": { "q": "Did you open a new window in the practice folder? (without typing claude yet)", "yes": "continue", "no": "open-help", "yesLabel": "Yes, it's open" }
+    },
+    {
+      "id": "continue", "stage": 5,
+      "title": "Continue the conversation — claude -c",
+      "html": "<p>This time, instead of <b>claude</b>, type the following and press Enter (return on a Mac). <b>-c</b> means \"continue\". Type it after claude with <b>one space</b> in between.</p>",
+      "code": "claude -c", "codeLabel": "What to type",
+      "image": "assets/img/ai/claude-code-sessions/en/cc-continue.webp", "alt": "Starting with claude -c continues the last conversation",
+      "check": { "q": "Do you see your last conversation ('What were we just talking about?') on screen?", "yes": "resume", "no": "continue-help", "yesLabel": "Yes, I see it" },
+      "ask": true
+    },
+    {
+      "id": "continue-help", "kind": "help",
+      "title": "If it says there's no conversation to continue",
+      "html": "<ul><li>Conversations are saved <b>separately for each folder</b>. Make sure you opened the window in the <b>practice folder</b>.</li><li>Check there's one space between <b>claude</b> and <b>-c</b>.</li><li>If it still doesn't work, it's fine to start with plain <b>claude</b> and go on to the next step (/resume).</li></ul>"
+    },
+
+    {
+      "id": "resume", "stage": 6,
+      "title": "Choose an older conversation — /resume",
+      "html": "<p>Use this when you want to continue a conversation from <b>a few days ago</b>, not the last one. Type the following and press Enter (return on a Mac).</p>",
+      "code": "/resume", "codeLabel": "What to type",
+      "image": "assets/img/ai/claude-code-sessions/en/cc-resume.webp", "alt": "Choosing an older conversation from the /resume list",
+      "check": { "q": "Did a list of older conversations appear? Choose one with ↑↓ and press Enter.", "yes": "summary", "no": "resume-help", "yesLabel": "Yes, I opened one" },
+      "ask": true,
+      "faq": [
+        { "q": "There's only one conversation in the list.", "a": "That's normal. It just means that's all you've had in the practice folder. If you did Practices 1 and 2 in the same folder, those conversations show up too." },
+        { "q": "Can I choose right when I start?", "a": "Yes. Start with <b>claude -r</b> instead of <b>claude</b> and the same list appears right away." }
+      ]
+    },
+    {
+      "id": "resume-help", "kind": "help",
+      "title": "If the list doesn't appear",
+      "html": "<ul><li>Check that you typed <b>/resume</b> exactly, at the very start of the box.</li><li>To close the list, press <kbd>Esc</kbd>.</li><li>It's okay if this doesn't work. Today's key points are /clear and claude -c.</li></ul>",
+      "choices": [
+        { "label": "Let me try again", "next": "resume" },
+        { "label": "That's okay, show the wrap-up", "next": "summary" }
+      ]
+    },
+
+    {
+      "id": "summary", "stage": 7, "kind": "summary",
+      "title": "🎉 Terminal practice 3 done! What you learned",
+      "html": "<p>Now you can split your work up, or come back days later, and carry on.</p><h3>Which one, when?</h3><table class='lab__terms'><tr><th>Starting something different</th><td><b>/clear</b> — clears only the chat; files stay</td></tr><tr><th>Continuing yesterday's work</th><td>Start with <b>claude -c</b> — in the same folder</td></tr><tr><th>Picking a conversation from days ago</th><td><b>/resume</b> (or start with <b>claude -r</b>)</td></tr></table><h3>Two things to remember</h3><ol><li>Claude remembers earlier messages <b>only within the same conversation</b>.</li><li>Conversations are saved <b>separately for each folder</b>. To continue, always start in the same folder.</li></ol><h3>Next step</h3><p>Next you'll <b>organize several files at once</b> and learn to read a new permission screen: \"May I run this command?\"</p><p class='lab__links'><a class='btn btn--primary' href='{{base}}lab/claude-code-organize-files.html'>Next: Terminal practice 4 · Organize several files at once →</a><a class='btn btn--ghost' href='{{base}}ai/claude-code-sessions.html'>Read today's steps as a guide</a></p>"
+    }
+  ]
+}

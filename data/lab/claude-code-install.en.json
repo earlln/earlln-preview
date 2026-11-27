@@ -1,0 +1,516 @@
+{
+  "id": "claude-code-install",
+  "title": "Install Claude Code and give it a first task",
+  "stages": [
+    "Start",
+    "Your computer",
+    "Get Claude ready",
+    "Practice folder",
+    "Open the text window",
+    "Install",
+    "Start and sign in",
+    "First task",
+    "Wrap-up"
+  ],
+  "steps": [
+    {
+      "id": "intro",
+      "stage": 1,
+      "title": "What we'll do today",
+      "html": "<div class='lab__tip'><b>This practice uses the terminal (the black text window).</b> If you're new, we recommend starting with <a href='{{base}}lab/desktop-install.html'>Desktop 1</a>, which only needs button clicks.</div><p>We'll install an AI assistant called <b>Claude Code</b> on your computer and give it its first job.</p><ul><li>Time: 20–30 minutes</li><li>You need: a <b>computer</b> (Windows or Mac), internet, and a <b>payment card</b> for a paid plan</li></ul><div class='lab__tip'><b>Tip</b> — Open this page on your <b>phone</b> and follow along on your <b>computer</b>. On your phone, just go to: <b>earlln.com/lab.html</b></div><p>Don't worry about unfamiliar words. We explain each one the first time it comes up.</p>",
+      "next": "device",
+      "button": "Let's start",
+      "faq": [
+        {
+          "q": "What is Claude Code?",
+          "a": "An AI assistant you <b>give jobs to in plain words</b>. Ask it something like \"tidy up this file\" and it creates and edits files for you."
+        },
+        {
+          "q": "Does it cost money?",
+          "a": "Yes. Claude Code needs a <b>paid Claude plan (Pro or higher)</b> billed monthly. You'll see the exact price when you sign up. A free account can't use it."
+        },
+        {
+          "q": "I only have a phone.",
+          "a": "This practice needs a computer. Phone and tablet practices are coming soon."
+        }
+      ]
+    },
+    {
+      "id": "device",
+      "stage": 2,
+      "title": "Which computer will you install Claude Code on?",
+      "html": "<p>Pick the <b>computer you'll install it on</b>, not necessarily the device you're reading this on.</p>",
+      "choices": [
+        {
+          "icon": "⊞",
+          "label": "Windows PC",
+          "sub": "Most laptops and desktops",
+          "set": {
+            "device": "win"
+          },
+          "next": "account"
+        },
+        {
+          "icon": "",
+          "label": "Mac",
+          "sub": "Apple MacBook or iMac",
+          "set": {
+            "device": "mac"
+          },
+          "next": "account"
+        },
+        {
+          "icon": "?",
+          "label": "I'm not sure",
+          "sub": "We'll show you how to check",
+          "next": "device-help"
+        },
+        {
+          "icon": "📱",
+          "label": "I don't have a computer",
+          "sub": "Only a phone or tablet",
+          "next": "no-pc"
+        }
+      ]
+    },
+    {
+      "id": "device-help",
+      "kind": "help",
+      "title": "How to tell Windows from Mac",
+      "html": "<p>Look at the computer's <b>keyboard</b>.</p><ul><li>A <b>⊞</b> (window) key at the bottom left → <b>Windows</b></li><li>A <b>⌘ command</b> key → <b>Mac</b></li></ul><p>An <b>apple logo</b> on the back or lid also means it's a Mac.</p>",
+      "button": "Got it, let me choose again"
+    },
+    {
+      "id": "no-pc",
+      "kind": "help",
+      "title": "This practice needs a computer",
+      "html": "<p>Claude Code is a program you install on a computer. Practices for phones and tablets are <b>coming soon</b>.</p><p>Come back when you have a home or work computer. Your progress is saved in this browser.</p>",
+      "button": "Go back"
+    },
+    {
+      "id": "account",
+      "stage": 3,
+      "title": "Do you have a Claude account?",
+      "html": "<p>Claude Code needs a <b>paid Claude account (Pro or higher)</b>.</p>",
+      "choices": [
+        {
+          "label": "I have a paid account",
+          "sub": "Subscribed to Pro or higher",
+          "next": "claude-ready"
+        },
+        {
+          "label": "I only have a free account",
+          "next": "upgrade"
+        },
+        {
+          "label": "I don't have an account",
+          "next": "signup"
+        },
+        {
+          "label": "I'm not sure",
+          "next": "account-help"
+        }
+      ]
+    },
+    {
+      "id": "signup",
+      "stage": 3,
+      "title": "Sign up for Claude",
+      "html": "<p>First, open a <b>browser</b> on your <b>computer</b>. A browser is the program you use to look at the internet. Click one of these icons at the bottom of your screen:</p><ul><li>Windows: <b>Microsoft Edge</b> (blue wave) or <b>Chrome</b> (red, yellow and green circle)</li><li>Mac: <b>Safari</b> (compass) or Chrome</li></ul><ol><li>Click the <b>address bar</b> at the very top of the browser, type <b>claude.ai</b> and press <kbd>Enter</kbd>.</li><li>Choose Continue with Google, or sign up with your email address.</li><li>If you used email, open the confirmation email in your inbox and click its button.</li></ol>",
+      "check": {
+        "q": "Did you finish signing up and see the Claude chat screen?",
+        "yes": "upgrade",
+        "no": "signup-help"
+      },
+      "faq": [
+        {
+          "q": "Where is the address bar?",
+          "a": "It's the long box at the <b>very top</b> of the browser where you can type. It usually shows an address starting with https://. Click it once and the text turns blue; then just type <b>claude.ai</b>."
+        },
+        {
+          "q": "Where is the Enter key?",
+          "a": "It's the big key on the right side of the keyboard, marked <b>Enter</b> or <b>↵</b>. On a Mac it may say <b>return</b>."
+        }
+      ]
+    },
+    {
+      "id": "signup-help",
+      "kind": "help",
+      "title": "If signing up doesn't work",
+      "html": "<ul><li>If the confirmation email doesn't arrive, check your <b>spam folder</b>.</li><li>If you have a Google account, <b>Continue with Google</b> is the easiest.</li><li>If it asks for your country, pick the one you live in.</li></ul>"
+    },
+    {
+      "id": "upgrade",
+      "stage": 3,
+      "title": "Subscribe to a paid plan (Pro)",
+      "html": "<ol><li>On claude.ai, find and click the <b>Upgrade</b> button or menu.</li><li>Choose the <b>Pro</b> plan. (Max also works, but Pro is plenty to start.)</li><li>Enter your card details and pay.</li></ol><div class='lab__tip'><b>Check the payment yourself</b> — read the price and whether it renews every month before you continue. You can cancel any time.</div>",
+      "check": {
+        "q": "Did you subscribe to Pro?",
+        "yes": "claude-ready",
+        "no": "upgrade-help",
+        "yesLabel": "Yes, I subscribed",
+        "noLabel": "I can't find the Upgrade button"
+      }
+    },
+    {
+      "id": "upgrade-help",
+      "kind": "help",
+      "title": "Finding the Upgrade menu",
+      "html": "<p>The screen layout changes from time to time. Check these places:</p><ul><li>The menu that opens when you click your name (or your initial in a circle) at the <b>bottom left</b></li><li>The word <b>Upgrade</b> near the top or near the chat box</li></ul><p>Still can't find it? Ask Claude in the chat box: <b>\"Where do I upgrade my plan?\"</b> It will tell you.</p>"
+    },
+    {
+      "id": "account-help",
+      "kind": "help",
+      "title": "How to tell if your account is paid",
+      "html": "<p>Go to <b>claude.ai</b> in your browser.</p><ul><li>If you see a sign-in screen → sign in if you have an account, or choose <b>I don't have an account</b>.</li><li>If you see <b>Pro</b> or <b>Max</b> near your name at the bottom left → it's paid.</li><li>If an <b>Upgrade</b> button stands out → it's probably free.</li></ul>",
+      "button": "Got it, let me choose again"
+    },
+    {
+      "id": "claude-ready",
+      "stage": 3,
+      "title": "Get a Claude window ready for your questions",
+      "html": "<p>If you get stuck during the practice, you can <b>ask Claude directly</b>. Let's try it once now.</p><ol><li>Tap <b>I have a question</b> below to open it.</li><li>Type <b>What is Claude Code?</b> and press <b>Ask Claude</b>.</li><li>A new window (or the Claude app) opens. Check the chat box:<br>· If your question is already there → press <kbd>Enter</kbd><br>· If it's empty → click the box once, <b>paste</b>, then press <kbd>Enter</kbd></li></ol><div class='lab__tip'><b>What is pasting?</b> — It puts in the text you copied. On a computer press {{paste}} together; on a phone, <b>press and hold</b> the box, then tap <b>Paste</b>.</div><p>When you've seen the answer, come back here. You can ask like this any time you get stuck.</p>",
+      "check": {
+        "q": "Did Claude answer?",
+        "yes": "folder",
+        "no": "ask-help",
+        "set": {
+          "claudeReady": true
+        },
+        "yesLabel": "Yes, it answered",
+        "noLabel": "It didn't work"
+      },
+      "askNow": true,
+      "ask": true
+    },
+    {
+      "id": "ask-help",
+      "kind": "help",
+      "title": "If asking Claude doesn't work",
+      "html": "<ul><li>If no new window opens, go to <b>claude.ai</b> in your browser and type your question in the chat box. It's the same thing.</li><li>If you see a sign-in screen, sign in with your account.</li><li>This step is just practice, so it's fine to move on even if it doesn't work.</li></ul>",
+      "choices": [
+        {
+          "label": "Let me try again",
+          "next": "claude-ready"
+        },
+        {
+          "label": "Skip for now",
+          "sub": "I'll ask on claude.ai if I get stuck",
+          "set": {
+            "claudeReady": true
+          },
+          "next": "folder"
+        }
+      ]
+    },
+    {
+      "id": "folder",
+      "stage": 4,
+      "title": "Name your practice folder",
+      "html": "<p>Claude Code works <b>inside one folder</b> that you choose. To start, it's safest to practice in an <b>empty folder</b>.</p><p>Choose a folder name. If you're not sure, just keep <b>Practice</b>.</p>",
+      "input": {
+        "var": "folder",
+        "label": "Folder name",
+        "default": "Practice",
+        "hint": "e.g. Practice, AI-lab"
+      },
+      "next": "folder-make",
+      "button": "Use this name"
+    },
+    {
+      "id": "folder-make",
+      "stage": 4,
+      "title": "Make a '{{folder}}' folder on your desktop",
+      "win": {
+        "html": "<p>The <b>desktop</b> is the background screen you see when the computer starts. If windows are open, click <b>—</b> (minimize) at their top right to tuck them away.</p><ol><li>Put your mouse on an empty spot of the desktop and click the <b>right mouse button</b>.</li><li>In the menu, click <b>New</b> → <b>Folder</b>.</li><li>When the name box turns blue, type <b>{{folder}}</b> and press <kbd>Enter</kbd>.</li></ol>"
+      },
+      "mac": {
+        "html": "<p>The <b>desktop</b> is the background screen you see when the computer starts.</p><ol><li><b>Right-click</b> an empty spot on the desktop.<br><small>On a Mac trackpad, <b>press with two fingers together</b> to right-click.</small></li><li>Click <b>New Folder</b> in the menu.</li><li>While the new folder's name (untitled folder) is selected, type <b>{{folder}}</b> and press <kbd>return</kbd>.</li></ol>"
+      },
+      "check": {
+        "q": "Is there a '{{folder}}' folder on your desktop now?",
+        "yes": "open-shell",
+        "no": "folder-help"
+      },
+      "ask": true,
+      "faq": [
+        {
+          "q": "I typed the name wrong.",
+          "a": "Click the folder once, then press <kbd>F2</kbd> on Windows or <kbd>return</kbd> on a Mac to type the name again."
+        }
+      ]
+    },
+    {
+      "id": "folder-help",
+      "kind": "help",
+      "title": "If making the folder doesn't work",
+      "win": {
+        "html": "<ul><li>If you don't see <b>New</b> in the menu, right-click a <b>completely empty spot</b>, not on an icon.</li><li>If you can't see the desktop, press <kbd>⊞</kbd>+<kbd>D</kbd> together to tuck all windows away.</li></ul>"
+      },
+      "mac": {
+        "html": "<ul><li>If no menu appears, hold the <kbd>control</kbd> key and click the desktop. That's also a right-click.</li><li>Or click the desktop once, then choose <b>File → New Folder</b> from the menu at the very top of the screen.</li></ul>"
+      }
+    },
+    {
+      "id": "open-shell",
+      "stage": 5,
+      "win": {
+        "title": "Open the text command window (PowerShell)",
+        "html": "<p>You install Claude Code in a window called <b>PowerShell</b>. PowerShell is a <b>window where you give the computer commands by typing</b> instead of clicking. It may look scary, but today you only paste and press <kbd>Enter</kbd>.</p><ol><li>Press the <kbd>⊞</kbd> key at the bottom left of the keyboard once.</li><li>Type <b>powershell</b>.</li><li>Click <b>Windows PowerShell</b> in the list.</li></ol>",
+        "image": "assets/img/ai/claude-code-install/en/win-search.webp",
+        "alt": "Typing powershell in Windows search and clicking Windows PowerShell",
+        "check": {
+          "q": "Did a blue (or black) window open?",
+          "yes": "install",
+          "no": "shell-help"
+        }
+      },
+      "mac": {
+        "title": "Open the text command window (Terminal)",
+        "html": "<p>You install Claude Code in a window called <b>Terminal</b>. Terminal is a <b>window where you give the computer commands by typing</b> instead of clicking. It may look scary, but today you only paste and press <kbd>return</kbd>.</p><ol><li>Press <kbd>⌘ command</kbd> and <kbd>space</kbd> (the longest key) together.</li><li>When the search box appears in the middle, type <b>Terminal</b> and press <kbd>return</kbd>.</li></ol>",
+        "image": "assets/img/ai/claude-code-install/en/mac-spotlight.webp",
+        "alt": "Typing Terminal in the Mac search box",
+        "check": {
+          "q": "Did a white (or black) text window open?",
+          "yes": "install",
+          "no": "shell-help"
+        }
+      },
+      "ask": true
+    },
+    {
+      "id": "shell-help",
+      "kind": "help",
+      "title": "If the window doesn't open",
+      "win": {
+        "html": "<ul><li>Check the spelling: <b>powershell</b>. If your keyboard is set to another language, switch it to English first.</li><li>If you see <b>Terminal</b> in the list instead of <b>Windows PowerShell</b>, that's fine. Click it.</li></ul>"
+      },
+      "mac": {
+        "html": "<ul><li>If the search box doesn't appear, click the <b>magnifying glass</b> at the top right of the screen.</li></ul>"
+      }
+    },
+    {
+      "id": "install",
+      "stage": 6,
+      "title": "Paste the install command",
+      "win": {
+        "html": "<ol><li>Press <b>Copy</b> on the box below. (If you're reading this on your phone, open this page on your computer to copy it, or type it exactly.)</li><li>Click the PowerShell window once.</li><li>Press {{paste}} together to paste.</li><li>Press <kbd>Enter</kbd>.</li></ol>",
+        "code": "irm https://claude.ai/install.ps1 | iex",
+        "codeLabel": "Command to paste on Windows",
+        "image": "assets/img/ai/claude-code-install/en/win-install.webp",
+        "alt": "The install command pasted into PowerShell"
+      },
+      "mac": {
+        "html": "<ol><li>Press <b>Copy</b> on the box below. (If you're reading this on your phone, open this page on your computer to copy it, or type it exactly.)</li><li>Click the Terminal window once.</li><li>Press {{paste}} together to paste.</li><li>Press <kbd>return</kbd>.</li></ol>",
+        "code": "curl -fsSL https://claude.ai/install.sh | bash",
+        "codeLabel": "Command to paste on a Mac"
+      },
+      "html": "",
+      "check": {
+        "q": "Did text scroll by for a while and then stop?",
+        "yes": "install-done",
+        "no": "install-help",
+        "yesLabel": "Yes, it stopped",
+        "noLabel": "Red text / nothing happened"
+      },
+      "ask": true,
+      "faq": [
+        {
+          "q": "Can I paste on my computer what I copied on my phone?",
+          "a": "Not directly, since they're different devices. Open <b>earlln.com/lab.html</b> in your computer's browser and copy it there. Progress is saved separately on each device."
+        },
+        {
+          "q": "Is this command safe?",
+          "a": "It downloads and runs the installer from the official address (claude.ai) of Anthropic, the company that makes Claude. It's the same as in the official install guide."
+        }
+      ]
+    },
+    {
+      "id": "install-help",
+      "kind": "help",
+      "title": "If the install doesn't work",
+      "win": {
+        "html": "<ul><li><b>If nothing happened</b>: make sure you pressed <kbd>Enter</kbd> after pasting. If pasting didn't work, click the <b>right mouse button</b> once inside the window to paste.</li><li><b>If red text appeared</b>: close the window and start again from opening it. If it's the same, copy the red text and ask Claude, \"I got this error.\"</li><li>Work computers may block installs for security. In that case, ask your IT team.</li></ul>"
+      },
+      "mac": {
+        "html": "<ul><li><b>If nothing happened</b>: make sure you pressed <kbd>return</kbd> after pasting.</li><li><b>If it asks for a password</b>: type the password you use to log in to your Mac and press <kbd>return</kbd>. It's normal that nothing shows while you type.</li><li><b>If an error appeared</b>: copy that text and ask Claude, \"I got this error.\"</li></ul>"
+      }
+    },
+    {
+      "id": "install-done",
+      "stage": 6,
+      "title": "Installed! Please close the window",
+      "win": {
+        "html": "<p>Well done. Now close the PowerShell window by clicking <b>✕</b> at the top right.</p><p>Right after installing, you need to open a <b>new</b> window for it to find Claude Code.</p>"
+      },
+      "mac": {
+        "html": "<p>Well done. Now close the Terminal window by clicking the <b>red circle</b> at the top left.</p><p>Right after installing, you need to open a <b>new</b> window for it to find Claude Code.</p>"
+      },
+      "next": "open-folder",
+      "button": "I closed it"
+    },
+    {
+      "id": "open-folder",
+      "stage": 7,
+      "title": "Open the text window in the '{{folder}}' folder",
+      "win": {
+        "html": "<p>Claude Code works <b>inside the folder where you open the window</b>. So we open it inside the '{{folder}}' folder.</p><ol><li><b>Double-click</b> the <b>{{folder}}</b> folder on your desktop to open it.</li><li>Click the <b>address bar</b> at the top of the folder window (the long box showing the folder path) once.</li><li>When its text turns blue, type <b>powershell</b> and press <kbd>Enter</kbd>.</li></ol>",
+        "image": "assets/img/ai/claude-code-install/en/win-folder.webp",
+        "alt": "Typing powershell in the folder address bar"
+      },
+      "mac": {
+        "html": "<p>Claude Code works <b>inside the folder where you open the window</b>. So we point Terminal at the '{{folder}}' folder.</p><ol><li>Open Terminal again. (<kbd>⌘ command</kbd>+<kbd>space</kbd> → Terminal → <kbd>return</kbd>)</li><li>Type <b>cd</b> and press <b>space</b> once.</li><li>Drag the <b>{{folder}}</b> folder from your desktop and drop it onto the Terminal window. The folder path fills in by itself.</li><li>Press <kbd>return</kbd>.</li></ol>",
+        "image": "assets/img/ai/claude-code-install/en/mac-drag.webp",
+        "alt": "Typing cd in Terminal and dragging the folder in"
+      },
+      "check": {
+        "q": "Did the window open?",
+        "yes": "launch",
+        "no": "open-folder-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "open-folder-help",
+      "kind": "help",
+      "title": "If opening the window in the folder doesn't work",
+      "win": {
+        "html": "<ul><li>When you click the address bar, all its text should turn blue. Try clicking once more.</li><li>Check the spelling of <b>powershell</b>.</li><li>Still stuck? Open PowerShell the normal way (previous step), type <b>cd</b> and a space, drag the <b>{{folder}}</b> folder onto the window, and press <kbd>Enter</kbd>. Same result.</li></ul>"
+      },
+      "mac": {
+        "html": "<ul><li>You must put one space after <b>cd</b>.</li><li>Drop the folder <b>inside</b> the Terminal window.</li><li>If you see \"no such file\", start again from the top.</li></ul>"
+      }
+    },
+    {
+      "id": "launch",
+      "stage": 7,
+      "title": "Start Claude Code",
+      "html": "<p>Type the text below in the window and press {{enterkey}}.</p>",
+      "win": {
+        "html": "<p>Type the text below in the window yourself and press <kbd>Enter</kbd>. (It's short, so typing is fine.)</p>"
+      },
+      "mac": {
+        "html": "<p>Type the text below in the window yourself and press <kbd>return</kbd>. (It's short, so typing is fine.)</p>"
+      },
+      "code": "claude",
+      "codeLabel": "What to type",
+      "check": {
+        "q": "Did you see an English welcome like 'Welcome to Claude Code', or a question?",
+        "yes": "login",
+        "no": "launch-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "launch-help",
+      "kind": "help",
+      "title": "If Claude Code doesn't start",
+      "html": "<ul><li>If you see <b>'claude' is not recognized</b> (Mac: <b>command not found</b>): close all windows and open them again. If it's the same, <b>restart the computer</b> and do this step again.</li><li>If it still doesn't work, go back to the install step and install again. (Press '← Back' a few times.)</li><li>You can also copy the text you see and ask Claude.</li></ul>"
+    },
+    {
+      "id": "login",
+      "stage": 7,
+      "title": "First time only — sign in",
+      "html": "<p>The first time, it asks a <b>few questions</b>. Don't worry. Use the arrow keys <kbd>↑</kbd><kbd>↓</kbd> to choose and just press {{enterkey}}.</p>",
+      "win": {
+        "html": "<p>The first time, it asks a <b>few questions</b>. Don't worry. Use the arrow keys <kbd>↑</kbd><kbd>↓</kbd> to choose and just press <kbd>Enter</kbd>.</p><ol><li>Asked to pick a <b>color theme</b> → just press Enter</li><li>Asked for a <b>login method</b> → press Enter on <b>1. Claude account with subscription</b></li><li>When a browser opens by itself → sign in, click <b>Authorize</b>, then come back to the original window.</li><li>Asked whether you <b>trust this folder</b> → press Enter on <b>Yes</b></li></ol>"
+      },
+      "mac": {
+        "html": "<p>The first time, it asks a <b>few questions</b>. Don't worry. Use the arrow keys <kbd>↑</kbd><kbd>↓</kbd> to choose and just press <kbd>return</kbd>.</p><ol><li>Asked to pick a <b>color theme</b> → just press return</li><li>Asked for a <b>login method</b> → press return on <b>1. Claude account with subscription</b></li><li>When a browser opens by itself → sign in, click <b>Authorize</b>, then come back to the original window.</li><li>Asked whether you <b>trust this folder</b> → press return on <b>Yes</b></li></ol>"
+      },
+      "image": "assets/img/ai/claude-code-install/en/cc-login.webp",
+      "alt": "Choosing option 1 for the login method",
+      "check": {
+        "q": "Are the questions done, and do you see a box to type in (with a > sign)?",
+        "yes": "first-task",
+        "no": "login-help"
+      },
+      "ask": true,
+      "faq": [
+        {
+          "q": "The questions look different.",
+          "a": "The order and wording change a little between versions. If you're not sure, <b>just press Enter</b>. The first option (at the top) is usually right. For the login method, though, make sure you pick <b>Claude account</b> (your subscription)."
+        }
+      ]
+    },
+    {
+      "id": "login-help",
+      "kind": "help",
+      "title": "If signing in doesn't work",
+      "html": "<ul><li>If no browser opens, select the long address (https://…) shown in the window with your mouse, copy it, and paste it into your browser's address bar.</li><li>Check that you have a <b>paid (Pro or higher)</b> plan. Free accounts can't sign in.</li><li>When you come back to the window after signing in, it may ask you to continue. Press Enter.</li></ul>"
+    },
+    {
+      "id": "first-task",
+      "stage": 8,
+      "title": "Give it a first task",
+      "html": "<p>Now give Claude a job <b>in plain words</b>. Paste or type the sentence below into the box and press Enter (return on a Mac).</p>",
+      "code": "Create a file called todo.txt and write 3 example to-dos for today",
+      "codeLabel": "Type this",
+      "next": "permission",
+      "button": "I typed it",
+      "ask": true
+    },
+    {
+      "id": "permission",
+      "stage": 8,
+      "title": "\"May I create it?\" — give permission",
+      "html": "<p>Claude <b>always asks first</b> before creating a file. When you see <b>Do you want to create todo.txt?</b>, it means \"May I create todo.txt?\"</p><p>With <b>1. Yes</b> selected, press Enter (return on a Mac).</p><div class='lab__tip'><b>Don't choose option 2 (Yes, allow all…) for now.</b> It means \"don't ask me again, just do everything\". We'll cover it later, once you're comfortable.</div>",
+      "image": "assets/img/ai/claude-code-install/en/cc-permission.webp",
+      "alt": "Choosing Yes when asked whether to create the file",
+      "check": {
+        "q": "Did you choose Yes?",
+        "yes": "result",
+        "no": "permission-help",
+        "noLabel": "That question didn't appear"
+      },
+      "ask": true
+    },
+    {
+      "id": "permission-help",
+      "kind": "help",
+      "title": "If the permission question doesn't appear",
+      "html": "<ul><li>Claude may still be thinking. Wait a few seconds.</li><li>If Claude asks you something back, type your answer and press Enter.</li><li>If it already says it created the file, go to the next step and check the folder.</li></ul>"
+    },
+    {
+      "id": "result",
+      "stage": 8,
+      "title": "See the result with your own eyes",
+      "win": {
+        "html": "<p>Look at the <b>{{folder}}</b> folder window on your desktop. (If you closed it, double-click it to open it again.)</p><p><b>Double-click</b> the <b>todo.txt</b> file. Notepad opens and shows the to-dos Claude wrote.</p>"
+      },
+      "mac": {
+        "html": "<p>Double-click the <b>{{folder}}</b> folder on your desktop to open it.</p><p><b>Double-click</b> the <b>todo.txt</b> file. TextEdit opens and shows the to-dos Claude wrote.</p>"
+      },
+      "image": "assets/img/ai/claude-code-install/en/win-result.webp",
+      "alt": "todo.txt has appeared in the folder",
+      "check": {
+        "q": "Do you see todo.txt in the '{{folder}}' folder?",
+        "yes": "finish",
+        "no": "result-help",
+        "yesLabel": "Yes, I see it! 🎉"
+      },
+      "ask": true
+    },
+    {
+      "id": "result-help",
+      "kind": "help",
+      "title": "If you can't see the file",
+      "html": "<ul><li>Check that you opened the Claude window in the <b>{{folder}}</b> folder. If you opened it somewhere else, the file may be there.</li><li>Ask in the Claude window: <b>\"Where did you create todo.txt?\"</b> It will tell you the location.</li><li>Closing and reopening the folder window sometimes helps.</li></ul>"
+    },
+    {
+      "id": "finish",
+      "stage": 8,
+      "title": "Finishing up",
+      "html": "<p>That's it for today. To close Claude Code:</p><ul><li>Type <b>/exit</b> in the box and press Enter (return on a Mac), or</li><li>just close the window.</li></ul><p>Next time, start from <b>opening the window in the '{{folder}}' folder → typing claude</b>. You don't need to install or sign in again.</p>",
+      "next": "summary",
+      "button": "Done, show the wrap-up"
+    },
+    {
+      "id": "summary",
+      "stage": 9,
+      "kind": "summary",
+      "title": "🎉 First practice done! What you learned",
+      "html": "<p>You made it all the way. Here's a short recap of what you did.</p><div class='lab__flow'><span>You</span><i>ask in words</i><span>Claude Code</span><i>with permission</i><span>File done</span></div><h3>New words</h3><table class='lab__terms'><tr><th>Browser</th><td>The program you use to look at the internet (Edge, Chrome, Safari)</td></tr><tr><th>PowerShell · Terminal</th><td>A <b>window where you give the computer commands by typing</b>. PowerShell on Windows, Terminal on a Mac</td></tr><tr><th>Command</th><td>The text you type in that window. Today you used the install command and <b>claude</b></td></tr><tr><th>Install</th><td>Putting a program on your computer. You only do it once</td></tr><tr><th>Claude Code</th><td>An AI assistant that works inside that text window. Just <b>ask in plain words</b></td></tr></table><h3>Two things to remember</h3><ol><li><b>Claude Code works inside the folder where you open the window.</b> That's why we opened it in the practice folder. Open it in the folder you want it to work on.</li><li><b>It always asks before creating or changing anything.</b> Things only change when you read and press Yes, so you can use it with peace of mind.</li></ol><h3>Next step</h3><p>In the next practice you'll have it <b>edit</b> today's todo.txt and learn to read what it's about to change.</p><p class='lab__links'><a class='btn btn--primary' href='{{base}}lab/claude-code-edit-file.html'>Next: Terminal practice 2 · Have it edit a file →</a><a class='btn btn--ghost' href='{{base}}ai/claude-code-install.html'>Read today's steps as a guide</a></p>"
+    }
+  ]
+}

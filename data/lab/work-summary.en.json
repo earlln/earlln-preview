@@ -1,0 +1,214 @@
+{
+  "id": "work-summary",
+  "title": "Summarize a long document",
+  "stages": [
+    "Start",
+    "Get the sample",
+    "3-line summary",
+    "Just what I need",
+    "Check dates and numbers",
+    "No making things up",
+    "Save to a file",
+    "Wrap-up"
+  ],
+  "steps": [
+    {
+      "id": "intro",
+      "stage": 1,
+      "title": "What we'll do today",
+      "html": "<p>When you <b>don't have time to read a long text</b> like a notice, report or meeting pack, hand the summary to Claude.</p><p>Today you'll learn four new things.</p><ol><li>Say <b>how long, and for whom</b></li><li>Pull out <b>just what you need</b></li><li><b>Check dates and numbers</b> against the original</li><li>Keep it from <b>making things up</b></li></ol><ul><li>Time: 15 minutes</li><li>You need: a computer where you've done <a href='{{base}}lab/work-csv.html'>Work 1</a> (moving files)</li></ul>",
+      "next": "get",
+      "button": "Let's start"
+    },
+    {
+      "id": "get",
+      "stage": 2,
+      "title": "Get the sample notice into Practice",
+      "html": "<p>It's an HR notice about '2027 working-hour changes'. It's fairly long.</p><p class='lab__links'><a class='btn btn--primary' href='{{base}}assets/files/work/notice.txt' download='notice.txt'>⬇ Download the sample notice.txt</a></p><p>As in Work 1, <b>drag notice.txt from Downloads into the Practice folder.</b></p>",
+      "check": {
+        "q": "Is notice.txt in the Practice folder?",
+        "yes": "open",
+        "no": "get-help"
+      }
+    },
+    {
+      "id": "get-help",
+      "kind": "help",
+      "title": "If getting the file doesn't work",
+      "html": "<ul><li>If clicking shows the text on screen, save it there with <kbd>Ctrl</kbd>+<kbd>S</kbd> (<kbd>⌘</kbd>+<kbd>S</kbd> on a Mac) as <b>notice.txt</b>.</li><li>Moving works like 'Move it into the Practice folder' in <a href='{{base}}lab/work-csv.html'>Work 1</a>. Right-click → Cut → Paste in Practice also works.</li></ul>",
+      "choices": [
+        {
+          "label": "Let me try again",
+          "next": "get"
+        },
+        {
+          "label": "I'm ready",
+          "next": "open"
+        }
+      ]
+    },
+    {
+      "id": "open",
+      "stage": 2,
+      "title": "Start with a new chat",
+      "html": "<p>Claude app → <b>Code</b> tab → <b>+ New</b>. Check the buttons under the typing box show <b>Local · Practice · Manual</b>.</p>",
+      "check": {
+        "q": "Can you see Local · Practice · Manual?",
+        "yes": "three",
+        "no": "open-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "open-help",
+      "kind": "help",
+      "title": "If the start screen looks different",
+      "html": "<ul><li>If the folder isn't Practice, click the folder button → <b>Open folder…</b> and choose it.</li><li>Click the permission mode button and choose <b>Manual</b>.</li></ul>"
+    },
+    {
+      "id": "three",
+      "stage": 3,
+      "title": "Ask for a 3-line summary",
+      "html": "<p>Saying <b>how long and for whom</b> makes it far more useful than just \"summarize\".</p>",
+      "image": "assets/img/ai/work-summary/en/summary.webp",
+      "alt": "The notice summarized in 3 lines",
+      "code": "Summarize notice.txt in 3 lines for someone reading it for the first time",
+      "codeLabel": "Type this",
+      "check": {
+        "q": "Did you get a 3-line summary?",
+        "yes": "role",
+        "no": "three-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "three-help",
+      "kind": "help",
+      "title": "If there's no summary or it's too long",
+      "html": "<ul><li>If it can't find the file, check notice.txt is <b>inside the Practice folder</b>.</li><li>Too long? Say \"Shorter, one point per line.\"</li></ul>"
+    },
+    {
+      "id": "role",
+      "stage": 4,
+      "title": "Pull out just what you need",
+      "html": "<p>The same notice matters differently to different people. Tell it <b>who you are</b>.</p>",
+      "code": "I'm a team lead. From this notice, list only what I need to do and by when",
+      "codeLabel": "Type this",
+      "check": {
+        "q": "Did you get team-lead tasks like spreading out work-from-home days and submitting the team plan by the last Friday of each month?",
+        "yes": "facts",
+        "no": "role-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "role-help",
+      "kind": "help",
+      "title": "If unrelated things got mixed in",
+      "html": "<p>Make the criteria <b>clearer</b>, e.g. \"Split it into what applies to everyone and what applies only to team leads.\"</p>",
+      "choices": [
+        {
+          "label": "Let me try again",
+          "next": "role"
+        },
+        {
+          "label": "Next",
+          "next": "facts"
+        }
+      ]
+    },
+    {
+      "id": "facts",
+      "stage": 5,
+      "title": "Pull out dates and numbers and check them",
+      "html": "<p>The riskiest thing in a summary is <b>wrong dates and numbers</b>. Pull them out and check.</p><ol><li>Send the sentence below.</li><li>Open notice.txt in the Practice folder (Notepad), press <kbd>Ctrl</kbd>+<kbd>F</kbd> (<kbd>⌘</kbd>+<kbd>F</kbd> on a Mac), find <b>December 15</b>, and compare it with the table.</li></ol>",
+      "image": "assets/img/ai/work-summary/en/facts.webp",
+      "alt": "A table of just the dates and numbers from the notice",
+      "code": "Pull out just the dates and numbers as a table, exactly as in the original",
+      "codeLabel": "Type this",
+      "check": {
+        "q": "Did the application deadline (December 15) match the original?",
+        "yes": "nofab",
+        "no": "facts-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "facts-help",
+      "kind": "help",
+      "title": "If it doesn't match the original",
+      "html": "<p>That's exactly why you check. Say \"Find the application deadline in the original again and quote the exact sentence.\" If it still differs, <b>trust the original.</b></p>",
+      "choices": [
+        {
+          "label": "Let me check again",
+          "next": "facts"
+        },
+        {
+          "label": "Next",
+          "next": "nofab"
+        }
+      ]
+    },
+    {
+      "id": "nofab",
+      "stage": 6,
+      "title": "Keep it from making things up",
+      "html": "<p>AI sometimes answers with <b>plausible-sounding inventions</b>. Let's ask about something that isn't in the notice.</p>",
+      "code": "Does this notice say anything about lunch-break changes? If it's not in the original, say so",
+      "codeLabel": "Type this",
+      "check": {
+        "q": "Did it say it's not in the original?",
+        "yes": "save",
+        "no": "nofab-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "nofab-help",
+      "kind": "help",
+      "title": "If it said yes",
+      "html": "<p>The notice says nothing about lunch breaks. The AI made it up. Asking \"Which sentence in the original says that? Quote it\" usually gets it to correct itself.</p><p>From now on, add <b>\"Don't include anything that isn't in the original\"</b> when you ask for summaries.</p>",
+      "choices": [
+        {
+          "label": "Got it, next",
+          "next": "save"
+        }
+      ]
+    },
+    {
+      "id": "save",
+      "stage": 7,
+      "title": "Save it to a file",
+      "html": "<p>The summary only lives in the chat. Saving it to a file makes it easy to share. Read the create-file permission card and click <b>Allow</b>.</p>",
+      "code": "Save the 3-line summary, the team-lead tasks and the dates table to notice-summary.txt",
+      "codeLabel": "Type this",
+      "check": {
+        "q": "Is there a notice-summary.txt in the Practice folder?",
+        "yes": "tips",
+        "no": "save-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "save-help",
+      "kind": "help",
+      "title": "If you don't see the file",
+      "html": "<ul><li>If you denied the card, send it again and allow it.</li><li>Close the folder window and open it again.</li></ul>"
+    },
+    {
+      "id": "tips",
+      "stage": 7,
+      "title": "Do the same with other documents",
+      "html": "<ul><li><b>PDF</b>: attach it with <b>+</b> next to the typing box, or put it in Practice and say \"Summarize X.pdf\".</li><li><b>Word files</b>: if it can't read one well, <b>save it as PDF</b> in Word or paste the text in.</li><li><b>Very long documents</b>: split it up, e.g. \"Just chapters 1 to 3 first\", for better accuracy.</li><li><b>Contracts and legal documents</b>: use the summary only as a guide; check the original and an expert before important decisions.</li></ul><div class='lab__tip'>Before handing over company documents, check your <b>company's AI usage rules</b>.</div>",
+      "next": "summary",
+      "button": "Got it, show the wrap-up"
+    },
+    {
+      "id": "summary",
+      "stage": 8,
+      "kind": "summary",
+      "title": "🎉 Work practice 2 done! What you learned",
+      "html": "<p>Without reading the whole notice, you pulled out exactly what you needed.</p><table class='lab__terms'><tr><th>Set the format</th><td>\"In 3 lines, for someone new to it\"</td></tr><tr><th>Who you are</th><td>\"I'm a team lead. Only my tasks and deadlines\"</td></tr><tr><th>Check facts</th><td>\"Just dates and numbers as a table\" → compare with the original</td></tr><tr><th>No inventions</th><td>\"If it's not in the original, say so\"</td></tr></table><h3>Remember</h3><p>Summaries <b>save time, but the responsibility is yours</b>. Double-check important dates and numbers in the original.</p><p class='lab__links'><a class='btn btn--primary' href='{{base}}lab/work-report.html'>Next: Work 3 · Draft a report →</a><a class='btn btn--ghost' href='{{base}}ai/work-summary.html'>Read today's steps as a guide</a></p>"
+    }
+  ]
+}

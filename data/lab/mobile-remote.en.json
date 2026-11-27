@@ -1,0 +1,170 @@
+{
+  "id": "mobile-remote",
+  "title": "Give your computer's Claude a job from your phone",
+  "stages": [
+    "Start",
+    "Phone",
+    "Computer",
+    "Connect",
+    "Job from the phone",
+    "Check",
+    "Wrap-up"
+  ],
+  "steps": [
+    {
+      "id": "intro",
+      "stage": 1,
+      "title": "What we'll do today",
+      "html": "<p>You'll <b>control Claude Code on your computer from your phone</b>. The feature is called <b>Remote Control</b>.</p><p>Your files stay <b>on your computer</b>; the phone is just the <b>remote</b>. You can give the Claude on your computer a job from your phone, even when you're out.</p><ul><li>Time: 10–15 minutes</li><li>You need: a computer that finished <a href='{{base}}lab/desktop-install.html'>Desktop 1</a>, and a phone</li><li>While you use it, <b>keep the computer on and the desktop app open</b></li></ul><div class='lab__tip'>This practice uses <b>both the computer and the phone</b>. You can keep this page on either one.</div>",
+      "next": "phone-app",
+      "button": "Let's start",
+      "faq": [
+        {
+          "q": "I use a work account.",
+          "a": "For Team and Enterprise accounts, an admin has to turn this feature on. Personal Pro and Max accounts can use it right away."
+        },
+        {
+          "q": "Can I use it with just a phone, no computer?",
+          "a": "Yes! With a GitHub repository, Claude works in the cloud even when your computer is off. Set it up in <a href='{{base}}lab/mobile-github.html'>Phone 2</a> and try it in Phone 3."
+        }
+      ]
+    },
+    {
+      "id": "phone-app",
+      "stage": 2,
+      "title": "Get the Claude app on your phone",
+      "html": "<p>If you already have it, just check you're signed in. Installing works the same as in <a href='{{base}}lab/ai-first-chat.html'>Practice 0</a>.</p><ol><li>Search for <b>Claude</b> in the App Store (iPhone) or Play Store. Check the maker is <b>Anthropic</b>.</li><li>Install it and sign in with <b>the same account as your computer</b>.</li></ol>",
+      "check": {
+        "q": "Are you signed in to the Claude phone app with the same account?",
+        "yes": "pc",
+        "no": "phone-app-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "phone-app-help",
+      "kind": "help",
+      "title": "If the phone app doesn't work",
+      "html": "<ul><li>Not sure which account the computer uses? Click your name at the bottom left of the computer app to check.</li><li>If you signed up with Google, tap <b>Continue with Google</b> on the phone too.</li></ul>"
+    },
+    {
+      "id": "pc",
+      "stage": 3,
+      "title": "Get a Code conversation ready on the computer",
+      "html": "<ol><li>Open the Claude app on your computer and click the <b>Code</b> tab.</li><li>Click <b>+ New</b> at the top left to start a new conversation.</li><li>Check that the buttons under the typing box show <b>Local · Practice · Manual</b>.</li></ol>",
+      "check": {
+        "q": "Can you see Local · Practice · Manual under the typing box?",
+        "yes": "rc",
+        "no": "pc-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "pc-help",
+      "kind": "help",
+      "title": "If the computer side doesn't work",
+      "html": "<ul><li>Choosing the folder works like 'Choose the folder to work in' in <a href='{{base}}lab/desktop-install.html'>Desktop 1</a>.</li><li>Click the permission mode button and choose <b>Manual</b>.</li></ul>"
+    },
+    {
+      "id": "rc",
+      "stage": 4,
+      "title": "Turn on Remote Control on the computer",
+      "html": "<p>Type the text below in the computer's box and press Enter (return on a Mac).</p><p>Things that start with <b>/</b> (slash) aren't requests to Claude; they're <b>commands that control the app</b>.</p>",
+      "image": "assets/img/ai/mobile-remote/en/rc-desktop.webp",
+      "alt": "Typing /remote-control in the computer app's box",
+      "code": "/remote-control",
+      "codeLabel": "Type on the computer",
+      "check": {
+        "q": "Did you see a sign that Remote Control is on?",
+        "yes": "phone-open",
+        "no": "rc-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "rc-help",
+      "kind": "help",
+      "title": "If /remote-control doesn't work",
+      "html": "<ul><li>It only works in a <b>Local</b> (your computer) conversation. Check the button under the box says Local.</li><li>Make sure / is the <b>very first</b> thing in the box.</li><li>Update the app to the latest version. With a work account, ask your admin.</li></ul>"
+    },
+    {
+      "id": "phone-open",
+      "stage": 4,
+      "title": "Open that conversation on your phone",
+      "html": "<ol><li>In the Claude phone app, tap <b>Code</b> in the menu.</li><li>Tap the conversation with a <b>computer icon</b> and a <b>green dot</b>.</li></ol><p>The green dot means \"connected to your computer\".</p>",
+      "image": "assets/img/ai/mobile-remote/en/phone-list.webp",
+      "alt": "Tapping the computer conversation with a green dot in the phone's Code list",
+      "check": {
+        "q": "Did the conversation open on your phone?",
+        "yes": "phone-task",
+        "no": "phone-open-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "phone-open-help",
+      "kind": "help",
+      "title": "If it isn't in the phone's list",
+      "html": "<ul><li>Check the phone and computer use the <b>same account</b>.</li><li>Pull the list down to refresh.</li><li>No green dot? The computer is off or asleep. Wake it up and keep the app open.</li></ul>"
+    },
+    {
+      "id": "phone-task",
+      "stage": 5,
+      "title": "Give it a job from your phone",
+      "html": "<p>Paste or type the sentence below into the phone's box and send it.</p><p>Just like on the computer, a <b>permission card</b> appears on your phone. When the green line shows <b>+ 4. Buy milk</b>, tap <b>Allow</b>.</p><div class='lab__tip'><b>Allowing on your phone changes files on your computer.</b> Even on a small screen, read the red and green lines before you tap.</div>",
+      "image": "assets/img/ai/mobile-remote/en/phone-chat.webp",
+      "alt": "Checking the permission card on the phone and tapping Allow",
+      "code": "Add \"Buy milk\" to todo.txt",
+      "codeLabel": "Type on the phone",
+      "check": {
+        "q": "Did you tap Allow on your phone?",
+        "yes": "verify",
+        "no": "phone-task-help",
+        "noLabel": "No permission card appeared"
+      },
+      "ask": true
+    },
+    {
+      "id": "phone-task-help",
+      "kind": "help",
+      "title": "If no permission card appears",
+      "html": "<ul><li>Claude may still be thinking. Wait a few seconds.</li><li>If it already says it added it, the mode may not be Manual. Switch it to Manual in the computer app.</li><li>If it says todo.txt doesn't exist, check the computer conversation's folder is <b>Practice</b>.</li></ul>"
+    },
+    {
+      "id": "verify",
+      "stage": 6,
+      "title": "Check on the computer",
+      "html": "<p>Open <b>todo.txt</b> in the practice folder on your computer. <b>Buy milk</b> is on the last line.</p><p>What you asked from your phone went straight into the file on your computer.</p>",
+      "image": "assets/img/ai/mobile-remote/en/result.webp",
+      "alt": "Checking in Notepad on the computer that Buy milk was added",
+      "check": {
+        "q": "Do you see 'Buy milk' in todo.txt on the computer?",
+        "yes": "finish",
+        "no": "verify-help",
+        "yesLabel": "Yes, I see it! 🎉"
+      },
+      "ask": true
+    },
+    {
+      "id": "verify-help",
+      "kind": "help",
+      "title": "If it's not in the file",
+      "html": "<ul><li>If Notepad was already open, close it and open it again.</li><li>In the phone conversation, ask \"Show me what todo.txt says now.\"</li></ul>"
+    },
+    {
+      "id": "finish",
+      "stage": 6,
+      "title": "When you finish, and next time",
+      "html": "<ul><li>If you <b>close the app or turn off the computer</b>, the phone connection ends too. It reconnects when the computer wakes from sleep.</li><li>To use it in a new conversation next time, type <b>/remote-control</b> again.</li><li>Tired of typing it? In the computer app, go to <b>Settings → Code</b> and turn on <b>Connect new sessions to Remote Control</b> so new conversations connect automatically. (Best once you're comfortable.)</li></ul>",
+      "next": "summary",
+      "button": "Got it, show the wrap-up"
+    },
+    {
+      "id": "summary",
+      "stage": 7,
+      "kind": "summary",
+      "title": "🎉 Phone practice done! What you learned",
+      "html": "<p>Now you can give the Claude on your computer jobs from your phone, even when you're out.</p><div class='lab__flow'><span>Phone</span><i>remote</i><span>Claude Code on your computer</span><i>with permission</i><span>Computer files</span></div><h3>Three things to remember</h3><ol><li><b>/remote-control</b> on the computer → open the <b>green-dot</b> conversation in <b>Code</b> on the phone</li><li>Your files are <b>on the computer</b>, so the <b>computer and app must stay on</b>.</li><li>Allowing on the phone <b>changes files on the computer</b>. Always read the permission card before tapping.</li></ol><h3>Try it like this</h3><p>On your commute, hand off things as they come to mind, like \"tidy up my meeting notes\" or \"add this to my to-do list\", and they'll be done on your computer when you get back.</p><p class='lab__links'><a class='btn btn--primary' href='{{base}}ai/mobile-remote.html'>Read today's steps as a guide</a><a class='btn btn--ghost' href='{{base}}lab/mobile-github.html'>Next: Phone 2 · Get ready to work without a computer →</a></p>"
+    }
+  ]
+}

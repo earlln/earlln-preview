@@ -1,0 +1,128 @@
+{
+  "id": "ai-first-chat",
+  "title": "Your first chat with AI (free)",
+  "stages": ["Start", "Device", "Sign up", "First question", "Follow up", "Summarize", "Ask again", "Wrap-up"],
+  "steps": [
+    {
+      "id": "intro", "stage": 1,
+      "title": "What we'll do today",
+      "html": "<p>You'll sign up for the free AI <b>Claude</b> and have your first <b>conversation</b>: ask a question, follow up, and hand it a long text to summarize.</p><ul><li>Time: 10–15 minutes</li><li>Cost: <b>free</b></li><li>You need: a <b>phone</b> or a <b>computer</b>, internet, and an email address (or a Google account)</li></ul><div class='lab__tip'><b>Doing this on a phone?</b> — You'll switch back and forth between this page (in your web browser) and the Claude app. To come back, just open the browser app that shows this page. Your progress is saved.</div><p>Don't worry about unfamiliar words. We explain each one the first time it comes up.</p>",
+      "next": "where", "button": "Let's start",
+      "faq": [
+        { "q": "What is AI?", "a": "A computer program that reads text and writes answers, a bit like a person. You can ask it questions or ask it to summarize and tidy up text." },
+        { "q": "Is it really free?", "a": "Yes. Claude has a free plan. There's a daily limit, so if you use it a lot you may need to wait a while. If you don't enter payment details, you won't be charged." }
+      ]
+    },
+
+    {
+      "id": "where", "stage": 2,
+      "title": "Where would you like to try it?",
+      "html": "<p>You can pick the device you're reading this on, or a different one.</p>",
+      "choices": [
+        { "icon": "📱", "label": "Phone", "sub": "Install the Claude app", "set": { "where": "phone" }, "next": "signup" },
+        { "icon": "💻", "label": "Computer", "sub": "Use it in a web browser", "set": { "where": "pc" }, "next": "signup" }
+      ]
+    },
+
+    {
+      "id": "signup", "stage": 3,
+      "phone": { "title": "Install the Claude app and sign up",
+        "html": "<ol><li>Open your phone's app store.<br>· iPhone: <b>App Store</b> (blue with an A)<br>· Other phones: <b>Play Store</b> (colorful triangle)</li><li>Tap <b>Search</b> and type <b>Claude</b>.</li><li>Make sure the maker is <b>Anthropic</b>. There are other apps with similar names.</li><li>Tap <b>Get</b> or <b>Install</b>, and when it's done, <b>Open</b>.</li><li>Tap <b>Continue with Google</b>, or sign up with your email address. With email, enter the confirmation link (or code) sent to your inbox.</li></ol>" },
+      "pc": { "title": "Sign up for Claude",
+        "html": "<p>First open a <b>browser</b>, the program you use to look at the internet. Click <b>Microsoft Edge</b> (blue wave), <b>Chrome</b> (red, yellow and green circle), or on a Mac <b>Safari</b> (compass) at the bottom of your screen.</p><ol><li>Click the <b>address bar</b> at the very top, type <b>claude.ai</b> and press <kbd>Enter</kbd>.</li><li>Click <b>Continue with Google</b>, or sign up with your email address.</li><li>If you used email, click the button (or enter the code) in the confirmation email.</li></ol>" },
+      "check": { "q": "Did you finish signing up, and do you see a screen with a box to type in?", "yes": "safety", "no": "signup-help", "set": { "claudeReady": true } },
+      "faq": [
+        { "q": "It asks me to upgrade to a paid plan.", "a": "Free is plenty. Tap <b>Continue for free</b>, <b>Later</b>, or <b>✕</b> to move on. If you don't enter payment details, you won't be charged." },
+        { "q": "It asks for my age or phone number.", "a": "That's part of the sign-up check. Enter your date of birth, and if it asks for a phone number, enter it and type in the code sent by text message." }
+      ]
+    },
+    {
+      "id": "signup-help", "kind": "help",
+      "title": "If signing up doesn't work",
+      "html": "<ul><li>If the confirmation email doesn't arrive, check your <b>spam folder</b>.</li><li>If you have a Google account, <b>Continue with Google</b> is the easiest.</li><li>If it asks for your country, pick the one you live in.</li><li>Can't find the app? Open <b>claude.ai</b> in your phone's web browser. It works the same way.</li></ul>"
+    },
+    {
+      "id": "safety", "stage": 3,
+      "title": "Before you start — never type these in",
+      "html": "<p>What you write to an AI is sent to the company's servers. So it's best <b>not to enter</b>:</p><ul><li>ID numbers, card numbers, <b>passwords</b></li><li>Other people's personal details (name + phone number, etc.)</li><li>Confidential work documents</li></ul><div class='lab__tip'><b>AI can be wrong, too</b> — it sometimes gives answers that sound right but aren't. For important things like money, health or law, always double-check.</div>",
+      "next": "first-q", "button": "Got it"
+    },
+
+    {
+      "id": "first-q", "stage": 4,
+      "title": "Send your first question",
+      "phone": { "html": "<p>At the bottom of the Claude app there's a <b>box to type in</b>. Tap it and the keyboard comes up.</p><ol><li>Press <b>Copy</b> on the box below.</li><li>Go to the Claude app, <b>press and hold</b> the typing box, then tap <b>Paste</b>. (Typing it is fine too.)</li><li>Tap the <b>up arrow (↑) button</b> to the right of the box to send.</li></ol>" },
+      "pc": { "html": "<p>In the middle (or bottom) of the Claude screen there's a <b>box to type in</b>.</p><ol><li>Press <b>Copy</b> on the box below.</li><li>Click the typing box in Claude once and paste with <kbd>Ctrl</kbd>+<kbd>V</kbd> (<kbd>⌘ command</kbd>+<kbd>V</kbd> on a Mac). (Typing it is fine too.)</li><li>Press <kbd>Enter</kbd> or click the <b>up arrow (↑) button</b> to send.</li></ol>" },
+      "code": "I have eggs, tofu and kimchi in the fridge. Suggest just 3 dinner ideas for tonight.", "codeLabel": "Message to send to Claude",
+      "check": { "q": "Did Claude suggest some dinner ideas?", "yes": "follow", "no": "first-q-help", "yesLabel": "Yes, I got an answer" },
+      "ask": true
+    },
+    {
+      "id": "first-q-help", "kind": "help",
+      "title": "If no answer comes",
+      "html": "<ul><li>Make sure you tapped the send button (↑). If the text is still in the box, it hasn't been sent yet.</li><li>The answer may appear slowly, word by word. Wait a few seconds.</li><li>If you see something like \"usage limit\", you've used up the free amount. Try again in a few hours.</li><li>Also check that your internet (Wi-Fi or data) is on.</li></ul>"
+    },
+
+    {
+      "id": "follow", "stage": 5,
+      "title": "Follow up — the AI remembers the conversation",
+      "html": "<p>Within the same conversation, Claude <b>remembers what was said earlier</b>. So you can just say \"the second idea\" and it knows what you mean.</p><p>Send this in the box below its answer.</p>",
+      "code": "Tell me how to make the second idea, step by step", "codeLabel": "Send this next",
+      "check": { "q": "Did you get the steps for the second idea it suggested?", "yes": "summarize", "no": "follow-help" },
+      "ask": true
+    },
+    {
+      "id": "follow-help", "kind": "help",
+      "title": "If the answer is off",
+      "html": "<ul><li>If you sent it in a <b>new chat</b>, Claude doesn't know the earlier part. Send it on the same screen where you see the dinner ideas.</li><li>If it's still confused, say a bit more, like \"how to make the tofu dish you suggested\".</li></ul>"
+    },
+
+    {
+      "id": "summarize", "stage": 6,
+      "title": "Hand it a long text to summarize",
+      "html": "<p>Something AI is especially good at is <b>turning long text into a short summary</b>. Copy the whole practice text below and send it.</p>",
+      "code": "Summarize the text below in three lines that a child could understand.\n\nWalking is exercise anyone can do without special equipment. Walking briskly for about 30 minutes a day is known to strengthen the heart and lungs and to help lift your mood. It's best to start with 10 minutes and build up little by little. Wearing comfortable shoes that fit and gently warming up before and after can reduce injuries. Above all, the most important thing is the habit of walking regularly every day.",
+      "codeLabel": "Copy all of it and send",
+      "check": { "q": "Did you get a three-line summary?", "yes": "redo", "no": "first-q-help" },
+      "ask": true,
+      "faq": [
+        { "q": "Where would I use this in real life?", "a": "Paste in a long notice, a news article or meeting notes and say \"summarize in three lines\" or \"list just the to-dos\". Just remove any personal or confidential information first." }
+      ]
+    },
+
+    {
+      "id": "redo", "stage": 7,
+      "title": "Not happy? Just ask again",
+      "html": "<p>If you don't like the answer, you don't need to start over. Just say <b>how to change it</b>.</p><p>This time, ask it to make the summary shorter.</p>",
+      "code": "Make it shorter, just one line", "codeLabel": "Send this next",
+      "check": { "q": "Did you get a one-line answer?", "yes": "newchat", "no": "first-q-help" },
+      "ask": true,
+      "faq": [
+        { "q": "How do I ask for other changes?", "a": "Just say it the way you'd talk. e.g. \"in a friendlier tone\", \"more formal\", \"as a table\", \"most important first\"" }
+      ]
+    },
+    {
+      "id": "newchat", "stage": 7,
+      "title": "Start a new chat",
+      "phone": { "html": "<p>When you <b>change topics, start a new chat</b>, so the old conversation doesn't get mixed in.</p><p>Tap the <b>pencil</b> or <b>+</b> button at the <b>top</b> of the Claude app, or <b>New chat</b> in the menu (≡) at the top left.</p>" },
+      "pc": { "html": "<p>When you <b>change topics, start a new chat</b>, so the old conversation doesn't get mixed in.</p><p>Click <b>New chat</b> or the <b>+</b> button at the <b>top left</b> (or in the left menu) of the Claude screen.</p>" },
+      "check": { "q": "Do you see an empty screen with no conversation?", "yes": "summary", "no": "newchat-help" },
+      "ask": true
+    },
+    {
+      "id": "newchat-help", "kind": "help",
+      "title": "If you can't find the new chat button",
+      "html": "<p>The layout changes from time to time. Look for a <b>pencil, +, or New chat</b>. Your earlier chat doesn't disappear; it stays in the <b>chat list</b> in the menu.</p><p>It's fine if you can't find it. You're almost done.</p>",
+      "choices": [
+        { "label": "Let me look again", "next": "newchat" },
+        { "label": "That's okay, show the wrap-up", "next": "summary" }
+      ]
+    },
+
+    {
+      "id": "summary", "stage": 8, "kind": "summary",
+      "title": "🎉 First chat with AI done! What you learned",
+      "html": "<p>You've tried all the basics of chatting with AI.</p><h3>Five things you did today</h3><table class='lab__terms'><tr><th>Ask</th><td>Send what you want to know in plain words</td></tr><tr><th>Follow up</th><td>In the same chat, it remembers what was said</td></tr><tr><th>Hand off</th><td>Paste a long text and ask for a summary</td></tr><tr><th>Ask again</th><td>Just say what to change, like \"shorter\" or \"as a table\"</td></tr><tr><th>New chat</th><td>Start fresh when the topic changes</td></tr></table><h3>Remember</h3><ol><li><b>Never enter</b> passwords, ID numbers or confidential work</li><li>AI <b>can be wrong</b>. Double-check important things</li></ol><h3>Next step: from 'chat' to 'agent'</h3><p>What you did today is <b>chat</b>. You ask, read the answer, and if needed <b>copy it yourself</b> into your document.</p><p>An <b>AI agent</b> goes one step further: the AI <b>creates and edits files on your computer directly</b>, so it does the copying part too. The best-known example is Claude Code, which needs a computer and a paid plan.</p><p class='lab__links'><a class='btn btn--primary' href='{{base}}lab/desktop-install.html'>Next: Desktop 1 · Your first task with the desktop app →</a><a class='btn btn--ghost' href='{{base}}ai/desktop-install.html'>Read what an agent is first</a></p>"
+    }
+  ]
+}

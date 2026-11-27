@@ -1,0 +1,216 @@
+{
+  "id": "app-mobile",
+  "title": "Build an app with just your phone (cloud)",
+  "stages": [
+    "Start",
+    "Make a repository",
+    "Let Claude in",
+    "Have it built",
+    "PR · merge",
+    "Turn on Pages",
+    "Install",
+    "Updating",
+    "Wrap-up"
+  ],
+  "steps": [
+    {
+      "id": "intro",
+      "stage": 1,
+      "title": "What we'll do today",
+      "html": "<p>You'll build an app with <b>just your phone</b>, no computer. Tell Claude on your phone, it builds the app in the cloud, and you install that app on your phone's home screen.</p><div class='lab__flow'><span>Tell it on your phone</span><i>built in the cloud</i><span>PR → merge</span><i>turn on Pages</i><span>Your app's address</span><i>Add to Home Screen</i><span>Phone app</span></div><ul><li>Time: 25 minutes</li><li>You need: experience with <a href='{{base}}lab/mobile-github.html'>Phone 2</a> (GitHub sign-up, Claude connected) and <a href='{{base}}lab/mobile-cloud.html'>Phone 3</a> (cloud jobs), and a <b>paid Claude plan</b></li><li>The app: the same <b>workout timer</b> as <a href='{{base}}lab/app-web.html'>App 1</a> (<a href='{{base}}assets/files/app/timer/' target='_blank' rel='noopener'>finished example ↗</a>)</li></ul><p class='muted'>If GitHub words (repository, PR, merge) are new, see <a href='{{base}}lab/github-basics.html'>GitHub at a glance</a> first.</p>",
+      "next": "repo",
+      "button": "Let's start"
+    },
+    {
+      "id": "repo",
+      "stage": 2,
+      "title": "Make a public repository for the app",
+      "html": "<ol><li>In your phone browser (or the GitHub app): <b>github.com</b> → <b>+</b> → <b>New repository</b>.</li><li>Name: <b>my-timer</b> · <b>Public</b> · tick <b>Add a README file</b> → <b>Create repository</b>.</li></ol><div class='lab__tip'><b>This time it's Public.</b> A free app address (GitHub Pages) needs a public repository, so <b>anyone can read the files</b>. Never put names, phone numbers, passwords or API keys in it. Leave your notes repository my-notes private.</div>",
+      "check": {
+        "q": "Was my-timer created, with a Public label?",
+        "yes": "install",
+        "no": "repo-help"
+      }
+    },
+    {
+      "id": "repo-help",
+      "kind": "help",
+      "title": "If making the repository doesn't work",
+      "html": "<ul><li>No <b>+</b> on your phone? Menu (☰) at the top left → <b>Repositories → New</b>.</li><li>No GitHub account? Start with the sign-up step in <a href='{{base}}lab/mobile-github.html'>Phone 2</a>.</li></ul>",
+      "choices": [
+        {
+          "label": "Let me try again",
+          "next": "repo"
+        },
+        {
+          "label": "It's made",
+          "next": "install"
+        }
+      ]
+    },
+    {
+      "id": "install",
+      "stage": 3,
+      "title": "Let Claude into my-timer",
+      "html": "<p>In Phone 2 you installed the Claude app on <b>my-notes only</b>. Add the new repository to the list.</p><ol><li>GitHub → profile at the top right → <b>Settings</b> → <b>Applications</b> → <b>Configure</b> next to <b>Claude</b>.</li><li>Keep <b>Only select repositories</b>, add <b>my-timer</b> → <b>Save</b>.</li></ol><p class='muted'>Tapping <b>Configure</b> at github.com/apps/claude gets you to the same screen.</p>",
+      "check": {
+        "q": "In the Claude phone app → Code, is my-timer in the repository list?",
+        "yes": "ask",
+        "no": "install-help"
+      }
+    },
+    {
+      "id": "install-help",
+      "kind": "help",
+      "title": "If my-timer isn't listed",
+      "html": "<ul><li>Check you added my-timer on the Configure screen and tapped <b>Save</b>.</li><li>Pull down to refresh the list, or open <b>claude.ai/code</b> in your phone browser.</li><li>Never connected Claude before? Do <a href='{{base}}lab/mobile-github.html'>Phone 2</a> first.</li></ul>",
+      "choices": [
+        {
+          "label": "Let me try again",
+          "next": "install"
+        },
+        {
+          "label": "Next",
+          "next": "ask"
+        }
+      ]
+    },
+    {
+      "id": "ask",
+      "stage": 4,
+      "title": "Describe it on your phone and have it built",
+      "html": "<ol><li>Claude phone app → <b>Code</b>.</li><li>Pick the repository <b>my-timer</b> (branch main) and send the sentence below.</li><li>It takes a few minutes. It keeps working even if you close the app.</li></ol><p class='muted'>There are no permission cards in the cloud. Instead the result lands on a <b>new branch</b>, and only your merge makes it count. (Phone 3)</p>",
+      "image": "assets/img/ai/app-mobile/en/ask.webp",
+      "alt": "Picking my-timer in Code on the phone and describing the app",
+      "code": "Build a workout timer web app as index.html. A big start button, a 20-second ring timer, read out 'three, two, one' in English for the last 3 seconds, fitted to a phone screen. Also make a manifest named 'Workout timer' and a stopwatch icon on a blue background (PNG) so it opens like an app from the home screen",
+      "codeLabel": "Type on the phone",
+      "check": {
+        "q": "Do you see that it pushed to a new branch, and a Changes count?",
+        "yes": "merge",
+        "no": "ask-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "ask-help",
+      "kind": "help",
+      "title": "If it's slow or seems stuck",
+      "html": "<ul><li>The first run takes longer while the cloud computer gets ready. Give it about 5 minutes.</li><li>Claude may have asked you something. Open the chat and answer.</li><li>If it's paused for a while, send \"carry on\".</li></ul>",
+      "choices": [
+        {
+          "label": "Let me look again",
+          "next": "ask"
+        },
+        {
+          "label": "Next",
+          "next": "merge"
+        }
+      ]
+    },
+    {
+      "id": "merge",
+      "stage": 5,
+      "title": "Create a PR and merge it",
+      "html": "<ol><li>Tap <b>Create PR</b>. No button? Send \"Create a PR\".</li><li>In your phone browser: <b>github.com</b> → <b>my-timer</b> → <b>Pull requests</b> → the new PR.</li><li>Check <b>Files changed</b> has index.html, the manifest and icons → <b>Merge pull request</b> → <b>Confirm merge</b>.</li></ol><p class='muted'>You don't have to read all the code. Just check <b>which files are added</b>, and that nothing odd (like passwords) is there.</p>",
+      "image": "assets/img/ai/app-mobile/en/done.webp",
+      "alt": "After finishing, Changes and a Create PR button appear",
+      "check": {
+        "q": "Can you see index.html on my-timer's front page (Code)?",
+        "yes": "pages",
+        "no": "merge-help"
+      }
+    },
+    {
+      "id": "merge-help",
+      "kind": "help",
+      "title": "If merging doesn't work",
+      "html": "<ul><li>Creating and merging a PR is the same as in <a href='{{base}}lab/mobile-cloud.html'>Phone 3</a>.</li><li>If index.html ended up inside a folder, say \"Move index.html to the top (root) of the repository\". Pages opens the index.html at the top.</li></ul>",
+      "choices": [
+        {
+          "label": "Let me try again",
+          "next": "merge"
+        },
+        {
+          "label": "Next",
+          "next": "pages"
+        }
+      ]
+    },
+    {
+      "id": "pages",
+      "stage": 6,
+      "title": "Turn on GitHub Pages and get the app's address",
+      "html": "<ol><li>my-timer repository → <b>Settings</b>. (On a phone, swipe the menu along the top of the repository or look under <b>⋯</b>)</li><li><b>Pages</b> in the side (or bottom) menu.</li><li><b>Source</b>: Deploy from a branch · <b>Branch</b>: <b>main</b> · <b>/ (root)</b> → <b>Save</b>.</li><li>After 1–2 minutes, refresh: <b>Your site is live at https://your-id.github.io/my-timer/</b> appears. Tap it and check the timer opens.</li></ol>",
+      "image": "assets/img/ai/app-mobile/en/pages.webp",
+      "alt": "Choosing main and Save in Settings → Pages in a phone browser, with the address shown",
+      "check": {
+        "q": "Does the timer open at https://your-id.github.io/my-timer/?",
+        "yes": "home",
+        "no": "pages-help"
+      }
+    },
+    {
+      "id": "pages-help",
+      "kind": "help",
+      "title": "If Settings is hidden, or you get a 404",
+      "html": "<ul><li>The narrow phone screen can hide menus. Turn on <b>Desktop site</b> in your browser menu to see the computer layout.</li><li><b>404</b>: the first time takes a few minutes. Also check index.html is at the top of the repository.</li><li>If Pages shows an upgrade notice, the repository is Private. Settings → bottom <b>Change visibility</b> → Public.</li></ul>",
+      "choices": [
+        {
+          "label": "Let me try again",
+          "next": "pages"
+        },
+        {
+          "label": "Next",
+          "next": "home"
+        }
+      ]
+    },
+    {
+      "id": "home",
+      "stage": 7,
+      "title": "Install it on your home screen",
+      "html": "<p>Install it straight from the app address you just opened.</p><ul><li><b>Android (Chrome)</b>: <b>⋮</b> at the top right → <b>Add to Home screen</b> (or <b>Install app</b>).</li><li><b>iPhone (Safari)</b>: <b>Share (□↑)</b> at the bottom → <b>Add to Home Screen</b>.</li></ul><p>Tap the <b>Workout timer</b> icon on your home screen. Your own app, built on your phone and installed on your phone.</p>",
+      "image": "assets/img/ai/app-publish/en/home.webp",
+      "alt": "A Workout timer icon on the phone's home screen",
+      "check": {
+        "q": "Does it open from the home screen icon, and does the timer work?",
+        "yes": "update",
+        "no": "home-help",
+        "yesLabel": "Yes, it works! 🎉"
+      }
+    },
+    {
+      "id": "home-help",
+      "kind": "help",
+      "title": "If Add to Home Screen is missing or odd",
+      "html": "<ul><li>On iPhone, only <b>Safari</b> can add to the home screen.</li><li>If the icon shows a letter, ask Claude \"Add an iPhone home screen icon (apple-touch-icon) too\" → PR → merge.</li><li>No sound? Check the phone isn't on silent.</li></ul>",
+      "choices": [
+        {
+          "label": "Let me try again",
+          "next": "home"
+        },
+        {
+          "label": "Next",
+          "next": "update"
+        }
+      ]
+    },
+    {
+      "id": "update",
+      "stage": 8,
+      "title": "Update it from your phone too",
+      "html": "<ol><li>Open <b>the same chat</b> in the Claude app's Code list and send what to change.</li><li><b>Merge</b> the new (or same) PR, and the app updates 1–2 minutes later. Close and reopen the home screen app.</li></ol><div class='lab__tip'><ul><li><b>Merging is your final permission</b>: check Files changed before tapping.</li><li><b>Public repository</b>: no personal data, passwords or API keys.</li><li><b>Usage</b>: the cloud uses the same limits as chat and desktop.</li></ul></div>",
+      "code": "Change it to 20 seconds of work and 10 seconds of rest, repeated 3 times. Make the timer green during rest",
+      "codeLabel": "Example: type on the phone",
+      "next": "summary",
+      "button": "Got it, show the wrap-up"
+    },
+    {
+      "id": "summary",
+      "stage": 9,
+      "kind": "summary",
+      "title": "🎉 App practice 3 done! An app built on your phone",
+      "html": "<p>With just your phone, no computer, you built an app, published it and installed it. Now one sentence on your commute — \"add this feature\" — can grow your app.</p><table class='lab__terms'><tr><th>App 1–2</th><td>Build on a <b>computer</b> → upload yourself → Pages</td></tr><tr><th>App 3</th><td>Tell it on your <b>phone</b> → built in the cloud → merge the PR → Pages</td></tr></table><h3>Three things to remember</h3><ol><li>The app repository is <b>public</b> for Pages. Keep sensitive data out.</li><li>In the cloud, <b>PR → merge</b> replaces permission cards. Check Files changed before merging.</li><li>To update: <b>say it in the same chat → merge</b>.</li></ol><p class='muted'>Earlln's <a href='{{base}}product.html#earllncore'>EarllnCore</a> was built on a phone just like this. The next lesson turns it into an <b>Android app (APK)</b>.</p><p class='lab__links'><a class='btn btn--primary' href='{{base}}lab/app-android.html'>Next: App 4 · Turn it into an Android app (APK) →</a><a class='btn btn--ghost' href='{{base}}ai/app-mobile.html'>Read today's steps as a guide</a></p>"
+    }
+  ]
+}

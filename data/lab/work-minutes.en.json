@@ -1,0 +1,196 @@
+{
+  "id": "work-minutes",
+  "title": "Turn meeting recordings into a work log",
+  "stages": [
+    "Start",
+    "Get transcripts",
+    "Make minutes",
+    "Write a work log",
+    "Add another day",
+    "See progress",
+    "Make it a habit",
+    "Wrap-up"
+  ],
+  "steps": [
+    {
+      "id": "intro",
+      "stage": 1,
+      "title": "What we'll do today",
+      "html": "<p>Recording meetings is easy; finding time to listen back isn't. Today you'll turn recordings into <b>minutes → a work log → a progress table</b>.</p><div class='lab__flow'><span>Meeting recording</span><i>recorder app transcribes</i><span>Transcript</span><i>Claude</i><span>Minutes · work log</span><i>as they pile up</i><span>Progress table</span></div><div class='lab__tip'><b>Claude can't listen to audio files directly.</b> So first use your recorder app's <b>transcribe</b> feature to get a <b>transcript (text)</b>. Today you'll use sample transcripts.</div><ul><li>Time: 20 minutes</li><li>You need: a computer where you've done <a href='{{base}}lab/work-csv.html'>Work 1</a> (moving files)</li></ul>",
+      "next": "rec",
+      "button": "Let's start"
+    },
+    {
+      "id": "rec",
+      "stage": 2,
+      "title": "How to turn a recording into text (good to know)",
+      "html": "<table class='lab__terms'><tr><th>Samsung Galaxy</th><td>Record in the built-in <b>Voice Recorder</b> → open the recording → <b>Transcribe</b> (on supported models)</td></tr><tr><th>iPhone</th><td>Record in <b>Voice Memos</b> → open it → view the <b>transcript</b> (recent iOS)</td></tr><tr><th>Apps</th><td>Recording and transcription apps → export as text</td></tr></table><p>Send the text to your computer (email or a messaging app) and save it as a .txt file. Menu names vary a little by phone and version.</p><div class='lab__tip'><b>Tell everyone and get their consent before recording.</b> Your company may have rules about recording meetings.</div>",
+      "next": "get",
+      "button": "Got it"
+    },
+    {
+      "id": "get",
+      "stage": 2,
+      "title": "Get the two sample transcripts",
+      "html": "<p>Transcripts of the marketing team's <b>November 24 meeting</b> and <b>November 26 check-in</b>. Like a recorder app's output, they have 'Speaker 1, 2…' and some chatter mixed in.</p><p class='lab__links'><a class='btn btn--primary' href='{{base}}assets/files/work/meeting1.txt' download='meeting_1124.txt'>⬇ meeting_1124.txt</a><a class='btn btn--ghost' href='{{base}}assets/files/work/meeting2.txt' download='meeting_1126.txt'>⬇ meeting_1126.txt</a></p><p><b>Drag both files from Downloads into the Practice folder.</b></p>",
+      "check": {
+        "q": "Are meeting_1124.txt and meeting_1126.txt in the Practice folder?",
+        "yes": "open",
+        "no": "get-help"
+      }
+    },
+    {
+      "id": "get-help",
+      "kind": "help",
+      "title": "If getting the files doesn't work",
+      "html": "<ul><li>If clicking shows text on screen, save it there with <kbd>Ctrl</kbd>+<kbd>S</kbd> (<kbd>⌘</kbd>+<kbd>S</kbd> on a Mac), using the name on the button.</li><li>Moving works like 'Move it into the Practice folder' in <a href='{{base}}lab/work-csv.html'>Work 1</a>.</li></ul>",
+      "choices": [
+        {
+          "label": "Let me try again",
+          "next": "get"
+        },
+        {
+          "label": "I'm ready",
+          "next": "open"
+        }
+      ]
+    },
+    {
+      "id": "open",
+      "stage": 2,
+      "title": "Start with a new chat",
+      "html": "<p>Claude app → <b>Code</b> tab → <b>+ New</b>. Check the buttons under the typing box show <b>Local · Practice · Manual</b>.</p>",
+      "check": {
+        "q": "Can you see Local · Practice · Manual?",
+        "yes": "minutes",
+        "no": "open-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "open-help",
+      "kind": "help",
+      "title": "If the start screen looks different",
+      "html": "<ul><li>If the folder isn't Practice, click the folder button → <b>Open folder…</b> and choose it.</li><li>Click the permission mode button and choose <b>Manual</b>.</li></ul>"
+    },
+    {
+      "id": "minutes",
+      "stage": 3,
+      "title": "Turn the transcript into minutes",
+      "html": "<p>Transcripts include chatter and \"um…\". Say <b>what to pull out</b>. If the end of the transcript says who's who ('Speaker 1 = Yu-jin Choi'), it'll use names.</p>",
+      "image": "assets/img/ai/work-minutes/en/minutes.webp",
+      "alt": "A transcript turned into decisions, to-dos and the next meeting",
+      "code": "Turn meeting_1124.txt into minutes: decisions, to-dos (owner, due date), next meeting",
+      "codeLabel": "Type this",
+      "check": {
+        "q": "Did you get decisions, to-dos with owners and due dates, and the next meeting?",
+        "yes": "log",
+        "no": "minutes-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "minutes-help",
+      "kind": "help",
+      "title": "If you don't like the minutes",
+      "html": "<ul><li>Missing to-dos? \"Go through the transcript again and find everyone's tasks and deadlines, without missing any.\"</li><li>Check dates against the original: \"Tuesday, December 1\" in the transcript should appear as is.</li></ul>",
+      "choices": [
+        {
+          "label": "Let me try again",
+          "next": "minutes"
+        },
+        {
+          "label": "Next",
+          "next": "log"
+        }
+      ]
+    },
+    {
+      "id": "log",
+      "stage": 4,
+      "title": "Write today's work log",
+      "html": "<p>From the minutes, keep <b>just your part</b> as a work log. Today you're <b>Jun-ho Park</b>. When the make-folder (run command) and create-file cards appear, read them and click <b>Allow</b>.</p><p class='muted'>Naming files by date keeps them in order as they pile up.</p>",
+      "code": "I'm Jun-ho Park. Make a worklog folder and write today's (November 24) work log as 2026-11-24.txt. Format: 'Done today / Decided / My to-dos (due) / Upcoming'",
+      "codeLabel": "Type this",
+      "check": {
+        "q": "Is there a 2026-11-24.txt inside a worklog folder in Practice?",
+        "yes": "second",
+        "no": "log-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "log-help",
+      "kind": "help",
+      "title": "If the log wasn't created",
+      "html": "<ul><li>If you denied a card, send it again and allow it. It may ask twice: once to make the folder, once to create the file.</li><li>Close the folder window and open it again.</li></ul>"
+    },
+    {
+      "id": "second",
+      "stage": 5,
+      "title": "Add the next day's log",
+      "html": "<p>Two days later there was a check-in meeting. Add another log in the same format. In <b>the same chat</b>, it remembers the format.</p>",
+      "code": "Also read meeting_1126.txt and write the 2026-11-26.txt work log in the same format",
+      "codeLabel": "Type this",
+      "check": {
+        "q": "Is there a 2026-11-26.txt in the worklog folder?",
+        "yes": "weekly",
+        "no": "second-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "second-help",
+      "kind": "help",
+      "title": "If it didn't work",
+      "html": "<ul><li>In a new chat it may not know the format. Add \"in the same format as 2026-11-24.txt\".</li><li>Check you read and allowed the permission card.</li></ul>"
+    },
+    {
+      "id": "weekly",
+      "stage": 6,
+      "title": "Gather the logs to see progress",
+      "html": "<p>Once logs pile up, you can see at a glance <b>what's done and what's running late</b>.</p>",
+      "image": "assets/img/ai/work-minutes/en/weekly.webp",
+      "alt": "Work logs gathered into a table of each to-do's status",
+      "code": "Read everything in the worklog folder and show each to-do's current status as a table",
+      "codeLabel": "Type this",
+      "check": {
+        "q": "Did you get statuses like quotes done and social copy late (moved to 11/30)?",
+        "yes": "habit",
+        "no": "weekly-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "weekly-help",
+      "kind": "help",
+      "title": "If the statuses look off",
+      "html": "<p>It only knows what's in the logs. If something's missing, <b>give it more material</b>, e.g. \"Also look at meeting_1126.txt and redo it.\"</p>",
+      "choices": [
+        {
+          "label": "Let me try again",
+          "next": "weekly"
+        },
+        {
+          "label": "Next",
+          "next": "habit"
+        }
+      ]
+    },
+    {
+      "id": "habit",
+      "stage": 7,
+      "title": "Make it a daily and weekly habit",
+      "html": "<table class='lab__terms'><tr><th>After a meeting</th><td>Put the transcript in your work folder: \"Turn this into minutes\"</td></tr><tr><th>Before leaving</th><td>\"Write today's work log under today's date\"</td></tr><tr><th>Friday</th><td>\"Draft a weekly report from this week's logs\" (Work 3)</td></tr></table><div class='lab__tip'><b>Save the format to a file</b> so you don't have to explain it each time. E.g. \"Save this work-log format as template.txt\" → next time \"Write it following template.txt\".</div><p class='muted'>Meeting transcripts can contain sensitive talk. Check your company's AI usage rules first.</p>",
+      "next": "summary",
+      "button": "Got it, show the wrap-up"
+    },
+    {
+      "id": "summary",
+      "stage": 8,
+      "kind": "summary",
+      "title": "🎉 Work practice 4 done! What you learned",
+      "html": "<p>One recording turned into minutes, a work log and a progress table.</p><h3>Three things to remember</h3><ol><li>Claude <b>can't listen to audio</b>. Start with a transcript from your recorder app's <b>transcribe</b> feature.</li><li>Minutes: just <b>decisions, to-dos (owner, due), next meeting</b>. Check dates against the original.</li><li>Keep work logs in <b>the same format, named by date</b>, and progress shows itself.</li></ol><p class='lab__links'><a class='btn btn--primary' href='{{base}}lab/work-members.html'>Next: Work 5 · Manage a member list →</a><a class='btn btn--ghost' href='{{base}}ai/work-minutes.html'>Read today's steps as a guide</a></p>"
+    }
+  ]
+}

@@ -1,0 +1,245 @@
+{
+  "id": "work-csv",
+  "title": "Hand off spreadsheet (CSV) totals and cleanup",
+  "stages": [
+    "Start",
+    "Get the sample",
+    "Look it over",
+    "Find problems",
+    "Make a clean copy",
+    "Totals",
+    "Check in Excel",
+    "Wrap-up"
+  ],
+  "steps": [
+    {
+      "id": "intro",
+      "stage": 1,
+      "title": "What we'll do today",
+      "html": "<p>From here on it's <b>real work</b>: handing everyday tasks to Claude. First up: <b>spreadsheet cleanup</b>.</p><p>Today you'll take a branch sales file, <b>find odd data, make a clean copy and add up the totals.</b></p><h3>What's a CSV?</h3><p>A spreadsheet saved as <b>a text file with commas (,) between the cells</b>. It opens in Excel and in Notepad. It's the easiest table format for Claude to read and edit, so we'll use CSV today.</p><ul><li>Time: 20 minutes</li><li>You need: a computer that finished the <a href='{{base}}lab/desktop-usage.html'>desktop basics</a>. No Excel needed</li></ul>",
+      "next": "get",
+      "button": "Let's start"
+    },
+    {
+      "id": "get",
+      "stage": 2,
+      "title": "Download the sample sales file",
+      "html": "<p>18 rows of November coffee sales from three branches (Gangnam, Hongdae, Busan). <b>A few mistakes are hidden in it on purpose</b>, and you'll find them with Claude today.</p><p class='lab__links'><a class='btn btn--primary' href='{{base}}assets/files/work/sales.csv' download='sales.csv'>⬇ Download the sample sales.csv</a></p><p class='muted'>It's saved as sales.csv in your computer's <b>Downloads</b> folder.</p>",
+      "check": {
+        "q": "Did you download sales.csv?",
+        "yes": "move",
+        "no": "get-help"
+      }
+    },
+    {
+      "id": "get-help",
+      "kind": "help",
+      "title": "If the download doesn't work",
+      "html": "<ul><li>If clicking shows text on the screen instead, save it there with <kbd>Ctrl</kbd>+<kbd>S</kbd> (<kbd>⌘</kbd>+<kbd>S</kbd> on a Mac) as <b>sales.csv</b>.</li><li>If you're on a phone, open this page on your computer.</li></ul>",
+      "choices": [
+        {
+          "label": "Let me try again",
+          "next": "get"
+        },
+        {
+          "label": "I've got it",
+          "next": "move"
+        }
+      ]
+    },
+    {
+      "id": "move",
+      "stage": 2,
+      "title": "Move it into the Practice folder",
+      "html": "<p>Claude only works on <b>files in the folder you chose (Practice)</b>, so the download needs to go there.</p><ol><li>Open File Explorer (Finder on a Mac) and click <b>Downloads</b> on the left.</li><li>Also open the <b>Practice</b> folder on your desktop. Put the two windows side by side.</li><li><b>Drag sales.csv</b> into the Practice window.</li></ol>",
+      "image": "assets/img/ai/work-csv/en/move.webp",
+      "alt": "Dragging sales.csv from the Downloads window into the Practice window",
+      "check": {
+        "q": "Is sales.csv in the Practice folder?",
+        "yes": "open",
+        "no": "move-help"
+      }
+    },
+    {
+      "id": "move-help",
+      "kind": "help",
+      "title": "If dragging is tricky",
+      "html": "<ol><li>In Downloads, <b>right-click</b> sales.csv and choose <b>Cut</b> (<b>Copy</b> on a Mac).</li><li>Right-click an empty spot in the Practice folder and choose <b>Paste</b>.</li></ol>",
+      "choices": [
+        {
+          "label": "Let me try again",
+          "next": "move"
+        },
+        {
+          "label": "It's moved",
+          "next": "open"
+        }
+      ]
+    },
+    {
+      "id": "open",
+      "stage": 3,
+      "title": "Start with a new chat",
+      "html": "<p>Claude app → <b>Code</b> tab → <b>+ New</b>. Check the buttons under the typing box show <b>Local · Practice · Manual</b>.</p>",
+      "check": {
+        "q": "Can you see Local · Practice · Manual?",
+        "yes": "explain",
+        "no": "open-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "open-help",
+      "kind": "help",
+      "title": "If the start screen looks different",
+      "html": "<ul><li>If the folder isn't Practice, click the folder button → <b>Open folder…</b> and choose it.</li><li>Click the permission mode button and choose <b>Manual</b>.</li></ul>"
+    },
+    {
+      "id": "explain",
+      "stage": 3,
+      "title": "First ask what the data is",
+      "html": "<p>With a new file, start by asking <b>what's in it</b>. It's only reading, so it won't ask permission.</p>",
+      "code": "Explain simply what kind of data sales.csv has",
+      "codeLabel": "Type this",
+      "check": {
+        "q": "Did it explain columns like date, branch, item, qty, unit price and amount?",
+        "yes": "issues",
+        "no": "explain-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "explain-help",
+      "kind": "help",
+      "title": "If it can't find the file",
+      "html": "<ul><li>Check sales.csv is <b>inside the Practice folder</b>. Claude can't see it in Downloads.</li><li>Check the folder under the typing box is <b>Practice</b>.</li></ul>"
+    },
+    {
+      "id": "issues",
+      "stage": 4,
+      "title": "Have it find odd data",
+      "html": "<p>Don't have it fix things right away. <b>Have it find them first.</b> It's safer to fix things once you know what's wrong.</p>",
+      "image": "assets/img/ai/work-csv/en/issues.webp",
+      "alt": "Claude finds a misspelled branch, a duplicate row and a blank quantity",
+      "code": "Find anything odd in sales.csv. Don't fix it yet",
+      "codeLabel": "Type this",
+      "check": {
+        "q": "Did it find problems like the branch name, a duplicate and a blank?",
+        "yes": "clean",
+        "no": "issues-help",
+        "yesLabel": "Yes, it found them"
+      },
+      "ask": true
+    },
+    {
+      "id": "issues-help",
+      "kind": "help",
+      "title": "If it found something different or tries to fix it",
+      "html": "<ul><li>Three problems are hidden: <b>\"Gang nam\"</b>, a <b>duplicate Nov 8 Gangnam Americano row</b>, and a <b>blank Qty for Busan Cake on Nov 10</b>. If it missed some, say \"Look once more for anything else.\"</li><li>If a permission card appears, <b>Deny</b> it. It's not time to fix yet.</li></ul>",
+      "choices": [
+        {
+          "label": "Let me try again",
+          "next": "issues"
+        },
+        {
+          "label": "Next",
+          "next": "clean"
+        }
+      ]
+    },
+    {
+      "id": "clean",
+      "stage": 5,
+      "title": "Keep the original; make a clean copy",
+      "html": "<p>Don't fix the original directly. Have it make <b>a new file</b>, so the original survives if anything goes wrong. (The copy habit from Desktop 6!)</p><p>Read the create-file permission card and click <b>Allow</b>.</p>",
+      "code": "Leave the original as is and make a new file, sales_clean.csv, with those problems fixed. Fill the blank Qty with Amount ÷ UnitPrice, and save it so Excel opens it correctly",
+      "codeLabel": "Type this",
+      "check": {
+        "q": "Is there a new sales_clean.csv in the Practice folder?",
+        "yes": "sum",
+        "no": "clean-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "clean-help",
+      "kind": "help",
+      "title": "If the clean copy wasn't made",
+      "html": "<ul><li>If you denied the card, send it again and allow it.</li><li>If the card edits the original (sales.csv), deny it and say \"Don't touch the original; make a new file.\"</li></ul>"
+    },
+    {
+      "id": "sum",
+      "stage": 6,
+      "title": "Add up totals by branch",
+      "html": "<p>Now calculate from the clean copy. Always say <b>which file</b> to use.</p>",
+      "image": "assets/img/ai/work-csv/en/sum.webp",
+      "alt": "A table of total sales by branch from the cleaned file",
+      "code": "Using sales_clean.csv, show total sales by branch, largest first, as a table",
+      "codeLabel": "Type this",
+      "check": {
+        "q": "Did you get Gangnam 277.00 · Hongdae 266.50 · Busan 153.00?",
+        "yes": "excel",
+        "no": "sum-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "sum-help",
+      "kind": "help",
+      "title": "If the numbers differ",
+      "html": "<ul><li>If Gangnam shows <b>340.00</b>, the duplicate row is still in. If Gangnam is 251.00 with a separate \"Gang nam\" of 26.00, the names weren't merged.</li><li>Say \"Check sales_clean.csv again, fix the duplicate and 'Gang nam', then recalculate.\"</li><li><b>Checking against numbers you know</b> is the most important habit at work.</li></ul>",
+      "choices": [
+        {
+          "label": "Let me recalculate",
+          "next": "sum"
+        },
+        {
+          "label": "Next",
+          "next": "excel"
+        }
+      ]
+    },
+    {
+      "id": "excel",
+      "stage": 7,
+      "title": "Open it in Excel to check",
+      "html": "<p>Double-click <b>sales_clean.csv</b> in the Practice folder. If you have Excel, it opens there.</p><ul><li>Check it has 17 rows (one duplicate removed), \"Gang nam\" became \"Gangnam\", and the Nov 10 Busan Cake Qty is filled in as <b>2</b>.</li><li>No Excel? Notepad (TextEdit on a Mac) works too.</li></ul>",
+      "check": {
+        "q": "Can you see the cleaned data?",
+        "yes": "more",
+        "no": "excel-help"
+      }
+    },
+    {
+      "id": "excel-help",
+      "kind": "help",
+      "title": "If Excel shows garbled text",
+      "html": "<p>Excel sometimes misreads text in CSV files. Close Excel and tell Claude:</p><p><b>\"sales_clean.csv looks garbled in Excel. Save it again as UTF-8 with BOM.\"</b></p><p>Allow the card, then open it again.</p>",
+      "choices": [
+        {
+          "label": "Let me open it again",
+          "next": "excel"
+        },
+        {
+          "label": "Next",
+          "next": "more"
+        }
+      ]
+    },
+    {
+      "id": "more",
+      "stage": 7,
+      "title": "Try asking for these too",
+      "html": "<ul><li>\"How many of each item were sold, as a table\"</li><li>\"Sort by date and save as sales_sorted.csv\"</li><li>\"What's the best-selling item at each branch?\"</li><li>\"Which branch has the highest average daily sales?\"</li></ul><div class='lab__tip'>With your real files, <b>put a copy in the Practice folder first</b>. Be careful with files containing personal data like customer names or phone numbers.</div>",
+      "next": "summary",
+      "button": "Got it, show the wrap-up"
+    },
+    {
+      "id": "summary",
+      "stage": 8,
+      "kind": "summary",
+      "title": "🎉 Work practice 1 done! What you learned",
+      "html": "<p>Finding and adding things up one by one in Excel took just a few sentences.</p><div class='lab__flow'><span>Ask what it is</span><i>→</i><span>Find problems first</span><i>→</i><span>Make a separate clean copy</span><i>→</i><span>Calculate and check</span></div><h3>Three rules for real work</h3><ol><li><b>Have it find problems before fixing.</b> Know what's wrong first.</li><li><b>Keep the original; make a new file.</b> You can always go back.</li><li><b>Check the numbers.</b> Comparing against one total you know prevents big mistakes.</li></ol><p class='lab__links'><a class='btn btn--primary' href='{{base}}lab/work-summary.html'>Next: Work 2 · Summarize a long document →</a><a class='btn btn--ghost' href='{{base}}ai/work-csv.html'>Read today's steps as a guide</a></p>"
+    }
+  ]
+}

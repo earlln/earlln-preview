@@ -1,0 +1,150 @@
+{
+  "id": "mobile-github",
+  "title": "클라우드 준비: GitHub 저장소 만들고 연결하기",
+  "stages": [
+    "시작",
+    "GitHub 가입",
+    "저장소 만들기",
+    "Claude 연결",
+    "앱 설치",
+    "총정리"
+  ],
+  "steps": [
+    {
+      "id": "intro",
+      "stage": 1,
+      "title": "오늘 할 일",
+      "html": "<p>휴대폰 1에서는 <b>내 컴퓨터</b>의 Claude를 휴대폰으로 조종했죠. 컴퓨터가 꺼져 있으면 쓸 수 없었어요.</p><p>이번 과정은 <b>컴퓨터 없이</b>, 인터넷 위의 컴퓨터(<b>클라우드</b>)에서 Claude가 일하게 해요. 오늘은 그 <b>준비</b>만 해요.</p><ul><li>걸리는 시간: 20분</li><li>필요한 것: 이메일 주소, Claude <b>유료 요금제</b>(Pro 이상), 휴대폰 또는 컴퓨터의 웹 브라우저</li></ul><div class='lab__tip'>오늘은 가입·설정이 많아서 <b>컴퓨터 브라우저</b>로 하면 더 편해요. 휴대폰 브라우저로도 할 수 있어요.</div><p class='muted'>GitHub가 처음이라면 10분짜리 <a href='{{base}}lab/github-basics.html'>GitHub 한눈에 보기</a>를 먼저 해 보세요.</p>",
+      "next": "concept",
+      "button": "시작하기"
+    },
+    {
+      "id": "concept",
+      "stage": 1,
+      "title": "먼저 알아 두기 — GitHub가 뭔가요?",
+      "html": "<p>클라우드의 Claude는 내 컴퓨터의 연습 폴더를 볼 수 없어요. 그래서 파일을 <b>인터넷 위의 폴더</b>에 둬야 해요. 그 폴더가 <b>GitHub 저장소</b>예요.</p><table class='lab__terms'><tr><th>GitHub</th><td>파일을 인터넷에 보관하는 서비스. 원래 개발자용이지만 메모 보관에도 쓸 수 있어요</td></tr><tr><th>저장소</th><td>GitHub 안의 폴더 하나. 오늘은 <b>my-notes</b>라는 메모 폴더를 만들어요</td></tr><tr><th>비공개(Private)</th><td>나만 볼 수 있는 저장소. <b>꼭 비공개로</b> 만들어요</td></tr></table>",
+      "next": "join",
+      "button": "알겠어요"
+    },
+    {
+      "id": "join",
+      "stage": 2,
+      "title": "GitHub 가입하기",
+      "html": "<ol><li>브라우저로 <b>github.com</b>에 들어가 <b>Sign up</b>을 누릅니다.</li><li>이메일, 비밀번호, <b>사용자 이름</b>(영어, 예: hong-gildong)을 정합니다.</li><li>이메일로 온 <b>확인 코드</b>를 넣으면 가입 끝.</li></ol><p class='muted'>이미 계정이 있다면 로그인만 하세요. 무료 계정으로 충분해요.</p>",
+      "check": {
+        "q": "GitHub에 로그인된 화면이 보이나요?",
+        "yes": "repo",
+        "no": "join-help"
+      }
+    },
+    {
+      "id": "join-help",
+      "kind": "help",
+      "title": "가입이 잘 안 될 때",
+      "html": "<ul><li>확인 코드가 안 오면 스팸함을 보세요.</li><li>사용자 이름이 이미 있다고 나오면 숫자나 하이픈(-)을 붙여 보세요.</li><li>퍼즐(사람 확인) 문제가 나오면 차근차근 풀면 돼요.</li></ul>",
+      "choices": [
+        {
+          "label": "다시 해 볼게요",
+          "next": "join"
+        },
+        {
+          "label": "로그인했어요",
+          "next": "repo"
+        }
+      ]
+    },
+    {
+      "id": "repo",
+      "stage": 3,
+      "title": "비공개 저장소 my-notes 만들기",
+      "html": "<ol><li>GitHub 화면 오른쪽 위 <b>+</b> → <b>New repository</b>.</li><li><b>Repository name</b>: <b>my-notes</b></li><li><b>Private</b>(비공개)를 고릅니다. <b>꼭!</b></li><li><b>Add a README file</b>에 체크합니다. (첫 파일이 있어야 Claude가 일할 수 있어요)</li><li><b>Create repository</b>.</li></ol>",
+      "image": "assets/img/ai/mobile-cloud/new-repo.webp",
+      "alt": "이름 my-notes, Private, README 체크로 저장소를 만드는 그림",
+      "check": {
+        "q": "my-notes 저장소가 만들어지고, 이름 옆에 Private 표시가 있나요?",
+        "yes": "connect",
+        "no": "repo-help"
+      }
+    },
+    {
+      "id": "repo-help",
+      "kind": "help",
+      "title": "저장소 만들기가 잘 안 될 때",
+      "html": "<ul><li>휴대폰에서 <b>+</b>가 안 보이면 왼쪽 위 메뉴(☰) → <b>Repositories → New</b>를 찾아보세요.</li><li><b>Public</b>으로 만들어 버렸다면: 저장소 <b>Settings</b> → 맨 아래 <b>Change visibility</b> → Private.</li></ul>",
+      "choices": [
+        {
+          "label": "다시 해 볼게요",
+          "next": "repo"
+        },
+        {
+          "label": "만들었어요",
+          "next": "connect"
+        }
+      ]
+    },
+    {
+      "id": "connect",
+      "stage": 4,
+      "title": "Claude와 GitHub 연결하기",
+      "html": "<ol><li>브라우저로 <b>claude.ai/code</b>에 들어가 Claude 계정으로 로그인합니다.</li><li><b>GitHub 연결</b>(Connect GitHub)을 하라는 안내가 나오면 따라가서, GitHub 화면의 <b>Authorize</b>(허락)를 누릅니다.</li><li>다시 claude.ai/code로 돌아오면 성공이에요.</li></ol><p class='muted'>이 연결은 <b>한 번만</b> 하면 돼요.</p>",
+      "check": {
+        "q": "GitHub 허락을 누르고 claude.ai/code로 돌아왔나요?",
+        "yes": "install",
+        "no": "connect-help"
+      }
+    },
+    {
+      "id": "connect-help",
+      "kind": "help",
+      "title": "연결 안내가 안 나올 때",
+      "html": "<ul><li>Claude <b>무료</b> 계정이면 클라우드를 쓸 수 없어요. Pro 이상인지 확인하세요.</li><li>회사(Team·Enterprise) 계정은 관리자가 GitHub 연결을 켜 둬야 해요.</li><li>이미 연결되어 있으면 안내 없이 바로 화면이 나와요. 다음 단계로 가세요.</li></ul>",
+      "choices": [
+        {
+          "label": "다시 해 볼게요",
+          "next": "connect"
+        },
+        {
+          "label": "다음으로",
+          "next": "install"
+        }
+      ]
+    },
+    {
+      "id": "install",
+      "stage": 5,
+      "title": "비공개 저장소에 Claude 앱 설치하기",
+      "html": "<p>비공개 저장소는 <b>Claude GitHub 앱</b>을 설치해야 Claude가 들어갈 수 있어요.</p><ol><li><b>github.com/apps/claude</b>에 들어가 <b>Install</b>(또는 Configure)을 누릅니다. claude.ai/code가 설치 화면으로 안내하기도 해요.</li><li><b>Only select repositories</b>(고른 저장소만)를 고르고 <b>my-notes</b> 하나만 선택합니다.</li><li><b>Install</b>.</li></ol><div class='lab__tip'><b>All repositories</b>(모든 저장소)는 고르지 마세요. Claude가 들어갈 수 있는 곳은 <b>필요한 저장소만</b>으로 두는 게 안전해요.</div>",
+      "image": "assets/img/ai/mobile-cloud/install-app.webp",
+      "alt": "Only select repositories로 my-notes 하나에만 Claude 앱을 설치하는 그림",
+      "check": {
+        "q": "claude.ai/code의 저장소 목록에서 my-notes가 보이나요?",
+        "yes": "summary",
+        "no": "install-help",
+        "yesLabel": "네, 보여요! 🎉"
+      }
+    },
+    {
+      "id": "install-help",
+      "kind": "help",
+      "title": "my-notes가 목록에 없을 때",
+      "html": "<ul><li>앱 설치 화면에서 <b>my-notes</b>를 골랐는지 확인하세요. GitHub <b>Settings → Applications → Claude → Configure</b>에서 다시 고칠 수 있어요.</li><li>claude.ai/code 페이지를 <b>새로고침</b>해 보세요.</li></ul>",
+      "choices": [
+        {
+          "label": "다시 해 볼게요",
+          "next": "install"
+        },
+        {
+          "label": "정리 보기",
+          "next": "summary"
+        }
+      ]
+    },
+    {
+      "id": "summary",
+      "stage": 6,
+      "kind": "summary",
+      "title": "🎉 휴대폰 실습 2 완료! 클라우드 준비 끝",
+      "html": "<p>이제 컴퓨터 없이도 Claude가 일할 <b>인터넷 위의 메모 폴더</b>가 생겼어요.</p><div class='lab__flow'><span>GitHub 비공개 저장소 my-notes</span><i>연결</i><span>Claude (claude.ai/code)</span><i>앱 설치</i><span>준비 끝</span></div><h3>꼭 기억할 세 가지</h3><ol><li>저장소는 <b>꼭 비공개(Private)</b>로.</li><li>Claude 앱은 <b>고른 저장소만</b>(my-notes)에 설치.</li><li>비밀번호·계좌번호 같은 건 저장소에 <b>넣지 않기</b>.</li></ol><p class='lab__links'><a class='btn btn--primary' href='{{base}}lab/mobile-cloud.html'>다음: 휴대폰 3 · 휴대폰으로 클라우드에 일 시키기 →</a><a class='btn btn--ghost' href='{{base}}ai/mobile-cloud.html'>강의로 함께 보기</a></p>"
+    }
+  ]
+}

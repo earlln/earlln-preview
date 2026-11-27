@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-en="AI AGENT · Do Earlln">AI AGENT · Do Earlln</title>
+<meta name="description" content="컴퓨터를 하나도 몰라도 괜찮아요. 버튼을 눌러 직접 해 보는 실습과, 글로 차근차근 배우는 강의로 Claude Code 같은 AI 에이전트를 익히는 곳." data-en-content="Hands-on practice and step-by-step guides for complete beginners learning AI agents such as Claude Code.">
+<link rel="canonical" href="https://earlln.com/lab.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Do Earlln">
+<meta property="og:title" content="AI AGENT · Do Earlln" data-en-content="AI AGENT · Do Earlln">
+<meta property="og:description" content="컴퓨터를 하나도 몰라도 괜찮아요. 버튼을 눌러 직접 해 보는 실습과, 글로 차근차근 배우는 강의로 Claude Code 같은 AI 에이전트를 익히는 곳." data-en-content="Hands-on practice and step-by-step guides for complete beginners learning AI agents such as Claude Code.">
+<meta property="og:image" content="https://earlln.com/wp-content/uploads/2025/10/Logo_main-page-on-which-Earlln-ci2-with-deep-navy-colored-circle-1024x768.jpg">
+<meta property="og:url" content="https://earlln.com/lab.html">
+<meta name="theme-color" content="#0b1f3a">
+<link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
+<link rel="icon" href="https://earlln.com/wp-content/uploads/2025/10/cropped-%EB%94%A5%EB%84%A4%EC%9D%B4%EB%B9%84%EB%8F%99%EA%B7%B8%EB%9D%BC%EB%AF%B8%EB%B0%B0%EA%B2%BD%EC%9C%84%EC%97%90_ci_%EB%82%B4%EB%B6%80%ED%9D%B0%EC%83%89_512_512-removebg.png" sizes="512x512" type="image/png">
+<link rel="apple-touch-icon" href="https://earlln.com/wp-content/uploads/2025/10/cropped-%EB%94%A5%EB%84%A4%EC%9D%B4%EB%B9%84%EB%8F%99%EA%B7%B8%EB%9D%BC%EB%AF%B8%EB%B0%B0%EA%B2%BD%EC%9C%84%EC%97%90_ci_%EB%82%B4%EB%B6%80%ED%9D%B0%EC%83%89_512_512-removebg.png">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="assets/css/site.css?v=88051762f2">
+</head>
+<body>
+<a class="skip-link" href="#main" data-en="Skip to content">본문으로 건너뛰기</a>
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="index.html" aria-label="Do Earlln 홈">
+      <img class="brand__mark" src="https://earlln.com/wp-content/uploads/2025/10/cropped-%EB%94%A5%EB%84%A4%EC%9D%B4%EB%B9%84%EB%8F%99%EA%B7%B8%EB%9D%BC%EB%AF%B8%EB%B0%B0%EA%B2%BD%EC%9C%84%EC%97%90_ci_%EB%82%B4%EB%B6%80%ED%9D%B0%EC%83%89_512_512-removebg.png" data-fallback="assets/img/logo.svg" alt="" width="36" height="36">
+      <span class="brand__text">Earlln<small data-en="Do Earlln · get it done, quickly">Do Earlln · 얼른 하세요</small></span>
+    </a>
+    <button class="lang-toggle lang-toggle--bar" type="button" data-lang-toggle aria-label="View in English" title="View in English">EN</button>
+    <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav" aria-label="메뉴 열기" data-en-aria-label="Open menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <nav class="nav" id="site-nav" data-nav aria-label="주 메뉴" data-en-aria-label="Main menu">
+      <a href="index.html"><span data-en="Home">홈</span></a>
+      <a href="product.html"><span data-en="Product">제품</span></a>
+      <a href="news.html"><span data-en="News">소식</span></a>
+      <a href="lab.html" aria-current="page"><span data-en="AI AGENT">AI AGENT</span></a>
+      <a href="license.html"><span data-en="License">라이선스</span></a>
+      <a href="contacts.html"><span data-en="Contacts">고객문의</span></a>
+      <a href="bible.html"><span data-en="Bible search">성경 구절 검색</span></a>
+      <div class="nav__tools">
+      <button class="lang-toggle" type="button" data-lang-toggle aria-label="View in English" title="View in English">EN</button>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="라이트/다크 테마 전환" title="테마 전환" data-en-aria-label="Toggle light and dark theme" data-en-title="Toggle theme">
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
+      </div>
+    </nav>
+  </div>
+</header>
+<div class="banner" data-banner hidden></div>
+<main id="main">
+
+<section class="page-head">
+  <div class="container">
+    <span class="eyebrow">Learn by doing</span>
+    <h1 data-en="AI AGENT">AI AGENT</h1>
+    <p data-en-html="No experience needed. Learn AI agents by &lt;b&gt;tapping along and trying it yourself&lt;/b&gt;, or by &lt;b&gt;reading step by step&lt;/b&gt;.">컴퓨터를 하나도 몰라도 괜찮아요. <b>버튼을 누르며 직접 해 보거나</b>, <b>글로 차근차근 읽으며</b> AI 에이전트를 배워 보세요.</p>
+  </div>
+</section>
+<section class="section section--tight">
+  <div class="container">
+    <div class="notice guide-intro" data-en-html="&lt;b&gt;What is an AI agent?&lt;/b&gt; — Unlike AI that only answers questions, it&#x27;s &lt;b&gt;AI that does the work on your computer when you ask in plain words&lt;/b&gt;: creating, editing and organizing files for you. Claude Code is the best-known example."><b>AI 에이전트가 뭔가요?</b> — 질문에 답만 하는 AI와 달리, <b>말로 부탁하면 내 컴퓨터에서 직접 일을 해 주는 AI</b>입니다.
+    파일을 만들고 고치고 정리하는 일까지 대신합니다. 대표적인 것이 Claude Code입니다.</div>
+    <div class="lab-cats">
+      <a class="lab-cat lab-cat--practice" href="lab/practice.html">
+        <span class="lab-cat__icon" aria-hidden="true">👆</span>
+        <span class="lab-cat__title" data-en="Tap-along practice">버튼 따라 하는 실습</span>
+        <span class="lab-cat__meta" data-en="29 practices">실습 29개</span>
+        <p class="lab-cat__desc" data-en-html="Tap one big button at a time and &lt;b&gt;try it yourself&lt;/b&gt; on your computer. Ask questions right where you get stuck, and get a short wrap-up at the end.">큰 버튼을 하나씩 누르며 내 컴퓨터에서 <b>직접 해 봐요</b>. 막히면 그 자리에서 물어볼 수 있고, 끝나면 짧게 정리해 드려요.</p>
+        <span class="lab-cat__go" data-en="See the practices →">실습 보러 가기 →</span>
+      </a>
+      <a class="lab-cat lab-cat--guide" href="ai.html">
+        <span class="lab-cat__icon" aria-hidden="true">📖</span>
+        <span class="lab-cat__title" data-en="Step-by-step guides">글로 배우는 강의</span>
+        <span class="lab-cat__meta" data-en="28 guides">강의 28편</span>
+        <p class="lab-cat__desc" data-en-html="Learn by &lt;b&gt;reading step by step&lt;/b&gt;, with pictures. Great as a wrap-up after a practice, or to look up just the part you need.">그림과 함께 <b>글로 차근차근</b> 읽으며 배워요. 실습을 마친 뒤 총정리로 다시 보거나, 필요한 부분만 찾아볼 때 좋아요.</p>
+        <span class="lab-cat__go" data-en="See the guides →">강의 보러 가기 →</span>
+      </a>
+    </div>
+    <div class="only-ko"><section class="lab-compare" id="compare">
+      <h2 class="lab-compare__title">실습과 강의, 무엇이 다른가요?</h2>
+      <p class="lab-compare__lead">같은 주제, 같은 내용이에요. <b>배우는 방식</b>만 달라요.</p>
+      <div class="table-wrap"><table class="lab-compare__table">
+        <thead><tr><th></th><th>👆 버튼 따라 하는 실습</th><th>📖 글로 배우는 강의</th></tr></thead>
+        <tbody>
+          <tr><th>보이는 방식</th><td data-label="👆 실습">한 화면에 할 일 하나씩</td><td data-label="📖 강의">한 페이지에 전체 내용</td></tr>
+          <tr><th>진행</th><td data-label="👆 실습">"됐나요?" 확인하며 한 단계씩</td><td data-label="📖 강의">처음부터 끝까지 읽기</td></tr>
+          <tr><th>막혔을 때</th><td data-label="👆 실습">그 단계 전용 도움말, 자주 묻는 질문, Claude에게 물어보기</td><td data-label="📖 강의">글 끝 "잘 안 될 때" 표</td></tr>
+          <tr><th>좋은 점</th><td data-label="👆 실습">진행 상황 저장, 내 컴퓨터에 맞춘 안내</td><td data-label="📖 강의">한눈에 보는 비교표, 다시 찾아보기 쉬움</td></tr>
+          <tr><th>이럴 때</th><td data-label="👆 실습"><b>처음 해 볼 때</b></td><td data-label="📖 강의"><b>복습하거나 먼저 훑어볼 때</b></td></tr>
+        </tbody>
+      </table></div>
+      <p class="lab-compare__tip">💡 <b>처음이라면 실습으로 직접 해 보고 → 복습은 강의로.</b> 실습을 마치면 정리 화면에서 같은 내용의 강의로 바로 갈 수 있어요.</p>
+    </section></div>
+    <div class="only-en" lang="en"><section class="lab-compare" id="compare">
+      <h2 class="lab-compare__title">Practices vs. guides: what's the difference?</h2>
+      <p class="lab-compare__lead">Same topics, same content. Only <b>the way you learn</b> differs.</p>
+      <div class="table-wrap"><table class="lab-compare__table">
+        <thead><tr><th></th><th>👆 Tap-along practice</th><th>📖 Step-by-step guide</th></tr></thead>
+        <tbody>
+          <tr><th>Layout</th><td data-label="👆 Practice">One task per screen</td><td data-label="📖 Guide">Everything on one page</td></tr>
+          <tr><th>Pace</th><td data-label="👆 Practice">Step by step, checking "Did it work?"</td><td data-label="📖 Guide">Read from top to bottom</td></tr>
+          <tr><th>When stuck</th><td data-label="👆 Practice">Help for that step, FAQs, ask Claude</td><td data-label="📖 Guide">"If something goes wrong" table at the end</td></tr>
+          <tr><th>Extras</th><td data-label="👆 Practice">Saves your progress, tailored to your computer</td><td data-label="📖 Guide">At-a-glance tables, easy to look things up</td></tr>
+          <tr><th>Best for</th><td data-label="👆 Practice"><b>Trying it for the first time</b></td><td data-label="📖 Guide"><b>Reviewing, or skimming first</b></td></tr>
+        </tbody>
+      </table></div>
+      <p class="lab-compare__tip">💡 <b>New? Try the practice first, then review with the guide.</b> When you finish a practice, the wrap-up screen links to the matching guide.</p>
+    </section></div>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div>
+      <a class="brand" href="index.html"><img class="brand__mark" src="https://earlln.com/wp-content/uploads/2025/10/cropped-%EB%94%A5%EB%84%A4%EC%9D%B4%EB%B9%84%EB%8F%99%EA%B7%B8%EB%9D%BC%EB%AF%B8%EB%B0%B0%EA%B2%BD%EC%9C%84%EC%97%90_ci_%EB%82%B4%EB%B6%80%ED%9D%B0%EC%83%89_512_512-removebg.png" data-fallback="assets/img/logo.svg" alt="" width="36" height="36"><span class="brand__text">Earlln<small data-en="Do Earlln · get it done, quickly">Do Earlln · 얼른 하세요</small></span></a>
+      <p data-en="We build tools that finish Excel, PowerPoint and project work quickly.">엑셀 · 파워포인트 · 프로젝트 관리 업무를 "얼른" 끝내는 자동화 도구를 만듭니다.</p>
+    </div>
+    <div>
+      <h4 data-en="Menu">메뉴</h4>
+      <ul>
+        <li><a href="product.html" data-en="Product">제품</a></li>
+        <li><a href="news.html" data-en="News">소식</a></li>
+        <li><a href="lab.html" data-en="AI AGENT">AI AGENT</a></li>
+        <li><a href="license.html" data-en="License">라이선스</a></li>
+        <li><a href="contacts.html" data-en="Contacts">고객문의</a></li>
+        <li><a href="bible.html" data-en="Bible search">성경 구절 검색</a></li>
+        <li><a href="index.html#support" data-en="Support">후원</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 data-en="Contact">연락처</h4>
+      <ul>
+        <li><a href="mailto:9709073@naver.com" data-email>9709073@naver.com</a></li>
+        <li><a href="https://www.youtube.com/@earlln" target="_blank" rel="noopener" data-youtube-url data-en="Earlln on YouTube (@earlln)">유튜브 얼른 (@earlln)</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="legal">
+    <div class="container">
+      <span>© <span data-year>2026</span> Earlln.com · All rights reserved.</span>
+      <span><span data-en="Do Earlln — get it done, quickly">Do Earlln — 얼른 하세요</span> · <a href="privacy.html" data-en="Privacy">개인정보처리방침</a> · <a href="admin.html" data-en="Admin">관리</a></span>
+    </div>
+  </div>
+</footer>
+<script src="assets/js/analytics.js?v=8435093977" defer></script>
+<script src="assets/js/site.js?v=38cee4a6b2" defer></script>
+<div style="position:fixed;left:0;right:0;bottom:0;z-index:9999;background:#f5a524;color:#1a1300;font:700 13px/1.4 system-ui,sans-serif;text-align:center;padding:6px 10px;pointer-events:none">미리보기 · ccr-e807c3fb-g8xua6 · 실제 사이트가 아니에요</div>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>earllnRainOrNot — 지금 비 와?</title>
+<meta name="description" content="근처 교통 CCTV 속 우산 쓴 사람 비율로 지금 비가 오는지 알려주는 웹앱. 아이폰·안드로이드 브라우저에서 바로 사용.">
+<meta name="theme-color" content="#0b1f3a">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="비와?">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="icon" type="image/png" href="icon-192.png">
+<link rel="stylesheet" href="style.css?v=20261102c">
+</head>
+<body>
+<header class="top">
+  <div class="top__row">
+    <div class="brand">
+      <img src="icon-192.png" alt="" width="36" height="36">
+      <div>
+        <h1>earllnRainOrNot</h1>
+        <p class="sub" id="locLine">근처 CCTV로 비 오는지 확인</p>
+      </div>
+    </div>
+    <button class="icon-btn" id="btnSettings" type="button" aria-label="설정">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M19.14 12.94c.04-.3.06-.61.06-.94s-.02-.64-.07-.94l2.03-1.58a.5.5 0 0 0 .12-.61l-1.92-3.32a.5.5 0 0 0-.59-.22l-2.39.96a7 7 0 0 0-1.62-.94l-.36-2.54a.5.5 0 0 0-.48-.41h-3.84a.5.5 0 0 0-.47.41l-.36 2.54c-.59.24-1.13.56-1.62.94l-2.39-.96a.5.5 0 0 0-.59.22L2.74 8.87a.5.5 0 0 0 .12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58a.5.5 0 0 0-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32a.5.5 0 0 0-.12-.61l-2.01-1.58zM12 15.6A3.6 3.6 0 1 1 12 8.4a3.6 3.6 0 0 1 0 7.2z"/></svg>
+    </button>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero" id="hero">
+    <button class="big-btn" id="btnStart" type="button">☔ 지금 비 와? 확인하기</button>
+    <p class="hint" id="heroHint">현재 위치 주변 CCTV를 찾아 AI가 우산 쓴 사람을 확인합니다.</p>
+  </section>
+
+  <section class="card result" id="resultCard" hidden>
+    <div class="result__head">
+      <span class="spinner" id="spinner" hidden></span>
+      <span class="result__status" id="resStatus"></span>
+      <span class="result__dist" id="resDist"></span>
+    </div>
+    <p class="result__main" id="resMain"></p>
+    <p class="result__detail" id="resDetail"></p>
+    <div class="result__actions" id="resActions" hidden>
+      <button class="chip" id="btnSpeak" type="button">🔊 다시 듣기</button>
+      <button class="chip" id="btnView" type="button">📹 CCTV 보기</button>
+      <button class="chip" id="btnAgain" type="button">↻ 다시 분석</button>
+    </div>
+  </section>
+
+  <section id="listSection" hidden>
+    <h2 class="list-title">주변 CCTV <span id="listCount"></span></h2>
+    <ul class="cctv-list" id="cctvList"></ul>
+  </section>
+
+  <p class="notice" id="notice" hidden></p>
+
+  <footer class="foot">
+    <a href="../product.html#earllnrainornot">안드로이드 앱 받기</a> ·
+    <a href="../">earlln.com</a>
+    <p>아이폰: Safari 공유 버튼 → <b>홈 화면에 추가</b> 하면 앱처럼 쓸 수 있어요.</p>
+    <p class="foot__ver" id="footVersion"></p>
+  </footer>
+</main>
+
+<dialog id="settings">
+  <form method="dialog" class="settings">
+    <h2>설정</h2>
+    <label class="field">
+      <span>Gemini API 키 <b>(필수)</b></span>
+      <input id="setKey" type="password" autocomplete="off" spellcheck="false" placeholder="AIza…">
+      <small>Google AI Studio에서 무료로 발급받은 키를 붙여 넣으세요. 키는 이 기기 브라우저에만 저장됩니다.
+        <a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">키 발급받기 ↗</a></small>
+    </label>
+    <label class="field">
+      <span>ITS API 키 <b>(지방 CCTV용, 선택)</b></span>
+      <input id="setItsKey" type="password" autocomplete="off" spellcheck="false" placeholder="서울은 없어도 됩니다">
+      <small>서울 밖(전국 국도) CCTV를 보려면 국가교통정보센터에서 무료로 발급받은 키를 넣으세요. 이 기기 브라우저에만 저장됩니다.</small>
+    </label>
+    <details class="howto-its">
+      <summary>ITS API 키 발급 방법 (무료, 5분 정도)</summary>
+      <ol>
+        <li><a href="https://www.its.go.kr/opendata/" target="_blank" rel="noopener">국가교통정보센터 공개 API ↗</a> 페이지를 엽니다.</li>
+        <li>회원가입 후 로그인합니다.</li>
+        <li>오픈 API 목록에서 <b>'CCTV 정보'</b>를 찾아 활용 신청(인증키 신청)을 합니다. 이용 목적은 '개인 날씨 확인'처럼 간단히 적으면 됩니다.</li>
+        <li>승인되면(보통 바로~1일) 마이페이지의 인증키 관리에서 키를 복사합니다.</li>
+        <li>위 'ITS API 키' 칸에 붙여 넣고 저장하면 끝!</li>
+      </ol>
+      <small>사이트 메뉴 이름은 바뀔 수 있어요.</small>
+    </details>
+    <label class="field">
+      <span>검색 반경</span>
+      <select id="setRadius">
+        <option value="1">1 km</option><option value="3">3 km</option><option value="5">5 km</option>
+        <option value="10">10 km</option><option value="20">20 km</option><option value="50">50 km</option>
+      </select>
+    </label>
+    <label class="switch"><input id="setAuto" type="checkbox"> <span>열 때 바로 분석 (위치 권한 허용 후)</span></label>
+    <label class="switch"><input id="setVoice" type="checkbox"> <span>음성 안내</span></label>
+    <label class="switch"><input id="setSheltered" type="checkbox"> <span>지붕 아래 사람 제외 (정류장·처마·실내)</span></label>
+    <p class="settings__about"><span id="aboutLine"></span> · <a href="../product.html#earllnrainornot" target="_blank" rel="noopener">earlln.com</a></p>
+    <div class="settings__actions">
+      <button value="cancel" class="chip">취소</button>
+      <button value="save" class="chip chip--primary" id="btnSave">저장</button>
+    </div>
+  </form>
+</dialog>
+
+<dialog id="viewer" class="viewer">
+  <div class="viewer__head">
+    <div class="viewer__title"><b id="viewerTitle"></b><span id="viewerMeta"></span></div>
+    <button class="icon-btn" id="btnViewerClose" type="button" aria-label="닫기">✕</button>
+  </div>
+  <div class="viewer__body">
+    <video id="viewerVideo" playsinline muted autoplay controls hidden></video>
+    <img id="viewerImg" alt="CCTV 이미지" hidden>
+    <p class="viewer__status" id="viewerStatus" hidden></p>
+  </div>
+</dialog>
+
+<script src="config.js?v=20261102c"></script>
+<script src="analysis.js?v=20261102c"></script>
+<script src="app.js?v=20261102c"></script>
+<div style="position:fixed;left:0;right:0;bottom:0;z-index:9999;background:#f5a524;color:#1a1300;font:700 13px/1.4 system-ui,sans-serif;text-align:center;padding:6px 10px;pointer-events:none">미리보기 · ccr-e807c3fb-g8xua6 · 실제 사이트가 아니에요</div>
+</body>
+</html>

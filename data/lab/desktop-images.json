@@ -1,0 +1,176 @@
+{
+  "id": "desktop-images",
+  "title": "사진·스크린샷 보여 주며 시키기",
+  "stages": [
+    "시작",
+    "예시 사진 받기",
+    "사진 붙이기",
+    "물어보기",
+    "파일로 저장",
+    "조심할 점",
+    "내 화면 찍기",
+    "총정리"
+  ],
+  "steps": [
+    {
+      "id": "intro",
+      "stage": 1,
+      "title": "오늘 할 일",
+      "html": "<p>말로 설명하기 어려운 건 <b>사진으로 보여 주면</b> 돼요. 영수증, 표, 화면에 뜬 오류 메시지 같은 것들이요.</p><p>오늘 새로 배우는 것은 세 가지예요.</p><ol><li>사진을 Claude에게 <b>붙여서 보여 주기</b></li><li>사진 속 내용을 <b>표로 정리해서 파일로</b> 저장하기</li><li>내 컴퓨터 화면을 <b>캡처(스크린샷)</b>하는 법</li></ol><ul><li>걸리는 시간: 15분</li><li>필요한 것: <a href='{{base}}lab/desktop-undo.html'>데스크톱 6</a>까지 마친 컴퓨터</li></ul><div class='lab__tip'>이번 실습은 <b>컴퓨터에서</b> 이 화면을 열어 주세요. 예시 사진을 컴퓨터로 내려받아야 해요.</div>",
+      "next": "get",
+      "button": "시작하기"
+    },
+    {
+      "id": "get",
+      "stage": 2,
+      "title": "예시 영수증 사진 내려받기",
+      "html": "<p>연습용 영수증 사진을 준비했어요. 아래 버튼을 누르면 컴퓨터의 <b>다운로드</b> 폴더에 <b>receipt.webp</b>로 저장돼요.</p><p class='lab__links'><a class='btn btn--primary' href='{{base}}assets/img/ai/desktop-images/receipt.webp' download='receipt.webp'>⬇ 예시 영수증 사진 내려받기</a></p>",
+      "image": "assets/img/ai/desktop-images/receipt.webp",
+      "alt": "얼른마트 영수증 예시 사진",
+      "check": {
+        "q": "receipt.webp를 내려받았나요?",
+        "yes": "open",
+        "no": "get-help"
+      }
+    },
+    {
+      "id": "get-help",
+      "kind": "help",
+      "title": "내려받기가 안 될 때",
+      "html": "<ul><li>위 그림에서 <b>마우스 오른쪽 버튼</b>(Mac은 두 손가락 클릭) → <b>다른 이름으로 이미지 저장</b>을 눌러도 돼요.</li><li>휴대폰으로 이 화면을 보고 있다면, 컴퓨터에서 이 페이지를 열어 주세요.</li><li>가지고 있는 다른 영수증이나 사진으로 해도 괜찮아요.</li></ul>",
+      "choices": [
+        {
+          "label": "다시 해 볼게요",
+          "next": "get"
+        },
+        {
+          "label": "다른 사진으로 할게요",
+          "next": "open"
+        }
+      ]
+    },
+    {
+      "id": "open",
+      "stage": 3,
+      "title": "새 대화로 시작하기",
+      "html": "<ol><li>Claude 앱 → <b>Code</b> 탭 → <b>+ New</b>.</li><li>입력 칸 아래가 <b>Local · 연습 · Manual</b>인지 확인합니다.</li></ol>",
+      "check": {
+        "q": "Local · 연습 · Manual 이 모두 보이나요?",
+        "yes": "attach",
+        "no": "open-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "open-help",
+      "kind": "help",
+      "title": "시작 화면이 다를 때",
+      "html": "<ul><li>폴더가 연습이 아니면 폴더 버튼 → <b>Open folder…</b>로 연습 폴더를 고르세요.</li><li>허락 방식 버튼을 눌러 <b>Manual</b>을 고르세요.</li></ul>"
+    },
+    {
+      "id": "attach",
+      "stage": 3,
+      "title": "사진을 입력 칸에 붙이기",
+      "html": "<ol><li>입력 칸 옆의 <b>+</b> 버튼을 누릅니다.</li><li><b>Add files or photos</b>(파일·사진 추가)를 누릅니다.</li><li>파일 고르는 창에서 <b>다운로드</b> 폴더 → <b>receipt.webp</b> → <b>열기</b>.</li></ol><p>입력 칸에 사진이 작은 이름표로 붙으면 성공이에요.</p><div class='lab__tip'>다른 방법: 다운로드 폴더를 열고 receipt.webp를 <b>입력 칸으로 끌어다 놓아도</b> 붙어요.</div>",
+      "image": "assets/img/ai/desktop-images/attach.webp",
+      "alt": "+ 버튼에서 Add files or photos를 눌러 사진을 붙이는 그림",
+      "check": {
+        "q": "입력 칸에 receipt.webp가 붙었나요?",
+        "yes": "ask",
+        "no": "attach-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "attach-help",
+      "kind": "help",
+      "title": "사진이 안 붙을 때",
+      "html": "<ul><li><b>+</b> 메뉴의 이름이 <b>Add image</b>처럼 다를 수 있어요. 사진·파일을 추가하는 항목을 고르세요.</li><li>끌어다 놓기를 해 보세요. 다운로드 폴더 창과 Claude 창을 나란히 띄우면 쉬워요.</li><li>파일 고르는 창에서 다운로드 폴더는 왼쪽 목록에 있어요.</li></ul>",
+      "choices": [
+        {
+          "label": "다시 해 볼게요",
+          "next": "attach"
+        },
+        {
+          "label": "다음으로",
+          "next": "ask"
+        }
+      ]
+    },
+    {
+      "id": "ask",
+      "stage": 4,
+      "title": "사진을 보고 정리해 달라고 하기",
+      "html": "<p>사진이 붙은 채로 아래 문장을 적고 {{enterkey}}를 누르세요. 사진을 <b>읽기만</b> 하니까 허락은 묻지 않아요.</p>",
+      "image": "assets/img/ai/desktop-images/result.webp",
+      "alt": "Claude가 영수증 사진을 읽고 표로 정리한 뒤 합계를 확인한 그림",
+      "code": "이 영수증 사진을 보고 품목과 금액을 표로 정리해줘. 합계가 맞는지도 확인해줘",
+      "codeLabel": "따라 입력해 보세요",
+      "check": {
+        "q": "표가 나오고, 합계가 맞는지 확인하는 말이 있나요?",
+        "yes": "save",
+        "no": "ask-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "ask-help",
+      "kind": "help",
+      "title": "사진을 못 읽는다고 할 때",
+      "html": "<ul><li>사진이 <b>붙은 상태로</b> 보냈는지 확인하세요. 입력 칸에 이름표가 보여야 해요.</li><li>글자가 흐린 사진은 잘못 읽을 수 있어요. 예시 사진으로 먼저 해 보세요.</li></ul>",
+      "choices": [
+        {
+          "label": "다시 해 볼게요",
+          "next": "ask"
+        },
+        {
+          "label": "다음으로",
+          "next": "save"
+        }
+      ]
+    },
+    {
+      "id": "save",
+      "stage": 5,
+      "title": "표를 파일로 저장하기",
+      "html": "<p>대화에 나온 표는 대화 안에만 있어요. 파일로 남겨 볼게요. 파일 만들기 허락 카드를 읽고 <b>허용</b>하세요.</p>",
+      "code": "그 표를 영수증정리.txt로 저장해줘",
+      "codeLabel": "따라 입력해 보세요",
+      "check": {
+        "q": "연습 폴더에 영수증정리.txt가 생기고, 열어 보니 표가 있나요?",
+        "yes": "careful",
+        "no": "save-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "save-help",
+      "kind": "help",
+      "title": "파일이 안 보일 때",
+      "html": "<ul><li>허락 카드를 거절했다면 다시 보내고 허용하세요.</li><li>입력 칸 아래 폴더가 <b>연습</b>인지 확인하세요. 다른 폴더에 저장됐을 수 있어요.</li></ul>"
+    },
+    {
+      "id": "careful",
+      "stage": 6,
+      "title": "사진을 보여 줄 때 조심할 점",
+      "html": "<ul><li><b>숫자는 한 번 더 확인</b>: AI도 사진 속 글자를 잘못 읽을 수 있어요. 금액·날짜처럼 중요한 건 원본과 비교하세요. 오늘처럼 \"합계가 맞는지 확인해줘\"라고 덧붙이면 도움이 돼요.</li><li><b>민감한 정보는 가리기</b>: 주민등록번호, 카드 번호, 비밀번호, 다른 사람 얼굴이 보이는 사진은 올리지 않거나 가린 뒤 올리세요.</li><li><b>잘 보이게</b>: 흐리거나 기울어진 사진보다 반듯하고 밝은 사진이 정확해요.</li></ul>",
+      "next": "screenshot",
+      "button": "알겠어요"
+    },
+    {
+      "id": "screenshot",
+      "stage": 7,
+      "title": "내 컴퓨터 화면 찍는 법 (스크린샷)",
+      "html": "<p>화면에 뜬 오류 메시지나 표를 보여 주고 싶을 때 써요.</p><table class='lab__terms'><tr><th>Windows</th><td><kbd>⊞</kbd>+<kbd>Shift</kbd>+<kbd>S</kbd> → 마우스로 찍을 부분을 끌어서 고르기 → 오른쪽 아래 알림을 누르고 <b>저장</b>(<kbd>Ctrl</kbd>+<kbd>S</kbd>)</td></tr><tr><th>Mac</th><td><kbd>⌘</kbd>+<kbd>Shift</kbd>+<kbd>4</kbd> → 찍을 부분을 끌어서 고르기 → <b>바탕화면</b>에 사진 파일로 저장돼요</td></tr></table><p>저장한 사진을 오늘처럼 <b>+</b> 로 붙이고 \"이 오류가 무슨 뜻이야?\", \"이 표를 엑셀용으로 정리해줘\"처럼 물어보면 돼요.</p>",
+      "next": "summary",
+      "button": "알겠어요, 정리 보기"
+    },
+    {
+      "id": "summary",
+      "stage": 8,
+      "kind": "summary",
+      "title": "🎉 데스크톱 실습 7 완료! 오늘 배운 것 정리",
+      "html": "<p>이제 말 대신 <b>사진으로 보여 주며</b> 일을 맡길 수 있어요.</p><div class='lab__flow'><span>사진·스크린샷</span><i>+ 로 붙이기</i><span>Claude가 읽기</span><i>정리·확인</i><span>파일로 저장</span></div><h3>꼭 기억할 세 가지</h3><ol><li>사진은 입력 칸 옆 <b>+ → Add files or photos</b>, 또는 <b>끌어다 놓기</b>로 붙여요.</li><li>AI도 잘못 읽을 수 있어요. <b>중요한 숫자는 확인</b>하고, \"맞는지 확인해줘\"를 덧붙이세요.</li><li><b>민감한 정보</b>가 담긴 사진은 올리지 않거나 가리세요.</li></ol><p class='lab__links'><a class='btn btn--primary' href='{{base}}lab/desktop-usage.html'>다음: 데스크톱 8 · 요금과 사용량 한도 알기 →</a><a class='btn btn--ghost' href='{{base}}ai/desktop-images.html'>오늘 내용 글로 다시 보기</a></p>"
+    }
+  ]
+}

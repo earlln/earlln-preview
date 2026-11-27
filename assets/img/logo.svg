@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Earlln">
+  <title>Earlln</title>
+  <circle cx="256" cy="256" r="256" fill="#0b1f3a"/>
+  <circle cx="256" cy="256" r="196" fill="#ffffff"/>
+  <!-- forward arrow: "얼른" = quickly -->
+  <path d="M150 256h176" stroke="#0b1f3a" stroke-width="44" stroke-linecap="round"/>
+  <path d="M262 168l96 88-96 88" fill="none" stroke="#0b1f3a" stroke-width="44" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M120 176h56" stroke="#2f6bff" stroke-width="28" stroke-linecap="round"/>
+  <path d="M120 336h56" stroke="#2f6bff" stroke-width="28" stroke-linecap="round"/>
+</svg>

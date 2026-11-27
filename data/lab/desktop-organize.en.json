@@ -1,0 +1,174 @@
+{
+  "id": "desktop-organize",
+  "title": "Organize several files at once",
+  "stages": [
+    "Start",
+    "New chat",
+    "Make several files",
+    "Make a folder and move",
+    "Read the command card",
+    "Rename all at once",
+    "Check",
+    "Wrap-up"
+  ],
+  "steps": [
+    {
+      "id": "intro",
+      "stage": 1,
+      "title": "What we'll do today",
+      "html": "<p>With a few sentences, you'll make <b>several files</b>, move them into a folder and rename them all at once.</p><p>Today you'll learn three new things.</p><ol><li>Have it make <b>several files at once</b></li><li>Have it make a folder, <b>move and rename</b> files</li><li>How to read a new permission card: <b>\"May I run this command?\"</b></li></ol><ul><li>Time: 15 minutes</li><li>You need: a computer that finished <a href='{{base}}lab/desktop-sessions.html'>Desktop 3</a></li></ul><div class='lab__tip'>Today you'll move files, so be sure to work <b>only inside the Practice folder</b>.</div>",
+      "next": "open",
+      "button": "Let's start"
+    },
+    {
+      "id": "open",
+      "stage": 2,
+      "title": "Start with a new chat",
+      "html": "<p>It's a new job, so start a <b>new chat</b>. (You learned this in Desktop 3!)</p><ol><li>Claude app → <b>Code</b> tab → <b>+ New</b> at the top left.</li><li>Check that the buttons under the typing box show <b>Local · Practice · Manual</b>.</li></ol>",
+      "check": {
+        "q": "Can you see Local · Practice · Manual?",
+        "yes": "make3",
+        "no": "open-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "open-help",
+      "kind": "help",
+      "title": "If the start screen looks different",
+      "html": "<ul><li>If the folder isn't Practice, click the folder button → <b>Open folder…</b> and choose it.</li><li>Click the permission mode button and choose <b>Manual</b>. It matters today: in other modes it may make folders and move files without asking.</li></ul>"
+    },
+    {
+      "id": "make3",
+      "stage": 3,
+      "title": "Make 3 memo files at once",
+      "html": "<p>Send the sentence below. As in Desktop 1, a <b>create-file permission card</b> appears <b>once per file, three times</b>. Check each file name and click <b>Allow</b> each time.</p>",
+      "image": "assets/img/ai/claude-code-organize-files/en/files-before.webp",
+      "alt": "Three memo files appear in the Practice folder",
+      "code": "Create 3 memo files, meeting.txt, groceries.txt and ideas.txt, with a line or two of example text in each",
+      "codeLabel": "Type this",
+      "check": {
+        "q": "Did you allow all three, and are there 3 new files in the Practice folder?",
+        "yes": "what-cmd",
+        "no": "make3-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "make3-help",
+      "kind": "help",
+      "title": "If some files are missing",
+      "html": "<ul><li>If you <b>denied</b> any card, that file wasn't made. Say \"Also make the files you haven't made yet.\"</li><li>If the folder window was already open, close it and open it again.</li><li>It may have asked just once for all of them. If the 3 files are there, you're fine.</li></ul>"
+    },
+    {
+      "id": "what-cmd",
+      "stage": 4,
+      "title": "First, what's a 'command'?",
+      "html": "<p>So far Claude has created and edited the <b>contents</b> of files.</p><p>Making folders and moving files works a little differently. Claude gives your computer a <b>short instruction in English (a command)</b>. So this time a different permission card appears: <b>May I run this command?</b></p><table class='lab__terms'><tr><th>mkdir</th><td>make a folder</td></tr><tr><th>mv</th><td>move or rename</td></tr></table><p class='muted'>You don't need to memorize commands. The next step shows how to read the card.</p>",
+      "next": "move",
+      "button": "Got it"
+    },
+    {
+      "id": "move",
+      "stage": 4,
+      "title": "Make a folder and move the files",
+      "html": "<p>Send the sentence below. A new <b>run-command permission card</b> appears. <b>Don't click yet</b>; just compare it with the picture.</p>",
+      "image": "assets/img/ai/desktop-organize/en/cmd-card.webp",
+      "alt": "A permission card showing the command to run and its description",
+      "code": "Make a memos folder and move the three files you just made into it",
+      "codeLabel": "Type this",
+      "check": {
+        "q": "Did a permission card with a command and a description appear, like the picture?",
+        "yes": "read-card",
+        "no": "move-help",
+        "noLabel": "It did it without asking"
+      },
+      "ask": true
+    },
+    {
+      "id": "move-help",
+      "kind": "help",
+      "title": "If it did it without asking",
+      "html": "<p>The permission mode probably wasn't <b>Manual</b>. In <b>Accept edits</b> mode, <b>common file commands</b> like making folders and moving files run <b>without asking</b>.</p><ul><li>Click the permission mode button under the typing box and switch to <b>Manual</b>.</li><li>If the files have already moved, you can practise with the card in the next step (renaming).</li></ul>",
+      "choices": [
+        {
+          "label": "Show how to read the card",
+          "next": "read-card"
+        },
+        {
+          "label": "Check the result first",
+          "next": "verify"
+        }
+      ]
+    },
+    {
+      "id": "read-card",
+      "stage": 5,
+      "title": "How to read the 'May I run this command?' card",
+      "html": "<table class='lab__terms'><tr><th>Title at the top</th><td>A card asking to run a command (Run command, Bash, etc.)</td></tr><tr><th>English in the dark box</th><td>The actual <b>command</b> it will run</td></tr><tr><th>Description below</th><td>What Claude <b>says it's going to do</b>. Read this part</td></tr><tr><th>Allow / Deny</th><td>Run it / don't</td></tr></table><p>You don't need to understand the command. Just check that <b>the description matches what you asked</b>. If it does, click <b>Allow</b>.</p><div class='lab__tip'><b>Stop if you see these.</b> <code>rm</code>, <code>del</code> and <code>Remove-Item</code> are commands that <b>delete</b>. If you didn't ask to delete anything, click <b>Deny</b>.<br>Even if you see a button like 'Always allow', <b>don't click it for now.</b></div>",
+      "check": {
+        "q": "Did the description match your request, and did you click Allow?",
+        "yes": "rename",
+        "no": "read-card-help",
+        "yesLabel": "Yes, I allowed it"
+      }
+    },
+    {
+      "id": "read-card-help",
+      "kind": "help",
+      "title": "If the description doesn't match or is confusing",
+      "html": "<ul><li>That's exactly when to click <b>Deny</b>. Nothing changes.</li><li>Then ask again, e.g. \"Just make a memos folder and move the meeting, groceries and ideas files into it. Don't delete anything.\"</li><li>If there are several commands, it may ask several times. Read the description each time.</li></ul>",
+      "choices": [
+        {
+          "label": "Let me try again",
+          "next": "read-card"
+        },
+        {
+          "label": "Next",
+          "next": "rename"
+        }
+      ]
+    },
+    {
+      "id": "rename",
+      "stage": 6,
+      "title": "Rename all the files at once",
+      "html": "<p>Now add today's date to the front of the three file names. The <b>run-command permission card</b> appears again. Read the description and click <b>Allow</b> if it matches.</p><p class='muted'>The real <b>date today</b> is used.</p>",
+      "code": "Add today's date to the front of the file names in the memos folder, e.g. 2026-11-23_meeting.txt",
+      "codeLabel": "Type this",
+      "check": {
+        "q": "Did you read the description and click Allow?",
+        "yes": "verify",
+        "no": "read-card-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "verify",
+      "stage": 7,
+      "title": "Check the result yourself",
+      "html": "<ol><li>Open the Practice folder on your desktop. There's a new <b>memos</b> folder.</li><li>Double-click the memos folder to open it.</li></ol><p>If the 3 files are inside with the date in front of their names, it worked.</p>",
+      "image": "assets/img/ai/claude-code-organize-files/en/files-after.webp",
+      "alt": "Three files with dates in their names inside the memos folder",
+      "check": {
+        "q": "Are there 3 files with dates in their names in the memos folder?",
+        "yes": "summary",
+        "no": "verify-help",
+        "yesLabel": "Yes, they're there! 🎉"
+      }
+    },
+    {
+      "id": "verify-help",
+      "kind": "help",
+      "title": "If the result looks different",
+      "html": "<ul><li>If the folder window was already open, close it and open it again.</li><li>If something moved to the wrong place or got an odd name, tell Claude <b>\"Undo what you just did.\"</b> Read the permission card then too.</li><li>You can also ask Claude, \"What's in the memos folder now?\"</li></ul>"
+    },
+    {
+      "id": "summary",
+      "stage": 8,
+      "kind": "summary",
+      "title": "🎉 Desktop practice 4 done! What you learned",
+      "html": "<p>Something that would have meant moving and renaming files one by one took <b>just a few sentences</b>.</p><div class='lab__flow'><span>Your request</span><i>Claude turns it into commands</i><span>Run-command card</span><i>read, then Allow</i><span>Folder tidied</span></div><h3>Three things to remember</h3><ol><li>Several files can be created, moved and renamed with <b>a single sentence</b>.</li><li>Making folders, moving and renaming ask through a <b>run-command permission card</b>.</li><li>You don't need to know the commands; read the <b>description</b>. Be extra careful with <b>delete commands</b> (rm, del).</li></ol><h3>Next step</h3><p>You clicked a lot of permission cards today, right? In the next practice you'll learn to change this <b>permission mode</b>, and when it's safe to do so.</p><p class='lab__links'><a class='btn btn--primary' href='{{base}}lab/desktop-modes.html'>Next: Desktop 5 · Change the permission mode →</a><a class='btn btn--ghost' href='{{base}}ai/desktop-organize.html'>Read today's steps as a guide</a></p>"
+    }
+  ]
+}

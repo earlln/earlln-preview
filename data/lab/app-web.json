@@ -1,0 +1,150 @@
+{
+  "id": "app-web",
+  "title": "웹앱 만들기: 운동 타이머",
+  "stages": [
+    "시작",
+    "웹앱이란",
+    "새 대화",
+    "만들게 하기",
+    "브라우저로 열기",
+    "고치게 하기",
+    "총정리"
+  ],
+  "steps": [
+    {
+      "id": "intro",
+      "stage": 1,
+      "title": "오늘 할 일",
+      "html": "<p>코드를 한 줄도 몰라도, Claude에게 말로 설명해서 <b>나만의 앱</b>을 만들 수 있어요. 오늘은 <b>운동 타이머</b>를 만들어요.</p><ul><li>시작 버튼을 누르면 원 모양 타이머가 줄어들고</li><li>끝나기 3초 전부터 \"셋, 둘, 하나\"를 소리 내 읽어 줘요.</li></ul><p><a href='{{base}}assets/files/app/timer/' target='_blank' rel='noopener'>완성 예시 미리 보기 ↗</a></p><ul><li>걸리는 시간: 20분</li><li>필요한 것: <a href='{{base}}lab/desktop-edit.html'>데스크톱 2</a>까지 마친 컴퓨터, 크롬·엣지·사파리 같은 웹 브라우저</li></ul>",
+      "next": "concept",
+      "button": "시작하기"
+    },
+    {
+      "id": "concept",
+      "stage": 2,
+      "title": "먼저 알아 두기 — 웹앱이 뭔가요?",
+      "html": "<p><b>웹앱</b>은 인터넷 브라우저 안에서 돌아가는 앱이에요. 앱 스토어도, 따로 설치할 프로그램도 필요 없어서 처음 만들기에 가장 쉬워요.</p><table class='lab__terms'><tr><th>index.html</th><td>앱의 <b>화면과 동작</b>을 적은 글 파일. 웹앱의 \"첫 페이지\"라서 이 이름을 써요</td></tr><tr><th>HTML</th><td>화면에 무엇을 놓을지 적는 말 (버튼, 글자, 그림)</td></tr><tr><th>브라우저</th><td>크롬·엣지·사파리처럼 인터넷을 보는 프로그램. 이 파일을 열면 앱이 돼요</td></tr></table><p class='muted'>코드는 Claude가 써요. 우리는 <b>무엇을 원하는지 말하고, 결과를 눈으로 확인</b>하면 돼요.</p>",
+      "next": "open",
+      "button": "알겠어요"
+    },
+    {
+      "id": "open",
+      "stage": 3,
+      "title": "새 대화로 시작하기",
+      "html": "<p>Claude 앱 → <b>Code</b> 탭 → <b>+ New</b>. 입력 칸 아래가 <b>Local · 연습 · Manual</b>인지 확인하세요.</p>",
+      "check": {
+        "q": "Local · 연습 · Manual 이 모두 보이나요?",
+        "yes": "make",
+        "no": "open-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "open-help",
+      "kind": "help",
+      "title": "시작 화면이 다를 때",
+      "html": "<ul><li>폴더가 연습이 아니면 폴더 버튼 → <b>Open folder…</b>로 연습 폴더를 고르세요.</li><li>허락 방식 버튼을 눌러 <b>Manual</b>을 고르세요.</li></ul>"
+    },
+    {
+      "id": "make",
+      "stage": 4,
+      "title": "말로 설명해서 만들게 하기",
+      "html": "<p>원하는 앱을 <b>구체적으로</b> 말할수록 잘 만들어요. 아래 문장을 그대로 보내 보세요.</p><p>폴더 만들기·파일 만들기 <b>허락 카드</b>가 나와요. <b>타이머</b> 폴더 안에 <b>index.html</b>을 만드는지 보고 <b>허용</b>하세요. 코드 내용은 몰라도 괜찮아요.</p>",
+      "image": "assets/img/ai/app-web/create.webp",
+      "alt": "Claude가 타이머/index.html 파일을 만들겠다는 허락 카드",
+      "code": "타이머 폴더를 만들고, 그 안에 운동 타이머 웹앱을 index.html 하나로 만들어줘. 큰 시작 버튼, 20초 원형 타이머, 끝나기 3초 전부터 '셋, 둘, 하나'를 한국어 음성으로 읽어 주기. 휴대폰 화면에서도 보기 좋게.",
+      "codeLabel": "따라 입력해 보세요",
+      "check": {
+        "q": "연습 폴더 안에 타이머 폴더와 index.html이 생겼나요?",
+        "yes": "browser",
+        "no": "make-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "make-help",
+      "kind": "help",
+      "title": "파일이 안 생기거나 다르게 만들었을 때",
+      "html": "<ul><li>허락 카드를 거절했다면 다시 보내고 허용하세요.</li><li>파일을 여러 개(style.css, app.js 등)로 나눠 만들었어도 괜찮아요. index.html만 있으면 돼요.</li><li>Claude가 질문을 하면 대답해 주세요. 예: \"음성은 한국어로\".</li></ul>",
+      "choices": [
+        {
+          "label": "다시 해 볼게요",
+          "next": "make"
+        },
+        {
+          "label": "다음으로",
+          "next": "browser"
+        }
+      ]
+    },
+    {
+      "id": "browser",
+      "stage": 5,
+      "title": "브라우저로 열어서 써 보기",
+      "html": "<ol><li>바탕화면 <b>연습</b> 폴더 → <b>타이머</b> 폴더를 엽니다.</li><li><b>index.html</b>을 <b>더블클릭</b>하면 브라우저에서 열려요.</li><li>스피커 소리를 켜고 <b>시작</b>을 눌러 보세요.</li></ol><p class='muted'>Claude에게 \"index.html 열어줘\"라고 해도 돼요. 그때는 프로그램을 여는 허락 카드가 나와요.</p>",
+      "image": "assets/img/ai/app-web/browser.webp",
+      "alt": "브라우저에서 원형 타이머와 시작 버튼이 보이는 그림",
+      "check": {
+        "q": "타이머가 줄어들고, \"셋, 둘, 하나\" 소리가 났나요?",
+        "yes": "change",
+        "no": "browser-help"
+      }
+    },
+    {
+      "id": "browser-help",
+      "kind": "help",
+      "title": "안 열리거나 소리가 안 날 때",
+      "html": "<ul><li><b>메모장이 열려요</b>: index.html을 오른쪽 클릭 → <b>연결 프로그램</b>(Mac: <b>다음으로 열기</b>) → 크롬·엣지·사파리.</li><li><b>소리가 안 나요</b>: 스피커 음량을 확인하세요. 브라우저는 버튼을 <b>누른 뒤에만</b> 소리를 내요.</li><li><b>화면이 하얗거나 이상해요</b>: 화면을 캡처해서(데스크톱 7) \"이렇게 나와. 고쳐줘\"라고 보내세요.</li></ul>",
+      "choices": [
+        {
+          "label": "다시 해 볼게요",
+          "next": "browser"
+        },
+        {
+          "label": "다음으로",
+          "next": "change"
+        }
+      ]
+    },
+    {
+      "id": "change",
+      "stage": 6,
+      "title": "말로 고치게 하기",
+      "html": "<p>앱 만들기의 진짜 힘은 <b>말 한마디로 고치기</b>예요. 쉬는 시간과 반복을 넣어 볼게요.</p><ol><li>아래 문장을 보내고, 바뀌는 줄(빨강·초록)을 보고 <b>허용</b>하세요.</li><li>브라우저로 돌아가 <b>새로고침</b>하세요. (Windows: <kbd>F5</kbd> · Mac: <kbd>Cmd</kbd>+<kbd>R</kbd>)</li></ol><div class='lab__tip'><b>새로고침해야 바뀐 게 보여요.</b> 파일이 바뀌어도 이미 열린 화면은 그대로예요.</div>",
+      "image": "assets/img/ai/app-web/change.webp",
+      "alt": "반복 횟수와 쉬는 시간을 바꾸는 허락 카드",
+      "code": "운동 20초, 쉬기 10초를 3번 반복하게 바꿔줘. 쉬는 시간에는 타이머 색을 초록으로",
+      "codeLabel": "따라 입력해 보세요",
+      "check": {
+        "q": "새로고침한 뒤, 운동 → 쉬기(초록) → 운동… 이 3번 반복되나요?",
+        "yes": "summary",
+        "no": "change-help",
+        "yesLabel": "네, 돼요! 🎉"
+      },
+      "ask": true
+    },
+    {
+      "id": "change-help",
+      "kind": "help",
+      "title": "바뀌지 않거나 망가졌을 때",
+      "html": "<ul><li>새로고침을 했는지 확인하세요.</li><li>망가졌다면 \"방금 바꾼 거 되돌려줘\"라고 하세요. (데스크톱 6)</li><li>원하는 대로 안 되면 <b>무엇이 어떻게 다른지</b> 말해 주세요. 예: \"쉬는 시간이 끝나도 다음 운동이 시작되지 않아\".</li></ul>",
+      "choices": [
+        {
+          "label": "다시 해 볼게요",
+          "next": "change"
+        },
+        {
+          "label": "정리 보기",
+          "next": "summary"
+        }
+      ]
+    },
+    {
+      "id": "summary",
+      "stage": 7,
+      "kind": "summary",
+      "title": "🎉 앱 실습 1 완료! 나만의 웹앱",
+      "html": "<p>말로 설명해서 앱을 만들고, 말로 고쳤어요. 이게 AI로 앱을 만드는 기본 순서예요.</p><div class='lab__flow'><span>원하는 것 말하기</span><i>허락 카드 확인</i><span>브라우저로 열어 보기</span><i>고칠 점 말하기</i><span>새로고침</span></div><h3>더 해 볼 만한 것</h3><ul><li>\"운동 이름을 입력할 수 있게 해줘\"</li><li>\"끝나면 박수 소리를 내줘\"</li><li>\"오늘 몇 번 했는지 기록해줘\"</li></ul><p class='muted'>얼른닷컴의 <a href='{{base}}product.html#earllncore'>EarllnCore</a>(아침 코어 운동 앱)도 이렇게 시작해서 한 마디씩 고쳐 키운 앱이에요.</p><p class='lab__links'><a class='btn btn--primary' href='{{base}}lab/app-publish.html'>다음: 앱 2 · 휴대폰에 설치하고 공개하기 →</a><a class='btn btn--ghost' href='{{base}}ai/app-web.html'>강의로 함께 보기</a></p>"
+    }
+  ]
+}

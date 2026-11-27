@@ -1,0 +1,163 @@
+{
+  "id": "app-android",
+  "title": "안드로이드 앱(APK)으로 만들기",
+  "stages": [
+    "시작",
+    "먼저 알아 두기",
+    "만들게 하기",
+    "PR 확인·병합",
+    "Actions 기다리기",
+    "내려받아 설치",
+    "고칠 때·나눠 줄 때",
+    "총정리"
+  ],
+  "steps": [
+    {
+      "id": "intro",
+      "stage": 1,
+      "title": "오늘 할 일",
+      "html": "<p>앱 3에서 만든 운동 타이머를 <b>안드로이드 앱(APK)</b>으로 만들어 휴대폰에 진짜 앱처럼 설치해요. 이번에도 <b>휴대폰만으로</b> 할 수 있어요.</p><div class='lab__flow'><span>휴대폰으로 말하기</span><i>PR 병합</i><span>GitHub Actions가 APK 만들기</span><i>Releases</i><span>내려받아 설치</span></div><ul><li>걸리는 시간: 30분 (기다리는 시간 포함)</li><li>필요한 것: <a href='{{base}}lab/app-mobile.html'>앱 3</a>의 <b>my-timer</b> 저장소, <b>안드로이드 휴대폰</b></li></ul><div class='lab__tip'><b>아이폰은 APK를 설치할 수 없어요.</b> 아이폰은 앱 2·3의 '홈 화면에 추가'가 가장 좋은 방법이에요. (앱 스토어에 올리려면 따로 유료 개발자 등록이 필요해요)</div>",
+      "next": "concept",
+      "button": "시작하기"
+    },
+    {
+      "id": "concept",
+      "stage": 2,
+      "title": "먼저 알아 두기 — 낱말 넷",
+      "html": "<table class='lab__terms'><tr><th>APK</th><td>안드로이드 앱 <b>설치 파일</b>. 앱 스토어 없이 직접 설치할 수 있어요</td></tr><tr><th>Capacitor</th><td>웹앱을 <b>안드로이드 앱 상자로 감싸는</b> 도구. 화면과 기능은 그대로예요</td></tr><tr><th>GitHub Actions</th><td>APK를 대신 만들어 주는 <b>로봇</b>. 원래는 컴퓨터에 큰 프로그램(Android Studio)을 깔아야 하는데, 이 로봇이 클라우드에서 해 줘요</td></tr><tr><th>서명</th><td>\"이 앱은 내가 만들었다\"는 <b>도장</b>. 같은 도장이어야 업데이트가 덮어 설치돼요</td></tr></table><p class='muted'>얼른닷컴의 <a href='{{base}}product.html#earllncore'>EarllnCore</a>가 바로 이 방법으로 만든 앱이에요.</p>",
+      "next": "ask",
+      "button": "알겠어요"
+    },
+    {
+      "id": "ask",
+      "stage": 3,
+      "title": "휴대폰으로 말해서 만들게 하기",
+      "html": "<p>휴대폰 Claude 앱 → <b>Code</b> → 저장소 <b>my-timer</b>를 고르고 보내세요. (컴퓨터의 Claude로 해도 같아요)</p><p>파일이 많이 생겨서 <b>10분 넘게</b> 걸릴 수 있어요. 앱을 닫아도 계속 일해요.</p>",
+      "code": "이 웹앱을 안드로이드 앱(APK)으로 만들어줘. Capacitor로 감싸고 앱 이름은 '운동 타이머'. main에 병합될 때마다 GitHub Actions가 APK를 만들어 Releases에 올리게 해줘. 지금은 테스트용(debug) APK로 하고, 서명 키 파일이나 비밀번호는 저장소에 절대 넣지 마",
+      "codeLabel": "휴대폰에서 입력",
+      "check": {
+        "q": "\"새 브랜치에 올렸다\"는 말과 Changes가 보이나요?",
+        "yes": "merge",
+        "no": "ask-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "ask-help",
+      "kind": "help",
+      "title": "오래 걸리거나 질문을 할 때",
+      "html": "<ul><li>Claude가 \"패키지 이름\"(예: com.myname.timer)을 물으면 영어 소문자로 정해 주세요. 한 번 정하면 바꾸지 않는 게 좋아요.</li><li>멈춘 것 같으면 대화를 열고 \"이어서 해줘\".</li></ul>",
+      "choices": [
+        {
+          "label": "다시 볼게요",
+          "next": "ask"
+        },
+        {
+          "label": "다음으로",
+          "next": "merge"
+        }
+      ]
+    },
+    {
+      "id": "merge",
+      "stage": 4,
+      "title": "PR 확인하고 병합하기",
+      "html": "<p><b>Create PR</b> → 휴대폰 브라우저로 GitHub의 PR → <b>Files changed</b>.</p><p>파일이 수십 개라 다 읽을 필요는 없어요. 대신 <b>이 두 가지만</b> 확인하세요.</p><ol><li><b>.github/workflows/</b> 안에 APK를 만드는 파일(예: android.yml)이 있다.</li><li><b>.jks</b>, <b>.keystore</b>, <b>password</b> 같은 이름의 파일이 <b>없다</b>. (서명 키는 비밀이에요)</li></ol><p>괜찮으면 <b>Merge pull request</b> → <b>Confirm merge</b>.</p>",
+      "check": {
+        "q": "두 가지를 확인하고 병합했나요?",
+        "yes": "actions",
+        "no": "merge-help"
+      }
+    },
+    {
+      "id": "merge-help",
+      "kind": "help",
+      "title": "키 파일이 보이거나 헷갈릴 때",
+      "html": "<ul><li>키 파일이 보이면 병합하지 말고 Claude에게 \"서명 키 파일은 저장소에서 빼고, 테스트용(debug)으로 만들어줘\"라고 하세요.</li><li>Files changed가 너무 길면 위쪽의 <b>파일 목록</b>(File tree)만 훑어봐도 돼요.</li></ul>",
+      "choices": [
+        {
+          "label": "다시 볼게요",
+          "next": "merge"
+        },
+        {
+          "label": "다음으로",
+          "next": "actions"
+        }
+      ]
+    },
+    {
+      "id": "actions",
+      "stage": 5,
+      "title": "로봇(Actions)이 APK를 만드는 동안 기다리기",
+      "html": "<ol><li>my-timer 저장소 → <b>Actions</b> 탭.</li><li>맨 위 줄이 <b>노란 점</b>이면 만드는 중이에요. 보통 <b>5~10분</b>.</li><li><b>초록 ✓</b>가 되면 완성!</li></ol><p class='muted'>Actions는 공개 저장소에서 무료로 쓸 수 있어요.</p>",
+      "image": "assets/img/ai/app-android/actions.webp",
+      "alt": "Actions 탭에서 초록 ✓, 노란 점, 빨간 ✕ 표시를 보는 그림",
+      "check": {
+        "q": "맨 위 줄이 초록 ✓가 되었나요?",
+        "yes": "download",
+        "no": "actions-help"
+      }
+    },
+    {
+      "id": "actions-help",
+      "kind": "help",
+      "title": "빨간 ✕(실패)가 나왔을 때",
+      "html": "<p>처음엔 흔한 일이에요. 오류를 Claude에게 보여 주면 고쳐요.</p><ol><li>빨간 줄을 누르고, 빨간 단계를 눌러 <b>오류 글을 복사</b>하거나 화면을 캡처하세요.</li><li>같은 대화에 \"Actions가 실패했어\"와 함께 붙여 넣으세요.</li><li>새 PR을 병합하면 로봇이 다시 만들어요.</li></ol><p class='muted'>Releases에 올리는 단계만 실패한다면, Claude에게 \"Actions 권한(contents: write)도 확인해줘\"라고 해 보세요.</p>",
+      "choices": [
+        {
+          "label": "다시 볼게요",
+          "next": "actions"
+        },
+        {
+          "label": "다음으로",
+          "next": "download"
+        }
+      ]
+    },
+    {
+      "id": "download",
+      "stage": 6,
+      "title": "내려받아 설치하기",
+      "html": "<ol><li>안드로이드 휴대폰 브라우저로 my-timer 저장소 → 오른쪽(아래)의 <b>Releases</b> → 맨 위 릴리스.</li><li><b>Assets</b>의 <b>.apk</b> 파일을 눌러 내려받아요.</li><li>내려받은 파일을 열면 <b>\"출처를 알 수 없는 앱\"</b> 설치를 허용할지 물어요. 브라우저(크롬)에 <b>이번만 허용</b>하세요.</li><li><b>설치</b>를 누르면 앱 목록에 <b>운동 타이머</b>가 생겨요.</li></ol>",
+      "image": "assets/img/ai/app-android/release.webp",
+      "alt": "Releases의 Assets에서 .apk 파일을 내려받는 그림",
+      "check": {
+        "q": "앱 목록에서 운동 타이머를 열어 타이머가 돌아가나요?",
+        "yes": "next",
+        "no": "download-help",
+        "yesLabel": "네, 돼요! 🎉"
+      }
+    },
+    {
+      "id": "download-help",
+      "kind": "help",
+      "title": "설치가 막힐 때",
+      "html": "<ul><li><b>Play 프로텍트 경고</b>가 나올 수 있어요. 스토어에 없는 앱이라서 그래요. <b>내가 만든 앱일 때만</b> '그래도 설치'를 누르세요.</li><li>Releases가 비어 있으면 Actions가 아직 끝나지 않았거나 실패한 거예요. 앞 단계를 보세요.</li><li>설치한 뒤에는 휴대폰 설정에서 브라우저의 '출처를 알 수 없는 앱 설치'를 다시 꺼 두면 더 안전해요.</li></ul>",
+      "choices": [
+        {
+          "label": "다시 해 볼게요",
+          "next": "download"
+        },
+        {
+          "label": "다음으로",
+          "next": "next"
+        }
+      ]
+    },
+    {
+      "id": "next",
+      "stage": 7,
+      "title": "고칠 때 · 다른 사람에게 나눠 줄 때",
+      "html": "<h3>고칠 때</h3><p>같은 대화에서 고칠 점을 말하고 → PR 병합 → Actions 완성 → 새 APK를 내려받아 설치하면 돼요. 웹 주소(Pages)도 함께 바뀌어요.</p><div class='lab__tip'><b>테스트용(debug) APK는 업데이트가 안 될 수 있어요.</b> 로봇이 매번 새 도장(서명)을 찍기 때문이에요. '앱이 설치되지 않았습니다'가 나오면 앱을 지우고 다시 설치하세요. (기록이 지워질 수 있어요)</div><h3>다른 사람에게 나눠 줄 때</h3><p>업데이트가 그대로 되게 하려면 <b>나만의 서명 키</b>가 필요해요. Claude에게 \"릴리스 서명 키로 서명하게 바꾸는 방법을 알려줘\"라고 물어보세요.</p><ul><li>서명 키와 비밀번호는 <b>절대 저장소에 넣지 않고</b>, GitHub의 <b>Settings → Secrets and variables → Actions</b>에 넣어요.</li><li>키를 잃어버리면 업데이트를 못 하니 안전한 곳에 따로 보관하세요.</li></ul>",
+      "next": "summary",
+      "button": "알겠어요, 정리 보기"
+    },
+    {
+      "id": "summary",
+      "stage": 8,
+      "kind": "summary",
+      "title": "🎉 앱 실습 4 완료! 진짜 안드로이드 앱",
+      "html": "<p>말로 만든 웹앱이 휴대폰에 설치되는 <b>안드로이드 앱</b>이 됐어요. 앱 만들기 과정을 모두 마쳤어요!</p><table class='lab__terms'><tr><th>앱 1</th><td>말로 웹앱 만들기</td></tr><tr><th>앱 2·3</th><td>Pages로 공개, 홈 화면에 설치 (아이폰·안드로이드)</td></tr><tr><th>앱 4</th><td>Capacitor + Actions로 APK (안드로이드)</td></tr></table><h3>꼭 기억할 세 가지</h3><ol><li>APK는 <b>Actions 로봇</b>이 만들고 <b>Releases</b>에 올린다.</li><li>병합 전에 <b>키 파일이 없는지</b> 꼭 본다. 서명 키는 Secrets에.</li><li>남이 보낸 APK는 함부로 설치하지 않는다. <b>내가 만든 앱일 때만</b> 허용.</li></ol><p class='lab__links'><a class='btn btn--primary' href='{{base}}lab/practice.html'>실습 목록으로</a><a class='btn btn--ghost' href='{{base}}ai/app-android.html'>오늘 내용 글로 다시 보기</a></p>"
+    }
+  ]
+}

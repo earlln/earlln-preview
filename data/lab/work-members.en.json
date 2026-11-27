@@ -1,0 +1,229 @@
+{
+  "id": "work-members",
+  "title": "Manage a member list",
+  "stages": [
+    "Start",
+    "Get the sample",
+    "Look it over",
+    "Find what to tidy",
+    "Make a clean copy",
+    "Pull out lists",
+    "Draft messages",
+    "Wrap-up"
+  ],
+  "steps": [
+    {
+      "id": "intro",
+      "stage": 1,
+      "title": "What we'll do today",
+      "html": "<p>If you look after a club's admin, keeping the member list tidy is a big job. Today you'll tidy the <b>Earlln Hiking Club</b> member list with Claude.</p><ol><li><b>Find what to tidy</b>, like duplicates and phone formats</li><li>Keep the original and <b>make a clean copy</b></li><li>Pull out lists like <b>unpaid dues and birthdays</b></li><li>Draft <b>personalized messages</b></li></ol><div class='lab__tip'><b>Personal data caution</b> — everyone in the sample list is <b>fictional</b>. When you show Claude a real list, its contents are <b>sent to Anthropic's servers</b> to produce answers. Check your club's or company's rules first, and mask parts of names or numbers if needed.</div><ul><li>Time: 20 minutes</li><li>You need: a computer where you've done <a href='{{base}}lab/work-csv.html'>Work 1</a></li></ul>",
+      "next": "get",
+      "button": "Let's start"
+    },
+    {
+      "id": "get",
+      "stage": 2,
+      "title": "Get the sample list into Practice",
+      "html": "<p>A 15-row member list with name, phone, birthday, join date, November dues and email. (Phone numbers use the fictional 555- prefix.)</p><p class='lab__links'><a class='btn btn--primary' href='{{base}}assets/files/work/members.csv' download='members.csv'>⬇ Download the sample members.csv</a></p><p><b>Drag members.csv from Downloads into the Practice folder.</b></p>",
+      "check": {
+        "q": "Is members.csv in the Practice folder?",
+        "yes": "open",
+        "no": "get-help"
+      }
+    },
+    {
+      "id": "get-help",
+      "kind": "help",
+      "title": "If getting the file doesn't work",
+      "html": "<ul><li>If clicking shows text on screen, save it with <kbd>Ctrl</kbd>+<kbd>S</kbd> (<kbd>⌘</kbd>+<kbd>S</kbd> on a Mac) as <b>members.csv</b>.</li><li>Moving works like in <a href='{{base}}lab/work-csv.html'>Work 1</a>.</li></ul>",
+      "choices": [
+        {
+          "label": "Let me try again",
+          "next": "get"
+        },
+        {
+          "label": "I'm ready",
+          "next": "open"
+        }
+      ]
+    },
+    {
+      "id": "open",
+      "stage": 2,
+      "title": "Start with a new chat",
+      "html": "<p>Claude app → <b>Code</b> tab → <b>+ New</b>. Check the buttons under the typing box show <b>Local · Practice · Manual</b>.</p>",
+      "check": {
+        "q": "Can you see Local · Practice · Manual?",
+        "yes": "look",
+        "no": "open-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "open-help",
+      "kind": "help",
+      "title": "If the start screen looks different",
+      "html": "<ul><li>If the folder isn't Practice, click the folder button → <b>Open folder…</b> and choose it.</li><li>Click the permission mode button and choose <b>Manual</b>.</li></ul>"
+    },
+    {
+      "id": "look",
+      "stage": 3,
+      "title": "First ask what's in the list",
+      "html": "<p>With a new file, start by asking what's in it. It's only reading, so no permission needed.</p>",
+      "code": "Explain what information members.csv has. How many members are there?",
+      "codeLabel": "Type this",
+      "check": {
+        "q": "Did it explain the columns and how many members there are?",
+        "yes": "check",
+        "no": "look-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "look-help",
+      "kind": "help",
+      "title": "If it can't find the file",
+      "html": "<p>Check members.csv is <b>inside the Practice folder</b> and the folder under the typing box is <b>Practice</b>.</p>",
+      "choices": [
+        {
+          "label": "Let me try again",
+          "next": "look"
+        },
+        {
+          "label": "Next",
+          "next": "check"
+        }
+      ]
+    },
+    {
+      "id": "check",
+      "stage": 4,
+      "title": "Have it find what to tidy first",
+      "html": "<p>As in Work 1, <b>have it find problems before fixing</b>. There are 15 rows but only 14 members. Why?</p>",
+      "image": "assets/img/ai/work-members/en/check.webp",
+      "alt": "Claude finds a duplicate member, mixed phone formats and blank dues",
+      "code": "Find what needs tidying in members.csv. Don't fix it yet",
+      "codeLabel": "Type this",
+      "check": {
+        "q": "Did it find the duplicate member, the phone formats and the blank dues?",
+        "yes": "clean",
+        "no": "check-help",
+        "yesLabel": "Yes, it found them"
+      },
+      "ask": true
+    },
+    {
+      "id": "check-help",
+      "kind": "help",
+      "title": "If it missed some",
+      "html": "<p>Three things are hidden: <b>Daniel Lee twice</b> (only the phone format differs), <b>four phone formats</b> (dashes, no spaces, spaces, dots), and <b>blank November dues for 2 people</b>. Giving criteria helps, e.g. \"Also find people with the same name and birthday.\"</p>",
+      "choices": [
+        {
+          "label": "Let me try again",
+          "next": "check"
+        },
+        {
+          "label": "Next",
+          "next": "clean"
+        }
+      ]
+    },
+    {
+      "id": "clean",
+      "stage": 5,
+      "title": "Keep the original; make a clean copy",
+      "html": "<p>State the rules <b>clearly</b>. In particular, don't let it turn blank dues into 'Unpaid' on its own. Read the create-file card and click <b>Allow</b>.</p>",
+      "code": "Leave the original as is and make a new members_clean.csv. Keep only one row for the duplicate, use the 555-0000 format for all phone numbers, and write 'Check' where dues are blank. Save it so Excel opens it correctly",
+      "codeLabel": "Type this",
+      "check": {
+        "q": "Was members_clean.csv created, with 14 members?",
+        "yes": "lists",
+        "no": "clean-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "clean-help",
+      "kind": "help",
+      "title": "If the clean copy looks off",
+      "html": "<ul><li>15 members means the duplicate is still there: \"Daniel Lee appears twice. Keep only one row.\"</li><li>If a card edits the original, deny it and say \"Don't touch the original; make a new file.\"</li></ul>"
+    },
+    {
+      "id": "lists",
+      "stage": 6,
+      "title": "Pull out the lists you need",
+      "html": "<p>Let's pull the two lists club admins look for most.</p>",
+      "image": "assets/img/ai/work-members/en/lists.webp",
+      "alt": "Lists of unpaid or unchecked dues and December birthdays",
+      "code": "From members_clean.csv, list who hasn't paid or needs checking for November dues, and December birthdays",
+      "codeLabel": "Type this",
+      "check": {
+        "q": "Did you get 3 unpaid (Jamie Park, Sue Cho, Chloe Lim), 2 to check (Hannah Jung, Yuna Oh) and 5 December birthdays?",
+        "yes": "message",
+        "no": "lists-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "lists-help",
+      "kind": "help",
+      "title": "If the lists differ",
+      "html": "<ul><li>If Daniel Lee appears twice among birthdays, the duplicate is still there.</li><li>If the 2 blanks were counted as unpaid: \"Blank isn't unpaid; list those separately as 'Check'.\"</li></ul>",
+      "choices": [
+        {
+          "label": "Let me try again",
+          "next": "lists"
+        },
+        {
+          "label": "Next",
+          "next": "message"
+        }
+      ]
+    },
+    {
+      "id": "message",
+      "stage": 7,
+      "title": "Draft personalized messages",
+      "html": "<p>Ask for a message with each person's name, all at once. Have it leave <b>things it can't know</b>, like account numbers, as blanks instead of making them up.</p><p class='muted'>Claude Code <b>doesn't send</b> messages. Check the drafts, then copy and send them yourself.</p>",
+      "code": "Write a polite reminder message for each of the 3 unpaid members, with their names. Leave the account number as [ACCOUNT]",
+      "codeLabel": "Type this",
+      "check": {
+        "q": "Did you get 3 messages with names, and [ACCOUNT] left blank?",
+        "yes": "tips",
+        "no": "message-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "message-help",
+      "kind": "help",
+      "title": "If it invented an account number",
+      "html": "<p>Never use a made-up number. Say \"Don't invent the account number; leave it as [ACCOUNT].\" Also check names and amounts against the list.</p>",
+      "choices": [
+        {
+          "label": "Let me try again",
+          "next": "message"
+        },
+        {
+          "label": "Next",
+          "next": "tips"
+        }
+      ]
+    },
+    {
+      "id": "tips",
+      "stage": 7,
+      "title": "Try handing over these too",
+      "html": "<ul><li><b>Add a new member</b>: \"Add new member Sky Kim, 555-1315, 1992-05-05, joined today, dues Paid, to members_clean.csv\"</li><li><b>Birthday messages</b>: \"A short birthday message for members born in December\"</li><li><b>Attendance sheet</b>: \"Make a December hike attendance sheet from members_clean.csv\"</li><li><b>Members who've drifted away</b>: if you keep attendance, \"members absent for over 3 months\"</li></ul><div class='lab__tip'><b>After working with a real list</b>, delete leftover copies in the Practice folder and keep the clean copy somewhere safe.</div>",
+      "next": "summary",
+      "button": "Got it, show the wrap-up"
+    },
+    {
+      "id": "summary",
+      "stage": 8,
+      "kind": "summary",
+      "title": "🎉 Work practice 5 done! What you learned",
+      "html": "<p>You untangled a list, pulled out the lists you needed and drafted messages.</p><h3>Three things to remember</h3><ol><li><b>Personal data</b>: a real list's contents are sent to the server when Claude reads it. Check the rules and mask if needed.</li><li><b>State the rules clearly</b>: \"phone numbers in this format\", \"blank means Check\", so it doesn't change things on its own.</li><li><b>No inventions</b>: leave unknowns like account numbers blank. Check names and amounts before sending.</li></ol><p class='lab__links'><a class='btn btn--primary' href='{{base}}lab/work-schedule.html'>Next: Work 6 · Manage schedules →</a><a class='btn btn--ghost' href='{{base}}ai/work-members.html'>Read today's steps as a guide</a></p>"
+    }
+  ]
+}

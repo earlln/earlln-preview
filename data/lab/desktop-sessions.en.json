@@ -1,0 +1,204 @@
+{
+  "id": "desktop-sessions",
+  "title": "Start a new chat or pick up an old one",
+  "stages": [
+    "Start",
+    "Open the app",
+    "New chat",
+    "What a new chat remembers",
+    "Pick up",
+    "Name and tidy",
+    "Wrap-up"
+  ],
+  "steps": [
+    {
+      "id": "intro",
+      "stage": 1,
+      "title": "What we'll do today",
+      "html": "<p>Each conversation you have with Claude is saved separately. We call it a <b>chat (session)</b>.</p><p>Today you'll learn three new things.</p><ol><li>What changes when you start a <b>new chat</b></li><li>How to <b>pick up</b> an old chat</li><li>How to <b>name</b> chats and tidy them up</li></ol><ul><li>Time: 10 minutes</li><li>You need: a computer that finished <a href='{{base}}lab/desktop-edit.html'>Desktop 2</a></li></ul>",
+      "next": "open",
+      "button": "Let's start"
+    },
+    {
+      "id": "open",
+      "stage": 2,
+      "title": "Open the app and look at the list on the left",
+      "html": "<ol><li>Open the Claude app and click the <b>Code</b> tab at the top left.</li><li>Look under <b>+ New</b> on the left. The chats from Desktop 1 and 2 are <b>listed</b> there.</li></ol><p>Claude names each chat automatically from what's in it, so the names may differ from the picture.</p>",
+      "image": "assets/img/ai/desktop-sessions/en/new.webp",
+      "alt": "The list of past chats under + New on the left",
+      "check": {
+        "q": "Can you see the list of past chats on the left?",
+        "yes": "new",
+        "no": "open-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "open-help",
+      "kind": "help",
+      "title": "If you don't see the list",
+      "html": "<ul><li>Make sure you're on the <b>Code</b> tab, not <b>Chat</b> or <b>Cowork</b>.</li><li>In a narrow window the list may be folded away. Widen the window or click the sidebar button at the top left.</li><li>If you did Desktop 1 and 2 on another computer, the list may be empty. You can still do today's practice.</li></ul>",
+      "choices": [
+        {
+          "label": "Let me look again",
+          "next": "open"
+        },
+        {
+          "label": "Continue anyway",
+          "next": "new"
+        }
+      ]
+    },
+    {
+      "id": "new",
+      "stage": 3,
+      "title": "Start a new chat",
+      "html": "<ol><li>Click <b>+ New</b> at the top left. (Shortcut: <kbd>Ctrl</kbd>+<kbd>N</kbd> on Windows, <kbd>⌘ Command</kbd>+<kbd>N</kbd> on a Mac)</li><li>Check that the buttons under the typing box show <b>Local · Practice · Manual</b>.</li></ol><p>An empty screen means the new chat has started.</p>",
+      "check": {
+        "q": "Did an empty new chat open, showing Local · Practice · Manual?",
+        "yes": "ask-file",
+        "no": "new-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "new-help",
+      "kind": "help",
+      "title": "If the new chat looks different",
+      "html": "<ul><li>If the folder isn't Practice, click the folder button → <b>Open folder…</b> and choose it. Folders you've chosen before show up in the list.</li><li>Click the permission mode button and choose <b>Manual</b>.</li><li>There's more detail in 'Choose the folder to work in' in <a href='{{base}}lab/desktop-install.html'>Desktop 1</a>.</li></ul>"
+    },
+    {
+      "id": "ask-file",
+      "stage": 4,
+      "title": "Ask about the file in the new chat",
+      "html": "<p>Paste or type the sentence below into the box and press {{enterkey}}.</p>",
+      "code": "What's in todo.txt?",
+      "codeLabel": "Type this",
+      "check": {
+        "q": "Did the contents of todo.txt appear?",
+        "yes": "ask-memory",
+        "no": "ask-file-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "ask-file-help",
+      "kind": "help",
+      "title": "If it can't find the file",
+      "html": "<ul><li>Claude only sees <b>files in the folder you chose</b>. Check that the folder under the box is <b>Practice</b>.</li><li>No todo.txt? Make one first: \"Create a file called todo.txt and write 3 example to-dos for today\".</li></ul>"
+    },
+    {
+      "id": "ask-memory",
+      "stage": 4,
+      "title": "Ask whether it remembers the last chat",
+      "html": "<p>Now ask about something from a <b>different chat</b>.</p>",
+      "image": "assets/img/ai/desktop-sessions/en/forget.webp",
+      "alt": "In a new chat, Claude reads the file but says it can't see other chats",
+      "code": "What did I ask you in the last chat?",
+      "codeLabel": "Type this",
+      "check": {
+        "q": "Did it say it can't see or doesn't know?",
+        "yes": "why-new",
+        "no": "memory-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "memory-help",
+      "kind": "help",
+      "title": "If it gave some answer",
+      "html": "<p>Claude may <b>guess from the file</b>, saying something like \"It looks like you edited your to-do list.\"</p><p>Even so, it can't see <b>what was actually said</b> in other chats. A guess isn't a memory. You can move on.</p>",
+      "choices": [
+        {
+          "label": "Got it, next",
+          "next": "why-new"
+        }
+      ]
+    },
+    {
+      "id": "why-new",
+      "stage": 4,
+      "title": "A new chat is a 'fresh sheet of paper'",
+      "html": "<p>Starting a new chat is like Claude taking out a <b>fresh sheet of paper</b>.</p><table class='lab__terms'><tr><th>Stays the same</th><td>The <b>files</b> in your Practice folder. It can read them again any time.</td></tr><tr><th>Starts fresh</th><td>The <b>conversation</b>. It doesn't know what was said in other chats.</td></tr></table><h3>When should you open a new chat?</h3><ul><li>When you start <b>a different job</b> (e.g. to-do list → meeting notes)</li><li>When a chat gets so long that Claude starts going off track</li></ul><p>Want to <b>continue</b> the same job? Just reopen the old chat. Let's try it.</p>",
+      "next": "continue",
+      "button": "Got it"
+    },
+    {
+      "id": "continue",
+      "stage": 5,
+      "title": "Pick up an old chat",
+      "html": "<ol><li>In the list on the left, click <b>the chat you used in Desktop 2</b>. It should be just below the one you just made.</li><li>When you see the earlier messages, send the sentence below.</li></ol>",
+      "image": "assets/img/ai/desktop-sessions/en/continue.webp",
+      "alt": "Clicking a past chat in the list on the left to continue it",
+      "code": "What did we change last?",
+      "codeLabel": "Type this",
+      "check": {
+        "q": "Did it remember what you did before?",
+        "yes": "rename",
+        "no": "continue-help",
+        "yesLabel": "Yes, it remembers!"
+      },
+      "ask": true
+    },
+    {
+      "id": "continue-help",
+      "kind": "help",
+      "title": "If it doesn't remember",
+      "html": "<ul><li>You may have clicked a different chat. When you open it, check that you can see <b>messages you sent before</b> (e.g. asking for a title).</li><li>You can also move between chats with <kbd>Ctrl</kbd>+<kbd>Tab</kbd>.</li><li>If you did Desktop 2 on another computer, you can skip this step.</li></ul>",
+      "choices": [
+        {
+          "label": "Let me try again",
+          "next": "continue"
+        },
+        {
+          "label": "Skip to the next step",
+          "next": "rename"
+        }
+      ]
+    },
+    {
+      "id": "rename",
+      "stage": 6,
+      "title": "Give the chat a name you'll recognize",
+      "html": "<p>Once you have lots of chats, you'll find them by name. Let's rename this one.</p><ol><li>Click <b>the chat title at the top</b> of the screen.</li><li>Delete the text, type <b>To-do cleanup</b>, and press {{enterkey}}.</li></ol>",
+      "image": "assets/img/ai/desktop-sessions/en/rename.webp",
+      "alt": "Clicking the chat title at the top and typing a new name",
+      "check": {
+        "q": "Did the name change to 'To-do cleanup' in the list on the left too?",
+        "yes": "archive",
+        "no": "rename-help"
+      }
+    },
+    {
+      "id": "rename-help",
+      "kind": "help",
+      "title": "If you can't find the title",
+      "html": "<p>Where the title sits varies a little by app version. Look at the top center or top left. Hovering over a chat in the list may also show a <b>menu (⋯)</b> with a rename option.</p><p>It's fine if you can't find it. Claude names chats automatically anyway.</p>",
+      "choices": [
+        {
+          "label": "Let me look again",
+          "next": "rename"
+        },
+        {
+          "label": "That's okay, next",
+          "next": "archive"
+        }
+      ]
+    },
+    {
+      "id": "archive",
+      "stage": 6,
+      "title": "Tidy up finished chats (just so you know)",
+      "html": "<p>When the list gets long, you can <b>Archive</b> finished chats to clear them away. You don't need to do it now.</p><ol><li>Hover over a chat in the list on the left.</li><li>Open the <b>menu (⋯)</b> next to it → <b>Archive</b>.</li></ol><p>Archived chats aren't deleted. You can find them again under <b>View all</b> → <b>Archived</b>.</p>",
+      "next": "summary",
+      "button": "Got it, show the wrap-up"
+    },
+    {
+      "id": "summary",
+      "stage": 7,
+      "kind": "summary",
+      "title": "🎉 Desktop practice 3 done! What you learned",
+      "html": "<p>Now you can start new chats, pick up old ones and tidy them up.</p><table class='lab__terms'><tr><th>+ New</th><td>Start a new chat (<kbd>Ctrl</kbd>+<kbd>N</kbd>, <kbd>⌘</kbd>+<kbd>N</kbd> on a Mac)</td></tr><tr><th>List on the left</th><td>Click a past chat to continue it</td></tr><tr><th>Title at the top</th><td>Click to rename</td></tr><tr><th>Archive</th><td>Put away finished chats (not deleted)</td></tr></table><h3>Two things to remember</h3><ol><li>A new chat <b>can still read your files, but doesn't know what was said in other chats.</b></li><li><b>New job, new chat; same job, continue.</b> Splitting chats this way keeps Claude from getting confused.</li></ol><h3>Why does it matter?</h3><p>If you mix many jobs in one chat, earlier messages can leak into later work in odd ways. Keeping one chat per job keeps the results clean. When a chat gets very long, Claude also <b>summarizes</b> the earlier part on its own to keep going.</p><p class='lab__links'><a class='btn btn--primary' href='{{base}}lab/desktop-organize.html'>Next: Desktop 4 · Organize several files at once →</a><a class='btn btn--ghost' href='{{base}}ai/desktop-sessions.html'>Read today's steps as a guide</a></p>"
+    }
+  ]
+}

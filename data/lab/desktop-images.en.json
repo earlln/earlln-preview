@@ -1,0 +1,176 @@
+{
+  "id": "desktop-images",
+  "title": "Show it a picture or screenshot",
+  "stages": [
+    "Start",
+    "Get a sample",
+    "Attach it",
+    "Ask",
+    "Save to a file",
+    "Be careful",
+    "Capture your screen",
+    "Wrap-up"
+  ],
+  "steps": [
+    {
+      "id": "intro",
+      "stage": 1,
+      "title": "What we'll do today",
+      "html": "<p>Things that are hard to explain in words are easy to <b>show in a picture</b>: receipts, tables, error messages on screen.</p><p>Today you'll learn three new things.</p><ol><li><b>Attach a picture</b> to show Claude</li><li>Turn what's in the picture into <b>a table saved in a file</b></li><li>How to take a <b>screenshot</b> of your own screen</li></ol><ul><li>Time: 15 minutes</li><li>You need: a computer that finished <a href='{{base}}lab/desktop-undo.html'>Desktop 6</a></li></ul><div class='lab__tip'>Open this page <b>on your computer</b> for this practice. You'll download a sample picture to it.</div>",
+      "next": "get",
+      "button": "Let's start"
+    },
+    {
+      "id": "get",
+      "stage": 2,
+      "title": "Download the sample receipt",
+      "html": "<p>Here's a receipt picture for practice. Click the button below to save it as <b>receipt.webp</b> in your computer's <b>Downloads</b> folder.</p><p class='lab__links'><a class='btn btn--primary' href='{{base}}assets/img/ai/desktop-images/en/receipt.webp' download='receipt.webp'>⬇ Download the sample receipt</a></p>",
+      "image": "assets/img/ai/desktop-images/en/receipt.webp",
+      "alt": "A sample receipt from Earlln Mart",
+      "check": {
+        "q": "Did you download receipt.webp?",
+        "yes": "open",
+        "no": "get-help"
+      }
+    },
+    {
+      "id": "get-help",
+      "kind": "help",
+      "title": "If the download doesn't work",
+      "html": "<ul><li>You can also <b>right-click</b> the picture above (two-finger click on a Mac) → <b>Save image as</b>.</li><li>If you're viewing this on a phone, open this page on your computer.</li><li>Any other receipt or picture you have works too.</li></ul>",
+      "choices": [
+        {
+          "label": "Let me try again",
+          "next": "get"
+        },
+        {
+          "label": "I'll use another picture",
+          "next": "open"
+        }
+      ]
+    },
+    {
+      "id": "open",
+      "stage": 3,
+      "title": "Start with a new chat",
+      "html": "<ol><li>Claude app → <b>Code</b> tab → <b>+ New</b>.</li><li>Check that the buttons under the typing box show <b>Local · Practice · Manual</b>.</li></ol>",
+      "check": {
+        "q": "Can you see Local · Practice · Manual?",
+        "yes": "attach",
+        "no": "open-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "open-help",
+      "kind": "help",
+      "title": "If the start screen looks different",
+      "html": "<ul><li>If the folder isn't Practice, click the folder button → <b>Open folder…</b> and choose it.</li><li>Click the permission mode button and choose <b>Manual</b>.</li></ul>"
+    },
+    {
+      "id": "attach",
+      "stage": 3,
+      "title": "Attach the picture to the typing box",
+      "html": "<ol><li>Click the <b>+</b> button next to the typing box.</li><li>Click <b>Add files or photos</b>.</li><li>In the file window, go to <b>Downloads</b> → <b>receipt.webp</b> → <b>Open</b>.</li></ol><p>If the picture shows up as a small tag in the typing box, it worked.</p><div class='lab__tip'>Another way: open the Downloads folder and <b>drag receipt.webp onto the typing box</b>.</div>",
+      "image": "assets/img/ai/desktop-images/en/attach.webp",
+      "alt": "Attaching a picture with + → Add files or photos",
+      "check": {
+        "q": "Is receipt.webp attached in the typing box?",
+        "yes": "ask",
+        "no": "attach-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "attach-help",
+      "kind": "help",
+      "title": "If the picture won't attach",
+      "html": "<ul><li>The <b>+</b> menu item may be named differently, like <b>Add image</b>. Choose the one for adding pictures or files.</li><li>Try dragging and dropping. It's easier with the Downloads window and Claude side by side.</li><li>In the file window, Downloads is in the list on the left.</li></ul>",
+      "choices": [
+        {
+          "label": "Let me try again",
+          "next": "attach"
+        },
+        {
+          "label": "Next",
+          "next": "ask"
+        }
+      ]
+    },
+    {
+      "id": "ask",
+      "stage": 4,
+      "title": "Ask it to read and organize the picture",
+      "html": "<p>With the picture attached, type the sentence below and press {{enterkey}}. It's only <b>reading</b> the picture, so it won't ask permission.</p>",
+      "image": "assets/img/ai/desktop-images/en/result.webp",
+      "alt": "Claude reads the receipt, makes a table and checks the total",
+      "code": "Look at this receipt and put the items and prices in a table. Also check whether the total is right",
+      "codeLabel": "Type this",
+      "check": {
+        "q": "Did you get a table and a note checking the total?",
+        "yes": "save",
+        "no": "ask-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "ask-help",
+      "kind": "help",
+      "title": "If it says it can't read the picture",
+      "html": "<ul><li>Check that you sent it <b>with the picture attached</b>; the tag should be in the typing box.</li><li>Blurry text can be misread. Try the sample picture first.</li></ul>",
+      "choices": [
+        {
+          "label": "Let me try again",
+          "next": "ask"
+        },
+        {
+          "label": "Next",
+          "next": "save"
+        }
+      ]
+    },
+    {
+      "id": "save",
+      "stage": 5,
+      "title": "Save the table to a file",
+      "html": "<p>The table only lives in the chat. Let's keep it in a file. Read the create-file permission card and click <b>Allow</b>.</p>",
+      "code": "Save that table as receipt-summary.txt",
+      "codeLabel": "Type this",
+      "check": {
+        "q": "Is there a receipt-summary.txt in the Practice folder, with the table inside?",
+        "yes": "careful",
+        "no": "save-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "save-help",
+      "kind": "help",
+      "title": "If you don't see the file",
+      "html": "<ul><li>If you denied the card, send it again and allow it.</li><li>Check the folder under the typing box is <b>Practice</b>. It may have saved somewhere else.</li></ul>"
+    },
+    {
+      "id": "careful",
+      "stage": 6,
+      "title": "Be careful when you share pictures",
+      "html": "<ul><li><b>Double-check numbers</b>: AI can misread text in pictures too. Compare important things like amounts and dates with the original. Adding \"check whether the total is right\", as today, helps.</li><li><b>Hide sensitive information</b>: don't upload ID numbers, card numbers, passwords or other people's faces, or cover them first.</li><li><b>Make it clear</b>: a straight, bright picture is read more accurately than a blurry or tilted one.</li></ul>",
+      "next": "screenshot",
+      "button": "Got it"
+    },
+    {
+      "id": "screenshot",
+      "stage": 7,
+      "title": "How to take a screenshot",
+      "html": "<p>Use this when you want to show an error message or a table on your screen.</p><table class='lab__terms'><tr><th>Windows</th><td><kbd>⊞</kbd>+<kbd>Shift</kbd>+<kbd>S</kbd> → drag to select the area → click the notification at the bottom right and <b>Save</b> (<kbd>Ctrl</kbd>+<kbd>S</kbd>)</td></tr><tr><th>Mac</th><td><kbd>⌘</kbd>+<kbd>Shift</kbd>+<kbd>4</kbd> → drag to select the area → it's saved as a picture on your <b>desktop</b></td></tr></table><p>Attach the saved picture with <b>+</b> as you did today and ask things like \"What does this error mean?\" or \"Turn this table into a spreadsheet layout.\"</p>",
+      "next": "summary",
+      "button": "Got it, show the wrap-up"
+    },
+    {
+      "id": "summary",
+      "stage": 8,
+      "kind": "summary",
+      "title": "🎉 Desktop practice 7 done! What you learned",
+      "html": "<p>Now you can hand over jobs by <b>showing pictures</b> instead of explaining in words.</p><div class='lab__flow'><span>Picture or screenshot</span><i>attach with +</i><span>Claude reads it</span><i>organizes and checks</i><span>Saved to a file</span></div><h3>Three things to remember</h3><ol><li>Attach pictures with <b>+ → Add files or photos</b> next to the typing box, or by <b>dragging and dropping</b>.</li><li>AI can misread too. <b>Check important numbers</b>, and add \"check whether it's right\".</li><li>Don't upload pictures with <b>sensitive information</b>, or cover it first.</li></ol><p class='lab__links'><a class='btn btn--primary' href='{{base}}lab/desktop-usage.html'>Next: Desktop 8 · Plans and usage limits →</a><a class='btn btn--ghost' href='{{base}}ai/desktop-images.html'>Read today's steps as a guide</a></p>"
+    }
+  ]
+}

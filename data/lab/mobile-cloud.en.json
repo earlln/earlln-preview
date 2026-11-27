@@ -1,0 +1,164 @@
+{
+  "id": "mobile-cloud",
+  "title": "Use Claude Code from your phone alone (cloud)",
+  "stages": [
+    "Start",
+    "Send a job",
+    "Wait and check",
+    "Create a PR",
+    "Merge",
+    "Next time",
+    "Wrap-up"
+  ],
+  "steps": [
+    {
+      "id": "intro",
+      "stage": 1,
+      "title": "What we'll do today",
+      "html": "<p>Using only your phone, you'll give Claude a job and land the result in your notes repository (my-notes). <b>Your computer can be off.</b></p><ul><li>Time: 15 minutes</li><li>You need: the <b>my-notes</b> repository from <a href='{{base}}lab/mobile-github.html'>Phone 2</a>, and the Claude phone app</li></ul>",
+      "next": "how",
+      "button": "Let's start"
+    },
+    {
+      "id": "how",
+      "stage": 1,
+      "title": "First, how the cloud works",
+      "html": "<p>The biggest difference from before: <b>no permission cards</b>. Instead, there's this safety net.</p><div class='lab__flow'><span>Send a job</span><i>Claude works on its own</i><span>Saved to a new branch</span><i>you review</i><span>Only merging changes the original</span></div><table class='lab__terms'><tr><th>Branch</th><td>A <b>side copy</b> for changes, leaving the original (main) untouched</td></tr><tr><th>PR (pull request)</th><td>A <b>review request</b>: \"May I merge this branch into the original?\"</td></tr><tr><th>Merge</th><td>You check it and <b>combine</b> it into the original. Only then does my-notes change</td></tr></table>",
+      "next": "send",
+      "button": "Got it"
+    },
+    {
+      "id": "send",
+      "stage": 2,
+      "title": "Send a job from your phone",
+      "html": "<ol><li>Claude phone app → <b>Code</b> in the menu.</li><li>Under the typing box, set the repository to <b>my-notes</b> and leave the branch as <b>main</b>. (Environment: Default)</li><li>Send the sentence below.</li></ol><p class='muted'>Unlike Phone 1's green-dot chat (your computer), this is a new chat where you pick a <b>repository</b>.</p>",
+      "image": "assets/img/ai/mobile-cloud/en/pick-repo.webp",
+      "alt": "Picking the my-notes repository in Code on the phone and sending a job",
+      "code": "Create todo.md and write 5 example to-dos for this week",
+      "codeLabel": "Type on the phone",
+      "check": {
+        "q": "Did you pick my-notes and send it?",
+        "yes": "wait",
+        "no": "send-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "send-help",
+      "kind": "help",
+      "title": "If you can't pick the repository",
+      "html": "<ul><li>If my-notes isn't listed, check the 'Install the app' step in <a href='{{base}}lab/mobile-github.html'>Phone 2</a>.</li><li>If the app struggles, opening <b>claude.ai/code</b> in your phone browser works the same way.</li></ul>",
+      "choices": [
+        {
+          "label": "Let me try again",
+          "next": "send"
+        },
+        {
+          "label": "Next",
+          "next": "wait"
+        }
+      ]
+    },
+    {
+      "id": "wait",
+      "stage": 3,
+      "title": "Wait, then check the result",
+      "html": "<p>Setting up and working in the cloud can take <b>a few minutes</b>. It <b>keeps working even if you close the app</b>. Reopen the chat when it's done.</p><ol><li>When you see that it pushed to a new branch and a <b>Changes</b> count (e.g. +7), it's finished.</li><li>Tap the Changes numbers to see <b>what changed</b>. If the app doesn't show it, open the same chat at <b>claude.ai/code</b> in your phone browser.</li></ol>",
+      "image": "assets/img/ai/mobile-cloud/en/done.webp",
+      "alt": "After finishing, Changes and a Create PR button appear",
+      "check": {
+        "q": "Is it done, and did you check the changes (todo.md)?",
+        "yes": "pr",
+        "no": "wait-help"
+      }
+    },
+    {
+      "id": "wait-help",
+      "kind": "help",
+      "title": "If it's slow or seems stuck",
+      "html": "<ul><li>The first run takes longer while the cloud computer gets ready. Give it about 5 minutes.</li><li>Claude may have asked you something. Open the chat and answer.</li><li>Idle sessions can pause. Reopen the chat and say \"carry on\".</li></ul>",
+      "choices": [
+        {
+          "label": "Let me look again",
+          "next": "wait"
+        },
+        {
+          "label": "Next",
+          "next": "pr"
+        }
+      ]
+    },
+    {
+      "id": "pr",
+      "stage": 4,
+      "title": "Create a PR (review request)",
+      "html": "<p>Right now todo.md only exists on <b>the new branch</b>. To merge it into the original, first make a <b>PR</b>.</p><ul><li>If you see a <b>Create PR</b> button, tap it. The title and description are filled in for you.</li><li>No button? Send <b>\"Create a PR\"</b> in the chat.</li></ul>",
+      "check": {
+        "q": "Was the PR created? (You'll see a GitHub link or a note that a pull request was opened)",
+        "yes": "merge",
+        "no": "pr-help"
+      }
+    },
+    {
+      "id": "pr-help",
+      "kind": "help",
+      "title": "If the PR won't create",
+      "html": "<ul><li>Open the same chat at <b>claude.ai/code</b> in your phone browser; the Create PR button is there.</li><li>Or make it on GitHub: my-notes repository → the yellow bar's <b>Compare &amp; pull request</b> → <b>Create pull request</b>.</li></ul>",
+      "choices": [
+        {
+          "label": "Let me try again",
+          "next": "pr"
+        },
+        {
+          "label": "Next",
+          "next": "merge"
+        }
+      ]
+    },
+    {
+      "id": "merge",
+      "stage": 5,
+      "title": "Check and merge on GitHub",
+      "html": "<ol><li>In your phone browser (or the GitHub app): <b>github.com</b> → <b>my-notes</b> → <b>Pull requests</b> → the PR you just made.</li><li>Check todo.md once more under <b>Files changed</b>.</li><li>If it's fine: <b>Merge pull request</b> → <b>Confirm merge</b>.</li><li>When <b>todo.md</b> shows on my-notes' front page (Code), you're done!</li></ol><div class='lab__tip'><b>Merging is your final permission.</b> Instead of permission cards, read it here before tapping. Don't like it? Don't merge; ask Claude to fix it.</div>",
+      "image": "assets/img/ai/mobile-cloud/en/merge.webp",
+      "alt": "Checking Files changed on a GitHub PR and tapping Merge pull request",
+      "check": {
+        "q": "Can you see todo.md on my-notes' front page?",
+        "yes": "next",
+        "no": "merge-help",
+        "yesLabel": "Yes, it's there! 🎉"
+      }
+    },
+    {
+      "id": "merge-help",
+      "kind": "help",
+      "title": "If merging doesn't work",
+      "html": "<ul><li>A grey <b>Merge</b> button means a conflict. Tell Claude \"Resolve the PR conflict.\"</li><li>Want changes? In the same chat say something like \"Cut it to 3 to-dos.\" It updates the same PR.</li></ul>",
+      "choices": [
+        {
+          "label": "Let me try again",
+          "next": "merge"
+        },
+        {
+          "label": "Next",
+          "next": "next"
+        }
+      ]
+    },
+    {
+      "id": "next",
+      "stage": 6,
+      "title": "Next time · be careful",
+      "html": "<ul><li><b>Continue the same job</b>: reopen that chat in the app's Code list and keep talking.</li><li><b>New job</b>: start a new chat and pick my-notes. Each time: new branch → PR → merge.</li><li>You can see Claude's files any time in the GitHub app or on github.com.</li></ul><div class='lab__tip'><ul><li><b>Usage</b>: the cloud uses the <b>same limits</b> as chat and desktop. (Desktop 8)</li><li><b>No sensitive data</b>: keep passwords, account numbers and other people's personal data out of the repository.</li><li><b>You may not get a done notification</b>: check the app now and then.</li></ul></div>",
+      "next": "summary",
+      "button": "Got it, show the wrap-up"
+    },
+    {
+      "id": "summary",
+      "stage": 7,
+      "kind": "summary",
+      "title": "🎉 Phone practice 3 done! Jobs without a computer",
+      "html": "<p>Now you can hand Claude jobs from just your phone, even on your commute.</p><table class='lab__terms'><tr><th>Phone 1</th><td>Control <b>your computer</b> (left on) from your phone; files stay on your computer</td></tr><tr><th>Phone 3</th><td>Work happens <b>in the cloud</b> and lands in a GitHub repository; your computer can be off</td></tr></table><h3>Three things to remember</h3><ol><li>No permission cards in the cloud. Instead: <b>new branch → PR → merge</b>.</li><li><b>Always read Files changed before merging</b>. Merging is your final permission.</li><li>Keep the repository private, and keep sensitive data out.</li></ol><p class='lab__links'><a class='btn btn--primary' href='{{base}}lab/practice.html'>Back to all practices</a><a class='btn btn--ghost' href='{{base}}ai/mobile-cloud.html'>Read today's steps as a guide</a></p>"
+    }
+  ]
+}

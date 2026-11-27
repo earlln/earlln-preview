@@ -1,0 +1,208 @@
+{
+  "id": "work-schedule",
+  "title": "일정 관리하기",
+  "stages": [
+    "시작",
+    "예시 메모 준비",
+    "일정표로 모으기",
+    "겹침·애매한 것 정하기",
+    "이번 주 보기",
+    "캘린더 파일 만들기",
+    "캘린더에 넣기",
+    "총정리"
+  ],
+  "steps": [
+    {
+      "id": "intro",
+      "stage": 1,
+      "title": "오늘 할 일",
+      "html": "<p>일정이 메모장, 카톡, 공지에 흩어져 있으면 놓치기 쉬워요. 오늘은 흩어진 일정을 <b>하나의 일정표</b>로 모으고, <b>캘린더에 한 번에</b> 넣어 봐요.</p><div class='lab__flow'><span>흩어진 메모</span><i>Claude</i><span>일정표</span><i>겹침·애매한 것 정리</i><span>캘린더 파일(.ics)</span><i>가져오기</i><span>내 캘린더</span></div><div class='lab__tip'>Claude Code가 캘린더를 <b>직접</b> 고치려면 따로 연결 설정이 필요해요. 오늘은 설정 없이, 캘린더가 읽을 수 있는 <b>.ics 파일</b>을 만들어 넣는 방법으로 해요.</div><ul><li>걸리는 시간: 20분</li><li>필요한 것: <a href='{{base}}lab/work-csv.html'>실무 1</a>을 해 본 컴퓨터, 구글·아웃룩·아이폰 캘린더 중 하나</li></ul>",
+      "next": "get",
+      "button": "시작하기"
+    },
+    {
+      "id": "get",
+      "stage": 2,
+      "title": "예시 일정 메모 받기",
+      "html": "<p>11월 23일(월)에 적은 메모예요. 날짜 쓰는 법이 제각각이고, <b>'다음 주 화요일'</b>처럼 기준이 필요한 말과 <b>겹치는 일정</b>도 숨어 있어요.</p><p class='lab__links'><a class='btn btn--primary' href='{{base}}assets/files/work/schedule-ko.txt' download='일정메모.txt'>⬇ 예시 메모 일정메모.txt 내려받기</a></p><p>다운로드 폴더의 일정메모.txt를 <b>연습 폴더로 끌어다 놓으세요.</b></p>",
+      "check": {
+        "q": "연습 폴더에 일정메모.txt가 있나요?",
+        "yes": "open",
+        "no": "get-help"
+      }
+    },
+    {
+      "id": "get-help",
+      "kind": "help",
+      "title": "파일 준비가 잘 안 될 때",
+      "html": "<ul><li>버튼을 눌렀는데 글이 화면에 보이면 <kbd>Ctrl</kbd>+<kbd>S</kbd>(Mac은 <kbd>⌘</kbd>+<kbd>S</kbd>)로 <b>일정메모.txt</b>로 저장하세요.</li><li>옮기는 법은 <a href='{{base}}lab/work-csv.html'>실무 1</a>과 같아요.</li></ul>",
+      "choices": [
+        {
+          "label": "다시 해 볼게요",
+          "next": "get"
+        },
+        {
+          "label": "준비됐어요",
+          "next": "open"
+        }
+      ]
+    },
+    {
+      "id": "open",
+      "stage": 2,
+      "title": "새 대화로 시작하기",
+      "html": "<p>Claude 앱 → <b>Code</b> 탭 → <b>+ New</b>. 입력 칸 아래가 <b>Local · 연습 · Manual</b>인지 확인하세요.</p>",
+      "check": {
+        "q": "Local · 연습 · Manual 이 모두 보이나요?",
+        "yes": "table",
+        "no": "open-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "open-help",
+      "kind": "help",
+      "title": "시작 화면이 다를 때",
+      "html": "<ul><li>폴더가 연습이 아니면 폴더 버튼 → <b>Open folder…</b>로 연습 폴더를 고르세요.</li><li>허락 방식 버튼을 눌러 <b>Manual</b>을 고르세요.</li></ul>"
+    },
+    {
+      "id": "table",
+      "stage": 3,
+      "title": "날짜순 일정표로 모으기",
+      "html": "<p>'다음 주 화요일'을 정확한 날짜로 바꾸려면 <b>오늘이 언제인지</b> 알려 줘야 해요. 오늘은 메모를 쓴 날(11월 23일)로 해 볼게요. 그리고 <b>겹치거나 애매한 건 따로</b> 알려 달라고 하세요.</p>",
+      "image": "assets/img/ai/work-schedule/table.webp",
+      "alt": "일정을 날짜순 표로 모으고, 겹치는 일정과 애매한 날짜를 알려 주는 그림",
+      "code": "오늘은 2026년 11월 23일 월요일이야. 일정메모.txt를 날짜순 표로 정리하고, 겹치거나 애매한 건 따로 알려줘",
+      "codeLabel": "따라 입력해 보세요",
+      "check": {
+        "q": "12/1 오전 10시 겹침과 '둘째 주 월요일'이 애매하다는 말이 나왔나요?",
+        "yes": "decide",
+        "no": "table-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "table-help",
+      "kind": "help",
+      "title": "겹침을 못 찾았다면",
+      "html": "<ul><li>'다음 주 화요일'은 11월 23일(월) 기준으로 <b>12월 1일(화)</b>이에요. 은행 방문(12월 1일 오전 10시)과 겹쳐요.</li><li>'12월 둘째 주 월요일'은 달력 줄로 보면 12월 7일, 두 번째 월요일로 보면 12월 14일이라 <b>사람이 정해야</b> 해요.</li><li>\"'다음 주 화요일'이 며칠인지 다시 계산하고, 같은 날 같은 시간 일정이 있는지 봐줘\"라고 해 보세요.</li></ul>",
+      "choices": [
+        {
+          "label": "다시 해 볼게요",
+          "next": "table"
+        },
+        {
+          "label": "다음으로",
+          "next": "decide"
+        }
+      ]
+    },
+    {
+      "id": "decide",
+      "stage": 4,
+      "title": "겹침·애매한 것은 내가 정하고 저장",
+      "html": "<p>AI가 찾아 줘도 <b>결정은 내가</b> 해요. 정한 내용을 알려 주고 일정표를 파일로 남겨요. 파일 만들기 허락 카드를 읽고 <b>허용</b>하세요.</p>",
+      "code": "워크숍은 12월 7일로 해줘. 은행 방문은 12월 1일 오후 2시로 옮길게. 이렇게 고친 일정을 일정표.csv로 저장해줘",
+      "codeLabel": "따라 입력해 보세요",
+      "check": {
+        "q": "연습 폴더에 일정표.csv가 생겼나요?",
+        "yes": "week",
+        "no": "decide-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "decide-help",
+      "kind": "help",
+      "title": "파일이 안 보일 때",
+      "html": "<ul><li>허락 카드를 거절했다면 다시 보내고 허용하세요.</li><li>폴더 창을 닫았다가 다시 열어 보세요.</li></ul>"
+    },
+    {
+      "id": "week",
+      "stage": 5,
+      "title": "다음 주 일정만 보기",
+      "html": "<p>일정표가 있으면 \"이번 주\", \"다음 주\"만 쏙 뽑아 볼 수 있어요.</p>",
+      "code": "일정표.csv에서 다음 주(11/30~12/6) 일정만 요일별로 보여줘",
+      "codeLabel": "따라 입력해 보세요",
+      "check": {
+        "q": "12/1 마케팅 회의(오전 10시)·은행(오후 2시), 12/3 설명회, 12/4 송년회가 나왔나요?",
+        "yes": "ics",
+        "no": "week-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "week-help",
+      "kind": "help",
+      "title": "일정이 빠지거나 틀리면",
+      "html": "<p>\"일정표.csv를 다시 읽고\"를 앞에 붙여 보세요. 은행이 아직 오전 10시면 앞 단계에서 고친 내용이 저장되지 않은 거예요. \"은행 방문을 12월 1일 오후 2시로 고쳐서 다시 저장해줘\".</p>",
+      "choices": [
+        {
+          "label": "다시 해 볼게요",
+          "next": "week"
+        },
+        {
+          "label": "다음으로",
+          "next": "ics"
+        }
+      ]
+    },
+    {
+      "id": "ics",
+      "stage": 6,
+      "title": "캘린더에 넣을 파일(.ics) 만들기",
+      "html": "<p><b>.ics</b>는 구글·아웃룩·아이폰 캘린더가 모두 읽을 수 있는 <b>일정 파일</b>이에요. 시간대(한국 시간)와 종일 일정을 분명히 말해 주세요. 파일 만들기 허락 카드를 읽고 <b>허용</b>하세요.</p>",
+      "code": "일정표.csv를 캘린더에 넣을 수 있는 일정.ics 파일로 만들어줘. 한국 시간(Asia/Seoul) 기준으로, 시간이 없는 건 종일 일정으로, 연말 이벤트는 12/10~12/31 기간으로",
+      "codeLabel": "따라 입력해 보세요",
+      "check": {
+        "q": "연습 폴더에 일정.ics가 생겼나요?",
+        "yes": "import",
+        "no": "ics-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "ics-help",
+      "kind": "help",
+      "title": "파일이 안 생겼을 때",
+      "html": "<ul><li>허락 카드를 거절했다면 다시 보내고 허용하세요.</li><li>Claude가 대화창에만 내용을 보여 줬다면 \"그 내용을 일정.ics 파일로 저장해줘\".</li></ul>"
+    },
+    {
+      "id": "import",
+      "stage": 7,
+      "title": "캘린더에 가져오기 — 먼저 '연습용' 캘린더에",
+      "html": "<p>내 일정과 섞이면 지우기 번거로워요. <b>'연습용' 캘린더를 새로 만들어 거기에</b> 넣어 보세요. 나중에 그 캘린더만 지우면 연습 일정도 함께 사라져요.</p><table class='lab__terms'><tr><th>구글 캘린더</th><td>컴퓨터 브라우저 → 오른쪽 위 ⚙ <b>설정</b> → 왼쪽 <b>캘린더 추가 → 새 캘린더</b>(이름: 연습용) → 왼쪽 <b>가져오기/내보내기</b> → 일정.ics 고르기 → 캘린더 <b>연습용</b> → <b>가져오기</b></td></tr><tr><th>아웃룩</th><td>일정.ics를 두 번 누르거나, <b>파일 → 열기 및 내보내기 → 가져오기/내보내기</b></td></tr><tr><th>Mac·아이폰</th><td>Mac에서는 일정.ics를 두 번 눌러 캘린더 고르기. 아이폰은 파일을 나에게 메일로 보내 열기</td></tr></table><p class='muted'>메뉴 이름은 버전에 따라 조금 달라요.</p>",
+      "image": "assets/img/ai/work-schedule/import.webp",
+      "alt": "캘린더 설정의 가져오기 화면에서 일정.ics를 연습용 캘린더에 넣는 그림",
+      "check": {
+        "q": "연습용 캘린더에 일정이 들어갔나요?",
+        "yes": "summary",
+        "no": "import-help",
+        "yesLabel": "네, 들어갔어요! 🎉"
+      }
+    },
+    {
+      "id": "import-help",
+      "kind": "help",
+      "title": "가져오기가 잘 안 될 때",
+      "html": "<ul><li><b>시간이 이상하게</b> 들어갔다면 시간대 문제예요. \"일정.ics의 시간대를 Asia/Seoul로 분명하게 넣어서 다시 만들어줘\".</li><li><b>파일을 못 읽는다</b>고 하면 \"일정.ics가 표준 iCalendar 형식에 맞는지 확인하고 고쳐줘\".</li><li>잘못 들어갔다면 <b>연습용 캘린더를 지우면</b> 한 번에 정리돼요.</li></ul>",
+      "choices": [
+        {
+          "label": "다시 해 볼게요",
+          "next": "import"
+        },
+        {
+          "label": "정리 보기",
+          "next": "summary"
+        }
+      ]
+    },
+    {
+      "id": "summary",
+      "stage": 8,
+      "kind": "summary",
+      "title": "🎉 실무 실습 6 완료! 오늘 배운 것 정리",
+      "html": "<p>흩어진 메모가 일정표가 되고, 캘린더에 한 번에 들어갔어요.</p><h3>꼭 기억할 세 가지</h3><ol><li>'다음 주', '이번 금요일' 같은 말이 있으면 <b>오늘 날짜를 알려 주세요.</b></li><li>AI가 <b>겹침·애매한 것을 찾아 주면, 결정은 내가.</b></li><li>캘린더에 넣을 땐 <b>.ics 파일</b>로. 처음엔 <b>연습용 캘린더</b>에 넣어 확인.</li></ol><h3>이렇게 써 보세요</h3><p>공지·회의록을 받을 때마다 \"여기 있는 일정을 일정표.csv에 추가해줘\" → 주말에 \"다음 주 일정 .ics로\". 알림이 필요하면 \"모든 일정에 30분 전 알림 넣어줘\".</p><p class='lab__links'><a class='btn btn--primary' href='{{base}}lab/work-web.html'>다음: 실무 7 · 웹 자료 찾아 정리하기 →</a><a class='btn btn--ghost' href='{{base}}ai/work-schedule.html'>오늘 내용 글로 다시 보기</a></p>"
+    }
+  ]
+}

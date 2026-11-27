@@ -1,0 +1,131 @@
+{
+  "id": "claude-code-edit-file",
+  "title": "Have it edit a file",
+  "stages": ["Start", "Start it again", "Ask it to read", "Ask it to edit", "Read the changes", "Check the result", "Say no and ask again", "Wrap-up"],
+  "steps": [
+    {
+      "id": "intro", "stage": 1,
+      "title": "What we'll do today",
+      "html": "<p>You'll ask Claude to <b>edit</b> the <b>todo.txt</b> you made in Terminal practice 1.</p><p>You'll learn two new things today:</p><ol><li>How to <b>read the \"what will change\" screen</b> Claude shows before editing</li><li>How to <b>say no and ask again</b> when you don't like it</li></ol><ul><li>Time: 10–15 minutes</li><li>You need: the computer you used for Terminal practice 1 (todo.txt in the Practice folder on your desktop)</li></ul>",
+      "next": "device", "button": "Let's start",
+      "faq": [
+        { "q": "I haven't done Terminal practice 1.", "a": "In Terminal practice 1 you install Claude Code and create todo.txt. Please start with <a href='{{base}}lab/claude-code-install.html'>Terminal practice 1</a>." }
+      ]
+    },
+    {
+      "id": "device", "stage": 1,
+      "title": "Which computer are you using?",
+      "html": "<p>Pick the computer you used for Terminal practice 1.</p>",
+      "choices": [
+        { "icon": "⊞", "label": "Windows PC", "set": { "device": "win" }, "next": "reopen" },
+        { "icon": "", "label": "Mac", "set": { "device": "mac" }, "next": "reopen" }
+      ]
+    },
+
+    {
+      "id": "reopen", "stage": 2,
+      "title": "Start Claude Code again",
+      "win": { "html": "<p>Same as 'Open the window in the practice folder' in Terminal practice 1.</p><ol><li>Double-click the <b>Practice</b> folder on your desktop.</li><li>Click the <b>address bar</b> at the top of the folder window, type <b>powershell</b> and press <kbd>Enter</kbd>.</li><li>Type <b>claude</b> in the window and press <kbd>Enter</kbd>.</li></ol><p>You only sign in the first time. This time the <b>typing box</b> appears right away.</p>" },
+      "mac": { "html": "<p>Same as 'Open the window in the practice folder' in Terminal practice 1.</p><ol><li>Open Terminal. (<kbd>⌘ command</kbd>+<kbd>space</kbd> → Terminal → <kbd>return</kbd>)</li><li>Type <b>cd</b> and a space, drag the <b>Practice</b> folder from your desktop onto the window, and press <kbd>return</kbd>.</li><li>Type <b>claude</b> and press <kbd>return</kbd>.</li></ol><p>You only sign in the first time. This time the <b>typing box</b> appears right away.</p>" },
+      "image": "assets/img/ai/claude-code-edit-file/en/cc-ready.webp", "alt": "The typing box appears as soon as Claude Code starts",
+      "check": { "q": "Do you see the box to type in (with a > sign)?", "yes": "read", "no": "reopen-help" },
+      "ask": true
+    },
+    {
+      "id": "reopen-help", "kind": "help",
+      "title": "If starting it again doesn't work",
+      "html": "<ul><li>If you see <b>'claude' is not recognized</b>, close the window and open it again. If it still doesn't work, restart the computer.</li><li>If it asks you to sign in again, do it like the sign-in step in Terminal practice 1.</li><li>Not sure? See that step in <a href='{{base}}lab/claude-code-install.html'>Terminal practice 1</a> again.</li></ul>"
+    },
+
+    {
+      "id": "read", "stage": 3,
+      "title": "First, ask it to read the file",
+      "html": "<p>Paste or type the sentence below into the box and press Enter (return on a Mac).</p>",
+      "code": "Show me what todo.txt says", "codeLabel": "Type this",
+      "check": { "q": "Did the contents of todo.txt appear on screen?", "yes": "read-why", "no": "read-help" },
+      "ask": true
+    },
+    {
+      "id": "read-help", "kind": "help",
+      "title": "If it can't find the file",
+      "html": "<ul><li>Claude only sees <b>files in the folder where you opened the window</b>. Check that you opened it in the practice folder.</li><li>If your file has a different name (e.g. 할일.txt), say that name instead.</li><li>If there's no todo.txt, create it first: \"Create a file called todo.txt and write 3 example to-dos for today\".</li></ul>"
+    },
+    {
+      "id": "read-why", "stage": 3,
+      "title": "Notice it didn't ask permission?",
+      "html": "<p>When it only <b>reads</b> a file, nothing changes. So Claude shows it without asking.</p><p>It only asks permission when it <b>creates or edits</b> a file. Now let's ask it to make an edit.</p>",
+      "next": "edit", "button": "Got it"
+    },
+
+    {
+      "id": "edit", "stage": 4,
+      "title": "Ask it to make an edit",
+      "html": "<p>Ask it to change the second line.</p>",
+      "code": "In todo.txt, change line 2 to \"Set up a lunch meeting\"", "codeLabel": "Type this",
+      "image": "assets/img/ai/claude-code-edit-file/en/cc-diff.webp", "alt": "The screen showing changes with red and green lines",
+      "check": { "q": "Did a screen with red and green lines appear, like the picture?", "yes": "legend", "no": "edit-help", "noLabel": "I see a different screen" },
+      "ask": true
+    },
+    {
+      "id": "edit-help", "kind": "help",
+      "title": "If you see a different screen",
+      "html": "<ul><li>Claude may still be thinking. Wait a few seconds.</li><li>If Claude asks something back (e.g. which line), type your answer and press Enter.</li><li>If it already says it made the change, you may have chosen option 2 (don't ask again) before. It's fine to move on to checking the result.</li></ul>"
+    },
+
+    {
+      "id": "legend", "stage": 5,
+      "title": "How to read the \"what will change\" screen",
+      "html": "<p>It looks strange at first, but <b>just look at the colors</b>.</p><table class='lab__terms'><tr><th><span class='diff diff--del'>- Red line</span></th><td>Text that <b>will be removed</b></td></tr><tr><th><span class='diff diff--add'>+ Green line</span></th><td>Text that <b>will be added</b></td></tr><tr><th>Uncolored line</th><td>Text that stays the same</td></tr></table><p><b>Do you want to make this edit…?</b> at the bottom means \"May I make this change?\"</p><ul><li><b>1. Yes</b> — yes, make the change</li><li><b>2. Yes, allow all edits…</b> — don't ask again, just make every change → <b>don't choose this for now</b></li><li><b>3. No…</b> — no, do it differently</li></ul><p>If the red line shows the old line 2 and the green line shows <b>Set up a lunch meeting</b>, it's what you asked for. Press Enter on <b>1. Yes</b>.</p>",
+      "check": { "q": "Did you press 1. Yes?", "yes": "verify", "no": "legend-help", "yesLabel": "Yes, I did", "noLabel": "The red and green lines look wrong" }
+    },
+    {
+      "id": "legend-help", "kind": "help",
+      "title": "If the changes aren't what you asked for",
+      "html": "<p>That's exactly when to choose <b>3. No</b>. Press <kbd>↓</kbd> twice to reach option 3 and press Enter (or press <kbd>Esc</kbd>), then say it again, e.g. \"Change only line 2 to 'Set up a lunch meeting'\".</p><p>The to-dos in your file are examples Claude chose in Terminal practice 1, so it's fine if the words differ from the picture. Just check that <b>line 2 changes</b>.</p>"
+    },
+
+    {
+      "id": "verify", "stage": 6,
+      "title": "See the result with your own eyes",
+      "win": { "html": "<ol><li>In the practice folder, double-click <b>todo.txt</b>. Notepad opens.</li><li>Check that line 2 now says <b>Set up a lunch meeting</b>.</li><li>Once you've checked, <b>close</b> Notepad with the <b>✕</b> at the top right. Leaving it open while Claude edits again can be confusing.</li></ol>" },
+      "mac": { "html": "<ol><li>In the practice folder, double-click <b>todo.txt</b>. TextEdit opens.</li><li>Check that line 2 now says <b>Set up a lunch meeting</b>.</li><li>Once you've checked, <b>close</b> TextEdit with the <b>red circle</b> at the top left.</li></ol>" },
+      "image": "assets/img/ai/claude-code-edit-file/en/notepad.webp", "alt": "Checking in Notepad that line 2 changed",
+      "check": { "q": "Does line 2 now say 'Set up a lunch meeting'?", "yes": "decline", "no": "verify-help", "yesLabel": "Yes, it changed" },
+      "ask": true
+    },
+    {
+      "id": "verify-help", "kind": "help",
+      "title": "If you don't see the change",
+      "html": "<ul><li>If you opened Notepad <b>before</b> the edit, close it and open it again.</li><li>Ask Claude, \"Show me what todo.txt says now.\"</li><li>If you pressed 3. No, the file didn't change. Go back to the edit step and try again.</li></ul>"
+    },
+
+    {
+      "id": "decline", "stage": 7,
+      "title": "Press \"No\" on purpose",
+      "html": "<p>Now let's practice what to do when you don't like something. <b>Pressing No doesn't change the file at all</b>, so don't worry.</p>",
+      "code": "Add a title at the top of the to-do list", "codeLabel": "Type this",
+      "image": "assets/img/ai/claude-code-edit-file/en/cc-no.webp", "alt": "Choosing option 3, No, to decline",
+      "check": { "q": "When you see the title Claude chose, press ↓ twice to reach 3. No and press Enter (or Esc). Did the typing box come back?", "yes": "reask", "no": "decline-help", "yesLabel": "Yes, the box is back" },
+      "ask": true
+    },
+    {
+      "id": "decline-help", "kind": "help",
+      "title": "If choosing No doesn't work",
+      "html": "<ul><li>Press the <b>down arrow (↓)</b> key twice to move the marker to <b>3. No…</b>, then press Enter.</li><li>An easier way: press <kbd>Esc</kbd> (top left of the keyboard) once.</li><li>If you pressed Yes by mistake, just say \"Undo the change you just made.\"</li></ul>"
+    },
+    {
+      "id": "reask", "stage": 7,
+      "title": "Say what you want instead",
+      "html": "<p>After pressing No, just say <b>what you want</b>.</p>",
+      "code": "Make the title \"Today's to-dos\"", "codeLabel": "Ask again like this",
+      "check": { "q": "Did you see '+ Today's to-dos' as a green line and press 1. Yes?", "yes": "summary", "no": "edit-help", "yesLabel": "Yes, I did" },
+      "ask": true
+    },
+
+    {
+      "id": "summary", "stage": 8, "kind": "summary",
+      "title": "🎉 Terminal practice 2 done! What you learned",
+      "html": "<p>You checked changes before they happened, and asked again when needed.</p><h3>Three things to remember</h3><ol><li>It doesn't ask when it <b>reads</b> a file; it only asks when it <b>creates or edits</b> one.</li><li>On the before-edit screen, <b>red lines will be removed and green lines will be added</b>.</li><li>If you don't like it, choose <b>No</b> (or Esc) and say it again. The file stays as it was.</li></ol><h3>Why does this matter?</h3><p>AI sometimes changes things differently from what you asked. As long as you have the <b>habit of reading the changes before pressing Yes</b>, your files won't change unexpectedly. It's the most important habit for using AI agents safely.</p><h3>Next step</h3><p>In the next practice you'll learn how to <b>start a new conversation and pick up where you left off the next day</b>.</p><p class='lab__links'><a class='btn btn--primary' href='{{base}}lab/claude-code-sessions.html'>Next: Terminal practice 3 · Start fresh or pick up later →</a><a class='btn btn--ghost' href='{{base}}ai/claude-code-edit-file.html'>Read today's steps as a guide</a></p>"
+    }
+  ]
+}

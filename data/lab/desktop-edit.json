@@ -1,0 +1,137 @@
+{
+  "id": "desktop-edit",
+  "title": "바뀐 내용 보고 고치게 하기 (데스크톱)",
+  "stages": ["시작", "앱 열기", "읽어 달라고 하기", "고쳐 달라고 하기", "바뀌는 내용 읽기", "결과 확인", "거절하고 다시 부탁", "Changes 보기", "총정리"],
+  "steps": [
+    {
+      "id": "intro", "stage": 1,
+      "title": "오늘 할 일",
+      "html": "<p>데스크톱 실습 1에서 만든 <b>할일.txt</b>를 Claude에게 <b>고쳐 달라고</b> 해 봅니다.</p><p>오늘 새로 배우는 것은 세 가지예요.</p><ol><li>고치기 전에 보여 주는 <b>\"바뀌는 내용\" 읽기</b></li><li>마음에 안 들 때 <b>거절하고 다시 부탁하기</b></li><li>끝난 뒤 <b>Changes</b>에서 바뀐 내용 다시 보기</li></ol><ul><li>걸리는 시간: 10~15분</li><li>필요한 것: 데스크톱 실습 1을 마친 컴퓨터 (바탕화면 연습 폴더에 할일.txt)</li></ul>",
+      "next": "reopen", "button": "시작하기",
+      "faq": [
+        { "q": "데스크톱 실습 1을 안 했어요.", "a": "앱 설치와 할일.txt 만들기를 먼저 해야 해요. <a href='{{base}}lab/desktop-install.html'>데스크톱 실습 1</a>부터 해 주세요." }
+      ]
+    },
+
+    {
+      "id": "reopen", "stage": 2,
+      "title": "앱 열고 연습 폴더로 시작하기",
+      "html": "<ol><li>Claude 앱을 열고 왼쪽 위 <b>Code</b> 탭을 누릅니다.</li><li>왼쪽 위 <b>+ New</b>를 눌러 새 대화를 엽니다.</li><li>입력 칸 아래가 <b>Local</b>, 폴더 버튼이 <b>연습</b>인지 확인합니다. 아니라면 폴더 버튼 → <b>Open folder…</b>로 연습 폴더를 고르세요. (한 번 고른 폴더는 목록에 보여요)</li><li>오른쪽 허락 방식 버튼이 <b>Manual</b>인지도 확인하세요.</li></ol>",
+      "check": { "q": "Local · 연습 · Manual 이 모두 보이나요?", "yes": "read", "no": "reopen-help" },
+      "ask": true
+    },
+    {
+      "id": "reopen-help", "kind": "help",
+      "title": "시작 화면이 다를 때",
+      "html": "<ul><li><b>Code</b> 탭이 안 보이면 유료 계정으로 로그인했는지, 앱이 최신 버전인지 확인하세요.</li><li>폴더를 고르는 법은 <a href='{{base}}lab/desktop-install.html'>데스크톱 실습 1</a>의 '일할 폴더 고르기'와 같아요.</li><li>허락 방식 버튼을 눌러 <b>Manual</b>을 고르세요.</li></ul>"
+    },
+
+    {
+      "id": "read", "stage": 3,
+      "title": "먼저 파일을 읽어 달라고 하기",
+      "html": "<p>입력 칸에 아래 문장을 붙여 넣거나 그대로 적고 Enter(Mac은 return)를 누르세요.</p>",
+      "code": "할일.txt에 뭐라고 적혀 있는지 보여줘", "codeLabel": "따라 입력해 보세요",
+      "check": { "q": "할일.txt의 내용이 화면에 나왔나요?", "yes": "read-why", "no": "read-help" },
+      "ask": true
+    },
+    {
+      "id": "read-help", "kind": "help",
+      "title": "파일을 못 찾는다고 할 때",
+      "html": "<ul><li>Claude는 <b>고른 폴더 안의 파일</b>만 봐요. 입력 칸 아래 폴더가 <b>연습</b>인지 확인하세요.</li><li>할일.txt가 없다면 \"할일.txt 파일을 만들고 오늘 할 일 예시를 3개 적어줘\"로 먼저 만들어 주세요.</li></ul>"
+    },
+    {
+      "id": "read-why", "stage": 3,
+      "title": "허락을 묻지 않았죠?",
+      "html": "<p>파일을 <b>읽기만</b> 할 때는 아무것도 바뀌지 않아요. 그래서 Claude가 허락을 묻지 않고 바로 보여 줘요.</p><p>파일을 <b>만들거나 고칠 때만</b> 허락을 물어요. 이제 고쳐 달라고 해 볼게요.</p>",
+      "next": "edit", "button": "알겠어요"
+    },
+
+    {
+      "id": "edit", "stage": 4,
+      "title": "고쳐 달라고 하기",
+      "html": "<p>두 번째 줄을 바꿔 달라고 해 보세요. 이번에는 허락 카드에 <b>무엇이 어떻게 바뀌는지</b>가 함께 나와요.</p>",
+      "code": "할일.txt의 두 번째 줄을 \"점심 약속 잡기\"로 바꿔줘", "codeLabel": "따라 입력해 보세요",
+      "image": "assets/img/ai/desktop-edit/diff-card.webp", "alt": "빨간 줄과 초록 줄로 바뀌는 내용을 보여 주는 허락 카드 그림",
+      "check": { "q": "그림처럼 빨간 줄·초록 줄이 있는 허락 카드가 나왔나요?", "yes": "legend", "no": "edit-help", "noLabel": "다른 화면이 나와요" },
+      "ask": true
+    },
+    {
+      "id": "edit-help", "kind": "help",
+      "title": "허락 카드가 안 나올 때",
+      "html": "<ul><li>Claude가 아직 생각 중일 수 있어요. 몇 초 기다려 보세요.</li><li>Claude가 무언가 되물으면(예: 어느 줄인지) 대답을 적고 Enter 하세요.</li><li>이미 \"바꿨다\"는 말이 나왔다면 허락 방식이 Manual이 아니에요. Manual로 바꾼 뒤, 결과 확인 단계로 넘어가도 괜찮아요.</li></ul>"
+    },
+
+    {
+      "id": "legend", "stage": 5,
+      "title": "\"바뀌는 내용\" 읽는 법",
+      "html": "<p>처음 보면 낯설지만, <b>색깔만</b> 보면 돼요.</p><table class='lab__terms'><tr><th><span class='diff diff--del'>- 빨간 줄</span></th><td><b>지워질</b> 내용</td></tr><tr><th><span class='diff diff--add'>+ 초록 줄</span></th><td><b>새로 들어갈</b> 내용</td></tr><tr><th>색 없는 줄</th><td>그대로 남는 내용</td></tr><tr><th>허용 버튼</th><td>네, 이대로 고쳐 주세요</td></tr><tr><th>거절 버튼</th><td>아니요, 고치지 마세요</td></tr></table><p>빨간 줄에 원래 두 번째 줄, 초록 줄에 <b>점심 약속 잡기</b>가 보이면 부탁한 대로예요. <b>허용</b>을 누르세요.</p><div class='lab__tip'>버튼 이름은 Allow·Accept·Deny·Reject 같은 영어로 보일 수 있어요. 허락하는 쪽은 보통 파란색이에요.</div>",
+      "check": { "q": "허용을 눌렀나요?", "yes": "verify", "no": "legend-help", "yesLabel": "네, 눌렀어요", "noLabel": "빨간·초록 줄이 이상해요" }
+    },
+    {
+      "id": "legend-help", "kind": "help",
+      "title": "바뀌는 내용이 부탁과 다를 때",
+      "html": "<p>바로 이럴 때 <b>거절</b>을 누르면 돼요. 그다음 입력 칸에 \"두 번째 줄만 '점심 약속 잡기'로 바꿔줘\"처럼 다시 말해 주세요.</p><p>파일 안의 할 일 내용은 실습 1에서 Claude가 정한 예시라, 그림과 글자가 달라도 괜찮아요. <b>두 번째 줄이 바뀌는지</b>만 보세요.</p>"
+    },
+
+    {
+      "id": "verify", "stage": 6,
+      "title": "결과 눈으로 확인하기",
+      "html": "<ol><li>바탕화면의 연습 폴더에서 <b>할일.txt</b>를 두 번 누릅니다. 메모장(Mac은 텍스트 편집기)이 열려요.</li><li>두 번째 줄이 <b>점심 약속 잡기</b>로 바뀌었는지 봅니다.</li><li>확인했으면 메모장은 <b>닫아 주세요.</b> 열어 둔 채로 또 고치게 하면 헷갈릴 수 있어요.</li></ol>",
+      "image": "assets/img/ai/claude-code-edit-file/notepad.webp", "alt": "메모장에서 두 번째 줄이 바뀐 것을 확인하는 그림",
+      "check": { "q": "두 번째 줄이 '점심 약속 잡기'로 바뀌었나요?", "yes": "decline", "no": "verify-help", "yesLabel": "네, 바뀌었어요" },
+      "ask": true
+    },
+    {
+      "id": "verify-help", "kind": "help",
+      "title": "바뀐 게 안 보일 때",
+      "html": "<ul><li>메모장을 고치기 <b>전에</b> 열어 두었다면, 닫았다가 다시 열어 보세요.</li><li>Claude에게 \"할일.txt 지금 내용 보여줘\"라고 물어보세요.</li><li>거절을 눌렀다면 파일은 바뀌지 않아요. 고쳐 달라는 단계로 돌아가 다시 해 보세요.</li></ul>"
+    },
+
+    {
+      "id": "decline", "stage": 7,
+      "title": "일부러 \"거절\" 눌러 보기",
+      "html": "<p>이번에는 마음에 안 드는 경우를 연습해요. <b>거절해도 파일은 전혀 바뀌지 않으니</b> 안심하세요.</p><ol><li>아래 문장을 보냅니다.</li><li>허락 카드에 Claude가 정한 제목이 보이면, <b>거절</b> 버튼을 누릅니다.</li></ol>",
+      "code": "할일 목록 맨 위에 제목을 하나 붙여줘", "codeLabel": "따라 입력해 보세요",
+      "image": "assets/img/ai/desktop-edit/decline.webp", "alt": "거절을 누르고 원하는 것을 다시 적는 그림",
+      "check": { "q": "거절을 눌렀나요?", "yes": "reask", "no": "decline-help", "yesLabel": "네, 거절했어요" },
+      "ask": true
+    },
+    {
+      "id": "decline-help", "kind": "help",
+      "title": "거절이 잘 안 될 때",
+      "html": "<ul><li>허락 카드 아래에 버튼이 두 개 있어요. 허락하는 쪽(보통 파란색)이 <b>아닌</b> 버튼이 거절이에요.</li><li>실수로 허용을 눌렀다면 \"방금 바꾼 거 원래대로 돌려줘\"라고 말하면 돼요.</li></ul>"
+    },
+    {
+      "id": "reask", "stage": 7,
+      "title": "원하는 것을 다시 말하기",
+      "html": "<p>거절한 뒤에는 입력 칸에 <b>원하는 것만</b> 적으면 돼요.</p>",
+      "code": "제목은 \"오늘의 할 일\"로 해줘", "codeLabel": "이렇게 다시 부탁해 보세요",
+      "check": { "q": "초록 줄에 '+ 오늘의 할 일'이 보여서 허용을 눌렀나요?", "yes": "changes", "no": "edit-help", "yesLabel": "네, 눌렀어요" },
+      "ask": true
+    },
+
+    {
+      "id": "changes", "stage": 8,
+      "title": "바뀐 내용 다시 보기 — Changes",
+      "html": "<p>대화가 길어지면 무엇이 바뀌었는지 헷갈릴 수 있어요. 그럴 땐 화면 오른쪽의 <b>Changes</b>(바뀐 파일 목록)를 보세요.</p><p><b>할일.txt +2 -1</b> 같은 줄을 누르면, 오늘 바뀐 줄을 빨강·초록으로 다시 보여 줘요.</p><div class='lab__tip'>Changes가 안 보이면 화면 오른쪽 위의 패널 버튼이나 메뉴에서 <b>Changes</b>를 찾아보세요.</div>",
+      "image": "assets/img/ai/desktop-edit/changes.webp", "alt": "오른쪽 Changes에서 바뀐 내용을 다시 보는 그림",
+      "check": { "q": "Changes에서 바뀐 줄을 찾았나요?", "yes": "summary", "no": "changes-help", "yesLabel": "네, 봤어요" },
+      "ask": true
+    },
+    {
+      "id": "changes-help", "kind": "help",
+      "title": "Changes를 못 찾겠다면",
+      "html": "<p>앱 버전에 따라 위치가 달라요. 화면 오른쪽 끝, 또는 위쪽의 버튼을 하나씩 눌러 보세요. 못 찾아도 괜찮아요. 오늘 핵심은 <b>허락 카드를 읽고 허용·거절하기</b>예요.</p>",
+      "choices": [
+        { "label": "다시 찾아볼게요", "next": "changes" },
+        { "label": "괜찮아요, 정리 보기", "next": "summary" }
+      ]
+    },
+
+    {
+      "id": "summary", "stage": 9, "kind": "summary",
+      "title": "🎉 데스크톱 실습 2 완료! 오늘 배운 것 정리",
+      "html": "<p>고치기 전에 확인하고, 아니면 다시 부탁하는 법까지 해냈어요.</p><h3>꼭 기억할 세 가지</h3><ol><li>파일을 <b>읽을 때</b>는 허락을 묻지 않고, <b>만들거나 고칠 때</b>만 물어요.</li><li>허락 카드에서 <b>빨간 줄은 지워질 내용, 초록 줄은 새로 들어갈 내용</b>이에요.</li><li>마음에 안 들면 <b>거절</b>하고 다시 말하면 돼요. 파일은 그대로예요.</li></ol><h3>왜 중요할까요?</h3><p>AI는 가끔 부탁과 다르게 고치기도 해요. <b>바뀌는 내용을 읽고 허용을 누르는 습관</b>만 있으면, 내 파일이 엉뚱하게 바뀔 일이 없어요. 이게 AI 에이전트를 안전하게 쓰는 가장 중요한 습관이에요.</p><h3>다음 단계</h3><p>다음에는 <b>대화를 새로 시작하고, 예전 대화를 이어서 하는 법</b>을 배워요. 준비되는 대로 올려 드릴게요.</p><p class='lab__links'><a class='btn btn--primary' href='{{base}}lab/desktop-sessions.html'>다음: 데스크톱 3 · 대화 새로 시작하기·이어 하기 →</a><a class='btn btn--ghost' href='{{base}}ai/desktop-edit.html'>오늘 내용 글로 다시 보기</a></p>"
+    }
+  ]
+}

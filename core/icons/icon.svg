@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="112" fill="#2f6fd6"/>
+  <g fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="80" y1="372" x2="432" y2="372" stroke-width="16" opacity=".5"/>
+    <path d="M110 340 L360 262" stroke-width="44"/>
+    <path d="M360 268 L360 346 L420 346" stroke-width="28"/>
+    <circle cx="388" cy="220" r="34" stroke-width="24"/>
+  </g>
+  <text x="256" y="160" text-anchor="middle" font-family="sans-serif" font-weight="800" font-size="96" fill="#fff">CORE</text>
+</svg>

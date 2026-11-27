@@ -1,0 +1,163 @@
+{
+  "id": "app-android",
+  "title": "Turn it into an Android app (APK)",
+  "stages": [
+    "Start",
+    "Know first",
+    "Have it built",
+    "Check and merge",
+    "Wait for Actions",
+    "Download and install",
+    "Updating · sharing",
+    "Wrap-up"
+  ],
+  "steps": [
+    {
+      "id": "intro",
+      "stage": 1,
+      "title": "What we'll do today",
+      "html": "<p>Turn the workout timer from App 3 into an <b>Android app (APK)</b> and install it like a real app. Again, <b>just your phone</b> is enough.</p><div class='lab__flow'><span>Tell it on your phone</span><i>merge the PR</i><span>GitHub Actions builds the APK</span><i>Releases</i><span>Download and install</span></div><ul><li>Time: 30 minutes (including waiting)</li><li>You need: the <b>my-timer</b> repository from <a href='{{base}}lab/app-mobile.html'>App 3</a>, and an <b>Android phone</b></li></ul><div class='lab__tip'><b>iPhones can't install APKs.</b> On iPhone, 'Add to Home Screen' from App 2–3 is the best way. (Publishing to an app store needs a separate paid developer account)</div>",
+      "next": "concept",
+      "button": "Let's start"
+    },
+    {
+      "id": "concept",
+      "stage": 2,
+      "title": "Know first — four words",
+      "html": "<table class='lab__terms'><tr><th>APK</th><td>An Android app <b>install file</b>. You can install it without an app store</td></tr><tr><th>Capacitor</th><td>A tool that <b>wraps a web app in an Android app box</b>. Screens and features stay the same</td></tr><tr><th>GitHub Actions</th><td>A <b>robot</b> that builds the APK for you. Normally you'd install a big program (Android Studio) on a computer; this robot does it in the cloud</td></tr><tr><th>Signing</th><td>A <b>stamp</b> saying \"I made this app\". Updates install over the old app only with the same stamp</td></tr></table><p class='muted'>Earlln's <a href='{{base}}product.html#earllncore'>EarllnCore</a> was made exactly this way.</p>",
+      "next": "ask",
+      "button": "Got it"
+    },
+    {
+      "id": "ask",
+      "stage": 3,
+      "title": "Describe it on your phone and have it built",
+      "html": "<p>Claude phone app → <b>Code</b> → pick the repository <b>my-timer</b> and send this. (Claude on a computer works the same)</p><p>It creates many files and can take <b>over 10 minutes</b>. It keeps working even if you close the app.</p>",
+      "code": "Turn this web app into an Android app (APK). Wrap it with Capacitor and name the app 'Workout timer'. Every time something is merged into main, have GitHub Actions build the APK and upload it to Releases. Use a test (debug) APK for now, and never put signing key files or passwords in the repository",
+      "codeLabel": "Type on the phone",
+      "check": {
+        "q": "Do you see that it pushed to a new branch, and a Changes count?",
+        "yes": "merge",
+        "no": "ask-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "ask-help",
+      "kind": "help",
+      "title": "If it's slow or asks you something",
+      "html": "<ul><li>If Claude asks for a \"package name\" (e.g. com.myname.timer), choose one in lowercase. It's best never to change it later.</li><li>If it seems stuck, open the chat and say \"carry on\".</li></ul>",
+      "choices": [
+        {
+          "label": "Let me look again",
+          "next": "ask"
+        },
+        {
+          "label": "Next",
+          "next": "merge"
+        }
+      ]
+    },
+    {
+      "id": "merge",
+      "stage": 4,
+      "title": "Check the PR and merge",
+      "html": "<p><b>Create PR</b> → the PR on GitHub in your phone browser → <b>Files changed</b>.</p><p>There are dozens of files, so don't read them all. Just check <b>these two things</b>.</p><ol><li>There's a file that builds the APK inside <b>.github/workflows/</b> (e.g. android.yml).</li><li>There are <b>no</b> files named like <b>.jks</b>, <b>.keystore</b> or <b>password</b>. (Signing keys are secret)</li></ol><p>If it's fine: <b>Merge pull request</b> → <b>Confirm merge</b>.</p>",
+      "check": {
+        "q": "Did you check both and merge?",
+        "yes": "actions",
+        "no": "merge-help"
+      }
+    },
+    {
+      "id": "merge-help",
+      "kind": "help",
+      "title": "If you see a key file, or it's confusing",
+      "html": "<ul><li>If you see a key file, don't merge. Tell Claude \"Remove the signing key file from the repository and build a test (debug) APK.\"</li><li>If Files changed is very long, just skim the <b>file list</b> (file tree) at the top.</li></ul>",
+      "choices": [
+        {
+          "label": "Let me look again",
+          "next": "merge"
+        },
+        {
+          "label": "Next",
+          "next": "actions"
+        }
+      ]
+    },
+    {
+      "id": "actions",
+      "stage": 5,
+      "title": "Wait while the robot (Actions) builds the APK",
+      "html": "<ol><li>my-timer repository → <b>Actions</b> tab.</li><li>A <b>yellow dot</b> on the top row means it's building. Usually <b>5–10 minutes</b>.</li><li>When it turns into a <b>green ✓</b>, it's done!</li></ol><p class='muted'>Actions is free for public repositories.</p>",
+      "image": "assets/img/ai/app-android/en/actions.webp",
+      "alt": "Green ✓, yellow dot and red ✕ in the Actions tab",
+      "check": {
+        "q": "Did the top row turn into a green ✓?",
+        "yes": "download",
+        "no": "actions-help"
+      }
+    },
+    {
+      "id": "actions-help",
+      "kind": "help",
+      "title": "If you get a red ✕ (failed)",
+      "html": "<p>That's common the first time. Show Claude the error and it'll fix it.</p><ol><li>Tap the red row, tap the red step, and <b>copy the error text</b> or take a screenshot.</li><li>Paste it into the same chat with \"Actions failed\".</li><li>Merge the new PR and the robot builds again.</li></ol><p class='muted'>If only the upload-to-Releases step fails, ask Claude \"Also check the Actions permission (contents: write).\"</p>",
+      "choices": [
+        {
+          "label": "Let me look again",
+          "next": "actions"
+        },
+        {
+          "label": "Next",
+          "next": "download"
+        }
+      ]
+    },
+    {
+      "id": "download",
+      "stage": 6,
+      "title": "Download and install",
+      "html": "<ol><li>On your Android phone's browser: my-timer repository → <b>Releases</b> on the right (or below) → the top release.</li><li>Tap the <b>.apk</b> file under <b>Assets</b> to download it.</li><li>Opening the file asks whether to allow installing <b>\"unknown apps\"</b>. Allow it for your browser (Chrome) <b>just this once</b>.</li><li>Tap <b>Install</b> and <b>Workout timer</b> appears in your app list.</li></ol>",
+      "image": "assets/img/ai/app-android/en/release.webp",
+      "alt": "Downloading the .apk file from Assets on the Releases page",
+      "check": {
+        "q": "Does Workout timer open from your app list, and does the timer work?",
+        "yes": "next",
+        "no": "download-help",
+        "yesLabel": "Yes, it works! 🎉"
+      }
+    },
+    {
+      "id": "download-help",
+      "kind": "help",
+      "title": "If installing is blocked",
+      "html": "<ul><li>A <b>Play Protect warning</b> may appear because the app isn't from the store. Tap 'Install anyway' <b>only for your own app</b>.</li><li>If Releases is empty, Actions hasn't finished or failed. See the previous step.</li><li>After installing, turning 'install unknown apps' back off for your browser in Settings is safer.</li></ul>",
+      "choices": [
+        {
+          "label": "Let me try again",
+          "next": "download"
+        },
+        {
+          "label": "Next",
+          "next": "next"
+        }
+      ]
+    },
+    {
+      "id": "next",
+      "stage": 7,
+      "title": "Updating · sharing with others",
+      "html": "<h3>Updating</h3><p>Say what to change in the same chat → merge the PR → Actions finishes → download and install the new APK. The web address (Pages) updates too.</p><div class='lab__tip'><b>A test (debug) APK may not update in place.</b> The robot uses a new stamp (signature) each time. If you see 'App not installed', uninstall the app and install again. (Records may be lost)</div><h3>Sharing with others</h3><p>For updates to install over the old app, you need <b>your own signing key</b>. Ask Claude \"How do I switch to signing with a release key?\"</p><ul><li><b>Never put</b> the signing key or its password in the repository; they go in GitHub's <b>Settings → Secrets and variables → Actions</b>.</li><li>If you lose the key you can't update, so keep a safe copy elsewhere.</li></ul>",
+      "next": "summary",
+      "button": "Got it, show the wrap-up"
+    },
+    {
+      "id": "summary",
+      "stage": 8,
+      "kind": "summary",
+      "title": "🎉 App practice 4 done! A real Android app",
+      "html": "<p>The web app you built with words is now an <b>Android app</b> installed on your phone. You've finished the app course!</p><table class='lab__terms'><tr><th>App 1</th><td>Build a web app with words</td></tr><tr><th>App 2–3</th><td>Publish with Pages, install on the home screen (iPhone and Android)</td></tr><tr><th>App 4</th><td>APK with Capacitor + Actions (Android)</td></tr></table><h3>Three things to remember</h3><ol><li>The <b>Actions robot</b> builds the APK and posts it to <b>Releases</b>.</li><li>Before merging, check there are <b>no key files</b>. Signing keys go in Secrets.</li><li>Don't install APKs others send you. Allow it <b>only for your own app</b>.</li></ol><p class='lab__links'><a class='btn btn--primary' href='{{base}}lab/practice.html'>Back to all practices</a><a class='btn btn--ghost' href='{{base}}ai/app-android.html'>Read today's steps as a guide</a></p>"
+    }
+  ]
+}

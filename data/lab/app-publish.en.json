@@ -1,0 +1,156 @@
+{
+  "id": "app-publish",
+  "title": "Install your web app on a phone and share it",
+  "stages": [
+    "Start",
+    "Make it app-like",
+    "Upload to GitHub",
+    "Turn on Pages",
+    "Install on the phone",
+    "Updating",
+    "Wrap-up"
+  ],
+  "steps": [
+    {
+      "id": "intro",
+      "stage": 1,
+      "title": "What we'll do today",
+      "html": "<p>The timer from App 1 still lives <b>only on your computer</b>. Today you'll put it online, install it like an app on your <b>phone's home screen</b>, and share an address <b>anyone</b> can use.</p><div class='lab__flow'><span>timer folder</span><i>upload</i><span>GitHub</span><i>turn on Pages</i><span>Your app's address</span><i>Add to Home Screen</i><span>Phone app</span></div><ul><li>Time: 20 minutes</li><li>You need: the <b>timer</b> folder from <a href='{{base}}lab/app-web.html'>App 1</a>, a <b>GitHub account</b> (if not, see the sign-up step in <a href='{{base}}lab/mobile-github.html'>Phone 2</a>), and a phone</li><li>Cost: free</li></ul><p class='muted'>New to GitHub? Try <a href='{{base}}lab/github-basics.html'>GitHub at a glance</a> (10 min) first.</p>",
+      "next": "pwa",
+      "button": "Let's start"
+    },
+    {
+      "id": "pwa",
+      "stage": 2,
+      "title": "Make it fit the home screen",
+      "html": "<p>You'll make the <b>app name and icon</b> show on the home screen, and have it open without an address bar, like an app. A web app set up this way is called a <b>PWA</b> (installable web app).</p><p>In the Code tab, continue the App 1 chat, or open a new chat with the <b>Practice</b> folder and send this. Check the create-file cards and click <b>Allow</b>.</p>",
+      "code": "Make the web app in the timer folder open like an app when added to a phone's home screen. Name it 'Workout timer', and create a stopwatch icon on a blue background (PNG) and a manifest file",
+      "codeLabel": "Type this",
+      "check": {
+        "q": "Are there a manifest file and an icon image file in the timer folder?",
+        "yes": "repo",
+        "no": "pwa-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "pwa-help",
+      "kind": "help",
+      "title": "If the icon isn't created",
+      "html": "<ul><li>To make a PNG it may ask to install a tool (e.g. Pillow). Check what it installs and allow it, or say \"Make an SVG and skip the PNG.\" (iPhone uses a PNG icon)</li><li>Have a picture you like? Put it in the timer folder and say \"Use this picture as the icon.\"</li></ul>",
+      "choices": [
+        {
+          "label": "Let me try again",
+          "next": "pwa"
+        },
+        {
+          "label": "Next",
+          "next": "repo"
+        }
+      ]
+    },
+    {
+      "id": "repo",
+      "stage": 3,
+      "title": "Make a public repository on GitHub and upload",
+      "html": "<ol><li><b>github.com</b> → <b>+</b> at the top right → <b>New repository</b>.</li><li>Name: <b>timer</b> · <b>Public</b> · tick <b>Add a README file</b> → <b>Create repository</b>.</li><li>On the repository page: <b>Add file → Upload files</b>.</li><li>On your computer, <b>open the timer folder and select all the files inside</b>, then drag them in.</li><li>Click <b>Commit changes</b> at the bottom.</li></ol><div class='lab__tip'><b>This time it's Public.</b> A free web address needs a public repository, so <b>anyone can read the files</b>. Never put names, phone numbers, passwords or API keys in it. (Leave my-notes from Phone 2 private.)</div>",
+      "image": "assets/img/ai/app-publish/en/upload.webp",
+      "alt": "Dragging the files inside the timer folder onto GitHub's Upload files screen",
+      "check": {
+        "q": "Can you see index.html in the timer repository?",
+        "yes": "pages",
+        "no": "repo-help"
+      }
+    },
+    {
+      "id": "repo-help",
+      "kind": "help",
+      "title": "If uploading doesn't work",
+      "html": "<ul><li>Dragging <b>the whole timer folder</b> adds an extra level. index.html must show on the repository's front page; if not, upload just the files inside.</li><li>Dragging is hard on a phone. Do this step in a <b>computer browser</b>.</li></ul>",
+      "choices": [
+        {
+          "label": "Let me try again",
+          "next": "repo"
+        },
+        {
+          "label": "Next",
+          "next": "pages"
+        }
+      ]
+    },
+    {
+      "id": "pages",
+      "stage": 4,
+      "title": "Turn on GitHub Pages and get your app's address",
+      "html": "<p><b>GitHub Pages</b> is a free feature that <b>serves a repository's files as a website</b>.</p><ol><li>timer repository → <b>Settings</b> → <b>Pages</b> on the left.</li><li><b>Source</b>: Deploy from a branch · <b>Branch</b>: <b>main</b> · <b>/ (root)</b> → <b>Save</b>.</li><li>Wait 1–2 minutes and refresh: <b>Your site is live at https://your-id.github.io/timer/</b> appears at the top.</li><li>Click that address and check the timer opens.</li></ol>",
+      "image": "assets/img/ai/app-publish/en/pages.webp",
+      "alt": "Choosing main and Save in Settings → Pages, with the site address shown",
+      "check": {
+        "q": "Does the timer open at https://your-id.github.io/timer/?",
+        "yes": "phone",
+        "no": "pages-help"
+      }
+    },
+    {
+      "id": "pages-help",
+      "kind": "help",
+      "title": "If no address appears, or you get a 404",
+      "html": "<ul><li>The first time takes a few minutes. Refresh again shortly. The repository's <b>Actions</b> tab shows progress.</li><li><b>404</b>: check <b>index.html</b> sits right on the repository's front page (not inside a folder).</li><li>If Pages shows an upgrade notice, the repository is <b>Private</b>. Settings → bottom <b>Change visibility</b> → Public.</li></ul>",
+      "choices": [
+        {
+          "label": "Let me try again",
+          "next": "pages"
+        },
+        {
+          "label": "Next",
+          "next": "phone"
+        }
+      ]
+    },
+    {
+      "id": "phone",
+      "stage": 5,
+      "title": "Install it on your phone's home screen",
+      "html": "<p>Open your app's address (<b>https://your-id.github.io/timer/</b>) in your phone's browser. Sending it to yourself in a message makes this easy.</p><ul><li><b>Android (Chrome)</b>: <b>⋮</b> at the top right → <b>Add to Home screen</b> (or <b>Install app</b>) → Add.</li><li><b>iPhone (Safari)</b>: <b>Share (□↑)</b> at the bottom → <b>Add to Home Screen</b> → Add.</li></ul><p>Tap the <b>Workout timer</b> icon on your home screen. It opens like an app, with no address bar.</p>",
+      "image": "assets/img/ai/app-publish/en/home.webp",
+      "alt": "A Workout timer icon on the phone's home screen",
+      "check": {
+        "q": "Does it open from the home screen icon, and does the timer work?",
+        "yes": "update",
+        "no": "phone-help",
+        "yesLabel": "Yes, it works! 🎉"
+      }
+    },
+    {
+      "id": "phone-help",
+      "kind": "help",
+      "title": "If Add to Home Screen is missing or odd",
+      "html": "<ul><li>On iPhone, only <b>Safari</b> can add to the home screen.</li><li>If the icon shows a letter instead of a picture, ask Claude \"Add an iPhone home screen icon (apple-touch-icon) too\", then upload the changed files again.</li><li>No sound? Check the phone isn't on silent.</li></ul>",
+      "choices": [
+        {
+          "label": "Let me try again",
+          "next": "phone"
+        },
+        {
+          "label": "Next",
+          "next": "update"
+        }
+      ]
+    },
+    {
+      "id": "update",
+      "stage": 6,
+      "title": "How to update · be careful",
+      "html": "<ol><li>Tell Claude on your computer what to change, and allow it (like App 1).</li><li><b>Upload files</b> again to the GitHub timer repository. Same-named files are replaced.</li><li>After 1–2 minutes, close and reopen the app on your phone.</li></ol><p class='muted'>Once you're comfortable, you can have Claude edit the timer repository directly and merge via a PR, like <a href='{{base}}lab/mobile-cloud.html'>Phone 3</a>.</p><div class='lab__tip'><ul><li><b>Public repository</b>: anyone can read what you upload. No personal data, passwords or API keys.</li><li><b>Records stay on each phone</b>: if you add a history feature, it's saved only in each user's phone browser. Collecting it on a server is a bigger topic.</li><li><b>Don't copy others</b>: don't reuse another app's name, pictures or music.</li></ul></div>",
+      "next": "summary",
+      "button": "Got it, show the wrap-up"
+    },
+    {
+      "id": "summary",
+      "stage": 7,
+      "kind": "summary",
+      "title": "🎉 App practice 2 done! Your app is on your phone",
+      "html": "<p>The app you built with words now has a web address and lives on your phone's home screen. Share the address and family and friends can use it too.</p><h3>Three things to remember</h3><ol><li><b>GitHub Pages</b> turns repository files into a free website. It's public, so <b>anyone can see it</b>.</li><li>With a <b>manifest and icon</b>, it installs on the home screen like an app.</li><li>To update: <b>change it with Claude → upload again</b>.</li></ol><p class='muted'>Building with <b>just your phone</b>, no computer, is App 3; an <b>Android app (APK)</b> is <a href='{{base}}lab/app-android.html'>App 4</a>.</p><p class='lab__links'><a class='btn btn--primary' href='{{base}}lab/app-mobile.html'>Next: App 3 · Build an app with just your phone →</a><a class='btn btn--ghost' href='{{base}}ai/app-publish.html'>Read today's steps as a guide</a></p>"
+    }
+  ]
+}

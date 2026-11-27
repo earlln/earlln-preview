@@ -1,0 +1,148 @@
+{
+  "id": "work-rules",
+  "title": "내 규칙 기억시키기 (CLAUDE.md)",
+  "stages": [
+    "시작",
+    "CLAUDE.md가 뭔가요",
+    "규칙 파일 만들기",
+    "열어 보기",
+    "새 대화에서 확인",
+    "규칙 고치기",
+    "잘 쓰는 법",
+    "총정리"
+  ],
+  "steps": [
+    {
+      "id": "intro",
+      "stage": 1,
+      "title": "오늘 할 일",
+      "html": "<p>실무 1~7을 하면서 같은 말을 여러 번 했죠? \"원본은 그대로 두고\", \"엑셀에서 한글이 깨지지 않게\", \"지어내지 마\"…</p><p>오늘은 이런 말을 <b>파일 하나에 적어 두고</b>, 매번 말하지 않아도 Claude가 지키게 해 봐요. 실무 활용 과정의 마지막 편이에요.</p><ul><li>걸리는 시간: 15분</li><li>필요한 것: <a href='{{base}}lab/work-csv.html'>실무 1</a>까지 해 본 컴퓨터 (연습 폴더에 할일.txt)</li></ul>",
+      "next": "what",
+      "button": "시작하기"
+    },
+    {
+      "id": "what",
+      "stage": 2,
+      "title": "CLAUDE.md가 뭔가요?",
+      "html": "<p><b>CLAUDE.md</b>는 Claude에게 주는 <b>메모장 파일</b>이에요. 폴더 안에 이 이름의 파일이 있으면, Claude Code는 그 폴더에서 <b>새 대화를 시작할 때마다 먼저 읽어요</b>.</p><table class='lab__terms'><tr><th>어디에</th><td>일하는 폴더(오늘은 연습 폴더) 바로 안</td></tr><tr><th>무엇을</th><td>매번 지켜야 할 규칙, 내 소개, 자주 쓰는 형식</td></tr><tr><th>.md</th><td>그냥 글자 파일이에요. 메모장으로 열고 고칠 수 있어요</td></tr></table><div class='lab__tip'>규칙은 <b>강제가 아니라 안내</b>예요. Claude가 대부분 지키지만, 중요한 건 여전히 <b>허락 카드를 읽고</b> 확인하세요.</div>",
+      "next": "make",
+      "button": "알겠어요"
+    },
+    {
+      "id": "make",
+      "stage": 3,
+      "title": "규칙 파일 만들기",
+      "html": "<p>Claude 앱 → <b>Code</b> → <b>+ New</b> (<b>Local · 연습 · Manual</b>)에서 아래 문장을 보내세요. 실무 1~7에서 자주 한 말을 모았어요. 파일 만들기 허락 카드를 읽고 <b>허용</b>하세요.</p>",
+      "code": "연습 폴더에 CLAUDE.md 파일을 만들어줘. 내용은 이 폴더에서 일할 때 지킬 규칙이야: 답은 존댓말로 짧게 / 원본 파일은 고치지 말고 새 파일로 저장 / 날짜는 2026-11-24 형식 / CSV는 엑셀에서 한글이 깨지지 않게 저장 / 모르는 건 지어내지 말고 물어보기",
+      "codeLabel": "따라 입력해 보세요",
+      "check": {
+        "q": "연습 폴더에 CLAUDE.md가 생겼나요?",
+        "yes": "open",
+        "no": "make-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "make-help",
+      "kind": "help",
+      "title": "파일이 안 보일 때",
+      "html": "<ul><li>허락 카드를 거절했다면 다시 보내고 허용하세요.</li><li>입력 칸 아래 폴더가 <b>연습</b>인지 확인하세요. 다른 폴더에 만들어졌을 수 있어요.</li></ul>"
+    },
+    {
+      "id": "open",
+      "stage": 4,
+      "title": "메모장으로 열어 보기",
+      "html": "<p>연습 폴더에서 <b>CLAUDE.md</b>를 마우스 오른쪽 버튼으로 누르고 <b>연결 프로그램 → 메모장</b>(Mac은 텍스트 편집기)으로 여세요.</p><p>방금 말한 규칙이 그대로 적혀 있어요. <b>직접 고쳐도</b> 돼요. 확인했으면 메모장은 닫아 주세요.</p>",
+      "image": "assets/img/ai/work-rules/file.webp",
+      "alt": "메모장으로 연 CLAUDE.md에 규칙이 적혀 있는 그림",
+      "check": {
+        "q": "CLAUDE.md에 규칙 5가지가 적혀 있나요?",
+        "yes": "test",
+        "no": "open-help"
+      }
+    },
+    {
+      "id": "open-help",
+      "kind": "help",
+      "title": "열리지 않거나 내용이 다를 때",
+      "html": "<ul><li>두 번 눌렀을 때 이상한 프로그램이 열리면, 오른쪽 버튼 → <b>연결 프로그램</b>으로 메모장을 고르세요.</li><li>규칙이 빠졌다면 \"CLAUDE.md에 ○○ 규칙도 넣어줘\"라고 하세요.</li></ul>",
+      "choices": [
+        {
+          "label": "다시 해 볼게요",
+          "next": "open"
+        },
+        {
+          "label": "다음으로",
+          "next": "test"
+        }
+      ]
+    },
+    {
+      "id": "test",
+      "stage": 5,
+      "title": "새 대화에서 규칙이 지켜지는지 보기",
+      "html": "<p>CLAUDE.md는 <b>새 대화를 시작할 때</b> 읽어요. 그래서 꼭 <b>+ New</b>로 새 대화를 연 다음 보내세요. 규칙 얘기는 하지 않았는데도 <b>원본은 두고 새 파일</b>로 만들려고 하면 성공이에요.</p>",
+      "image": "assets/img/ai/work-rules/applied.webp",
+      "alt": "새 대화에서 CLAUDE.md 규칙대로 원본 대신 새 파일을 만드는 그림",
+      "code": "할일.txt 맨 아래에 \"보고서 제출\"을 추가해줘",
+      "codeLabel": "새 대화에서 보내세요",
+      "check": {
+        "q": "말하지 않았는데도 원본은 두고 새 파일로 만들려고 했나요?",
+        "yes": "edit",
+        "no": "test-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "test-help",
+      "kind": "help",
+      "title": "원본을 바로 고치려고 했다면",
+      "html": "<ul><li>허락 카드를 <b>거절</b>하세요.</li><li><b>새 대화</b>에서 했는지 확인하세요. 규칙을 만들던 대화에서는 다르게 할 수 있어요.</li><li>CLAUDE.md가 <b>연습 폴더 바로 안</b>에 있는지, 이름이 정확히 <b>CLAUDE.md</b>인지(대문자) 확인하세요.</li><li>그래도 안 되면 \"CLAUDE.md를 읽고 그 규칙대로 해줘\"라고 덧붙이세요.</li></ul>",
+      "choices": [
+        {
+          "label": "다시 해 볼게요",
+          "next": "test"
+        },
+        {
+          "label": "다음으로",
+          "next": "edit"
+        }
+      ]
+    },
+    {
+      "id": "edit",
+      "stage": 6,
+      "title": "규칙 더하기·고치기",
+      "html": "<p>규칙은 일하면서 계속 다듬으면 돼요. Claude에게 부탁해도 되고, 메모장으로 직접 고쳐도 돼요. 실무 4의 회의록 형식을 넣어 볼게요.</p>",
+      "code": "CLAUDE.md에 규칙을 하나 추가해줘: 회의록은 '결정 사항 / 할 일(담당·기한) / 다음 회의' 형식으로",
+      "codeLabel": "따라 입력해 보세요",
+      "check": {
+        "q": "허락 카드에서 초록 줄로 새 규칙이 보이고, 허용했나요?",
+        "yes": "tips",
+        "no": "edit-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "edit-help",
+      "kind": "help",
+      "title": "잘 안 됐을 때",
+      "html": "<p>허락 카드를 거절했다면 다시 보내세요. 메모장으로 열어 맨 아래에 <b>- 회의록은 …</b>처럼 직접 적고 저장해도 돼요.</p>"
+    },
+    {
+      "id": "tips",
+      "stage": 7,
+      "title": "CLAUDE.md 잘 쓰는 법",
+      "html": "<ul><li><b>짧고 분명하게</b>: 한 줄에 규칙 하나. 너무 길면 덜 지켜요. (공식 안내: 200줄 이내)</li><li><b>폴더마다 다르게</b>: 회사 업무 폴더, 동호회 폴더에 각자 CLAUDE.md를 두면 그 폴더에서만 적용돼요.</li><li><b>나를 소개하기</b>: \"나는 마케팅팀 박준호, 보고는 최유진 팀장에게\"처럼 적어 두면 보고서·일지가 더 정확해져요.</li></ul><div class='lab__tip'><b>비밀번호·계좌번호·개인정보는 넣지 마세요.</b> CLAUDE.md는 대화마다 읽히는 글이에요.</div>",
+      "next": "summary",
+      "button": "알겠어요, 정리 보기"
+    },
+    {
+      "id": "summary",
+      "stage": 8,
+      "kind": "summary",
+      "title": "🎉 실무 활용 과정 완료!",
+      "html": "<p>실무 1~8을 모두 마쳤어요. 이제 매일 하는 일을 Claude에게 <b>나만의 규칙대로</b> 맡길 수 있어요.</p><table class='lab__terms'><tr><th>실무 1~3</th><td>엑셀 정리, 문서 요약, 보고서 초안</td></tr><tr><th>실무 4~6</th><td>회의록·업무일지, 회원 명단, 일정 관리</td></tr><tr><th>실무 7~8</th><td>웹 자료 조사, 내 규칙 기억시키기</td></tr></table><h3>오늘 꼭 기억할 것</h3><ol><li><b>CLAUDE.md</b> = 폴더에 두는 규칙 메모. <b>새 대화마다</b> 읽어요.</li><li>짧고 분명하게, 폴더마다, <b>비밀번호는 넣지 않기</b>.</li><li>규칙이 있어도 <b>허락 카드는 꼭 읽기</b>.</li></ol><p class='lab__links'><a class='btn btn--primary' href='{{base}}lab/practice.html'>실습 목록으로</a><a class='btn btn--ghost' href='{{base}}ai/work-rules.html'>오늘 내용 글로 다시 보기</a></p>"
+    }
+  ]
+}

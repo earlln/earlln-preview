@@ -1,0 +1,159 @@
+{
+  "id": "desktop-undo",
+  "title": "실수 되돌리기",
+  "stages": [
+    "시작",
+    "새 대화",
+    "복사본 만들기",
+    "일부러 바꾸기",
+    "되돌려 달라고 하기",
+    "다른 방법",
+    "되돌리기 어려운 것",
+    "총정리"
+  ],
+  "steps": [
+    {
+      "id": "intro",
+      "stage": 1,
+      "title": "오늘 할 일",
+      "html": "<p>Claude도 가끔 부탁과 다르게 고쳐요. 내가 잘못 부탁할 때도 있고요. 오늘은 <b>잘못 바뀐 걸 되돌리는 법</b>을 미리 연습해 둬요.</p><p>안전장치는 세 겹이에요.</p><ol><li><b>허락 전</b>: 허락 카드에서 <b>거절</b> (데스크톱 2에서 배움)</li><li><b>허락 후</b>: Claude에게 <b>\"원래대로 되돌려줘\"</b></li><li><b>미리</b>: 중요한 파일은 <b>복사본</b>을 만들어 두기</li></ol><ul><li>걸리는 시간: 10~15분</li><li>필요한 것: <a href='{{base}}lab/desktop-modes.html'>데스크톱 5</a>까지 마친 컴퓨터 (연습 폴더에 할일.txt)</li></ul>",
+      "next": "open",
+      "button": "시작하기"
+    },
+    {
+      "id": "open",
+      "stage": 2,
+      "title": "새 대화로 시작하기",
+      "html": "<ol><li>Claude 앱 → <b>Code</b> 탭 → <b>+ New</b>.</li><li>입력 칸 아래가 <b>Local · 연습 · Manual</b>인지 확인합니다. (데스크톱 5에서 다른 방식으로 바꿨다면 Manual로!)</li></ol>",
+      "check": {
+        "q": "Local · 연습 · Manual 이 모두 보이나요?",
+        "yes": "backup",
+        "no": "open-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "open-help",
+      "kind": "help",
+      "title": "시작 화면이 다를 때",
+      "html": "<ul><li>폴더가 연습이 아니면 폴더 버튼 → <b>Open folder…</b>로 연습 폴더를 고르세요.</li><li>허락 방식 버튼을 눌러 <b>Manual</b>(또는 Ask permissions)을 고르세요.</li></ul>"
+    },
+    {
+      "id": "backup",
+      "stage": 3,
+      "title": "고치기 전에 복사본 만들기",
+      "html": "<p>가장 확실한 안전장치는 <b>복사본</b>이에요. 원본이 망가져도 복사본에서 되살릴 수 있어요.</p><p>아래 문장을 보내고, 허락 카드를 읽고 <b>허용</b>하세요. (파일 만들기 카드 대신 <b>명령 실행</b> 카드가 나올 수도 있어요. 설명이 '복사'면 허용)</p>",
+      "image": "assets/img/ai/desktop-undo/backup.webp",
+      "alt": "할일.txt의 복사본 할일_백업.txt를 만드는 허락 카드 그림",
+      "code": "할일.txt를 복사해서 할일_백업.txt로 만들어줘",
+      "codeLabel": "따라 입력해 보세요",
+      "check": {
+        "q": "연습 폴더에 할일_백업.txt가 생겼나요?",
+        "yes": "change",
+        "no": "backup-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "backup-help",
+      "kind": "help",
+      "title": "복사본이 안 보일 때",
+      "html": "<ul><li>허락 카드를 <b>거절</b>했다면 다시 보내고 허용하세요.</li><li>폴더 창을 미리 열어 두었다면 닫았다가 다시 열어 보세요.</li><li>Claude에게 \"연습 폴더에 어떤 파일이 있어?\"라고 물어봐도 돼요.</li></ul>"
+    },
+    {
+      "id": "change",
+      "stage": 4,
+      "title": "일부러 이상하게 바꿔 보기",
+      "html": "<p>되돌리기를 연습하려면 먼저 바뀐 게 있어야겠죠. 일부러 모든 줄 앞에 ★를 붙여 볼게요.</p><ol><li>아래 문장을 보내고 허락 카드를 읽고 <b>허용</b>.</li><li>할일.txt를 열어 ★가 붙었는지 보고, <b>메모장은 닫아 주세요.</b></li></ol>",
+      "code": "할일.txt의 모든 줄 앞에 ★를 붙여줘",
+      "codeLabel": "따라 입력해 보세요",
+      "check": {
+        "q": "할일.txt의 줄마다 ★가 붙었나요?",
+        "yes": "undo",
+        "no": "change-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "change-help",
+      "kind": "help",
+      "title": "★가 안 붙었다면",
+      "html": "<ul><li>거절했거나 Claude가 되물었을 수 있어요. 대답하거나 다시 보내세요.</li><li>메모장을 미리 열어 두었다면 닫았다가 다시 열어 보세요.</li></ul>",
+      "choices": [
+        {
+          "label": "다시 해 볼게요",
+          "next": "change"
+        },
+        {
+          "label": "다음으로",
+          "next": "undo"
+        }
+      ]
+    },
+    {
+      "id": "undo",
+      "stage": 5,
+      "title": "Claude에게 되돌려 달라고 하기",
+      "html": "<p>같은 대화에서 아래처럼 말하면 돼요. Claude는 이 대화에서 자기가 무엇을 바꿨는지 기억하고 있어요.</p><p>되돌릴 때도 <b>허락 카드</b>가 나와요. 빨간 줄에 ★가 붙은 줄, 초록 줄에 원래 줄이 보이면 <b>허용</b>.</p>",
+      "image": "assets/img/ai/desktop-undo/undo.webp",
+      "alt": "되돌려 달라고 하자 ★가 사라지는 허락 카드 그림",
+      "code": "방금 한 거 원래대로 되돌려줘",
+      "codeLabel": "따라 입력해 보세요",
+      "check": {
+        "q": "★가 사라지고 원래대로 돌아왔나요?",
+        "yes": "other",
+        "no": "undo-help",
+        "yesLabel": "네, 돌아왔어요!"
+      },
+      "ask": true
+    },
+    {
+      "id": "undo-help",
+      "kind": "help",
+      "title": "잘 안 돌아왔다면 — 복사본으로 되살리기",
+      "html": "<p>바로 이럴 때 아까 만든 복사본이 필요해요. 아래처럼 말해 보세요.</p><p><b>\"할일_백업.txt 내용으로 할일.txt를 되돌려줘\"</b></p><p>허락 카드를 읽고 허용하면 복사본과 같은 내용이 돼요.</p>",
+      "choices": [
+        {
+          "label": "됐어요, 다음으로",
+          "next": "other"
+        }
+      ]
+    },
+    {
+      "id": "other",
+      "stage": 6,
+      "title": "(해 봐도 되고 안 해도 돼요) /undo 입력해 보기",
+      "html": "<p>Claude Code에는 Claude가 고친 파일을 <b>이전 시점으로 되돌리는 메뉴</b>가 있어요. 입력 칸에 <b>/undo</b>(또는 /rewind)를 입력하고 {{enterkey}}를 눌러 보세요.</p><p class='muted'>데스크톱 앱 버전에 따라 이 메뉴가 없을 수 있어요. 안 나와도 괜찮아요. 오늘 배운 '되돌려 달라고 하기'와 '복사본'이면 충분해요.</p>",
+      "check": {
+        "q": "되돌리기 메뉴가 나왔나요?",
+        "yes": "other-ok",
+        "no": "limits",
+        "yesLabel": "네, 나왔어요",
+        "noLabel": "아니요 / 건너뛸게요"
+      }
+    },
+    {
+      "id": "other-ok",
+      "stage": 6,
+      "title": "되돌리기 메뉴 읽는 법",
+      "html": "<p>메뉴에서는 대화의 <b>예전 시점</b>을 고르고, 무엇을 되돌릴지 정해요.</p><table class='lab__terms'><tr><th>Restore code</th><td>파일만 그 시점으로</td></tr><tr><th>Restore conversation</th><td>대화만 그 시점으로</td></tr><tr><th>Restore code and conversation</th><td>둘 다</td></tr><tr><th>Never mind</th><td>취소</td></tr></table><p>지금은 이미 되돌렸으니 <b>Never mind</b>(또는 <kbd>Esc</kbd>)로 닫으세요.</p>",
+      "next": "limits",
+      "button": "알겠어요"
+    },
+    {
+      "id": "limits",
+      "stage": 7,
+      "title": "되돌리기 어려운 것도 있어요",
+      "html": "<p>Claude가 <b>파일 내용을 고친 것</b>은 비교적 쉽게 되돌려요. 하지만 이런 건 어려울 수 있어요.</p><ul><li><b>명령으로 지운 파일</b>: 휴지통에 남지 않을 수 있어요. 그래서 데스크톱 4에서 <code>rm</code>·<code>del</code>이 보이면 거절하라고 했죠.</li><li><b>명령으로 옮기거나 이름을 바꾼 파일</b>: 되돌리기 메뉴가 기억하지 못해요. Claude에게 \"원래 자리로 옮겨줘\"라고 부탁하세요.</li><li><b>다른 대화에서 한 일</b>, <b>내가 직접 고친 것</b>: Claude가 모를 수 있어요.</li></ul><div class='lab__tip'><b>중요한 파일은 꼭 복사본을 먼저.</b> 이 습관 하나면 대부분의 실수는 걱정 없어요.</div>",
+      "next": "summary",
+      "button": "알겠어요, 정리 보기"
+    },
+    {
+      "id": "summary",
+      "stage": 8,
+      "kind": "summary",
+      "title": "🎉 데스크톱 실습 6 완료! 오늘 배운 것 정리",
+      "html": "<p>이제 실수해도 되돌릴 수 있어요. 그만큼 마음 편하게 맡길 수 있죠.</p><table class='lab__terms'><tr><th>허락 전</th><td>허락 카드에서 <b>거절</b></td></tr><tr><th>허락 후</th><td>같은 대화에서 <b>\"방금 한 거 원래대로 되돌려줘\"</b></td></tr><tr><th>미리</th><td>중요한 파일은 <b>복사본</b> 먼저 (\"○○를 복사해서 ○○_백업으로 만들어줘\")</td></tr><tr><th>/undo</th><td>앱에 따라 되돌리기 메뉴 (있으면 쓰기)</td></tr></table><h3>꼭 기억할 두 가지</h3><ol><li>되돌려 달라는 말은 <b>같은 대화</b>에서 하세요. 새 대화는 무엇을 바꿨는지 몰라요.</li><li><b>지우기·옮기기 같은 명령</b>은 되돌리기 어려워요. 허락 전에 더 꼼꼼히 읽으세요.</li></ol><p class='lab__links'><a class='btn btn--primary' href='{{base}}lab/desktop-images.html'>다음: 데스크톱 7 · 사진 보여 주며 시키기 →</a><a class='btn btn--ghost' href='{{base}}ai/desktop-undo.html'>오늘 내용 글로 다시 보기</a></p>"
+    }
+  ]
+}

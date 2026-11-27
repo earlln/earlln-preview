@@ -1,0 +1,194 @@
+{
+  "id": "desktop-modes",
+  "title": "허락 방식(모드) 바꾸기",
+  "stages": [
+    "시작",
+    "허락 방식 알아보기",
+    "Plan: 계획 먼저",
+    "계획대로 하기",
+    "Accept edits: 묻지 않고 고치기",
+    "Manual로 되돌리기",
+    "조심할 방식",
+    "총정리"
+  ],
+  "steps": [
+    {
+      "id": "intro",
+      "stage": 1,
+      "title": "오늘 할 일",
+      "html": "<p>지금까지는 <b>Manual</b> 방식으로, Claude가 파일을 만들거나 고칠 때마다 허락을 물었어요. 안전하지만 일이 많으면 번거롭죠.</p><p>오늘은 <b>허락 방식(모드)</b>을 바꿔 보고, <b>언제 바꿔도 안전한지</b>를 배워요.</p><ul><li>걸리는 시간: 15분</li><li>필요한 것: <a href='{{base}}lab/desktop-organize.html'>데스크톱 4</a>까지 마친 컴퓨터 (연습 폴더에 할일.txt)</li></ul>",
+      "next": "modes",
+      "button": "시작하기"
+    },
+    {
+      "id": "modes",
+      "stage": 2,
+      "title": "허락 방식 목록 열어 보기",
+      "html": "<ol><li>Claude 앱 → <b>Code</b> 탭 → <b>+ New</b>로 새 대화를 엽니다. 폴더는 <b>연습</b>.</li><li>입력 칸 아래 <b>Manual</b> 버튼을 누르면 허락 방식 목록이 나와요.</li></ol><table class='lab__terms'><tr><th>Manual</th><td>만들기·고치기·명령 실행 전에 <b>매번 물어봐요</b>. 지금까지 쓴 방식</td></tr><tr><th>Accept edits</th><td>파일 고치기와 폴더 만들기·옮기기 같은 <b>흔한 파일 명령은 묻지 않아요</b>. 다른 명령은 물어요</td></tr><tr><th>Plan</th><td>파일을 고치지 않고 <b>계획만</b> 세워 보여 줘요</td></tr><tr><th>Auto</th><td>AI가 부탁과 맞는지 스스로 판단하며 진행해요 (오늘은 쓰지 않아요)</td></tr></table>",
+      "image": "assets/img/ai/desktop-modes/mode-menu.webp",
+      "alt": "Manual 버튼을 눌러 허락 방식 목록을 연 그림",
+      "check": {
+        "q": "목록에 Manual, Accept edits, Plan 이 보이나요?",
+        "yes": "plan",
+        "no": "modes-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "modes-help",
+      "kind": "help",
+      "title": "목록이 다르게 보일 때",
+      "html": "<ul><li>앱 버전에 따라 이름이 조금 달라요. 예: <b>Ask permissions</b>(=Manual), <b>Auto accept edits</b>(=Accept edits), <b>Plan mode</b>(=Plan).</li><li><b>Auto</b>는 계정이나 모델에 따라 안 보일 수 있어요. 괜찮아요.</li><li>목록에 <b>Bypass permissions</b>가 보여도 <b>고르지 마세요.</b> 7단계에서 이유를 알려 드려요.</li></ul>",
+      "choices": [
+        {
+          "label": "다시 볼게요",
+          "next": "modes"
+        },
+        {
+          "label": "계속할게요",
+          "next": "plan"
+        }
+      ]
+    },
+    {
+      "id": "plan",
+      "stage": 3,
+      "title": "Plan: 계획 먼저 세우게 하기",
+      "html": "<ol><li>목록에서 <b>Plan</b>을 고릅니다.</li><li>아래 문장을 보냅니다.</li></ol><p>Claude가 할일.txt를 <b>읽기만</b> 하고, 어떻게 할지 <b>계획</b>을 보여 줘요. 파일은 아직 그대로예요.</p>",
+      "image": "assets/img/ai/desktop-modes/plan.webp",
+      "alt": "Plan 방식에서 계획만 보여 주고 파일은 바꾸지 않는 그림",
+      "code": "할일.txt를 급한 일과 나중에 할 일로 나누는 계획을 세워줘",
+      "codeLabel": "따라 입력해 보세요",
+      "check": {
+        "q": "계획만 보여 주고, 파일은 바꾸지 않았나요?",
+        "yes": "go",
+        "no": "plan-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "plan-help",
+      "kind": "help",
+      "title": "계획 대신 바로 고치려고 한다면",
+      "html": "<ul><li>입력 칸 아래 버튼이 <b>Plan</b>인지 확인하세요.</li><li>Claude가 질문을 하면(예: 무엇이 급한지) 대답해 주세요. 계획을 세우는 과정이에요.</li><li>허락 카드가 나왔다면 <b>거절</b>하고 Plan으로 바꾼 뒤 다시 보내세요.</li></ul>",
+      "choices": [
+        {
+          "label": "다시 해 볼게요",
+          "next": "plan"
+        },
+        {
+          "label": "다음으로",
+          "next": "go"
+        }
+      ]
+    },
+    {
+      "id": "go",
+      "stage": 4,
+      "title": "계획이 마음에 들면 실행하기",
+      "html": "<ol><li>허락 방식을 다시 <b>Manual</b>로 바꿉니다.</li><li>아래 문장을 보냅니다. 허락 카드가 나오면 <b>빨간 줄·초록 줄</b>을 읽고 <b>허용</b>.</li></ol><div class='lab__tip'>앱이 계획 아래에 <b>계획대로 진행</b> 같은 버튼을 보여 주면 그걸 눌러도 돼요. 그때 허락 방식이 바뀔 수 있으니, 입력 칸 아래 버튼을 꼭 확인하세요.</div><p class='muted'>계획이 마음에 안 들면 Plan 상태에서 \"3번은 빼고 다시 계획해줘\"처럼 고쳐 달라고 하면 돼요.</p>",
+      "code": "좋아, 그 계획대로 해줘",
+      "codeLabel": "따라 입력해 보세요",
+      "check": {
+        "q": "허락 카드를 읽고 허용해서, 할일.txt가 두 묶음으로 나뉘었나요?",
+        "yes": "accept",
+        "no": "go-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "go-help",
+      "kind": "help",
+      "title": "계획대로 되지 않았다면",
+      "html": "<ul><li>아직 Plan이면 파일을 고치지 않아요. 버튼을 <b>Manual</b>로 바꾸고 다시 보내세요.</li><li>나뉜 모양이 마음에 안 들면 \"방금 한 거 원래대로 되돌려줘\"라고 말해도 돼요.</li></ul>",
+      "choices": [
+        {
+          "label": "다시 해 볼게요",
+          "next": "go"
+        },
+        {
+          "label": "다음으로",
+          "next": "accept"
+        }
+      ]
+    },
+    {
+      "id": "accept",
+      "stage": 5,
+      "title": "Accept edits: 묻지 않고 바로 고치기",
+      "html": "<ol><li>허락 방식을 <b>Accept edits</b>로 바꿉니다.</li><li>아래 문장을 보냅니다.</li></ol><p>이번에는 <b>허락 카드 없이</b> 바로 고쳐요. 무엇이 바뀌었는지는 오른쪽 <b>Changes</b>에서 확인할 수 있어요.</p>",
+      "image": "assets/img/ai/desktop-modes/accept.webp",
+      "alt": "Accept edits 방식에서 허락 카드 없이 바로 고치고 Changes에 보이는 그림",
+      "code": "할일.txt 맨 아래에 \"운동하기\"를 추가해줘",
+      "codeLabel": "따라 입력해 보세요",
+      "check": {
+        "q": "허락을 묻지 않고 바로 '운동하기'가 추가됐나요?",
+        "yes": "accept-why",
+        "no": "accept-help"
+      },
+      "ask": true
+    },
+    {
+      "id": "accept-help",
+      "kind": "help",
+      "title": "그래도 허락을 묻는다면",
+      "html": "<ul><li>입력 칸 아래 버튼이 <b>Accept edits</b>인지 확인하세요.</li><li>파일 고치기가 아닌 <b>다른 명령</b>은 Accept edits에서도 물어요. 정상이에요.</li></ul>",
+      "choices": [
+        {
+          "label": "다시 해 볼게요",
+          "next": "accept"
+        },
+        {
+          "label": "다음으로",
+          "next": "accept-why"
+        }
+      ]
+    },
+    {
+      "id": "accept-why",
+      "stage": 5,
+      "title": "편하지만, 내가 한 번 더 확인해야 해요",
+      "html": "<p>Accept edits는 빠르지만, <b>고치기 전에 보여 주지 않아요.</b> 그래서 이렇게 쓰는 게 안전해요.</p><ul><li><b>연습 폴더처럼 망가져도 괜찮은 곳</b>에서, 일이 <b>분명하고 반복적일 때</b> 쓰기</li><li>끝나면 <b>Changes</b>로 바뀐 내용을 꼭 훑어보기</li><li>잘못 바뀌었으면 \"방금 한 거 원래대로 되돌려줘\"</li></ul><p class='muted'>중요한 문서가 있는 폴더에서는 Manual이 더 안전해요.</p>",
+      "next": "back",
+      "button": "알겠어요"
+    },
+    {
+      "id": "back",
+      "stage": 6,
+      "title": "Manual로 되돌려 두기",
+      "html": "<p>연습이 끝났으면 허락 방식을 다시 <b>Manual</b>로 바꿔 두세요. 익숙해질 때까지는 <b>Manual이 기본</b>이에요.</p><p class='muted'>새 대화를 열 때 허락 방식이 이전 선택을 따라갈 수 있어요. 새 대화를 시작할 때마다 입력 칸 아래 버튼을 한 번씩 확인하는 습관을 들이세요.</p>",
+      "check": {
+        "q": "입력 칸 아래 버튼이 Manual로 바뀌었나요?",
+        "yes": "careful",
+        "no": "back-help"
+      }
+    },
+    {
+      "id": "back-help",
+      "kind": "help",
+      "title": "Manual이 안 보이면",
+      "html": "<p>앱 버전에 따라 <b>Ask permissions</b>라고 보일 수 있어요. 같은 방식이에요.</p>",
+      "choices": [
+        {
+          "label": "다시 해 볼게요",
+          "next": "back"
+        }
+      ]
+    },
+    {
+      "id": "careful",
+      "stage": 7,
+      "title": "조심해서 쓸 방식 두 가지",
+      "html": "<table class='lab__terms'><tr><th>Auto</th><td>AI가 \"부탁과 맞는 일인지\" 스스로 판단하며 진행해요. 편하지만 판단이 틀릴 수도 있어요. <b>익숙해진 뒤에</b>, 중요하지 않은 일부터 써 보세요.</td></tr><tr><th>Bypass permissions</th><td><b>아무것도 묻지 않아요.</b> 공식 안내에서도 격리된 테스트 환경에서만 쓰라고 해요. <b>쓰지 마세요.</b> (설정에서 따로 켜야 보여요)</td></tr></table><div class='lab__tip'>처음에는 <b>Manual</b>이 기본, 계획이 필요하면 <b>Plan</b>, 연습 폴더에서 반복 작업은 <b>Accept edits</b>. 이 세 가지면 충분해요.</div>",
+      "next": "summary",
+      "button": "알겠어요, 정리 보기"
+    },
+    {
+      "id": "summary",
+      "stage": 8,
+      "kind": "summary",
+      "title": "🎉 데스크톱 실습 5 완료! 오늘 배운 것 정리",
+      "html": "<p>설치부터 허락 방식까지, <b>기본 조작</b>을 모두 익혔어요.</p><table class='lab__terms'><tr><th>Manual</th><td>매번 묻기. <b>기본</b></td></tr><tr><th>Plan</th><td>계획만 먼저. 큰 일을 시키기 전에</td></tr><tr><th>Accept edits</th><td>파일 고치기는 묻지 않기. 연습 폴더의 반복 작업에. 끝나면 Changes 확인</td></tr><tr><th>Auto · Bypass</th><td>익숙해진 뒤에 / 쓰지 않기</td></tr></table><h3>꼭 기억할 두 가지</h3><ol><li>허락 방식은 <b>입력 칸 아래 버튼</b>에서 바꿔요. 새 대화마다 한 번씩 확인하세요.</li><li>덜 묻는 방식일수록 <b>끝난 뒤 내가 확인</b>해야 해요.</li></ol><h3>여기까지 배운 것</h3><p>앱 설치 → 파일 만들기 → 바뀐 내용 읽기 → 대화 새로·이어 하기 → 여러 파일 정리 → 허락 방식. 이제 <b>혼자서 Claude에게 간단한 일을 맡길 수 있어요.</b> 다음 과정에서는 실수 되돌리기, 사진 보여 주기, 그리고 엑셀·문서 같은 <b>실무 활용</b>으로 넘어가요.</p><p class='lab__links'><a class='btn btn--primary' href='{{base}}lab/desktop-undo.html'>다음: 데스크톱 6 · 실수 되돌리기 →</a><a class='btn btn--ghost' href='{{base}}ai/desktop-modes.html'>오늘 내용 글로 다시 보기</a></p>"
+    }
+  ]
+}
